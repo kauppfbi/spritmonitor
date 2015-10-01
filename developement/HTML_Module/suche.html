@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="Hersteller">
+        <label>Hersteller</label>
+        <select name="Hersteller" id="hersteller" onchange="updateModell(this.value)">
+            <option value="0">Alle</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+            <option value="3">Mercedes</option>
+            <option value="4">Opel</option>
+            <option value="5">Porsche</option>
+        </select>
+    </div>
+    <div id="ModellAlle">
+        <label>Modell</label>
+        <select name="Modell">
+            <option>Alle</option>
+            <option>A1</option>
+            <option>5er</option>
+            <option>C-Klasse</option>
+            <option>Corsa</option>
+            <option>911</option>
+        </select>
+    </div>
+    <div id="ModellAudi">
+        <label>Modell</label>
+        <select name="ModellAudi">
+            <option>Alle</option>
+            <option>A1</option>
+            <option>A2</option>
+            <option>A3</option>
+            <option>A4</option>
+            <option>RS6</option>
+        </select>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    function updateModell(hersteller){
+        console.log(hersteller);
+        if (hersteller == 1){
+            console.log("Audi ausgewählt");
+            <!-- Leider funktioniert der untere Ausdruck noch nicht, keine Ahnung wieso... -->
+            <!-- Idee dahinter ist, dass nur eine Liste mit Audi Modellen angezeigt wird -->
+            <!-- Kann gegebenenfalls auch über eine CSS realisiert werden -->
+            document.getElementById("ModellAudi").style.display = "block";
+        }
+    }
+
+
+
+</script>
