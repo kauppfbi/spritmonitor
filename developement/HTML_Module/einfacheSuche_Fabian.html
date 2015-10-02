@@ -30,8 +30,9 @@
         console.log('Hersteler ' + hersteller + ' wurde ausgewählt.');
 
         var modell = document.getElementById('modell');
-        if (modell.hasChildNodes()) 
+        while (modell.hasChildNodes()){
            modell.removeChild(modell.childNodes[0]);
+       }
             
 
 
