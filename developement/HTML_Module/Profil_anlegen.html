@@ -1,0 +1,57 @@
+<!DOCTYPE Html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Profil_anlegen</title>
+</head>
+
+<body>
+    <div id="profilinfos">
+        <h1>Neues Profil anlegen:</h1>
+        <div id="username">
+            <p>Username:</p>
+            <input type="text">
+        </div>
+        <div id="email">
+            <p>Email:</p>
+            <input type="email" id="em">
+            <p>Email wiederholen:</p>
+            <input type="email" id="emw">
+        </div>
+        <div id="Passwort">
+            <p>Passwort:</p>
+            <input type="password" id="pw">
+            <p>Passwort wiederholen:</p>
+            <input type="password" id="pww">
+            <p>Passwörter müssen aus mindestens 6 Zeichen bestehen!</p>
+        </div>
+        <button type="button" id="submit">Profil anlegen</button>
+        <script>
+            var obj = document.getElementById("submit");
+            obj.addEventListener("click", prüfen, false);
+
+            function prüfen() {
+                var pw = document.getElementById("pw").value;
+                var pww = document.getElementById("pww").value;
+                if (pw.length <= 6 || pww.length <= 6) {
+                    alert("Passwörter müssen mindestens 6 Zeichen lang sein!")
+                }
+                if (pw != pww) {
+                    alert("Passwort ist ungleich Passwortwiederholung!");
+                } else {
+                    alert("Passwörter stimmen überein!");
+                }
+                var em = document.getElementById("em").value;
+                var emw = document.getElementById("emw").value;
+                if (em != emw) {
+                    alert("Email ist ungleich Emailwiederholung");
+                } else {
+                    alert("Emailadressen stimmen überein!");
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
