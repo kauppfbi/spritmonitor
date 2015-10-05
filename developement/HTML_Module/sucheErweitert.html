@@ -17,27 +17,21 @@
             </select>
         </div>
         <div id="Hersteller">
-            <label>Hersteller</label>
-            <select name="Hersteller" id="hersteller" onchange="updateModell(this.value)">
-                <option value="0">Alle</option>
-                <option value="1">Audi</option>
-                <option value="2">BMW</option>
-                <option value="3">Mercedes</option>
-                <option value="4">Opel</option>
-                <option value="5">Porsche</option>
-            </select>
-        </div>
-        <div id="ModellAlle">
-            <label>Modell</label>
-            <select name="Modell">
-                <option>Alle</option>
-                <option>A1</option>
-                <option>5er</option>
-                <option>C-Klasse</option>
-                <option>Corsa</option>
-                <option>911</option>
-            </select>
-        </div>
+        <label>Hersteller</label>
+        <select name="Hersteller" id="hersteller" onchange="updateModell(this.value)">
+            <option value="0">Alle</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+            <option value="3">Mercedes</option>
+            <option value="4">Opel</option>
+            <option value="5">Porsche</option>
+        </select>
+    </div>
+    <div id="modellContainer">
+        <label>Modell</label>
+        <select id="modell">
+        </select>
+    </div>
         <div id="Kraftstoffart">
             <label>Kraftstoffart</label>
             <select name="Kraftstoffart">
@@ -97,8 +91,56 @@
         </div>
     </div>
     <div id="Suche">
+        <h2>Suche starten</h2>
         <button type="button" id="suchen">Suchen</button>
     </div>
 </body>
 
 </html>
+
+
+
+<script>
+
+    var updateModell = function (hersteller){
+        console.log('Hersteler ' + hersteller + ' wurde ausgewählt.');
+
+        var modell = document.getElementById('modell');
+        while (modell.hasChildNodes()){
+           modell.removeChild(modell.childNodes[0]);
+       }
+            
+
+
+        if (hersteller == 1){
+            //füge alle Audi-Modelle als Option ein 
+            console.log("Audi ausgewählt");
+            
+            var a1 = document.createElement('option');
+            a1.text = "A1";
+            a1.value= 1;
+            modell.add(a1);
+        }
+        else if (hersteller == 2){
+            //füge alle BMW-Modelle als Option ein 
+            console.log("BMW ausgewählt");
+
+            var series1 = document.createElement('option');
+            series1.text = "1er Reihe";
+            series1.value= 1;
+            modell.add(series1);
+        }
+        else if (hersteller == 3){
+            //füge alle BMW-Modelle als Option ein 
+            console.log("Mercedes ausgewählt");
+
+            var c_class = document.createElement('option');
+            c_class.text = "C-Klasse";
+            c_class.value= 1;
+            modell.add(c_class);
+        }
+    }
+
+
+
+</script>
