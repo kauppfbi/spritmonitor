@@ -1,7 +1,12 @@
 <html>
 <head>
 	<title>Betankung hinzufügen</title>
-</head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		
+	</style>
+
+	</head>
 <body>
 	<h1>Neue Betankung:</h1>
 	<form>
@@ -9,21 +14,40 @@
 		<select>
 			<option>KFZ 1</option>
 			<option>KFZ 2</option>
-		</select>
-		<label>Datum:</label>
-		<label>Tachostand:</label>
-		<label>Distanz:</label>
-		<label>Menge:</label>
-		<label>Vollbetankung:</label>
-		<label>Sorte:</label>
-		<label>Kosten:</label>
-		<label>Bemerkung:</label>
+		</select><br>
+		<label>Datum:</label><input type="date" value="2015-10-01"></input><br>
+		<label>Tachostand:</label><input type="number"></input><br>
+		<label>Distanz:</label><input type="number">value dynamically</input><br>
+		<label>Menge:</label><input type="number"></input><br>
+		<label>Vollbetankung:</label><input type="checkbox" value="true"></input><br>
+		<label>Sorte:</label>per JS automatisch 
+			<select>
+			<option>Super</option>
+			<option>E10</option>
+		</select><br>
+		<label>Kosten:</label><input type="number">€</input><br>
+		<label>Bemerkung:</label><textarea></textarea><br>
 		<label>Reifen:</label>
+			<input type="radio" name="reifen" value="Sommerreifen">Sommerreifen</input>
+    		<input type="radio" name="reifen" value="Winterreifen">Winterreifen</input>
+    		<input type="radio" name="reifen" value="Ganzjahresreifen">Ganzjahresreifen</input>
+    	<br>
+			 
 		<label>Fahrweise:</label>
+		<input type="radio" value="sparsam">sparsam</input>
+    		<input type="radio" value="normal">normal</input>
+    		<input type="radio" value="schnell">schnell</input>
+    	<br>
+			
 		<label>Strecken:</label>
-		<label>Extras:</label>
-		<label>Tankstelle:</label>
-		<label>Boardcomputer:</label>
+		
+			<input type="checkbox" value="Stadt">Stadt</input>
+    		<input type="checkbox" value="Land">Landstraße</input>
+    		<input type="checkbox" value="Autobahn">Autobahn</input>
+    	<br>
+		<label>Extras:</label><br>
+		<label>Tankstelle:</label><input></input><br>
+		<label>Boardcomputer:</label><input type="number">Liter/100km</input><br>
 	</form>
 </body>
 </html>
