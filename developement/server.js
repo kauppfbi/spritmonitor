@@ -24,4 +24,13 @@ app.get('/statistik', function(req, res){
 	});	
 });
 
+app.get('/einfacheSuche', function(req, res){
+	//Code, der ausgeführt werden soll, wenn vom Client eine GET-Anfrage für /statistik gestartet wird
+	fs.readFile('HTML_Module/einfacheSuche_Fabian.html', function(err, data){
+		res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
+		res.write(data);
+		res.end;
+	});	
+});
+
 app.listen(3000);
