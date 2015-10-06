@@ -14,8 +14,7 @@ var Auto3 =   [9.2, 9.1, 9.2, 9.5, 9.4, 9.5, 9.1, 9.8, 9.3, 9.3, 9.5, 9.8];
 		// set these values for your data 
 function init() {
     
-    canvas = document.getElementById("canvas");
-	context = canvas.getContext("2d");
+    
     
     
     var max = 0;
@@ -24,8 +23,9 @@ function init() {
         if(Auto1[i] > max)
             max = Auto1[i];
     }
-	
-	Val_max = 10;
+	var maxi=Math.round(max);
+    
+	Val_max = maxi+3;
 	Val_min = 0;
 	var stepSize = 0.5;
 	var columnSize = 100;
@@ -37,7 +37,8 @@ function init() {
 		//
 
     
-	
+	canvas = document.getElementById("canvas");
+	context = canvas.getContext("2d");
 	context.fillStyle = "black"
 	context.font = "20 pt Verdana"
 	
@@ -69,15 +70,15 @@ function init() {
 	
 		// Color of each dataplot items
 		
-	//context.strokeStyle="red";
-    //context.lineWidth = 0.2;
-	//plotData(Apple);
-	//context.strokeStyle="blue";
-    //context.lineWidth = 0.2;
-	//plotData(Samsung);
-	//context.strokeStyle="green";
-    //context.lineWidth = 0.2;
-	//plotData(Nokia);
+	context.strokeStyle="red";
+    context.lineWidth = 0.2;
+	plotData(Auto1);
+	context.strokeStyle="blue";
+    context.lineWidth = 0.2;
+	plotData(Auto2);
+	context.strokeStyle="green";
+    context.lineWidth = 0.2;
+	plotData(Auto3);
 }
 
 function plotData(dataSet) {
@@ -89,7 +90,7 @@ function plotData(dataSet) {
 	context.stroke();
 }
 
-function canvas_clear() 
+/**function canvas_clear() 
 {
     
     context.clearRect(0, 0, 600, 400);
@@ -129,4 +130,4 @@ function changeAuto3(){
     else{
     alert("Hello");
     }
-}
+}*/
