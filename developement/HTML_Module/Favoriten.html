@@ -15,14 +15,22 @@
             <option value="5">Porsche</option>
         </select>
     </div>
-    <div id="modellContainer" onchange="modellspeichern(this.value)">
+    <div id="modellContainer">
         <label>Modell</label>
         <select id="modell">
         </select>
     </div>
+    <div id="Favorit">
+        <button type="button" id="favorit" onclick="favorit(hersteller.value, modell.value)"> Favorit speichern </button>
+    </div>
+    <div id="FavoritLaden">
+        <button type="button" id="favoritladen" onclick="favoritladen()"> Favorit laden </button>
+    </div>
 </body>
 
 </html>
+
+
 
 <script>
 
@@ -33,8 +41,6 @@
         while (modell.hasChildNodes()){
            modell.removeChild(modell.childNodes[0]);
        }
-            
-
 
         if (hersteller == 1){
             //füge alle Audi-Modelle als Option ein 
@@ -42,8 +48,13 @@
             
             var a1 = document.createElement('option');
             a1.text = "A1";
-            a1.value= 1;
+            a1.value= 11;
             modell.add(a1);
+            
+            var a2 = document.createElement('option');
+            a2.text="A2";
+            a2.value= 12;
+            modell.add(a2);
         }
         else if (hersteller == 2){
             //füge alle BMW-Modelle als Option ein 
@@ -63,21 +74,34 @@
             c_class.value= 1;
             modell.add(c_class);
         }
-        
-        
-        if(typeof(Storage) !== "undefined") {
-                // Code for localStorage/sessionStorage.
-                console.log(hersteller);
-                localStorage.setItem("hersteller", hersteller);
-            } else {
-                // Sorry! No Web Storage support..
-            }
     }
     
-    var modellspeichern = function(modell){
-        
-        
-        
+    
+    //Speichern der Sucheinstellungen in Favoriten
+    var favorit = function(hersteller, modell){
+        if(typeof(Storage) !== "undefined") {
+                // Code for localStorage/sessionStorage
+                console.log(hersteller);
+                console.log(modell);
+                localStorage.setItem("hersteller", hersteller);
+                localStorage.setItem("modell", modell);
+            } else {
+                // Sorry! No Web Storage support
+                colsole.log("Sorry! Your Browser does not support local Storage :(");
+            }   
+    }
+    
+    var favoritladen = function(){
+        if(typeof(Storage) !== "undefined") {
+                // Code for localStorage/sessionStorage
+                console.log("HerstellerID= "+localStorage.hersteller);
+                console.log("ModellID= "+localStorage.modell);
+                updateModell(localStorage.hersteller);            
+                
+            } else {
+                // Sorry! No Web Storage support
+                colsole.log("Sorry! Your Browser does not support local Storage :(");
+            }   
     }
 
 
