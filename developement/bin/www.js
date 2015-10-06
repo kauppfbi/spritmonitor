@@ -1,11 +1,7 @@
 var express = require ('express');
-var fs = require('fs');
 var app = express();
 
-app.configure(function(){
-	app.use(express.static(__dirname + '/public'));
-});
-
+app.set('port', process.env.PORT || 3000);
 
 //Get-Methoden:
 //Profilinfo --> get /profil?id=...
@@ -57,4 +53,24 @@ app.post('/anmeldung', function(req, res){
 });
 
 
-app.listen(3000);
+
+//Error Handling
+app.use(function(req, res){
+	res.type('text/plain');
+	res.status(404);
+	res.send('404 - Not Found');
+});
+
+app.use(function(err, req, res, next){
+	console.error(err.stack);
+	res.type('text/plain');
+	res.status(500);
+	res.send('500 - Internal Error');
+});
+
+
+exports.start = function(){
+	app.listen(app.get('port'), function(){
+		console.log('Express ready on http://127.0.0.1:' + app.get('port'));
+	});
+};
