@@ -67,7 +67,7 @@
 
             var series1 = document.createElement('option');
             series1.text = "1er Reihe";
-            series1.value= 1;
+            series1.value= 0;
             modell.add(series1);
         }
         else if (hersteller == 3){
@@ -76,7 +76,25 @@
 
             var c_class = document.createElement('option');
             c_class.text = "C-Klasse";
-            c_class.value= 1;
+            c_class.value= 0;
+            modell.add(c_class);
+        }
+        else if (hersteller == 4){
+            //füge alle BMW-Modelle als Option ein 
+            console.log("Opel ausgewählt");
+
+            var c_class = document.createElement('option');
+            c_class.text = "Corsa";
+            c_class.value= 0;
+            modell.add(c_class);
+        }
+        else if (hersteller == 5){
+            //füge alle BMW-Modelle als Option ein 
+            console.log("Porsche ausgewählt");
+
+            var c_class = document.createElement('option');
+            c_class.text = "911";
+            c_class.value= 0;
             modell.add(c_class);
         }
     }
@@ -96,6 +114,7 @@
             }   
     }
     
+    //Laden der favorisierten Sucheinstellungen
     var favoritladen = function(){
         if(typeof(Storage) !== "undefined") {
                 // Code for localStorage/sessionStorage
