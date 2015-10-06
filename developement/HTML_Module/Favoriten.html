@@ -47,14 +47,19 @@
             console.log("Audi ausgewählt");
             
             var a1 = document.createElement('option');
-            a1.text = "A1";
-            a1.value= 11;
+            a1.text = "Alle";
+            a1.value= 0;
             modell.add(a1);
             
             var a2 = document.createElement('option');
-            a2.text="A2";
-            a2.value= 12;
+            a2.text = "A1";
+            a2.value= 1;
             modell.add(a2);
+                        
+            var a3 = document.createElement('option');
+            a3.text="A2";
+            a3.value= 2;
+            modell.add(a3);
         }
         else if (hersteller == 2){
             //füge alle BMW-Modelle als Option ein 
@@ -96,7 +101,9 @@
                 // Code for localStorage/sessionStorage
                 console.log("HerstellerID= "+localStorage.hersteller);
                 console.log("ModellID= "+localStorage.modell);
-                updateModell(localStorage.hersteller);            
+                updateModell(localStorage.hersteller);
+                hersteller.selectedIndex = localStorage.hersteller;
+                modell.selectedIndex = localStorage.modell;
                 
             } else {
                 // Sorry! No Web Storage support
