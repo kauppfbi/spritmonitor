@@ -1,38 +1,34 @@
 var express = require ('express');
+
+//routes
+var index = require('../routes/index');
+var posts = require('../routes/posts');
+
+var fs = require('fs');
 var app = express();
 
+
+
+//View engine
+app.set('views', './views');
+app.set('view engine', 'jade');
+
 app.set('port', process.env.PORT || 3000);
+
+//Middleware
+app.use(express.static('./public'));
+
+
+
+
+app.use('/', index);
+app.use('/posts', index);
 
 //Get-Methoden:
 //Profilinfo --> get /profil?id=...
 //Statistik --> get /statistik?id=...
 //Fahrzeuge --> get /fahrzeug?id=...
-app.get('/', function(req, res){
-	//Code, der ausgeführt werden soll, wenn vom Client eine GET-Anfrage auf das Root-Verzeichnis gestartet wird
-	fs.readFile('html/index.html', function(err, data){
-		res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
-		res.write(data);
-		res.end;
-	});
-});
 
-app.get('/statistik', function(req, res){
-	//Code, der ausgeführt werden soll, wenn vom Client eine GET-Anfrage für /statistik gestartet wird
-	fs.readFile('html/statistik.html', function(err, data){
-		res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
-		res.write(data);
-		res.end;
-	});	
-});
-
-app.get('/einfacheSuche', function(req, res){
-	//Code, der ausgeführt werden soll, wenn vom Client eine GET-Anfrage für /einfacheSuche gestartet wird
-	fs.readFile('HTML_Module/einfacheSuche_Fabian.html', function(err, data){
-		res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': data.length});
-		res.write(data);
-		res.end;
-	});	
-});
 
 
 //Post-Methoden:
@@ -44,13 +40,6 @@ app.get('/einfacheSuche', function(req, res){
 //Betankung bearbeiten 
 
 //Anfrage zur Anmeldung --> Post-Redirect-Get
-app.post('/anmeldung', function(req, res){
-	//Verarbeitung der Login-Informationen hier 
-
-
-	//Redirect zur entsprechenden Seite
-
-});
 
 
 
