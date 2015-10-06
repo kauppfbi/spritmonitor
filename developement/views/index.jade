@@ -1,0 +1,111 @@
+html
+  head
+    title Betankung hinzufügen
+    | &#x9;
+    meta(charset='utf-8')
+    | &#x9;
+    style(type='text/css').
+  body
+    h1 Neue Betankung:
+    | &#x9;
+    form
+      label Fahrzeug:
+      | &#x9;&#x9;
+      select
+        option KFZ 1
+        | &#x9;&#x9;&#x9;
+        option KFZ 2
+      br
+      | &#x9;&#x9;
+      label Datum:
+      input(type='date', value='2015-10-01')
+      br
+      | &#x9;&#x9;
+      label Tachostand:
+      input(type='number')
+      br
+      | &#x9;&#x9;
+      label Distanz:
+      input(type='number')
+      | value dynamically
+      br
+      | &#x9;&#x9;
+      label Menge:
+      input(type='number')
+      br
+      | &#x9;&#x9;
+      label Vollbetankung:
+      input(type='checkbox', value='true')
+      br
+      | &#x9;&#x9;
+      label Sorte:
+      | per JS automatisch 
+      | &#x9;&#x9;&#x9;
+      select
+        option Super
+        | &#x9;&#x9;&#x9;
+        option E10
+      br
+      | &#x9;&#x9;
+      label Kosten:
+      input(type='number')
+      | &euro;
+      br
+      | &#x9;&#x9;
+      label Bemerkung:
+      textarea
+      br
+      | &#x9;&#x9;
+      label Reifen:
+      | &#x9;&#x9;&#x9;
+      input(type='radio', name='reifen', value='Sommerreifen')
+      | Sommerreifen
+      |     &#x9;&#x9;
+      input(type='radio', name='reifen', value='Winterreifen')
+      | Winterreifen
+      |     &#x9;&#x9;
+      input(type='radio', name='reifen', value='Ganzjahresreifen')
+      | Ganzjahresreifen
+      |     &#x9;
+      br
+      | &#x9;&#x9;&#x9; 
+      | &#x9;&#x9;
+      label Fahrweise:
+      | &#x9;&#x9;
+      input(type='radio', value='sparsam')
+      | sparsam
+      |     &#x9;&#x9;
+      input(type='radio', value='normal')
+      | normal
+      |     &#x9;&#x9;
+      input(type='radio', value='schnell')
+      | schnell
+      |     &#x9;
+      br
+      | &#x9;&#x9;&#x9;
+      | &#x9;&#x9;
+      label Strecken:
+      | &#x9;&#x9;
+      | &#x9;&#x9;&#x9;
+      input(type='checkbox', value='Stadt')
+      | Stadt
+      |     &#x9;&#x9;
+      input(type='checkbox', value='Land')
+      | Landstra&szlig;e
+      |     &#x9;&#x9;
+      input(type='checkbox', value='Autobahn')
+      | Autobahn
+      |     &#x9;
+      br
+      | &#x9;&#x9;
+      label Extras:
+      br
+      | &#x9;&#x9;
+      label Tankstelle:
+      input
+      br
+      | &#x9;&#x9;
+      label Boardcomputer:
+      input(type='number')
+      | Liter/100km
+      br
