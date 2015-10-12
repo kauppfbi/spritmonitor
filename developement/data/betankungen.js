@@ -1,1 +1,1 @@
-var betankungen = [{}, {}];
+var betankungen = {};
