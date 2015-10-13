@@ -3,7 +3,12 @@ var data = require('../data');
 
 //routes
 var index = require('../routes/index');
-var posts = require('../routes/posts');
+//var posts = require('../routes/posts');
+
+var homeRoute = require('../routes/home');
+var profilRoute = require('../routes/profil');
+var fahrzeugRoute = require ('../routes/fahrzeuge');
+var statistikRoute = require('../routes/statistik');
 
 var fs = require('fs');
 var app = express();
@@ -23,7 +28,11 @@ app.use(express.static('./public'));
 
 
 app.use('/', index);
-app.use('/posts', index);
+//app.use('/posts', index);
+app.use('/home', homeRoute);
+app.use('/meinprofil', profilRoute);
+app.use('/meinefahrzeuge', fahrzeugRoute);
+app.use('/statistik', statistikRoute);
 
 //Get-Methoden:
 //Profilinfo --> get /profil?id=...
