@@ -1,4 +1,5 @@
 var express = require ('express');
+var data = require('../data');
 
 //routes
 var index = require('../routes/index');
@@ -61,5 +62,6 @@ app.use(function(err, req, res, next){
 exports.start = function(){
 	app.listen(app.get('port'), function(){
 		console.log('Express ready on http://127.0.0.1:' + app.get('port'));
+		console.log(data.profile);
 	});
 };
