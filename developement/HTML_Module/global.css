@@ -1,0 +1,104 @@
+h1 {
+    color: black;
+    font-family: Arial, serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h2 {
+    color: black;
+    font-family: Arial, serif;
+    font-size: 16px;
+}
+
+p {
+    color: black;
+    font-family: Arial, serif;
+    font-size: 12px;
+}
+
+body {
+    background-color: darkgray;
+}
+
+#headbar {
+    background-color: darkgray;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    width: 100%;
+    border-right: none;
+    padding: 0.5%;
+    border: solid 1px black;
+    box-sizing: border-box;
+}
+
+#sidebar {
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 15%;
+    heigth: auto;
+    border-right: none;
+    padding: 0.5%;
+    border: solid 1px black;
+    box-sizing: border-box;
+}
+
+#contentbox {
+    float: left;
+    width: 85%;
+    heigth: auto;
+    padding: 0.5%;
+    border-left: 1.5%;
+    border: solid 1ps black;
+    box-sizing: border-box;
+}
+
+button {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background-color: cadetblue;
+    width: auto;
+    height: auto;
+    padding: 0.5%;
+    margin: 0.25%;
+    border-radius: 5px;
+    font-size: auto;
+    font-family: Arial, serif;
+    color: white;
+}
+
+#tanken {
+    flex-grow: 2;
+    flex-shrink: 1;
+}
+
+#profil {
+    flex-grow: 2;
+}
+
+#suchen {
+    display: flex;
+    box-sizing: border-box;
+    float: left;
+    height: auto;
+    padding: 0.5%;
+    flex-grow: 3;
+    flex-shrink: 1;
+    padding-left: 2%;
+    padding-right: 2%
+}
+
+input {
+    hight: auto;
+    width: auto;
+    flex-grow: 3
+}
+
+#suchebutton {
+    hight: auto;
+    width: auto;
+    flex-grow: 1
+}
