@@ -5,29 +5,36 @@
     <meta charset="utf-8">
     <title>Spritmonitor_Grundgerüst</title>
     <link rel="stylesheet" type="text/css" href="global.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
-    <header>
+<body class="body">
+    <header class="header">
         <h1>Spritmonitor</h1>
+        <nav>
+            <ul>
+                <li class="active"><a href="#">Mein Profil</a>
+                    <ul>
+                        <li><a href="#">Profilinformationen</a></li>
+                        <li><a href="#">Meine Autos</a></li>
+                        <li><a href="#">Spritverlauf</a></li>
+                        <li><a href="#">Abmelden</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <input type="text">
+                    </a>
+                </li>
+                <li><a href="#">Suchen</a></li>
+                <li><a href="#">Betankung</a></li>
+            </ul>
+        </nav>
     </header>
-    <box id='headbar'>
-        <button id='profil'>Mein Profil</button>
-        <div id='suchen'>
-            <button id='suchebutton'>Suche: </button>
-            <input type='text'>
-        </div>
-        <button id='tanken'>Betankung hinzufügen!</button>
-    </box>
-    <box id='sidebar'>
-        <button>Profilinformationen</button>
-        <button>Meine Autos</button>
-        <button>Spritverlauf</button>
-        <button>Abmelden</button>
-    </box>
-    <box id='contentbox'>
-        <p>CONTENT</p>
-    </box>
+
+    <div id='content'>
+        <p>CONTENT asdasdasdasdasdasdasdasdasdasd adasd asdasdasd adasd</p>
+    </div>
 
 </body>
 
