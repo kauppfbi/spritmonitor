@@ -1,5 +1,13 @@
 var express = require ('express');
 var data = require('../data');
+var passport = require('passport');
+var flash = require('connect-flash');
+
+var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+
 
 //routes
 var index = require('../routes/index');
@@ -15,9 +23,34 @@ var app = express();
 
 
 
+// configuration ===============================================================
+
+// pass passport for configuration
+require('../config/passport')(passport); 
+//set up application
+
+//log every request to the console
+app.use(morgan('dev'));
+//read cookies
+app.use(cookieParser());
+//get information from html forms
+app.use(bodyParser());
+
 //View engine
+//set directory
 app.set('views', './views');
+//set jade as template engine
 app.set('view engine', 'jade');
+
+// required for passport
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+// routes ======================================================================
+require('../app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+
 
 app.set('port', process.env.PORT || 3000);
 
@@ -71,6 +104,6 @@ app.use(function(err, req, res, next){
 exports.start = function(){
 	app.listen(app.get('port'), function(){
 		console.log('Express ready on http://127.0.0.1:' + app.get('port'));
-		console.log(data.profile);
+		//console.log(data.modelle['audi'][0]);
 	});
 };
