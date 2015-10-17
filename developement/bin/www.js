@@ -26,7 +26,7 @@ var app = express();
 // configuration ===============================================================
 
 // pass passport for configuration
-require('../config/passport')(passport); 
+//require('../config/passport')(passport); 
 //set up application
 
 //log every request to the console
