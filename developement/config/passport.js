@@ -51,7 +51,7 @@ module.exports = function(passport) {
                     return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
                 }
                 else {
-                     User.createUser(email, password);
+                     return done (null, User.createUser(email, password));
                 }
             });
         }));

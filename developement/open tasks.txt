@@ -1,0 +1,9 @@
+open tasks:
+- passport config:
+	- (de)serialize User 
+	- success redirect für login & signup funktioniert noch nicht 
+	- flash einbinden in jade templates 
+	- 
+- user-model:
+	-deleteUser
+	-findbyid	

@@ -3,6 +3,10 @@
         {
             "email": "fabian.kaupp@mail.de",
             "password": "$2a$08$n301O3mhjvj4fjW7FEU9l.snAxwE0/ShiPhCrOhhfNex2vzwXLzWO"
+        },
+        {
+            "email": "fabian.kaupp@me.com",
+            "password": "$2a$08$k0tpjyXEirobj1V0i8iE5ex/u7hMjCCBXBFhjGdGiegRN46jErH6K"
         }
     ]
 }

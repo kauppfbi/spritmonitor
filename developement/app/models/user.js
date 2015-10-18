@@ -52,6 +52,7 @@ var createUser = function (email, password){
     } else {
       console.log("JSON saved to " + file);
     }
+    return newUser;
 }); 
 
 };
