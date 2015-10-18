@@ -1,3 +1,8 @@
 {
-    "user": []
+    "user": [
+        {
+            "email": "fabian.kaupp@mail.de",
+            "password": "$2a$08$n301O3mhjvj4fjW7FEU9l.snAxwE0/ShiPhCrOhhfNex2vzwXLzWO"
+        }
+    ]
 }

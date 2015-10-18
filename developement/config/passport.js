@@ -2,7 +2,7 @@
 
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 // load up the user model
 var User            = require('../app/models/user');
 
@@ -35,26 +35,26 @@ module.exports = function(passport) {
 
     passport.use('local-signup', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        usernameField : 'email',
-        passwordField : 'password',
-        passReqToCallback : true // allows us to pass back the entire request to the callback
-    },
-    function(req, email, password, done) {
+            usernameField : 'email',
+            passwordField : 'password',
+            passReqToCallback : true // allows us to pass back the entire request to the callback
+        }, 
+        function(req, email, password, done) {
 
         // asynchronous
         // User.findOne wont fire unless data is sent back
-        process.nextTick(function() {
+            process.nextTick(function() {
 
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        if (!User.checkMail(email)){
-            return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
-        }
-        else {
-            User.createUser(email, password);
-        }
-
-    }});
+                if (!User.checkMail(email)){
+                    return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                }
+                else {
+                     User.createUser(email, password);
+                }
+            });
+        }));
 
     // =========================================================================
     // LOCAL LOGIN =============================================================
@@ -87,8 +87,9 @@ module.exports = function(passport) {
                 return done(null, user);
             }
         }
-    });
+    }));
 };
+
 
 /*
 // config/passport.js

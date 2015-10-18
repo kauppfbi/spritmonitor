@@ -3,7 +3,7 @@ var jsonfile = require('jsonfile');
 var fs = require('fs');
 var util = require('util');
  
-var file = '../../data/user.json';
+var file = './data/user.json';
 
 
 /*
