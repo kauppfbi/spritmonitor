@@ -10,10 +10,10 @@
 
 <body class="body">
     <header class="header">
-        <img src="Logo1.gif">
+        <img id="logo" src="Logo1.gif">
         <nav>
             <ul>
-                <li class="active"><a href="#">Mein Profil</a>
+                <li id="myprofile" class="active"><a href="#">Mein Profil</a>
                     <ul>
                         <li><a href="#">Profilinformationen</a></li>
                         <li><a href="#">Meine Autos</a></li>
@@ -21,9 +21,11 @@
                     </ul>
                 </li>
 
-                <li>
+                <li id="search">
                     <a href="#">
-                        <input type="text"> Suchen</a>
+                        <input type="text" id="searchtext">
+                        <img id="searchicon" src="search.png">
+                    </a>
                 </li>
                 <li><a href="#">Betankung</a></li>
                 <li><a href="#">Abmelden</a></li>

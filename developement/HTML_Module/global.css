@@ -16,9 +16,12 @@ a {
 }
 
 .header img {
-    width: 30%;
+    width: 100%;
     height: auto;
-    margin 2% 0;
+}
+
+#logo {
+    width: 50%;
 }
 
 .header nav {
@@ -30,8 +33,10 @@ a {
 }
 
 .header nav ul {
+    width: 100%;
     list-style: none;
     margin: 0 auto;
+    padding: 0;
     position: relative;
     display: inline-table;
 }
@@ -43,6 +48,8 @@ a {
 }
 
 .header nav ul li {
+    width: 15%;
+    min-width: 116px;
     float: left;
     display: block;
 }
@@ -78,10 +85,11 @@ a {
 }
 
 .header nav ul ul {
+    min-width: 180px;
+    width: 20%;
     display: none;
     float: none;
     position: absolute;
-    top: 100%;
     background-color: #666;
     border-radius: 5px;
     -moz-border-radius: 5px;
@@ -93,6 +101,7 @@ a {
 }
 
 .header nav ul ul li {
+    min-width: 180px;
     float: none;
     position: relative;
 }
@@ -106,9 +115,24 @@ a {
     background: #CF5C3F;
 }
 
+#myprofile {
+    width: 20%;
+    min-width: 180px;
+}
+
+#search {
+    min-width: 250px;
+    width: 40%;
+}
+
+#searchtext {
+    float: left;
+}
+
 #searchicon {
+    float: left;
+    height: 21px;
     width: 25px;
-    height: 10px;
 }
 
 h1 {
@@ -122,38 +146,6 @@ h2 {
     color: black;
     font-family: Arial, serif;
     font-size: 112.5%;
-}
-
-p {
-    color: black;
-    font-family: Arial, serif;
-    font-size: 12px;
-}
-
-#headbar {
-    background-color: darkgray;
-    display: flex;
-    flex-direction: row;
-    float: right;
-    width: 80%;
-    height: auto;
-    border-right: none;
-    padding: 0.5%;
-    border: solid 1px black;
-    box-sizing: border-box;
-}
-
-#sidebar {
-    background-color: darkgray;
-    display: flex;
-    flex-direction: column;
-    float: left;
-    width: 20%;
-    heigth: 60%;
-    border-right: none;
-    padding: 0.5%;
-    border: solid 1px black;
-    box-sizing: border-box;
 }
 
 #content {
@@ -199,16 +191,4 @@ button {
     flex-shrink: 2;
     padding-left: 2%;
     padding-right: 2%
-}
-
-input {
-    hight: auto;
-    width: auto;
-    flex-grow: 3
-}
-
-#suchebutton {
-    hight: auto;
-    width: auto;
-    flex-grow: 1
 }
