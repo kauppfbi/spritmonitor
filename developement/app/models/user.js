@@ -17,7 +17,11 @@ var file = './data/user.json';
 	};
 */
 
-var findById = function (id) {};
+var findById = function (id) {
+	var obj = jsonfile.readFileSync(file);
+	var user = obj.user;
+	return user[id];
+};
 
 /*
 * returns true if email is still available
@@ -28,7 +32,7 @@ var checkMail = function (email){
 	var user = obj.user;
 
 	for (var i = 0; i < user.length; i++){
-		if (user.email == email){
+		if (user[i].email == email){
 			return false;
 		}
 	}
@@ -42,6 +46,7 @@ var createUser = function (email, password){
 	var newUser = {};
 	newUser.email = email;
 	newUser.password = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+	newUser.id = parseInt(user[user.length - 1].id) + 1;
 
 	user.push(newUser);
 	obj.user = user;
@@ -58,17 +63,36 @@ var createUser = function (email, password){
 };
 
 var checkPassword = function (email, password){
+	console.log('Validating Password:');
 	var obj = jsonfile.readFileSync(file);
 	var user = obj.user;
 
 	for (var i = 0; i < user.length; i++){
-		if (user.email == email){
-			return bcrypt.compareSync(user.password, password);
+		if (user[i].email == email){
+			console.log ('User gefunden!');
+			console.log (bcrypt.compareSync(password, user[i].password));
+			return bcrypt.compareSync(password, user[i].password);
 		}
 	}
 };
 
 var deleteUser = function (id) {};
+
+var getByEmail = function (email) {
+	var obj = jsonfile.readFileSync(file);
+	var user = obj.user;
+
+	for (var i = 0; i < user.length; i++){
+		if (user[i].email == email){
+			var returnUser = {};
+			returnUser.email = email; 
+			returnUser.password = user[i].password;
+			returnUser.id = user[i].id;
+			return returnUser;
+		}
+	}
+	return null;
+};
 
 
 exports.checkMail = checkMail;
@@ -76,6 +100,7 @@ exports.checkPassword = checkPassword;
 exports.createUser = createUser; 
 exports.deleteUser = deleteUser;
 exports.findById = findById; 
+exports.getByEmail = getByEmail;
 
 
 /*
