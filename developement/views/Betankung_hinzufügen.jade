@@ -1,0 +1,74 @@
+extend layout
+block content
+    title Betankung hinzufügen
+    meta(charset='utf-8')
+  body
+    h1 Neue Betankung:
+    form
+      label Fahrzeug:
+      select
+        option KFZ 1
+        option KFZ 2
+      br
+      label Datum:
+      input(type='date', value='2015-10-01')
+      br
+      label Tachostand:
+      input(type='number')
+      br
+      label Distanz:
+      input(type='number')
+      | value dynamically
+      br
+      label Menge:
+      input(type='number')
+      br
+      label Vollbetankung:
+      input(type='checkbox', value='true')
+      br
+      label Sorte:
+      | per JS automatisch 
+      select
+        option Super
+        option E10
+      br
+      label Kosten:
+      input(type='number')
+      | €
+      br
+      label Bemerkung:
+      textarea
+      br
+      label Reifen:
+      input(type='radio', name='reifen', value='Sommerreifen')
+      | Sommerreifen
+      input(type='radio', name='reifen', value='Winterreifen')
+      | Winterreifen
+      input(type='radio', name='reifen', value='Ganzjahresreifen')
+      | Ganzjahresreifen
+      br
+      label Fahrweise:
+      input(type='radio', value='sparsam')
+      | sparsam
+      input(type='radio', value='normal')
+      | normal
+      input(type='radio', value='schnell')
+      | schnell
+      br
+      label Strecken:
+      input(type='checkbox', value='Stadt')
+      | Stadt
+      input(type='checkbox', value='Land')
+      | Landstraße
+      input(type='checkbox', value='Autobahn')
+      | Autobahn
+      br
+      label Extras:
+      br
+      label Tankstelle:
+      input
+      br
+      label Boardcomputer:
+      input(type='number')
+      | Liter/100km
+      br

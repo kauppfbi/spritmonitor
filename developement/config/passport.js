@@ -21,10 +21,15 @@ module.exports = function(passport) {
     });
 
     // used to deserialize the user
+
+    //passport.deserializeUser(function(obj, done){
+    //    done (null, obj);
+    //})
     passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
-            done(err, user);
-        });
+        //console.log("deserializeUser " + id);
+        var user = User.findById(id);
+        //console.log("User: " + obj.email);
+            done(null, user);
     });
 
     // =========================================================================
@@ -69,12 +74,13 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
     function(req, email, password, done) { // callback with email and password from our form
-
+        console.log('Local Login:');
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
 
-        if (!User.checkMail(email)){
-             return done(null, false, req.flash('loginMessage', 'No user found.'));
+        if (User.checkMail(email)){
+            console.log('Email/User not found!');
+            return done(null, false, req.flash('loginMessage', 'No user found.'));
         }
         else {
             //user found --> check pw 
@@ -84,6 +90,9 @@ module.exports = function(passport) {
             }
             else {
                 // all is well, return successful user
+                var user = {};
+                user = User.getByEmail(email);
+                console.log('return done(null, ' + user);
                 return done(null, user);
             }
         }

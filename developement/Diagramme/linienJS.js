@@ -14,9 +14,6 @@ var Auto3 =   [9.2, 9.1, 9.2, 9.5, 9.4, 9.5, 9.1, 9.8, 9.3, 9.3, 9.5, 9.8];
 		// set these values for your data 
 function init() {
     
-    
-    
-    
     var max = 0;
     for(var i = 0; i < Auto1.length; i++)
     {

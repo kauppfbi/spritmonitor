@@ -3,7 +3,7 @@ open tasks:
 	- (de)serialize User 
 	- success redirect für login & signup funktioniert noch nicht 
 	- flash einbinden in jade templates 
-	- 
+	- authentification duration too long 
 - user-model:
 	-deleteUser
 	-findbyid	

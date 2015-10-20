@@ -1,0 +1,85 @@
+extend layout
+block content
+    meta(charset='utf-8')
+  body
+    #Fahrzeugsuche
+      h1 Fahrzeugsuche
+      #Fahrzeugart
+        label Fahrzeugart
+        select(name='Fahrzeugart')
+          option Alle
+          option PKW
+          option Nutzfahrzeug
+          option Zweirad
+          option Quad
+      #Hersteller
+        label Hersteller
+        select#hersteller(name='Hersteller', onchange='updateModell(this.value)')
+          option(value='0') Alle
+          option(value='1') Audi
+          option(value='2') BMW
+          option(value='3') Mercedes
+          option(value='4') Opel
+          option(value='5') Porsche
+      #modellContainer
+        label Modell
+        select#modell
+      #Kraftstoffart
+        label Kraftstoffart
+        select(name='Kraftstoffart')
+          option Alle
+          option Diesel
+          option Benzin
+          option Autogas
+          option Elektro
+          option Hybrid
+      #Kraftstoffsorte
+        label Kraftsotffsorte
+        select(name='Kraftstoffsorte')
+          option Alle
+          option E10
+          option E5
+      #Getriebeart
+        label Getriebeart
+        select(name='Getriebeart')
+          option Alle
+          option Schaltgetriebe
+          option Automatik
+          option Stufenloses Getriebe
+          option Halb-Automatik
+          option Doppelkupplungsgetriebe
+      #Modellname
+        label Modellname
+        textarea
+      #Baujahr
+        label Baujahr
+        textarea
+        | bis
+        textarea
+      #Motorleistung
+        label Motorleistung
+        textarea
+        | bis
+        textarea
+        select(name='Leistung')
+          option PS
+          option kW
+      #Mindestkilometer
+        label Mindestkilometer
+        textarea
+        | km
+    //
+      <div id="Benutzersuche">
+      <h1>Benutzersuche</h1>
+      <div id="Benutzername">
+      <label>Benutzername</label>
+      <textarea></textarea>
+      </div>
+      <div id="Praefix">
+      <label>Präfixsuche</label>
+      <input type="checkbox" name="Praefix" value="Praefix_ON" id="Praefix_ON">Nur Ergebnisse zeigen, die mit dem angegebenen Namen beginnen
+      </div>
+      </div>
+    #Suche
+      h2 Suche starten
+      button#suchen(type='button') Suchen
