@@ -22,16 +22,33 @@
                     </ul>
                 </li>
 
-                <li id="search">
+                <li id="search" class="active">
                     <a href="#">
-                        <input type="text" id="searchtext">
-                        <img id="searchicon" src="search.png">
+                        <input type="text" name="Herstellersuche" placeholder="Hersteller" id="searchtext1" list="herstellerlist">
+                        <datalist id="herstellerlist">
+                            <option value="Audi">
+                                <option value="BMW">
+                                    <option value="Mercedes">
+                        </datalist>
+                        <input tyoe="text" name="Modellsuche" placeholder="Modell" id="searchtext2" list="modelllist">
+                        <datalist id="modelllist">
+                            <option value="A3">
+                                <option value="A4">
+                        </datalist>
+                        <img id="searchicon" src="search.png ">
                     </a>
+                    <ul>
+                        <li><a href="#">Erweiterte Suche</a></li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="#"><img id="fuelicon" src="fuel.gif"> </a>
+                <li id="refuel" class="active">
+                    <a href="#"><img id="fuelicon" src="fuel.gif"></a>
+                    <ul>
+                        <li><a href="#">Auto 1</a></li>
+                        <li><a href="#">Auto 2</a></li>
+                    </ul>
                 </li>
-                <li>
+                <li id="logout">
                     <a href="#"><img id="logouticon" src="logout.gif"> </a>
                 </li>
             </ul>

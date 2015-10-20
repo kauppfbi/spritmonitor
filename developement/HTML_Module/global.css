@@ -49,7 +49,7 @@
     
     .header nav ul li {
         width: 15%;
-        min-width: 116px;
+        min-width: 70px;
         float: left;
         display: block;
     }
@@ -74,7 +74,6 @@
         background-color: #CF5C3F;
         color: #FFF;
         text-shadow: none;
-        display: block
     }
     
     .header nav ul li a {
@@ -85,8 +84,7 @@
     }
     
     .header nav ul ul {
-        min-width: 180px;
-        width: 20%;
+        width: inherit;
         display: none;
         float: none;
         position: absolute;
@@ -121,18 +119,29 @@
     }
     
     #search {
-        min-width: 250px;
-        width: 40%;
+        min-width: 287px;
+        width: 50%;
     }
     
-    #searchtext {
+    #searchtext1 {
         float: left;
+        padding-left: 2px;
+        width: 40%;
+        min-width: 100px;
+    }
+    
+    #searchtext2 {
+        float: left;
+        width: 40%;
+        padding-left: 2px;
+        min-width: 100px;
     }
     
     #searchicon {
         float: left;
         height: 21px;
-        width: 25px;
+        width: 10%;
+        max-width: 30px;
     }
     
     #fuelicon {
@@ -143,6 +152,10 @@
     #menuicon {
         heigth: 25px;
         width: 25px;
+    }
+    
+    #logout {
+        float: right;
     }
     
     #logouticon {
