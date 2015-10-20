@@ -1,31 +1,49 @@
-doctype html
-head
-  meta(charset='utf-8')
-  title Spritmonitor_Grundgerüst
-  link(rel='stylesheet', type='text/css', href='/stylesheets/global.css')
-  meta(name='viewport', content='width=device-width, initial-scale=1.0')
-header.header
-  h1 Spritmonitor
-  nav
-    ul
-      li.active
-        a(href='#') Mein Profil
+html
+  head
+    meta(charset='utf-8')
+    title MySprit
+    link(rel='stylesheet', type='text/css', href='/stylesheets/global.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  body.body
+    header.header
+      img#logo(src='/img/Logo1.gif')
+      nav
         ul
-          li
-            a(href='/meinProfil') Profilinformationen
-          li
-            a(href='#') Meine Autos
-          li
-            a(href='#') Spritverlauf
-          li
-            a(href='#') Abmelden
-      li
-        a(href='#')
-          input(type='text')
-      li
-        a(href='#') Suchen
-      li
-        a(href='#') Betankung
-.container
-      .main-content
-        block content
+          li#myprofile.active
+            a(href='#')
+              img#menuicon(src='/img/menu.gif')
+            ul
+              li
+                a(href='/profile') Profilinformationen
+              li
+                a(href='/fahrzeuge') Meine Autos
+              li
+                a(href='#') Spritverlauf
+          li#search.active
+            a(href='#')
+              input#searchtext1(type='text', name='Herstellersuche', placeholder='Hersteller', list='herstellerlist')
+              datalist#herstellerlist
+                option(value='Audi')
+                option(value='BMW')
+                option(value='Mercedes')
+              input#searchtext2(tyoe='text', name='Modellsuche', placeholder='Modell', list='modelllist')
+              datalist#modelllist
+                option(value='A3')
+                option(value='A4')
+              img#searchicon(src='/img/search.png ')
+            ul
+              li
+                a(href='/erweiterteSuche') Erweiterte Suche
+          li#refuel.active
+            a(href='/neueBetankung')
+              img#fuelicon(src='/img/fuel.gif')
+            ul
+              li
+                a(href='#') Auto 1
+              li
+                a(href='#') Auto 2
+          li#logout
+            a(href='/logout')
+              img#logouticon(src='/img/logout.gif')
+    #content
+      block content
