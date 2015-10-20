@@ -1,0 +1,19 @@
+{
+    "user": [
+        {
+            "email": "fabian.kaupp@mail.de",
+            "password": "$2a$08$n301O3mhjvj4fjW7FEU9l.snAxwE0/ShiPhCrOhhfNex2vzwXLzWO",
+            "id": 0
+        },
+        {
+            "email": "fabian.kaupp@me.com",
+            "password": "$2a$08$k0tpjyXEirobj1V0i8iE5ex/u7hMjCCBXBFhjGdGiegRN46jErH6K",
+            "id": 1
+        },
+        {
+            "email": "martin@letzel.de",
+            "password": "$2a$08$iHfrmXtMsQ9Wletnthbg6egnL3ERN55gBtqcQjPU8vzcA6.b0g/jW",
+            "id": 2
+        }
+    ]
+}

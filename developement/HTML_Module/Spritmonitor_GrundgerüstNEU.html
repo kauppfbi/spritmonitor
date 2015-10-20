@@ -5,29 +5,37 @@
     <meta charset="utf-8">
     <title>Spritmonitor_Grundgerüst</title>
     <link rel="stylesheet" type="text/css" href="global.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
-    <header>
-        <h1>Spritmonitor</h1>
+<body class="body">
+    <header class="header">
+        <img id="logo" src="Logo1.gif">
+        <nav>
+            <ul>
+                <li id="myprofile" class="active"><a href="#">Mein Profil</a>
+                    <ul>
+                        <li><a href="#">Profilinformationen</a></li>
+                        <li><a href="#">Meine Autos</a></li>
+                        <li><a href="#">Spritverlauf</a></li>
+                    </ul>
+                </li>
+
+                <li id="search">
+                    <a href="#">
+                        <input type="text" id="searchtext">
+                        <img id="searchicon" src="search.png">
+                    </a>
+                </li>
+                <li><a href="#">Betankung</a></li>
+                <li><a href="#">Abmelden</a></li>
+            </ul>
+        </nav>
     </header>
-    <box id='headbar'>
-        <button id='profil'>Mein Profil</button>
-        <div id='suchen'>
-            <button id='suchebutton'>Suche: </button>
-            <input type='text'>
-        </div>
-        <button id='tanken'>Betankung hinzufügen!</button>
-    </box>
-    <box id='sidebar'>
-        <button>Profilinformationen</button>
-        <button>Meine Autos</button>
-        <button>Spritverlauf</button>
-        <button>Abmelden</button>
-    </box>
-    <box id='contentbox'>
-        <p>CONTENT</p>
-    </box>
+
+    <div id='content'>
+        <p>CONTENT asdasdasdasdasdasdasdasdasdasd adasd asdasdasd adasd</p>
+    </div>
 
 </body>
 
