@@ -1,5 +1,7 @@
 var express = require ('express');
-//var router = express.Router();
+var app = express();
+//app.use(app.router);
+var router = express.Router();
 //console.log("Router: "+ router);
 var data = require('../data');
 var passport = require('passport');
@@ -10,18 +12,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-
 //routes
-/*var index = require('../routes/index');
+var index = require('../routes/index');
 //var posts = require('../routes/posts');
 
 var homeRoute = require('../routes/home');
 var profilRoute = require('../routes/profil');
 var fahrzeugRoute = require ('../routes/fahrzeuge');
-var statistikRoute = require('../routes/statistik');*/
+var statistikRoute = require('../routes/statistik');
 
-var fs = require('fs');
-var app = express();
+
 
 
 
@@ -60,7 +60,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static('./public'));
 
 
-/*
+
 
 app.use('/', index);
 //app.use('/posts', index);
@@ -72,7 +72,7 @@ app.use('/statistik', statistikRoute);
 
 
 
-*/
+
 
 
 
@@ -94,6 +94,7 @@ app.use(function(err, req, res, next){
 exports.start = function(){
 	app.listen(app.get('port'), function(){
 		console.log('Express ready on http://127.0.0.1:' + app.get('port'));
+		console.log("Router:\n" + router);
 		//console.log(data.modelle['audi'][0]);
 	});
 };
