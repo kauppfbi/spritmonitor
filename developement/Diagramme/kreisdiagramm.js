@@ -1,6 +1,6 @@
-var data = [120, 100, 140];
-var labels = ["120", "100", "140"];
-var colors = ["red", "blue", "green"];
+var data = [0, 180, 180];
+var labels = ["Autobahn", "Landstraße", "Stadt"];
+var colors = ["#505050", "orange", "#C0C0C0"];
 
     
 function drawSegment(canvas, context, i) {
