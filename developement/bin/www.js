@@ -1,4 +1,6 @@
 var express = require ('express');
+//var router = express.Router();
+//console.log("Router: "+ router);
 var data = require('../data');
 var passport = require('passport');
 var flash = require('connect-flash');
@@ -10,13 +12,13 @@ var session = require('express-session');
 
 
 //routes
-var index = require('../routes/index');
+/*var index = require('../routes/index');
 //var posts = require('../routes/posts');
 
 var homeRoute = require('../routes/home');
 var profilRoute = require('../routes/profil');
 var fahrzeugRoute = require ('../routes/fahrzeuge');
-var statistikRoute = require('../routes/statistik');
+var statistikRoute = require('../routes/statistik');*/
 
 var fs = require('fs');
 var app = express();
@@ -58,7 +60,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static('./public'));
 
 
-
+/*
 
 app.use('/', index);
 //app.use('/posts', index);
@@ -67,22 +69,10 @@ app.use('/meinprofil', profilRoute);
 app.use('/meinefahrzeuge', fahrzeugRoute);
 app.use('/statistik', statistikRoute);
 
-//Get-Methoden:
-//Profilinfo --> get /profil?id=...
-//Statistik --> get /statistik?id=...
-//Fahrzeuge --> get /fahrzeug?id=...
 
 
 
-//Post-Methoden:
-
-//neue Betankung --> post /betankung 
-//neues Profil --> post /...
-//Profil bearbeiten
-//Fahrzeug bearbeiten
-//Betankung bearbeiten 
-
-//Anfrage zur Anmeldung --> Post-Redirect-Get
+*/
 
 
 
@@ -97,7 +87,7 @@ app.use(function(err, req, res, next){
 	console.error(err.stack);
 	res.type('text/plain');
 	res.status(500);
-	res.send('500 - Internal Error');
+	res.send('500 - Internal Error' + err.stack);
 });
 
 
