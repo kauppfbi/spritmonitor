@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Auto hinzufügen</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body> 
+    <h1>Bestehendes Modell auswählen</h1>
+		<label>Hersteller</label>
+		<select>
+			<option>Opt1</option>
+			<option>Opt2</option>
+            <option>sonstige</option>
+		</select><br>
+    
+        <label>Typ oder Variante</label>
+		<select>
+			<option>engere auswahl1</option>
+			<option>engere auswahl2</option>
+            <option>sonstige</option>
+		</select><br>
+    
+    <!-- es wird nach herstellern und modellen gesucht. falls diese in der Datenbank nicht vorhanden sind kann dies über sosntiges dargestellt werden
+        demnach wird nur nach der Bezeichnung gesucht
+    -->    
+        
+    <label for="Typ">Bezeichnung:
+            <input id"Typ" name="Typ">
+        </label><br>
+
+    <label>Kilometerstand:</label><input type="number"></input><br>
+    
+    <label>Bild des Autos</label><br>
+    
+    <label>Kennzeichnen Sie ihre Extras:</label><br>
+        <input type="checkbox" name="Extras" value="1" checked> Klimaanlage<br>
+        <input type="checkbox" name="Extras" value="2"> Sitzheizung<br>
+        
+	</form>
+</body>
+</html>

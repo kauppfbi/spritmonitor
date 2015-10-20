@@ -1,0 +1,70 @@
+extend layout
+block content
+  head
+    title Auto hinzufügen
+  body
+    h1 Bestehendes Modell auswählen
+    label Hersteller
+    select
+      option Opt1
+      option Opt2
+    br
+    label Typ oder Variante
+    select
+      option engere auswahl1
+      option engere auswahl2
+    br
+    label Kilometerstand:
+    input(type='number')
+    br
+    label Bild des Autos
+    br
+    label Kennzeichnen Sie ihre Extras:
+    br
+    input(type='checkbox', name='Extras', value='1', checked='')
+    |  Klimaanlage
+    br
+    input(type='checkbox', name='Extras', value='2')
+    |  Sitzheizung
+    br
+    h1 Neues Auto:
+    form
+      label(for='Hersteller')
+        | Hersteller:
+        input(name='Hersteller')
+      br
+      label(for='Typ')
+        | Typ oder Variante:
+        input(name='Typ')
+      br
+      label Baujahr
+      input(type='number')
+      br
+      label Leistung in Pferdestärke
+      input(type='number')
+      br
+      label Kraftstoffart:
+      select
+        option Benzin
+        option Diesel
+        option Erdgas
+      br
+      label Getriebeart
+      select
+        option Manuell
+        option Automatik
+      br
+      label Kilometerstand:
+      input(type='number')
+      br
+      label Bild des Autos
+      br
+      |         Kennzeichnen Sie ihre Extras:
+      br
+      input(type='checkbox', name='wunsch', value='1', checked='')
+      |  Klimaanlage
+      br
+      input(type='checkbox', name='wunsch', value='2')
+      |  Sitzheizung
+      br
+
