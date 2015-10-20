@@ -1,4 +1,4 @@
-var data = [0, 180, 180];
+var data = [80, 100, 180];
 var labels = ["Autobahn", "Landstraße", "Stadt"];
 var colors = ["#505050", "orange", "#C0C0C0"];
 
@@ -24,7 +24,7 @@ function drawSegment(canvas, context, i) {
 
     context.restore();
 
-    drawSegmentLabel(canvas, context, i);
+   // drawSegmentLabel(canvas, context, i);
 }
 
 function degreesToRadians(degrees) {
@@ -38,7 +38,7 @@ function sumTo(a, i) {
     return sum;
 }
 
-function drawSegmentLabel(canvas, context, i) {
+/**function drawSegmentLabel(canvas, context, i) {
    context.save();
    var x = Math.floor(canvas.width / 2);
    var y = Math.floor(canvas.height / 2);
@@ -56,7 +56,7 @@ function drawSegmentLabel(canvas, context, i) {
    context.fillText(labels[i], dx, dy);
 
    context.restore();
-}
+}*/
 
 canvas = document.getElementById("piechart");
 var context = canvas.getContext("2d");

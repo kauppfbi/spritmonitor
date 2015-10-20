@@ -1,15 +1,37 @@
 
+<!-- 400px Chart und Legende -->
+
+
 <html>
 <head>
-
+<link rel="stylesheet" href="responsiveCSS.css">
 </head>
 
-<body>
+<body onload = "drawLegende();">
 
+<div id="main">
+    <canvas id="piechart" height="400" width="400"></canvas>
+    <canvas id="legende" height="400" width="200"></canvas> 
 
-<canvas id="piechart" height="400" width="400">
-</canvas>
-
+    <div> 
+    <label>Autobahn</label>
+    </div>
+    
+    <div> 
+    <label>Landstraße</label>
+    </div>
+    
+    <div> 
+    <label>Stadt</label>
+    </div> 
+    
+</div>
+    
+    
     <script src="kreisdiagramm.js"></script>
+    <script src="legende.js"></script>
+    <script src="responsiveChart.js"></script>
+    
+    
 </body>
 </html>
