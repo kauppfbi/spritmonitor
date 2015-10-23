@@ -56,6 +56,7 @@ module.exports = function(app, passport){
     });
 
     app.get('/neueBetankung', isLoggedIn, function(req, res){
+        console.log('Get /neueBetankung');
         res.render('neueBetankung');
     });
     
