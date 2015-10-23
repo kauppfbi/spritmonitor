@@ -41,6 +41,12 @@ var createBetankung = function (profilID, Datum, Kraftstoff, Liter, Kilometer, V
 };
 
 
+//Keine Ahnung ob das so funktioniert...
+var readBetankung = function(profilID){
+    
+}
+
+
 //Exports
 exports.createBetankung = createBetankung;
 exports.findById = findById;
