@@ -4,33 +4,18 @@
 
 <html>
 <head>
-<link rel="stylesheet" href="responsiveCSS.css">
 </head>
 
 <body onload = "drawLegende();">
 
-<div id="main">
-    <canvas id="piechart" height="400" width="400"></canvas>
-    <canvas id="legende" height="400" width="200"></canvas> 
-
-    <div> 
-    <label>Autobahn</label>
-    </div>
-    
-    <div> 
-    <label>Landstraße</label>
-    </div>
-    
-    <div> 
-    <label>Stadt</label>
-    </div> 
-    
+<div style="width: 400px height: 400">
+    <canvas id="piechart" height="200" width="200"></canvas>
+    <canvas id="legende" height="200" width="200" style="text-align: right"></canvas>   
 </div>
     
     
     <script src="kreisdiagramm.js"></script>
     <script src="legende.js"></script>
-    <script src="responsiveChart.js"></script>
     
     
 </body>
