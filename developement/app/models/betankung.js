@@ -2,7 +2,6 @@
 
 var file = './data/betankungen.json';
 
-var bcrypt = require('bcrypt-nodejs');
 var jsonfile = require('jsonfile');
 var fs = require('fs');
 var util = require('util');
@@ -10,11 +9,15 @@ var util = require('util');
 
 var findById = function (id) {
 	var obj = jsonfile.readFileSync(file);
-	var user = obj.user;
-	return user[id];
+	var betankungen = obj.betankungen;
+	return betankungen[id];
 };
 
 //Hier müssen noch die Daten aus den Fromularen übergeben werden
+/* 
+Daten werden zur besseren Übersicht in einem 'Betankungs-Objekt' zusammengefasst übergeben
+Die Zusammenfassung der Daten in einem Objekt erfolgt innerhalb der aufrufenden Methode
+*/
 var createBetankung = function (profilID, Datum, Kraftstoff, Liter, Kilometer, Vollbetankung){
 	var obj = jsonfile.readFileSync(file);
 	var betankungen = obj.betankungen;
