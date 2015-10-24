@@ -19,6 +19,11 @@
             "email": "fx.hahn@web.de",
             "password": "$2a$08$VnIxId7lQdHPsxYz6ptoiuV3M8gf46msR8x03km73seuHyee.zM4y",
             "id": 3
+        },
+        {
+            "email": "fabian@kaupp.de",
+            "password": "$2a$08$LV2TEthGRk3lX2bHfsU16.8MoyOrDhNR5yMfiEbg42sKeqEwRBM6y",
+            "id": 4
         }
     ]
 }
