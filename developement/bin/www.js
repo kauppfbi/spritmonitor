@@ -42,7 +42,7 @@ app.use(bodyParser());
 //set directory
 app.set('views', './views');
 //set jade as template engine
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 // required for passport
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
