@@ -92,7 +92,7 @@ module.exports = function(passport) {
                 // all is well, return successful user
                 var user = {};
                 user = User.getByEmail(email);
-                console.log('return done(null, ' + user);
+                //console.log('return done(null, ' + user);
                 return done(null, user);
             }
         }
