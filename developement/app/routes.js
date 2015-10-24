@@ -5,7 +5,7 @@ module.exports = function(app, passport){
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.render('index.jade');
+        res.render('index');
     });
 
     // =====================================
@@ -39,8 +39,8 @@ module.exports = function(app, passport){
     // =====================================
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile', {
+    app.get('/profil', isLoggedIn, function(req, res) {
+        res.render('profilinformationen', {
             user : req.user // get the user out of session and pass to template
         });
     });
@@ -58,8 +58,15 @@ module.exports = function(app, passport){
     });
 
     app.get('/neueBetankung', isLoggedIn, function(req, res){
-        console.log('Get /neueBetankung');
-        res.render('neueBetankung');
+        res.render('BetankungHinzufuegen');
+    });
+
+    app.get('/spritverlauf', isLoggedIn, function(req, res){
+        res.render('spritverlauf');
+    });
+
+    app.get('/fahrzeuge', isLoggedIn, function(req, res){
+        res.render('fahrzeuge');
     });
     
     // =====================================
