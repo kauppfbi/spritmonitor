@@ -1,4 +1,5 @@
-document.onload = function(){
+window.onload = function(){
+	console.log('onload');
 	console.log(modelle);
 	var herstellerAuswahl = document.getElementById('Herstellerauswahl');
 	var modellAuswahl = document.getElementById('Modellauswahl');
@@ -7,14 +8,14 @@ document.onload = function(){
 	fillHerstellerAuswahl(herstellerAuswahl);
 
 	//fill 'modellAuswahl' dynamically with options
-	updateModellAuswahl(herstellerAuswahl, modellAuswahl);
+	updateModellAuswahl();
 
 
 };
 
 var fillHerstellerAuswahl = function(herstellerAuswahl){
-	for (var i = 0; i <= modelle.length; i++){
-		if (i == modelle.length){
+	for (var i = 0; i <= 4; i++){
+		if (i == 4){
 			var option = document.createElement('option');
 			option.text = 'Andere';
 			option.value = 'Andere';
@@ -29,7 +30,9 @@ var fillHerstellerAuswahl = function(herstellerAuswahl){
 	}
 };
 
-var updateModellAuswahl = function(herstellerAuswahl, modellAuswahl){
+var updateModellAuswahl = function(){
+	var herstellerAuswahl = document.getElementById('Herstellerauswahl');
+	var modellAuswahl = document.getElementById('Modellauswahl');
 	while(modellAuswahl.hasChildNodes()){
 		modellAuswahl.removeChild(modellAuswahl.childNodes[0]);
 	}

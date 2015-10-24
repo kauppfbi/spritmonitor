@@ -4,6 +4,9 @@
   <title>MySprit</title>
   <link rel="stylesheet" type="text/css" href="/stylesheets/global.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript">
+    var modelle = <%- JSON.stringify(modelle) %>;
+  </script>
   <script src="/js/neuesFahrzeug.js"></script>
 </head>
 <body class="body">
@@ -54,7 +57,7 @@
         </select>
       </label>
       <label for="Hersteller">Hersteller:
-        <select name="Hersteller" id="Herstellerauswahl"></select>
+        <select name="Hersteller" id="Herstellerauswahl" onchange="updateModellAuswahl()"></select>
       </label><br/>
       <label for="Modell">Modell:
         <select name="Modell" id="Modellauswahl"></select>
@@ -62,27 +65,25 @@
       <label for="Bezeichnung">Bezeichnung:
         <input name="Bezeichnung"/>
       </label><br/>
-      <label>Baujahr</label>
-      <input type="number" default="2015"/><br/>
-      <label>Leistung in PS</label>
-      <input type="number"/><br/>
-      <label>Kraftstoffart:</label>
-      <select>
+      <label for="Baujahr">Baujahr</label>
+      <input type="number" name="Baujahr" value="2015"/><br/>
+      <label for="Leistung">Leistung in PS</label>
+      <input type="number" name="Leistung"/><br/>
+      <label for="Antriebsart">Kraftstoffart:</label>
+      <select name="Antriebsart">
         <option value="Benzin">Benzin</option>
         <option value="Diesel">Diesel</option>
         <option value="Erdgas">Erdgas</option>
         <option value="Elektro">Elektro</option>
       </select><br/>
-      <label>Getriebeart</label>
-      <select>
+      <label for="Getriebeart">Getriebeart</label>
+      <select name="Getriebeart">
         <option>Manuell</option>
         <option>Automatik</option>
         <option>Sonstige</option>
       </select><br/>
       <label for="Kilometerstand">Kilometerstand:</label>
       <input type="number" name="Kilometerstand"/><br/>
-      <label>Bild des Autos</label><br/>
-      <Kennzeichnen>Sie ihre Extras:</Kennzeichnen>
       <button type="submit">Neues Fahrzeug anlegen</button>
     </form>
   </div>
