@@ -1,3 +1,5 @@
+var data = require('../data');
+
 module.exports = function(app, passport){
 	// =====================================
     // HOME PAGE (with login links) ========
@@ -51,8 +53,8 @@ module.exports = function(app, passport){
         res.render('favoriten');
     });
 
-    app.get('/neuesauto', isLoggedIn, function(req, res){
-        res.render('autoAnlegen');
+    app.get('/neuesFahrzeug', isLoggedIn, function(req, res){
+        res.render('fahrzeugAnlegen', {modelle : data.modelle});
     });
 
     app.get('/neueBetankung', isLoggedIn, function(req, res){
@@ -81,6 +83,19 @@ module.exports = function(app, passport){
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
+
+    app.post('/neuesFahrzeug', isLoggedIn, function(req, res){
+        //fetch all parameters
+        var marke = req.body.Hersteller;
+        var modell = req.body.Modell;
+
+        //getting them in one Object
+        //{ProfilID, modelle[brand].index, Baujahr, PS, Kraftstoffart, Getriebeart, Kilometerstand}
+
+        console.log('Marke: ' + marke + '\nModell: ' + modell);
+
+        res.redirect('/neuesFahrzeug');
+    });
 };
 
 // route middleware to make sure a user is logged in
