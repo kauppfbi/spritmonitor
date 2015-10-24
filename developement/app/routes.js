@@ -1,4 +1,5 @@
 var data = require('../data');
+var Fahrzeug = require('../app/models/fahrzeuge');
 
 module.exports = function(app, passport){
 	// =====================================
@@ -93,13 +94,22 @@ module.exports = function(app, passport){
 
     app.post('/neuesFahrzeug', isLoggedIn, function(req, res){
         //fetch all parameters
-        var marke = req.body.Hersteller;
-        var modell = req.body.Modell;
+        
+        var fahrzeug = {};
 
-        //getting them in one Object
-        //{ProfilID, modelle[brand].index, Baujahr, PS, Kraftstoffart, Getriebeart, Kilometerstand}
+        fahrzeug.typ = req.body.Fahrzeugtyp;
+        fahrzeug.marke = req.body.Hersteller;
+        fahrzeug.modell = req.body.Modell;
+        fahrzeug.bezeichnung = req.body.Bezeichnung;
+        fahrzeug.baujahr = req.body.Baujahr;
+        fahrzeug.leistung = req.body.Leistung;
+        fahrzeug.antriebsart = req.body.Antriebsart;
+        fahrzeug.getriebeart = req.body.Getriebeart;
+        fahrzeug.kilometerstand = req.body.Kilometerstand;
 
-        console.log('Marke: ' + marke + '\nModell: ' + modell);
+        console.log(fahrzeug);
+
+        Fahrzeug.createVehicle(fahrzeug);
 
         res.redirect('/neuesFahrzeug');
     });
