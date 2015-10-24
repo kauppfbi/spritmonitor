@@ -1,48 +1,166 @@
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>MySprit</title>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/global.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
-  <body class="body">
-    <header class="header"><img id="logo" src="/img/Logo1.gif"/>
-      <nav>
-        <ul>
-          <li id="myprofile" class="active"><a href="#"><img id="menuicon" src="/img/menu.gif"/></a>
-            <ul>
-              <li><a href="/profil">Profilinformationen</a></li>
-              <li><a href="/fahrzeuge">Meine Autos</a></li>
-              <li><a href="/spritverlauf">Spritverlauf</a></li>
-            </ul>
-          </li>
-          <li id="search" class="active"><a href="#">
-              <input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>
-              <datalist id="herstellerlist">
-                <option value="Audi"></option>
-                <option value="BMW"></option>
-                <option value="Mercedes"></option>
-              </datalist>
-              <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>
-              <datalist id="modelllist">
-                <option value="A3"></option>
-                <option value="A4"></option>
-              </datalist><img id="searchicon" src="/img/search.png "/></a>
-            <ul>
-              <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
-            </ul>
-          </li>
-          <li id="refuel" class="active"><a href="/neueBetankung"><img id="fuelicon" src="/img/fuel.gif"/></a>
-            <ul>
-              <li><a href="#">Auto 1</a></li>
-              <li><a href="#">Auto 2</a></li>
-            </ul>
-          </li>
-          <li id="logout"><a href="/logout"><img id="logouticon" src="/img/logout.gif"/></a></li>
-        </ul>
-      </nav>
-    </header>
-    <div id="content">
+<head>
+  <meta charset="utf-8"/>
+  <title>MySprit</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/global.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body class="body">
+  <header class="header"><img id="logo" src="/img/Logo1.gif"/>
+    <nav>
+      <ul>
+        <li id="myprofile" class="active"><a href="#"><img id="menuicon" src="/img/menu.gif"/></a>
+          <ul>
+            <li><a href="/profil">Profilinformationen</a></li>
+            <li><a href="/fahrzeuge">Meine Autos</a></li>
+            <li><a href="/spritverlauf">Spritverlauf</a></li>
+          </ul>
+        </li>
+        <li id="search" class="active"><a href="#">
+          <input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>
+          <datalist id="herstellerlist">
+            <option value="Audi"></option>
+            <option value="BMW"></option>
+            <option value="Mercedes"></option>
+          </datalist>
+          <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>
+          <datalist id="modelllist">
+            <option value="A3"></option>
+            <option value="A4"></option>
+          </datalist><img id="searchicon" src="/img/search.png "/></a>
+          <ul>
+            <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
+          </ul>
+        </li>
+        <li id="refuel" class="active"><a href="/neueBetankung"><img id="fuelicon" src="/img/fuel.gif"/></a>
+          <ul>
+            <li><a href="#">Auto 1</a></li>
+            <li><a href="#">Auto 2</a></li>
+          </ul>
+        </li>
+        <li id="logout"><a href="/logout"><img id="logouticon" src="/img/logout.gif"/></a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="content">
+    <div id="Hersteller">
+      <label>Hersteller</label>
+      <select id="hersteller" name="Hersteller" onchange="updateModell(this.value)">
+        <option value="0">Alle</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+        <option value="3">Mercedes</option>
+        <option value="4">Opel</option>
+        <option value="5">Porsche</option>
+      </select>
     </div>
-  </body>
-</html>
+    <div id="modellContainer">
+      <label>Modell</label>
+      <select id="modell"></select>
+    </div>
+    <div id="Favorit">
+      <button id="favorit" type="button" onclick="favorit(hersteller.value, modell.value)"> Favorit speichern </button>
+    </div>
+    <div id="FavoritLaden">
+      <button id="favoritladen" type="button" onclick="favoritladen()"> Favorit laden </button>
+    </div>
+    <script>
+     var updateModell = function (hersteller){
+      console.log('Hersteler ' + hersteller + ' wurde ausgewählt.');
+
+      var modell = document.getElementById('modell');
+      while (modell.hasChildNodes()){
+       modell.removeChild(modell.childNodes[0]);
+     }
+
+     if (hersteller == 1){
+          //füge alle Audi-Modelle als Option ein 
+          console.log("Audi ausgewählt");
+          
+          var a1 = document.createElement('option');
+          a1.text = "Alle";
+          a1.value= 0;
+          modell.add(a1);
+          
+          var a2 = document.createElement('option');
+          a2.text = "A1";
+          a2.value= 1;
+          modell.add(a2);
+
+          var a3 = document.createElement('option');
+          a3.text="A2";
+          a3.value= 2;
+          modell.add(a3);
+        }
+        else if (hersteller == 2){
+          //füge alle BMW-Modelle als Option ein 
+          console.log("BMW ausgewählt");
+
+          var series1 = document.createElement('option');
+          series1.text = "1er Reihe";
+          series1.value= 0;
+          modell.add(series1);
+        }
+        else if (hersteller == 3){
+          //füge alle BMW-Modelle als Option ein 
+          console.log("Mercedes ausgewählt");
+
+          var c_class = document.createElement('option');
+          c_class.text = "C-Klasse";
+          c_class.value= 0;
+          modell.add(c_class);
+        }
+        else if (hersteller == 4){
+          //füge alle BMW-Modelle als Option ein 
+          console.log("Opel ausgewählt");
+
+          var c_class = document.createElement('option');
+          c_class.text = "Corsa";
+          c_class.value= 0;
+          modell.add(c_class);
+        }
+        else if (hersteller == 5){
+          //füge alle BMW-Modelle als Option ein 
+          console.log("Porsche ausgewählt");
+
+          var c_class = document.createElement('option');
+          c_class.text = "911";
+          c_class.value= 0;
+          modell.add(c_class);
+        }
+      }
+
+
+  //Speichern der Sucheinstellungen in Favoriten
+  var favorit = function(hersteller, modell){
+    if(typeof(Storage) !== "undefined") {
+              // Code for localStorage/sessionStorage
+              console.log(hersteller);
+              console.log(modell);
+              localStorage.setItem("hersteller", hersteller);
+              localStorage.setItem("modell", modell);
+            } else {
+              // Sorry! No Web Storage support
+              colsole.log("Sorry! Your Browser does not support local Storage :(");
+            }   
+          }
+
+  //Laden der favorisierten Sucheinstellungen
+  var favoritladen = function(){
+    if(typeof(Storage) !== "undefined") {
+              // Code for localStorage/sessionStorage
+              console.log("HerstellerID= "+localStorage.hersteller);
+              console.log("ModellID= "+localStorage.modell);
+              updateModell(localStorage.hersteller);
+              hersteller.selectedIndex = localStorage.hersteller;
+              modell.selectedIndex = localStorage.modell;
+              
+            } else {
+              // Sorry! No Web Storage support
+              colsole.log("Sorry! Your Browser does not support local Storage :(");
+            }   
+          }
+          </script>
+        </div>
+      </body>
+      </html>

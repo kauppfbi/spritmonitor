@@ -43,6 +43,85 @@
       </nav>
     </header>
     <div id="content">
+      <h1>Fahrzeugsuche
+  <div id="Fahrzeugart">
+    <label>Fahrzeugart</label>
+    <select name="Fahrzeugart">
+      <option>Alle</option>
+      <option>PKW</option>
+      <option>Nutzfahrzeug</option>
+      <option>Zweirad</option>
+      <option>Quad</option>
+    </select>
+  </div>
+  <div id="Hersteller">
+    <label>Hersteller</label>
+    <select id="hersteller" name="Hersteller" onchange="updateModell(this.value)">
+      <option value="0">Alle</option>
+      <option value="1">Audi</option>
+      <option value="2">BMW</option>
+      <option value="3">Mercedes</option>
+      <option value="4">Opel</option>
+      <option value="5">Porsche</option>
+    </select>
+  </div>
+  <div id="modellContainer">
+    <label>Modell</label>
+    <select id="modell"></select>
+  </div>
+  <div id="Kraftstoffart">
+    <label>Kraftstoffart</label>
+    <select name="Kraftstoffart">
+      <option>Alle</option>
+      <option>Diesel</option>
+      <option>Benzin</option>
+      <option>Autogas</option>
+      <option>Elektro</option>
+      <option>Hybrid</option>
+    </select>
+  </div>
+  <div id="Kraftstoffsorte">
+    <label>Kraftsotffsorte</label>
+    <select name="Kraftstoffsorte">
+      <option>Alle</option>
+      <option>E10</option>
+      <option>E5</option>
+    </select>
+  </div>
+  <div id="Getriebeart">
+    <label>Getriebeart</label>
+    <select name="Getriebeart">
+      <option>Alle</option>
+      <option>Schaltgetriebe</option>
+      <option>Automatik</option>
+      <option>Stufenloses Getriebe</option>
+      <option>Halb-Automatik</option>
+      <option>Doppelkupplungsgetriebe</option>
+    </select>
+  </div>
+  <div id="Modellname">
+    <label>Modellname</label>
+    <textarea></textarea>
+  </div>
+  <div id="Baujahr">
+    <label>Baujahr</label>
+    <textarea></textarea>bis
+    <textarea></textarea>
+  </div>
+  <div id="Motorleistung">
+    <label>Motorleistung</label>
+    <textarea></textarea>bis
+    <textarea></textarea>
+    <select name="Leistung">
+      <option>PS</option>
+      <option>kW</option>
+    </select>
+  </div>
+  <div id="Mindestkilometer">
+    <label>Mindestkilometer</label>
+    <textarea></textarea>km
+  </div>
+</h1>
     </div>
   </body>
 </html>

@@ -4,6 +4,7 @@
   <title>MySprit</title>
   <link rel="stylesheet" type="text/css" href="/stylesheets/global.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="/js/neuesFahrzeug.js"></script>
 </head>
 <body class="body">
   <header class="header"><img id="logo" src="/img/Logo1.gif"/>
@@ -42,47 +43,48 @@
       </ul>
     </nav>
   </header>
-  <script src="/js/neuesFahrzeug.js"></script>
-  <h1>Fügen Sie Irem Profil ein neues Fahrzeug hinzu:</h1>
-  <form name="neuesFahrzeug" method="post">
-    <label for="Fahrzeugtyp">Fahrzeugtyp:
-      <select name="Fahrzeugtyp">
-        <option value="Auto">Auto</option>
-        <option value="Leichtkraftrad">Leichtkraftrad</option>
-        <option value="Motorrad">Motorrad</option>
-      </select>
-    </label>
-    <label for="Hersteller">Hersteller:
-      <select name="Hersteller" id="Herstellerauswahl"></select>
-    </label><br/>
-    <label for="Modell">Modell:
-      <select name="Modell" id="Modellauswahl"></select>
-    </label>
-    <label for="Bezeichnung">Bezeichnung:
-      <input name="Bezeichnung"/>
-    </label><br/>
-    <label>Baujahr</label>
-    <input type="number" default="2015"/><br/>
-    <label>Leistung in PS</label>
-    <input type="number"/><br/>
-    <label>Kraftstoffart:</label>
-    <select>
-      <option value="Benzin">Benzin</option>
-      <option value="Diesel">Diesel</option>
-      <option value="Erdgas">Erdgas</option>
-      <option value="Elektro">Elektro</option>
-    </select><br/>
-    <label>Getriebeart</label>
-    <select>
-      <option>Manuell</option>
-      <option>Automatik</option>
-      <option>Sonstige</option>
-    </select><br/>
-    <label for="Kilometerstand">Kilometerstand:</label>
-    <input type="number" name="Kilometerstand"/><br/>
-    <label>Bild des Autos</label><br/>
-    <Kennzeichnen>Sie ihre Extras:</Kennzeichnen>
-    <button type="submit">Neues Fahrzeug anlegen</button>
-  </form>
+  <div id="content">
+    <h1>Fügen Sie Irem Profil ein neues Fahrzeug hinzu:</h1>
+    <form name="neuesFahrzeug" method="post">
+      <label for="Fahrzeugtyp">Fahrzeugtyp:
+        <select name="Fahrzeugtyp">
+          <option value="Auto">Auto</option>
+          <option value="Leichtkraftrad">Leichtkraftrad</option>
+          <option value="Motorrad">Motorrad</option>
+        </select>
+      </label>
+      <label for="Hersteller">Hersteller:
+        <select name="Hersteller" id="Herstellerauswahl"></select>
+      </label><br/>
+      <label for="Modell">Modell:
+        <select name="Modell" id="Modellauswahl"></select>
+      </label>
+      <label for="Bezeichnung">Bezeichnung:
+        <input name="Bezeichnung"/>
+      </label><br/>
+      <label>Baujahr</label>
+      <input type="number" default="2015"/><br/>
+      <label>Leistung in PS</label>
+      <input type="number"/><br/>
+      <label>Kraftstoffart:</label>
+      <select>
+        <option value="Benzin">Benzin</option>
+        <option value="Diesel">Diesel</option>
+        <option value="Erdgas">Erdgas</option>
+        <option value="Elektro">Elektro</option>
+      </select><br/>
+      <label>Getriebeart</label>
+      <select>
+        <option>Manuell</option>
+        <option>Automatik</option>
+        <option>Sonstige</option>
+      </select><br/>
+      <label for="Kilometerstand">Kilometerstand:</label>
+      <input type="number" name="Kilometerstand"/><br/>
+      <label>Bild des Autos</label><br/>
+      <Kennzeichnen>Sie ihre Extras:</Kennzeichnen>
+      <button type="submit">Neues Fahrzeug anlegen</button>
+    </form>
+  </div>
 </body>
 </html>
