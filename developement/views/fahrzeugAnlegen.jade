@@ -1,0 +1,50 @@
+extend layout
+block content
+  script(src='/js/neuesFahrzeug.js')
+  h1 Fügen Sie Irem Profil ein neues Fahrzeug hinzu:
+  form(name="neuesFahrzeug", method="post")
+    label(for='Fahrzeugtyp') Fahrzeugtyp:
+      select(name='Fahrzeugtyp')
+        option(value='Auto') Auto
+        option(value='Leichtkraftrad') Leichtkraftrad
+        option(value='Motorrad') Motorrad
+    label(for='Hersteller')
+      | Hersteller:
+      select(name='Hersteller', id='Herstellerauswahl')
+    br
+    label(for='Modell')
+      | Modell:
+      select(name='Modell', id='Modellauswahl')
+    label(for='Bezeichnung')
+      | Bezeichnung:
+      input(name='Bezeichnung')
+    br
+    label Baujahr
+    input(type='number', default=2015)
+    br
+    label Leistung in PS
+    input(type='number')
+    br
+    label Kraftstoffart:
+    select
+      option(value='Benzin') Benzin
+      option(value='Diesel') Diesel
+      option(value='Erdgas') Erdgas
+      option(value='Elektro') Elektro
+    br
+    label Getriebeart
+    select
+      option Manuell
+      option Automatik
+      option Sonstige
+    br
+    label(for='Kilometerstand') Kilometerstand:
+    input(type='number', name='Kilometerstand')
+    br
+    label Bild des Autos
+    br
+    Kennzeichnen Sie ihre Extras:
+    button(type='submit') Neues Fahrzeug anlegen
+      
+
+ 
