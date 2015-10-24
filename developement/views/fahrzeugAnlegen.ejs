@@ -1,0 +1,88 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>MySprit</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/global.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body class="body">
+  <header class="header"><img id="logo" src="/img/Logo1.gif"/>
+    <nav>
+      <ul>
+        <li id="myprofile" class="active"><a href="#"><img id="menuicon" src="/img/menu.gif"/></a>
+          <ul>
+            <li><a href="/profil">Profilinformationen</a></li>
+            <li><a href="/fahrzeuge">Meine Autos</a></li>
+            <li><a href="/spritverlauf">Spritverlauf</a></li>
+          </ul>
+        </li>
+        <li id="search" class="active"><a href="#">
+          <input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>
+          <datalist id="herstellerlist">
+            <option value="Audi"></option>
+            <option value="BMW"></option>
+            <option value="Mercedes"></option>
+          </datalist>
+          <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>
+          <datalist id="modelllist">
+            <option value="A3"></option>
+            <option value="A4"></option>
+          </datalist><img id="searchicon" src="/img/search.png "/></a>
+          <ul>
+            <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
+          </ul>
+        </li>
+        <li id="refuel" class="active"><a href="/neueBetankung"><img id="fuelicon" src="/img/fuel.gif"/></a>
+          <ul>
+            <li><a href="#">Auto 1</a></li>
+            <li><a href="#">Auto 2</a></li>
+          </ul>
+        </li>
+        <li id="logout"><a href="/logout"><img id="logouticon" src="/img/logout.gif"/></a></li>
+      </ul>
+    </nav>
+  </header>
+  <script src="/js/neuesFahrzeug.js"></script>
+  <h1>Fügen Sie Irem Profil ein neues Fahrzeug hinzu:</h1>
+  <form name="neuesFahrzeug" method="post">
+    <label for="Fahrzeugtyp">Fahrzeugtyp:
+      <select name="Fahrzeugtyp">
+        <option value="Auto">Auto</option>
+        <option value="Leichtkraftrad">Leichtkraftrad</option>
+        <option value="Motorrad">Motorrad</option>
+      </select>
+    </label>
+    <label for="Hersteller">Hersteller:
+      <select name="Hersteller" id="Herstellerauswahl"></select>
+    </label><br/>
+    <label for="Modell">Modell:
+      <select name="Modell" id="Modellauswahl"></select>
+    </label>
+    <label for="Bezeichnung">Bezeichnung:
+      <input name="Bezeichnung"/>
+    </label><br/>
+    <label>Baujahr</label>
+    <input type="number" default="2015"/><br/>
+    <label>Leistung in PS</label>
+    <input type="number"/><br/>
+    <label>Kraftstoffart:</label>
+    <select>
+      <option value="Benzin">Benzin</option>
+      <option value="Diesel">Diesel</option>
+      <option value="Erdgas">Erdgas</option>
+      <option value="Elektro">Elektro</option>
+    </select><br/>
+    <label>Getriebeart</label>
+    <select>
+      <option>Manuell</option>
+      <option>Automatik</option>
+      <option>Sonstige</option>
+    </select><br/>
+    <label for="Kilometerstand">Kilometerstand:</label>
+    <input type="number" name="Kilometerstand"/><br/>
+    <label>Bild des Autos</label><br/>
+    <Kennzeichnen>Sie ihre Extras:</Kennzeichnen>
+    <button type="submit">Neues Fahrzeug anlegen</button>
+  </form>
+</body>
+</html>
