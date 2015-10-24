@@ -1,9 +1,9 @@
-//modelle['brand'] = ['modell1', 'modell2', ...];
+//modelle[index] = ['brand', 'modell1', ...];
 
 var modelle = {};
-modelle['audi'] = ["100", "200", "5000", "80", "90", "A1", "A2", "A2 3L", "A3", "A4", "A5", "A6", "A7", "A8", "Cabriolet", "Coupe", "DKW F102", "NSU Ro 80", "Q3", "Q5", "Q7", "Quattro", "S8", "TT", "V8"];
-modelle['bmw'] = ["1er", "2er", "3er", "4er", "5er", "6er", "7er", "8er", "C1", "F 650", "F 800", "i3", "i8", "K 100", "K 1100", "K 1200", "K 75", "R 100", "R 1100", "R 1150", "R 1200", "R 25", "R 45", "R 65", "R 80", "R 850", "S 1000 R", "S 1000 RR", "X1", "X3", "X4", "X5", "X6", "Z1", "Z3", "Z4", "Z8"]; 
-modelle['mercedes'] = ["190",
+modelle[0] = ["Audi", "100", "200", "5000", "80", "90", "A1", "A2", "A2 3L", "A3", "A4", "A5", "A6", "A7", "A8", "Cabriolet", "Coupe", "DKW F102", "NSU Ro 80", "Q3", "Q5", "Q7", "Quattro", "S8", "TT", "V8"];
+modelle[1] = ["BMW", "1er", "2er", "3er", "4er", "5er", "6er", "7er", "8er", "C1", "F 650", "F 800", "i3", "i8", "K 100", "K 1100", "K 1200", "K 75", "R 100", "R 1100", "R 1150", "R 1200", "R 25", "R 45", "R 65", "R 80", "R 850", "S 1000 R", "S 1000 RR", "X1", "X3", "X4", "X5", "X6", "Z1", "Z3", "Z4", "Z8"]; 
+modelle[2] = ["Mercedes", "190",
 "A-Klasse",
 "Actros",
 "Atego",
@@ -33,7 +33,7 @@ modelle['mercedes'] = ["190",
 "Vaneo",
 "Viano",
 "Vito"];
-modelle['vw'] = ["181",
+modelle[3] = ["Volkswagen", "181",
 "Amarok",
 "Bora",
 "Caddy",
@@ -70,6 +70,6 @@ modelle['vw'] = ["181",
 "Vento",
 "VW-Porsche",
 "XL1"];
-modelle['porsche'] = ["911", "924", "928", "944", "964", "968", "Boxster", "Carrera", "Cayenne", "Cayman", "Macan", "Panamera"];
+modelle[4] = ["Porsche", "911", "924", "928", "944", "964", "968", "Boxster", "Carrera", "Cayenne", "Cayman", "Macan", "Panamera"];
 
 exports.list = modelle;
