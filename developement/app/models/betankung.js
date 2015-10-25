@@ -18,11 +18,12 @@ var findById = function (id) {
 Daten werden zur besseren Übersicht in einem 'Betankungs-Objekt' zusammengefasst übergeben
 Die Zusammenfassung der Daten in einem Objekt erfolgt innerhalb der aufrufenden Methode
 */
-var createBetankung = function (profilID, Datum, Kraftstoff, Liter, Kilometer, Vollbetankung){
+var createBetankung = function (laufendeNr, profilID, Datum, Kraftstoff, Liter, Kilometer, Vollbetankung){
 	var obj = jsonfile.readFileSync(file);
 	var betankungen = obj.betankungen;
 
 	var newBetankung = {};
+    newBetankung.laufendeNr = parseInt(betankungen[betankungen.length - 1].laufendeNr)+1;
 	newBetankung.profilID = profilID;
     newBetankung.Datum = Datum;
     newBetankung.Kraftstoff = Kraftstoff;
@@ -46,7 +47,23 @@ var createBetankung = function (profilID, Datum, Kraftstoff, Liter, Kilometer, V
 
 //Keine Ahnung ob das so funktioniert...
 var readBetankung = function(profilID){
+    var obj = jsonfile.readFileSync(file);
+    var betankungen = obj.betankungen;
     
+    for (var i=0; i<betankungen.length; i++){
+        if (betankungen[i].profilID == profilID){
+            var returnBetankung = {};
+            returnBetankung.laufendeNr = laufendeNr;
+            returnBetankung.profilID = profilID;
+            returnBetankung.Datum = Datum;
+            returnBetankung.Kraftstoff = Kraftstoff;
+            returnBetankung.Liter = Liter;
+            returnBetankung.Kilometer = Kilometer;
+            returnBetankung.Vollbetanung = Vollbetankung;
+            return returnBetankung;
+        }
+    }
+    return null;
 }
 
 
