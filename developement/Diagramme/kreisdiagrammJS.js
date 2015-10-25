@@ -2,7 +2,7 @@ var data = [80, 100, 180];
 var labels = ["Autobahn", "Landstraße", "Stadt"];
 var colors = ["#505050", "orange", "#C0C0C0"];
 
-    
+
 function drawSegment(canvas, context, i) {
     context.save();
     var centerX = Math.floor(canvas.width / 2);
@@ -24,7 +24,7 @@ function drawSegment(canvas, context, i) {
 
     context.restore();
 
-   // drawSegmentLabel(canvas, context, i);
+   //drawSegmentLabel(canvas, context, i);
 }
 
 function degreesToRadians(degrees) {
