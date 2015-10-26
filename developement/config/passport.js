@@ -46,19 +46,13 @@ module.exports = function(passport) {
         }, 
         function(req, email, password, done) {
 
-        // asynchronous
-        // User.findOne wont fire unless data is sent back
-            process.nextTick(function() {
-
-        // find a user whose email is the same as the forms email
-        // we are checking to see if the user trying to login already exists
-                if (!User.checkMail(email)){
-                    return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
-                }
-                else {
-                     return done (null, User.createUser(email, password));
-                }
-            });
+        if (!User.checkMail(email)){
+            return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+         }
+         else {
+          return done (null, User.createUser(email, password));
+         }
+        
         }));
 
     // =========================================================================
