@@ -1,51 +1,15 @@
 <html>
   <head>
-    <meta charset="utf-8"/>
-    <title>MySprit</title>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/global.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <% include ./partials/head %>
+    <title>Spritverlauf</title>
+    
       
       <script src="/developement/public/js/kreisdiagrammJS.js"></script>
       <script src="/developement/public/js/VerlaufJS.js"></script>
       <script src="/developement/public/js/legendeKREIS.js"></script>
   </head>
   <body class="body">
-    <header class="header"><img id="logo" src="/img/Logo1.gif"/>
-      <nav>
-        <ul>
-          <li id="myprofile" class="active"><a href="#"><img id="menuicon" src="/img/menu.gif"/></a>
-            <ul>
-              <li><a href="/profil">Profilinformationen</a></li>
-              <li><a href="/fahrzeuge">Meine Autos</a></li>
-              <li><a href="/spritverlauf">Spritverlauf</a></li>
-            </ul>
-          </li>
-          <li id="search" class="active"><a href="#">
-              <input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>
-              <datalist id="herstellerlist">
-                <option value="Audi"></option>
-                <option value="BMW"></option>
-                <option value="Mercedes"></option>
-              </datalist>
-              <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>
-              <datalist id="modelllist">
-                <option value="A3"></option>
-                <option value="A4"></option>
-              </datalist><img id="searchicon" src="/img/search.png "/></a>
-            <ul>
-              <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
-            </ul>
-          </li>
-          <li id="refuel" class="active"><a href="/neueBetankung"><img id="fuelicon" src="/img/fuel.gif"/></a>
-            <ul>
-              <li><a href="#">Auto 1</a></li>
-              <li><a href="#">Auto 2</a></li>
-            </ul>
-          </li>
-          <li id="logout"><a href="/logout"><img id="logouticon" src="/img/logout.gif"/></a></li>
-        </ul>
-      </nav>
-    </header>
+    <% include ./partials/header %>
     <div id="content">
       <div>Hier soll der Spritverlauf angezeigt werden!</div>
     </div>
