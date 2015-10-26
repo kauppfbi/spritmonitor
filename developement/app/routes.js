@@ -62,7 +62,7 @@ module.exports = function(app, passport){
 
     app.get('/neuesFahrzeug', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('fahrzeugAnlegen', {modelle : data.modelle});
+        res.render('fahrzeugAnlegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/neueBetankung', isLoggedIn, function(req, res){
