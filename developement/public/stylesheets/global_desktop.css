@@ -1,0 +1,216 @@
+    body {
+        background-color: darkgray;
+        font-family: Arial, "Lucida Sans Unicode";
+        font-size: 87.5%;
+        text-align: left;
+    }
+    
+    .body {
+        margin: 0 auto;
+        width: 70%;
+        clear: both;
+    }
+    
+    a {
+        text-decoration: none;
+        display: block;
+    }
+    
+    .header img {
+        width: 100%;
+        height: auto;
+    }
+    
+    #logo {
+        width: 50%;
+    }
+    
+    .header nav {
+        background-color: #666;
+        height: 40px;
+        border-radius: 5px;
+        moz-border-radius: 5px;
+        webkit-border-radius: 5px;
+    }
+    
+    .header nav ul {
+        width: 100%;
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        position: relative;
+        display: inline-table;
+    }
+    
+    .header nav ul:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    
+    .header nav ul li {
+        width: 70px;
+        float: left;
+        display: block;
+    }
+    
+    .header nav a:link,
+    .header nav a:visited {
+        color: white;
+        display: block;
+        padding: 10px 25px;
+        height: 20px;
+    }
+    
+    .header nav a:hover,
+    .header nav a:active {
+        background-color: #CF5C3F;
+        color: #FFF;
+        text-shadow: none;
+    }
+    
+    .header nav .active a:hover,
+    .header nav .active a:active {
+        background-color: #CF5C3F;
+        color: #FFF;
+        text-shadow: none;
+    }
+    
+    .header nav ul li a {
+        display: block;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+    
+    .header nav ul ul {
+        width: 170px;
+        display: none;
+        float: none;
+        position: absolute;
+        background-color: #666;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+    
+    .header nav .active:hover > ul {
+        display: block;
+    }
+    
+    .header nav ul ul li {
+        min-width: 170px;
+        float: none;
+        position: relative;
+    }
+    
+    #myprofile {
+        width: 170px;
+    }
+    
+    #search {
+        min-width: 287px;
+        width: 50%;
+    }
+    
+    #searchtext1 {
+        float: left;
+        padding-left: 2px;
+        width: 40%;
+        min-width: 100px;
+    }
+    
+    #searchtext2 {
+        float: left;
+        width: 40%;
+        padding-left: 2px;
+        min-width: 100px;
+    }
+    
+    #searchicon {
+        float: left;
+        height: 21px;
+        width: 10%;
+        max-width: 30px;
+    }
+    
+    #fuelicon {
+        heigth: 25px;
+        width: 25px;
+    }
+
+#refuel {
+    min-width: 170px
+}
+    
+    #menuicon {
+        heigth: 25px;
+        width: 25px;
+    }
+    
+    #logout {
+        float: right;
+    }
+    
+    #logouticon {
+        height: 25px;
+        width: 25px;
+    }
+    
+    h1 {
+        color: black;
+        font-family: Arial;
+        font-size: 132.5%;
+        font-weight: bold;
+    }
+    
+    h2 {
+        color: black;
+        font-family: Arial, serif;
+        font-size: 112.5%;
+    }
+    
+    #content {
+        line-height: normal;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        overflow: hidden;
+        float: left;
+    }
+    
+    button {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        background-color: cadetblue;
+        width: auto;
+        height: auto;
+        padding: 0.5%;
+        margin: 0.25%;
+        border-radius: 5px;
+        font-size: auto;
+        font-family: Arial, serif;
+        color: white;
+    }
+    
+    #tanken {
+        flex-grow: 2;
+        flex-shrink: 1;
+    }
+    
+    #profil {
+        flex-basis: auto;
+        flex-grow: 2;
+    }
+    
+    #suchen {
+        display: flex;
+        box-sizing: border-box;
+        float: left;
+        height: auto;
+        padding: 0.5%;
+        flex-grow: 2;
+        flex-shrink: 2;
+        padding-left: 2%;
+        padding-right: 2%
+    }
