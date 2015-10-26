@@ -94,7 +94,8 @@ module.exports = function(app, passport){
 
     app.post('/neuesFahrzeug', isLoggedIn, function(req, res){
         //fetch all parameters
-        
+        var profilID = req.user.id;
+        console.log(profilID);
         var fahrzeug = {};
 
         fahrzeug.typ = req.body.Fahrzeugtyp;
@@ -109,7 +110,7 @@ module.exports = function(app, passport){
 
         console.log(fahrzeug);
 
-        Fahrzeug.createVehicle(fahrzeug);
+        Fahrzeug.createVehicle(fahrzeug, profilID);
 
         res.redirect('/neuesFahrzeug');
     });

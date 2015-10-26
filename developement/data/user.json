@@ -24,6 +24,16 @@
             "email": "fabian@kaupp.de",
             "password": "$2a$08$LV2TEthGRk3lX2bHfsU16.8MoyOrDhNR5yMfiEbg42sKeqEwRBM6y",
             "id": 4
+        },
+        {
+            "email": "janis@muehlig.de",
+            "password": "$2a$08$38GBH6ORCGEOG5RCzuzg2OqwXpr/rp7Q0UJUYEzNjuENQlzyKYZ7O",
+            "id": 5
+        },
+        {
+            "email": "test@test.de",
+            "password": "$2a$08$Wo.pC21xJYrHnM1KrbjjvuetkOeA1A8ixAoXiNjFOI/rcqiHJEIUq",
+            "id": 6
         }
     ]
 }

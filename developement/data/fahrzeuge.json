@@ -1,16 +1,46 @@
 {
     "fahrzeuge": [
-        {},
-        {
-            "typ": "Auto",
-            "marke": "Audi",
-            "modell": "100",
-            "bezeichnung": "test",
-            "baujahr": "2015",
-            "leistung": "159",
-            "antriebsart": "Benzin",
-            "getriebeart": "Manuell",
-            "kilometerstand": "43533"
-        }
+        [
+            {
+                "typ": "Auto",
+                "marke": "Audi",
+                "modell": "100",
+                "bezeichnung": "test",
+                "baujahr": "2015",
+                "leistung": "159",
+                "antriebsart": "Benzin",
+                "getriebeart": "Manuell",
+                "kilometerstand": "43533"
+            }
+        ],
+        [],
+        [
+            {
+                "typ": "Auto",
+                "marke": "Audi",
+                "modell": "100",
+                "bezeichnung": "Limousine",
+                "baujahr": "1980",
+                "leistung": "110",
+                "antriebsart": "Benzin",
+                "getriebeart": "Manuell",
+                "kilometerstand": "160987"
+            },
+            {
+                "typ": "Motorrad",
+                "marke": "BMW",
+                "modell": "F 800",
+                "bezeichnung": "F800 GS",
+                "baujahr": "2014",
+                "leistung": "90",
+                "antriebsart": "Benzin",
+                "getriebeart": "Manuell",
+                "kilometerstand": "2349"
+            }
+        ],
+        [],
+        [],
+        [],
+        []
     ]
 }

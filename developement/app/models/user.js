@@ -2,6 +2,7 @@ var bcrypt = require('bcrypt-nodejs');
 var jsonfile = require('jsonfile');
 var fs = require('fs');
 var util = require('util');
+var Fahrzeuge = require('./fahrzeuge');
  
 var file = './data/user.json';
 
@@ -40,6 +41,7 @@ var checkMail = function (email){
 };
 
 var createUser = function (email, password){
+	Fahrzeuge.createUser();
 	var obj = jsonfile.readFileSync(file);
 	var user = obj.user;
 
