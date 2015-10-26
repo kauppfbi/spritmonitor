@@ -8,9 +8,10 @@ var util = require('util');
 
 
 var findById = function (id) {
-	var obj = jsonfile.readFileSync(file);
+	/*
+    var obj = jsonfile.readFileSync(file);
 	var betankungen = obj.betankungen;
-	return betankungen[id];
+	return betankungen[id]; */
 };
 
 //Hier müssen noch die Daten aus den Fromularen übergeben werden
@@ -18,21 +19,13 @@ var findById = function (id) {
 Daten werden zur besseren Übersicht in einem 'Betankungs-Objekt' zusammengefasst übergeben
 Die Zusammenfassung der Daten in einem Objekt erfolgt innerhalb der aufrufenden Methode
 */
-var createBetankung = function (laufendeNr, profilID, Datum, Kraftstoff, Liter, Kilometer, Vollbetankung){
+var createBetankung = function (betankung, profilID){
 	var obj = jsonfile.readFileSync(file);
-	var betankungen = obj.betankungen;
+	var alleBetankungen = obj.betankungen;
+    var betankungen = alleBetankungen[profilID];
 
-	var newBetankung = {};
-    newBetankung.laufendeNr = parseInt(betankungen[betankungen.length - 1].laufendeNr)+1;
-	newBetankung.profilID = profilID;
-    newBetankung.Datum = Datum;
-    newBetankung.Kraftstoff = Kraftstoff;
-    newBetankung.Liter = Liter;
-    newBetankung.Kilometer = Kilometer;
-    newBetankung.Vollbetanung = Vollbetankung;
-
-	betankungen.push(newBetankung);
-	obj.betankungen = betankungen;
+	betankungen.push(betankung);
+	obj.betankungen[profilID] = betankungen;
 
 	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
     if(err) {
@@ -40,33 +33,18 @@ var createBetankung = function (laufendeNr, profilID, Datum, Kraftstoff, Liter, 
     } else {
       console.log("JSON saved to " + file);
     }
-    return newBetankung;
 }); 
 };
 
 
 //Keine Ahnung ob das so funktioniert...
-var readBetankung = function(profilID){
+var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
-    var betankungen = obj.betankungen;
-    
-    for (var i=0; i<betankungen.length; i++){
-        if (betankungen[i].profilID == profilID){
-            var returnBetankung = {};
-            returnBetankung.laufendeNr = laufendeNr;
-            returnBetankung.profilID = profilID;
-            returnBetankung.Datum = Datum;
-            returnBetankung.Kraftstoff = Kraftstoff;
-            returnBetankung.Liter = Liter;
-            returnBetankung.Kilometer = Kilometer;
-            returnBetankung.Vollbetanung = Vollbetankung;
-            return returnBetankung;
-        }
-    }
-    return null;
+    var alleBetankungen = obj.betankungen;
+    return alleBetankungen[profilID];
 }
 
 
 //Exports
 exports.createBetankung = createBetankung;
-exports.findById = findById;
+exports.getBetankungByProfilID = getBetankungByProfilID;
