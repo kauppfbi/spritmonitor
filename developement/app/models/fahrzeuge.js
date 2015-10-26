@@ -33,7 +33,7 @@ var createVehicle = function(vehicle, profilID){
 	}); 
 };
 
-var getVehicleByProfilID = function(profilID){
+var getVehiclesByProfilID = function(profilID){
 	var obj = jsonfile.readFileSync(file);
 	var alleFahrzeuge = obj.fahrzeuge;
 
@@ -60,6 +60,6 @@ var createUser = function(){
 
 exports.findById = findById;
 exports.createVehicle = createVehicle;
-exports.getVehicleByProfilID = getVehicleByProfilID;
+exports.getVehiclesByProfilID = getVehiclesByProfilID;
 exports.createUser = createUser;
 

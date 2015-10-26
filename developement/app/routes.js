@@ -41,33 +41,43 @@ module.exports = function(app, passport){
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profil', isLoggedIn, function(req, res) {
+
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+
         res.render('profilinformationen', {
-            user : req.user // get the user out of session and pass to template
+            user : req.user, // get the user out of session and pass to template
+            fahrzeuge : fahrzeugeProfil
         });
     });
 
     app.get('/erweitertesuche', isLoggedIn, function(req, res){
-        res.render('erweiterteSuche');
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('erweiterteSuche', {fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/favoriten', isLoggedIn, function(req, res){
-        res.render('favoriten');
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('favoriten', {fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/neuesFahrzeug', isLoggedIn, function(req, res){
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         res.render('fahrzeugAnlegen', {modelle : data.modelle});
     });
 
     app.get('/neueBetankung', isLoggedIn, function(req, res){
-        res.render('BetankungHinzufuegen');
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('BetankungHinzufuegen', {fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
-        res.render('spritverlauf');
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('spritverlauf', {fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/fahrzeuge', isLoggedIn, function(req, res){
-        res.render('fahrzeuge');
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('fahrzeuge', {fahrzeuge : fahrzeugeProfil});
     });
     
     // =====================================
