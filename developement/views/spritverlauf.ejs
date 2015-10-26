@@ -4,14 +4,18 @@
     <title>Spritverlauf</title>
     
       
-      <script src="/developement/public/js/kreisdiagrammJS.js"></script>
-      <script src="/developement/public/js/VerlaufJS.js"></script>
-      <script src="/developement/public/js/legendeKREIS.js"></script>
+     
+      
   </head>
   <body class="body">
     <% include ./partials/header %>
     <div id="content">
-      <div>Hier soll der Spritverlauf angezeigt werden!</div>
+      <div style="width: 700px height: 400px">
+          <canvas id="canvas" width="700" height="400" style="width: 100%"></canvas>
+      </div>
     </div>
+      <!-- <script src="/js/kreisdiagrammJS.js"></script>
+      <script src="/js/legendeKREIS.js"></script> -->
+      <script src="/js/VerlaufJS.js"></script>
   </body>
 </html>
