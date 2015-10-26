@@ -34,6 +34,11 @@
             "email": "test@test.de",
             "password": "$2a$08$Wo.pC21xJYrHnM1KrbjjvuetkOeA1A8ixAoXiNjFOI/rcqiHJEIUq",
             "id": 6
+        },
+        {
+            "email": "janis@test.de",
+            "password": "$2a$08$KvQSR9bBk8KIYPW81/00IevfIli8JpQCS35FBVNAVNFg5k4vAyNrC",
+            "id": 7
         }
     ]
 }

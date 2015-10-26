@@ -41,6 +41,19 @@
         [],
         [],
         [],
-        []
+        [],
+        [
+            {
+                "typ": "Auto",
+                "marke": "BMW",
+                "modell": "4er",
+                "bezeichnung": "M4",
+                "baujahr": "2015",
+                "leistung": "460",
+                "antriebsart": "Benzin",
+                "getriebeart": "Automatik",
+                "kilometerstand": "0"
+            }
+        ]
     ]
 }
