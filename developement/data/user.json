@@ -30,10 +30,5 @@
             "password": "$2a$08$38GBH6ORCGEOG5RCzuzg2OqwXpr/rp7Q0UJUYEzNjuENQlzyKYZ7O",
             "id": 5
         },
-        {
-            "email": "test@test.de",
-            "password": "$2a$08$Wo.pC21xJYrHnM1KrbjjvuetkOeA1A8ixAoXiNjFOI/rcqiHJEIUq",
-            "id": 6
-        }
     ]
 }
