@@ -3,6 +3,7 @@ var Fahrzeug = require('../app/models/fahrzeuge');
 var Betankung = require('../app/models/betankung');
 
 module.exports = function(app, passport){
+    'use strict';
 	// =====================================
     // HOME PAGE (with login links) ========
     // =====================================
@@ -129,6 +130,7 @@ module.exports = function(app, passport){
     
     //in Arbeit-noch kein Anspruch auf Vollständigkeit
     app.post('/neueBetankung', isLoggedIn, function(req, res){
+        
         var profilID = req.user.id;
         console.log("ProfilID = "+profilID);
         var betankung = {};
