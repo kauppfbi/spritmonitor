@@ -47,6 +47,7 @@ module.exports = function(app, passport){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
 
         res.render('profilinformationen', {
+            modelle : data.modelle, 
             user : req.user, // get the user out of session and pass to template
             fahrzeuge : fahrzeugeProfil
         });
@@ -54,12 +55,12 @@ module.exports = function(app, passport){
 
     app.get('/erweitertesuche', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('erweiterteSuche', {fahrzeuge : fahrzeugeProfil});
+        res.render('erweiterteSuche', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/favoriten', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('favoriten', {fahrzeuge : fahrzeugeProfil});
+        res.render('favoriten', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/neuesFahrzeug', isLoggedIn, function(req, res){
@@ -69,17 +70,17 @@ module.exports = function(app, passport){
 
     app.get('/neueBetankung', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('BetankungHinzufuegen', {fahrzeuge : fahrzeugeProfil});
+        res.render('BetankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('spritverlauf', {fahrzeuge : fahrzeugeProfil});
+        res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/fahrzeuge', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('fahrzeuge', {fahrzeuge : fahrzeugeProfil});
+        res.render('fahrzeuge', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
     
     // =====================================
