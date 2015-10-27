@@ -10,6 +10,8 @@ var verbrauch =  [5, 4.8, 4.7, 4.8, 5, 5.6, 6, 5.5, 4.9, 5.6, 5.1];
 var datum = [" ", "Jan", "Feb", "Mar", "Apr",
 	"May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] 
 
+window.onload = init();
+
 function init() {
         
     var max = 0;
@@ -30,7 +32,7 @@ function init() {
 
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");
-	context.fillStyle = "orange"
+	context.fillStyle = "#CF5C3F"
 	context.font = "10pt Verdana"
     
 	yScale = (canvas.height - columnSize - margin) / (Val_max - Val_min);
@@ -59,7 +61,7 @@ function init() {
 	
 		// Datenstyle
 		
-	context.strokeStyle="orange";
+	context.strokeStyle="#CF5C3F";
     context.lineWidth = 0.2;
 	plotData(verbrauch);
     

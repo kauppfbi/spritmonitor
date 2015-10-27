@@ -1,7 +1,9 @@
 var data = require('../data');
 var Fahrzeug = require('../app/models/fahrzeuge');
+var Betankung = require('../app/models/betankung');
 
 module.exports = function(app, passport){
+    'use strict';
 	// =====================================
     // HOME PAGE (with login links) ========
     // =====================================
@@ -123,6 +125,28 @@ module.exports = function(app, passport){
         Fahrzeug.createVehicle(fahrzeug, profilID);
 
         res.redirect('/neuesFahrzeug');
+    });
+    
+    
+    //in Arbeit-noch kein Anspruch auf Vollständigkeit
+    app.post('/neueBetankung', isLoggedIn, function(req, res){
+        
+        var profilID = req.user.id;
+        console.log("ProfilID = "+profilID);
+        var betankung = {};
+        
+        //betankung.laufendeNr = ?
+        betankung.profilID = profilID;
+        betankung.Datum = req.body.Datum;
+        betankung.Kraftstoff = req.body.Sorte;
+        betankung.Liter = req.body.Menge;
+        betankung.Kilometer = req.body.Tachostand;
+        betankung.Vollbetankung = req.body.Vollbetankung;
+        
+        console.log(betankung);
+        Betankung.createBetankung(betankung, profilID);
+        
+        res.redirect('/neueBetankung');        
     });
 };
 
