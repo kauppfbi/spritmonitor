@@ -7,7 +7,7 @@
   <% include ./partials/header %>
   <div id="content">
     <h1>Neue Betankung:
-      <form>
+        <form name="neueBetankung" method="post">
         <label>Fahrzeug:</label>
         <select>
           <option>KFZ 1</option>
@@ -49,6 +49,7 @@
         <input/><br/>
         <label>Boardcomputer:</label>
         <input type="number"/>Liter/100km<br/>
+       <button id="submit">NeueBetankung</button>
       </form>
     </h1>
   </div>
