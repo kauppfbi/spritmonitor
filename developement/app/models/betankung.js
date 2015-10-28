@@ -37,13 +37,20 @@ var createBetankung = function (betankung, profilID){
 };
 
 
-//Keine Ahnung ob das so funktioniert...
 var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     return alleBetankungen[profilID];
 }
 
+
+var updateBetankung = function(betankung, profilID){
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+    
+    alleBetankungen[profilID]=betankung;
+    
+}
 
 //Exports
 exports.createBetankung = createBetankung;

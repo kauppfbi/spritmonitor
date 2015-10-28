@@ -137,7 +137,7 @@ module.exports = function(app, passport){
         console.log("ProfilID = "+profilID);
         var betankung = {};
         
-       // betankung.laufendeNr = 1+(BetankData[profilID].laufendeNr);
+       betankung.laufendeNr = 1+(BetankData[profilID].laufendeNr);
         betankung.profilID = profilID;
         betankung.Datum = req.body.Datum;
         betankung.Kraftstoff = req.body.Sorte;
