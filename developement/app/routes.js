@@ -2,6 +2,7 @@ var data = require('../data');
 var Fahrzeug = require('../app/models/fahrzeuge');
 var Betankung = require('../app/models/betankung');
 var BetankData = require('../data/betankungen.json');
+var fs = require('fs');
 
 module.exports = function(app, passport){
     'use strict';
@@ -50,6 +51,16 @@ module.exports = function(app, passport){
         res.render('profilinformationen', {
             modelle : data.modelle, 
             user : req.user, // get the user out of session and pass to template
+            fahrzeuge : fahrzeugeProfil
+        });
+    });
+
+    app.get('/profilAendern', isLoggedIn, function(req, res){
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+
+        res.render('profilinformationenAendern', {
+            modelle : data.modelle, 
+            user : req.user, 
             fahrzeuge : fahrzeugeProfil
         });
     });
@@ -149,6 +160,20 @@ module.exports = function(app, passport){
         Betankung.createBetankung(betankung, profilID);
         
         res.redirect('/neueBetankung');        
+    });
+
+    app.post('/profilAendern', isLoggedIn, function(req, res){
+
+        
+        /*fs.readFile(req.files.displayImage.path, function (err, data) {
+  
+            var newPath = __dirname + "/uploads/uploadedFileName";
+            fs.writeFile(newPath, data, function (err) {
+                res.redirect("/profilAendern");
+            });
+        });
+*/  
+        res.redirect('/profilAendern');
     });
 };
 

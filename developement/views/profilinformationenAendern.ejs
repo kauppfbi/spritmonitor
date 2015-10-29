@@ -1,0 +1,17 @@
+<html>
+<head>
+	<% include ./partials/head %>
+	<title>Mein Profil</title>
+</head>
+<body class="body">
+	<% include ./partials/header %>
+	<div id="content">
+		<h1>Profilinformationen ändern:</h1>
+		
+		<form action="profilAendern" method="post" enctype="multipart/form-data">
+			<input type="file" name="file"/>
+			<button type="submit">Bild hochladen</button>  
+		</form>
+	</div>
+</body>
+</html>

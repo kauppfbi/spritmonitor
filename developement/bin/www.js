@@ -60,8 +60,6 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static('./public'));
 
 
-
-
 app.use('/', index);
 //app.use('/posts', index);
 app.use('/home', homeRoute);
