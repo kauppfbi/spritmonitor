@@ -12,9 +12,9 @@
             <li id="search" class="active">
                 <a href="#">
                     <!--<input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>-->
-                    <select id="herstellerlist" onchange="ModellAuswahlUpdate()"></select>
+                    <select id="ListeHersteller" name="HerstellerHeader" onchange="ModellAuswahlUpdate()"></select>
                     <!-- <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>-->
-                    <select id="modelllist"></select>
+                    <select id="ListeModelle" name="ModelleHeader"></select>
                     <img id="searchicon" src="/img/search.png " /></a>
                 <ul>
                     <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
@@ -22,7 +22,7 @@
             </li>
             <li id="refuel" class="active">
                 <a href="/neueBetankung"><img id="fuelicon" src="/img/fuel.gif" /></a>
-                <ul>
+                <ul id="vehicleFromId">
 
                 </ul>
             </li>

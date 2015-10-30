@@ -1,8 +1,6 @@
 window.onload = function(){
-	console.log('onload');
-	console.log(modelle);
-	var AuswahlHersteller = document.getElementById('herstellerlist');
-	var AuswahlModell = document.getElementById('modelllist');
+	var AuswahlHersteller = document.getElementById('ListeHersteller');
+	var AuswahlModell = document.getElementById('ListeModelle');
 
 	//fill 'AuswahlHersteller' with options
 	HerstellerAuswahlfill(AuswahlHersteller);
@@ -14,8 +12,8 @@ window.onload = function(){
 };
 
 var HerstellerAuswahlfill = function(AuswahlHersteller){
-	for (var i = 0; i <= 4; i++){
-		if (i == 4){
+	for (var i = 0; i <= 5; i++){
+		if (i == 5){
 			var option = document.createElement('option');
 			option.text = 'Andere';
 			option.value = 'Andere';
@@ -32,10 +30,13 @@ var HerstellerAuswahlfill = function(AuswahlHersteller){
 
 var ModellAuswahlUpdate = function(){
     console.log('Update');
-	var AuswahlHersteller = document.getElementById('herstellerlist');
-	var AuswahlModell = document.getElementById('modelllist');
+	var AuswahlHersteller = document.getElementById('ListeHersteller');
+	var AuswahlModell = document.getElementById('ListeModelle');
+	console.log(AuswahlHersteller.value);
+	console.log(AuswahlModell.hasChildNodes());
 	while(AuswahlModell.hasChildNodes()){
 		AuswahlModell.removeChild(AuswahlModell.childNodes[0]);
+		console.log('remove child');
 	}
 
 	if(AuswahlHersteller.value == 'Audi'){
@@ -82,5 +83,5 @@ var ModellAuswahlUpdate = function(){
 		var inputField = document.createElement('input');
 
 	}
-
+	console.log('Updated Modelle!');
 };
