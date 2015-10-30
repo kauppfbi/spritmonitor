@@ -3,14 +3,21 @@
     <% include ./partials/head %>
     <title>Mein Profil</title>
   </head>
-  <body class="body">
+  <body class="body" onload="test()">
     <% include ./partials/header %>
     <div id="content">
       <span>
-        UserID: 
-        Email:
-        Passwort:
+          <br>
+       <a>UserID:</a> 
+          <br>
+          <a>Email:</a>
+          <br>
+          <a>Passwort: *****</a>
+          <br>
       </span>
+        <button type="button" id="ProfilLoeschen" onclick="deleteProfil()">Profil löschen</button>
     </div>
+      <script src="/js/profilinformation.js"></script>
+      <script src="/js/profildetails.js"></script>
   </body>
 </html>
