@@ -2,6 +2,10 @@
   <head>
     <% include ./partials/head %>
     <title>Mein Profil</title>
+    <script type="text/javascript">
+      var user = <%- JSON.stringify(user) %>
+      console.log(user);
+    </script>
   </head>
   <body class="body" onload="test()">
     <% include ./partials/header %>
@@ -10,7 +14,7 @@
           <br>
        <a>UserID:</a> 
           <br>
-          <a>Email:</a>
+          <a>Email: <%= user.email %></a>
           <br>
           <a>Passwort: *****</a>
           <br>
