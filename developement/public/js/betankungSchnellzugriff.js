@@ -1,9 +1,6 @@
 window.onload = function(){
-	console.log(fahrzeuge);
-	console.log(fahrzeuge.isEmpty);
-	var refuelParent = document.getElementById('refuel');
-	var refuel = refuelParent.childNodes[0];
-
+	var refuel = document.getElementById('vehicleFromId');
+	console.log(refuel);
 	for (var i = 0; i < fahrzeuge.length; i++){
 		var listElement = document.createElement('li');
 		var reference = document.createElement('a');
