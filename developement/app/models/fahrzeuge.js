@@ -20,6 +20,9 @@ var createVehicle = function(vehicle, profilID){
 	var alleFahrzeuge = obj.fahrzeuge;
 	var fahrzeuge = alleFahrzeuge[profilID];
 	
+	//add fahrzeugID here 
+	var fahrzeugID = (profilID+1)*100+fahrzeuge.length;
+	vehicle.id = fahrzeugID;
 	fahrzeuge.push(vehicle);
 
 	obj.fahrzeuge[profilID] = fahrzeuge;
@@ -98,10 +101,34 @@ var getFahrzeugbeschreibungByProfilID = function(profilID){
 	return fahrzeugeBeschreibungen;
 };
 
+var updateFahrzeug = function (newVehicle, profilID){
+	var obj = jsonfile.readFileSync(file);
+	var alleFahrzeuge = obj.fahrzeuge;
+
+	var fahrzeugeProfil = alleFahrzeuge[profilID];
+
+	for (var i = 0; i < fahrzeugeProfil.length; i++){
+		if (fahrzeugeProfil[i].id == vehicle.id){
+			fahrzeugeProfil[i] = vehicle;
+		}
+	}
+	alleFahrzeuge[profilID] = fahrzeugeProfil;
+	obj.fahrzeuge = alleFahrzeuge; 
+
+	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("JSON saved to " + file);
+		}
+	}); 
+
+};
+
 exports.findById = findById;
 exports.createVehicle = createVehicle;
 exports.getVehiclesByProfilID = getVehiclesByProfilID;
 exports.createUser = createUser;
 exports.search = search;
 exports.getFahrzeugbeschreibungByProfilID = getFahrzeugbeschreibungByProfilID;
-
+exports.updateFahrzeug = updateFahrzeug;

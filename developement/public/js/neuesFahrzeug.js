@@ -19,13 +19,13 @@ var fillHerstellerAuswahl = function(herstellerAuswahl){
 			var option = document.createElement('option');
 			option.text = 'Andere';
 			option.value = 'Andere';
-			herstellerAuswahl.add(option);
+			herstellerAuswahl.appendChild(option);
 		}
 		else{
 			var option = document.createElement('option');
 			option.text = modelle[i][0];
 			option.value = modelle[i][0];
-			herstellerAuswahl.add(option);
+			herstellerAuswahl.appendChild(option);
 		}		
 	}
 };
@@ -42,7 +42,7 @@ var updateModellAuswahl = function(){
 			var option = document.createElement('option');
 			option.text = modelle[0][i];
 			option.value = modelle[0][i];
-			modellAuswahl.add(option);
+			modellAuswahl.appendChild(option);
 		}
 	}
 	else if (herstellerAuswahl.value == 'BMW'){
@@ -50,7 +50,7 @@ var updateModellAuswahl = function(){
 			var option = document.createElement('option');
 			option.text = modelle[1][i];
 			option.value = modelle[1][i];
-			modellAuswahl.add(option);
+			modellAuswahl.appendChild(option);
 		}
 	}
 	else if (herstellerAuswahl.value == 'Mercedes'){
@@ -58,7 +58,7 @@ var updateModellAuswahl = function(){
 			var option = document.createElement('option');
 			option.text = modelle[2][i];
 			option.value = modelle[2][i];
-			modellAuswahl.add(option);
+			modellAuswahl.appendChild(option);
 		}
 	}
 	else if (herstellerAuswahl.value == 'Volkswagen'){
@@ -66,7 +66,7 @@ var updateModellAuswahl = function(){
 			var option = document.createElement('option');
 			option.text = modelle[3][i];
 			option.value = modelle[3][i];
-			modellAuswahl.add(option);
+			modellAuswahl.appendChild(option);
 		}
 	}
 	else if (herstellerAuswahl.value == 'Porsche'){
@@ -74,7 +74,7 @@ var updateModellAuswahl = function(){
 			var option = document.createElement('option');
 			option.text = modelle[4][i];
 			option.value = modelle[4][i];
-			modellAuswahl.add(option);
+			modellAuswahl.appendChild(option);
 		}
 	}
 	else if(herstellerAuswahl.value == 'Andere'){

@@ -2,6 +2,7 @@
     "fahrzeuge": [
         [
             {
+                "id": 0,
                 "typ": "Auto",
                 "marke": "Audi",
                 "modell": "100",
@@ -16,6 +17,7 @@
         [],
         [
             {
+                "id": 300,
                 "typ": "Auto",
                 "marke": "Audi",
                 "modell": "100",
@@ -27,6 +29,7 @@
                 "kilometerstand": "160987"
             },
             {
+                "id": 301,
                 "typ": "Motorrad",
                 "marke": "BMW",
                 "modell": "F 800",
@@ -36,12 +39,25 @@
                 "antriebsart": "Benzin",
                 "getriebeart": "Manuell",
                 "kilometerstand": "2349"
+            },
+            {
+                "typ": "Auto",
+                "marke": "Audi",
+                "modell": "A4",
+                "bezeichnung": "2.0 TDI Ambiente",
+                "baujahr": "2015",
+                "leistung": "184",
+                "antriebsart": "Diesel",
+                "getriebeart": "Automatik",
+                "kilometerstand": "0",
+                "id": 302
             }
         ],
         [],
         [],
         [
             {
+                "id": 600,
                 "typ": "Auto",
                 "marke": "BMW",
                 "modell": "4er",
