@@ -53,7 +53,20 @@
                 "id": 302
             }
         ],
-        [],
+        [
+            {
+                "typ": "Auto",
+                "marke": "Audi",
+                "modell": "A3",
+                "bezeichnung": "",
+                "baujahr": "2005",
+                "leistung": "100",
+                "antriebsart": "Benzin",
+                "getriebeart": "Manuell",
+                "kilometerstand": "134000",
+                "id": 400
+            }
+        ],
         [],
         [
             {
