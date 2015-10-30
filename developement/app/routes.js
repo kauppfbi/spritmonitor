@@ -99,6 +99,11 @@ module.exports = function(app, passport){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         res.render('fahrzeuge', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
+
+    app.get('/startseite', isLoggedIn, function(req, res){
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('startseite', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
+    });
     
     // =====================================
     // LOGOUT ==============================
@@ -110,14 +115,14 @@ module.exports = function(app, passport){
 
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/favoriten', // redirect to the secure profile section
+        successRedirect : '/startseite', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
 
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/favoriten', // redirect to the secure profile section
+        successRedirect : '/startseite', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
