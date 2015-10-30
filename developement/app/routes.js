@@ -112,6 +112,27 @@ module.exports = function(app, passport){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         res.render('startseite', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
+    app.get('/meineBetankungen', isLoggedIn, function(req, res){
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('meineBetankungen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, betankungen :             {
+                "profilID": 0,
+                "Datum": "2015-10-01",
+                "Kraftstoff": "Super",
+                "Liter": "10",
+                "Kilometer": "20000"
+            }});
+    });
+    
+    app.get('/fahrzeuginformationen', isLoggedIn, function(req, res){
+        
+        var fahrzeugId = req.params.id;
+        
+        //get specific vehicle from id here
+        var fahrzeug = Fahrzeug.findById(fahrzeugId);
+        
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('fahrzeuginformationen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, fahrzeug : fahrzeug});
+    });
     
     // =====================================
     // LOGOUT ==============================
