@@ -37,13 +37,44 @@ var createBetankung = function (betankung, profilID){
 };
 
 
-//Keine Ahnung ob das so funktioniert...
 var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     return alleBetankungen[profilID];
 }
 
+//Betankung wird übergeben
+//entsprechende Betankung wird herausgesucht und
+//ersetzt
+var updateBetankung = function(betankung, profilID){
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+    
+    console.log(betankung);
+    console.log(betankung.laufendeNr);
+    
+    for(i=0; i<=alleBetankungen.length; i++){
+        if(alleBetankungen[profilID].laufendeNr==betankung.laufendeNr){
+        alleBetankungen[profilID] = betankung;
+    }
+
+    }
+}
+
+
+//Keine Vollständige Implementierung
+var deleteBetankung = function(betankung, profilID){
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+    
+    console.log(profilID);
+    console.log(betankung.laufendeNr);
+    
+    if(alleBetankungen[profilID].laufendeNr==betankung.laufendeNr){
+        
+        console.log("Eintrag gelöscht");
+    }    
+}
 
 //Exports
 exports.createBetankung = createBetankung;

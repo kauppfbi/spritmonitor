@@ -10,6 +10,10 @@ var flash = require('connect-flash');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+//var busboy = require('connect-busboy');
+//var multer  = require('multer');
+
 var session = require('express-session');
 
 //routes
@@ -20,9 +24,6 @@ var homeRoute = require('../routes/home');
 var profilRoute = require('../routes/profil');
 var fahrzeugRoute = require ('../routes/fahrzeuge');
 var statistikRoute = require('../routes/statistik');
-
-
-
 
 
 // configuration ===============================================================
@@ -37,6 +38,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 //get information from html forms
 app.use(bodyParser());
+//app.use(busboy());
 
 //View engine
 //set directory
@@ -60,20 +62,12 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static('./public'));
 
 
-
-
 app.use('/', index);
 //app.use('/posts', index);
 app.use('/home', homeRoute);
 app.use('/meinprofil', profilRoute);
 app.use('/meinefahrzeuge', fahrzeugRoute);
 app.use('/statistik', statistikRoute);
-
-
-
-
-
-
 
 
 //Error Handling
