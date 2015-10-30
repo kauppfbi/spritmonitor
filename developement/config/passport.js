@@ -87,7 +87,7 @@ module.exports = function(passport) {
                 var user = {};
                 user = User.getByEmail(email);
                 //console.log('return done(null, ' + user);
-                return done(null, user);
+                return done(null, user, req.flash('Message', 'Registration successfully. Please log in.'));
             }
         }
     }));

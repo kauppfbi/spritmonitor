@@ -7,49 +7,49 @@
   <% include ./partials/header %>
   <div id="content">
     <h1>Neue Betankung:
-        <form name="neueBetankung" method="post">
-        <label>Fahrzeug:</label>
-        <select>
+      <form name="neueBetankung" method="post">
+        <label for="Fahrzeug">Fahrzeug:</label>
+        <select name="Fahrzeug">
           <option>KFZ 1</option>
           <option>KFZ 2</option>
         </select><br/>
-        <label>Datum:</label>
-        <input type="date" value="2015-10-01"/><br/>
-        <label>Tachostand:</label>
-        <input type="number"/><br/>
-        <label>Distanz:</label>
-        <input type="number"/>value dynamically<br/>
-        <label>Menge:</label>
-        <input type="number"/><br/>
-        <label>Vollbetankung:</label>
-        <input type="checkbox" value="true"/><br/>
-        <label>Sorte:</label>per JS automatisch 
-        <select>
+        <label for="Datum">Datum:</label>
+        <input name="Datum" type="date" value="2015-10-01"/><br/>
+        <label for="Tachostand">Tachostand:</label>
+        <input name="Tachostand" type="number"/><br/>
+        <label for="Distanz">Distanz:</label>
+        <input name="Distanz" type="number"/>value dynamically<br/>
+        <label for="Menge">Menge:</label>
+        <input name="Menge" type="number"/><br/>
+        <label for="Vollbetankung">Vollbetankung:</label>
+        <input name="Vollbetankung" type="checkbox" value="true"/><br/>
+        <label for="Sorte">Sorte:</label>per JS automatisch 
+        <select name="Sorte">
           <option>Super</option>
           <option>E10</option>
         </select><br/>
-        <label>Kosten:</label>
-        <input type="number"/>€<br/>
-        <label>Bemerkung:</label>
-        <textarea></textarea><br/>
-        <label>Reifen:</label>
-        <input type="radio" name="reifen" value="Sommerreifen"/>Sommerreifen
-        <input type="radio" name="reifen" value="Winterreifen"/>Winterreifen
-        <input type="radio" name="reifen" value="Ganzjahresreifen"/>Ganzjahresreifen<br/>
-        <label>Fahrweise:</label>
-        <input type="radio" value="sparsam"/>sparsam
-        <input type="radio" value="normal"/>normal
-        <input type="radio" value="schnell"/>schnell<br/>
-        <label>Strecken:</label>
-        <input type="checkbox" value="Stadt"/>Stadt
-        <input type="checkbox" value="Land"/>Landstraße
-        <input type="checkbox" value="Autobahn"/>Autobahn<br/>
+        <label for="Kosten">Kosten:</label>
+        <input name="Kosten" type="number"/>€<br/>
+        <label for="Bemerkung">Bemerkung:</label>
+        <textarea name="Bemerkung"></textarea><br/>
+        <label for="Reifen">Reifen:</label>
+        <input name="Reifen" type="radio" value="Sommerreifen"/>Sommerreifen
+        <input type="radio" name="Reifen" value="Winterreifen"/>Winterreifen
+        <input type="radio" name="Reifen" value="Ganzjahresreifen"/>Ganzjahresreifen<br/>
+        <label for="Fahrweise">Fahrweise:</label>
+        <input name="Fahrweise" type="radio" value="sparsam"/>sparsam
+        <input name="Fahrweise" type="radio" value="normal"/>normal
+        <input name="Fahrweise" type="radio" value="schnell"/>schnell<br/>
+        <label for="Strecken">Strecken:</label>
+        <input name="Strecken" type="checkbox" value="Stadt"/>Stadt
+        <input name="Strecken" type="checkbox" value="Land"/>Landstraße
+        <input name="Strecken" type="checkbox" value="Autobahn"/>Autobahn<br/>
         <label>Extras:</label><br/>
-        <label>Tankstelle:</label>
-        <input/><br/>
-        <label>Boardcomputer:</label>
-        <input type="number"/>Liter/100km<br/>
-       <button id="submit">NeueBetankung</button>
+        <label for="Tankstelle">Tankstelle:</label>
+        <input name="Tankstelle"/><br/>
+        <label for="Boardcomputer">Boardcomputer:</label>
+        <input name="Boardcomputer" type="number"/>Liter/100km<br/>
+        <button type="submit">Betankung hinzufügen</button>  
       </form>
     </h1>
   </div>

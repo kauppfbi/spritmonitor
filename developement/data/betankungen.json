@@ -1,8 +1,13 @@
-//betankungen = {laufendeNr, profilID, Datum, Kraftstoff, Liter, Kilometer, Vollbetankung}
-/*{"betankungen": [{"profilID": 0, "Datum": "19-10-15", "Kraftstoff": "Diesel", "Liter": 39, "Kilometer": 500, "Vollbetankung": true}]} */
-
 {
     "betankungen": [
-       
+        [
+            {
+                "profilID": 0,
+                "Datum": "2015-10-01",
+                "Kraftstoff": "Super",
+                "Liter": "10",
+                "Kilometer": "20000"
+            }
+        ]
     ]
 }

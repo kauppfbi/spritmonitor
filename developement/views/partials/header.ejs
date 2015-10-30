@@ -9,17 +9,11 @@
         </ul>
       </li>
       <li id="search" class="active"><a href="#">
-        <input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>
-        <datalist id="herstellerlist">
-          <option value="Audi"></option>
-          <option value="BMW"></option>
-          <option value="Mercedes"></option>
-        </datalist>
-        <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>
-        <datalist id="modelllist">
-          <option value="A3"></option>
-          <option value="A4"></option>
-        </datalist><img id="searchicon" src="/img/search.png "/></a>
+       <!--<input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>-->
+        <select id="herstellerlist" onchange="ModellAuswahlUpdate()"></select>
+       <!-- <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>-->
+        <select id="modelllist"></select>
+          <img id="searchicon" src="/img/search.png "/></a>
         <ul>
           <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
         </ul>
@@ -32,4 +26,8 @@
       <li id="logout"><a href="/logout"><img id="logouticon" src="/img/logout.gif"/></a></li>
     </ul>
   </nav>
+    <script type="text/javascript">
+    var modelle = <%- JSON.stringify(modelle) %>;
+  </script>
+  <script src="/js/headerSuche.js"></script>
 </header>

@@ -1,7 +1,10 @@
 var data = require('../data');
 var Fahrzeug = require('../app/models/fahrzeuge');
+var Betankung = require('../app/models/betankung');
+var BetankData = require('../data/betankungen.json');
 
 module.exports = function(app, passport){
+    'use strict';
 	// =====================================
     // HOME PAGE (with login links) ========
     // =====================================
@@ -45,6 +48,7 @@ module.exports = function(app, passport){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
 
         res.render('profilinformationen', {
+            modelle : data.modelle, 
             user : req.user, // get the user out of session and pass to template
             fahrzeuge : fahrzeugeProfil
         });
@@ -52,12 +56,12 @@ module.exports = function(app, passport){
 
     app.get('/erweitertesuche', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('erweiterteSuche', {fahrzeuge : fahrzeugeProfil});
+        res.render('erweiterteSuche', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/favoriten', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('favoriten', {fahrzeuge : fahrzeugeProfil});
+        res.render('favoriten', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/neuesFahrzeug', isLoggedIn, function(req, res){
@@ -67,17 +71,17 @@ module.exports = function(app, passport){
 
     app.get('/neueBetankung', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('BetankungHinzufuegen', {fahrzeuge : fahrzeugeProfil});
+        res.render('BetankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('spritverlauf', {fahrzeuge : fahrzeugeProfil});
+        res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
 
     app.get('/fahrzeuge', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('fahrzeuge', {fahrzeuge : fahrzeugeProfil});
+        res.render('fahrzeuge', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
     
     // =====================================
@@ -91,7 +95,7 @@ module.exports = function(app, passport){
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect : '/favoriten', // redirect to the secure profile section
-        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
 
@@ -123,6 +127,28 @@ module.exports = function(app, passport){
         Fahrzeug.createVehicle(fahrzeug, profilID);
 
         res.redirect('/neuesFahrzeug');
+    });
+    
+    
+    //in Arbeit-noch kein Anspruch auf Vollständigkeit
+    app.post('/neueBetankung', isLoggedIn, function(req, res){
+        
+        var profilID = req.user.id;
+        console.log("ProfilID = "+profilID);
+        var betankung = {};
+        
+       // betankung.laufendeNr = 1+(BetankData[profilID].laufendeNr);
+        betankung.profilID = profilID;
+        betankung.Datum = req.body.Datum;
+        betankung.Kraftstoff = req.body.Sorte;
+        betankung.Liter = req.body.Menge;
+        betankung.Kilometer = req.body.Tachostand;
+        betankung.Vollbetankung = req.body.Vollbetankung;
+        
+        console.log(betankung);
+        Betankung.createBetankung(betankung, profilID);
+        
+        res.redirect('/neueBetankung');        
     });
 };
 
