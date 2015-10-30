@@ -87,7 +87,12 @@ module.exports = function(app, passport){
 
     app.get('/neueBetankung', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('BetankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
+        if(Fahrzeug.fahrzeugbeschreibungbyprofilID[req.user.id]==0){
+            console.error("Kein Fahrzeug zu ID");
+        }else{
+            var fahrzeugbeschreibung = Fahrzeug.fahrzeugbeschreibungbyprofilID[req.user.id];
+        }
+        res.render('BetankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugbeschreibung});
     });
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
@@ -113,6 +118,17 @@ module.exports = function(app, passport){
                 "Liter": "10",
                 "Kilometer": "20000"
             }});
+    });
+    
+    app.get('/fahrzeuginformationen', isLoggedIn, function(req, res){
+        
+        var fahrzeugId = req.params.id;
+        
+        //get specific vehicle from id here
+        var fahrzeug = Fahrzeug.findById(fahrzeugId);
+        
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('fahrzeuginformationen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, fahrzeug : fahrzeug});
     });
     
     // =====================================
@@ -170,6 +186,7 @@ module.exports = function(app, passport){
         
        betankung.laufendeNr = 1+(BetankData[profilID].laufendeNr);
         betankung.profilID = profilID;
+        betankung.Fahrzeug = req.body.Fahrzeug;
         betankung.Datum = req.body.Datum;
         betankung.Kraftstoff = req.body.Sorte;
         betankung.Liter = req.body.Menge;

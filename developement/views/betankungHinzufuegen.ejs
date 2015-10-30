@@ -2,6 +2,9 @@
 <head>
   <% include ./partials/head %>
   <title>MySprit</title>
+    <script> var fahrzeugBeschreibungen = <%- JSON.stringify(beschreibung) %>
+    </script>
+    <script language="javascript" type="text/javascript" src="../public/js/betankungHinzufuegen.js"></script>
 </head>
 <body class="body">
   <% include ./partials/header %>
@@ -10,9 +13,7 @@
       <form name="neueBetankung" method="post">
         <label for="Fahrzeug">Fahrzeug:</label>
         <select name="Fahrzeug">
-          <option>KFZ 1</option>
-          <option>KFZ 2</option>
-        </select><br/>
+          </select><br/>
         <label for="Datum">Datum:</label>
         <input name="Datum" type="date" value="2015-10-01"/><br/>
         <label for="Tachostand">Tachostand:</label>

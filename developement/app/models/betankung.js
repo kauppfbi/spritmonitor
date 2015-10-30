@@ -43,6 +43,8 @@ var getBetankungByProfilID = function(profilID){
     return alleBetankungen[profilID];
 }
 
+var getBetankungByFzg = function()
+
 //Betankung wird übergeben
 //entsprechende Betankung wird herausgesucht und
 //ersetzt
@@ -53,11 +55,10 @@ var updateBetankung = function(betankung, profilID){
     console.log(betankung);
     console.log(betankung.laufendeNr);
     
-    for(i=0; i<=alleBetankungen.length; i++){
+    for(var i=0; i<=alleBetankungen.length; i++){
         if(alleBetankungen[profilID].laufendeNr==betankung.laufendeNr){
         alleBetankungen[profilID] = betankung;
     }
-
     }
 }
 
