@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <% include ./partials/head %>
+    <title>Meine Betankungen</title>
+  </head>
+  <body class="body">
+    <% include ./partials/header %>
+    <div id="content">
+        <table border="">
+      <span>
+        <tr> <!-- erste Zeile -->
+            <th>Betankung Nr:</th>
+            <th>Datum</th>
+            <th>Kraftstoff</th>
+            <th>Liter</th>
+            <th>Kilometer</th>
+        </tr>
+        <tr>
+            <td><!-- zähler: 1 -->1</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><!-- Zähler: 2-->2</td>
+        </tr>
+        
+        
+        <table>
+            <% for(var i=0; i < betankungen.length; i++) { %>
+            <tr>
+                <td><%= betankungen[i].Kraftstoff %></td>
+            </tr>
+            <% } %>
+        </table>
+        
+      </span>
+        </table>
+    </div>
+  </body>
+</html>
