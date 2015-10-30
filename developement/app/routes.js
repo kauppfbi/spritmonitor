@@ -87,10 +87,13 @@ module.exports = function(app, passport){
 
     app.get('/neueBetankung', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        if(Fahrzeug.fahrzeugbeschreibungbyprofilID[req.user.id]==0){
+        
+        var fahrzeugBeschreibungen = Fahrzeug.getFahrzeugbeschreibungByProfilID(req.user.id);
+        
+        if(fahrzeugBeschreibungen==null){
             console.error("Kein Fahrzeug zu ID");
         }else{
-            var fahrzeugbeschreibung = Fahrzeug.fahrzeugbeschreibungbyprofilID[req.user.id];
+            var fahrzeugbeschreibung = Fahrzeug.getFahrzeugbeschreibungByProfilID[req.user.id];
         }
         res.render('BetankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugbeschreibung});
     });

@@ -43,7 +43,7 @@ var getBetankungByProfilID = function(profilID){
     return alleBetankungen[profilID];
 }
 
-var getBetankungByFzg = function()
+var getBetankungByFzg = function(){};
 
 //Betankung wird übergeben
 //entsprechende Betankung wird herausgesucht und
