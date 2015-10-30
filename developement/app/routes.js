@@ -2,7 +2,12 @@ var data = require('../data');
 var Fahrzeug = require('../app/models/fahrzeuge');
 var Betankung = require('../app/models/betankung');
 var BetankData = require('../data/betankungen.json');
-var fs = require('fs');
+//var fs = require('fs');
+/*var multer = require('multer');
+var uploading = multer({
+  dest: __dirname + '../public/uploads/',
+  limits: {fileSize: 1000000, files:1},
+});*/
 
 module.exports = function(app, passport){
     'use strict';
@@ -99,6 +104,11 @@ module.exports = function(app, passport){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         res.render('fahrzeuge', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
+
+    app.get('/startseite', isLoggedIn, function(req, res){
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('startseite', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
+    });
     
     // =====================================
     // LOGOUT ==============================
@@ -110,14 +120,14 @@ module.exports = function(app, passport){
 
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/favoriten', // redirect to the secure profile section
+        successRedirect : '/startseite', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
 
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/favoriten', // redirect to the secure profile section
+        successRedirect : '/startseite', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
@@ -169,17 +179,8 @@ module.exports = function(app, passport){
     });
 
     app.post('/profilAendern', isLoggedIn, function(req, res){
-
-        
-        /*fs.readFile(req.files.displayImage.path, function (err, data) {
-  
-            var newPath = __dirname + "/uploads/uploadedFileName";
-            fs.writeFile(newPath, data, function (err) {
-                res.redirect("/profilAendern");
-            });
-        });
-*/  
-        res.redirect('/profilAendern');
+        console.log('Logik muss noch implementiert werden!');
+        res.redirect('profilAendern');
     });
 };
 
