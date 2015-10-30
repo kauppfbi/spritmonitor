@@ -58,8 +58,50 @@ var createUser = function(){
 	}); 
 };
 
+var search = function(marke, modell){
+	var obj = jsonfile.readFileSync(file);
+	var alleFahrzeuge = obj.fahrzeuge;
+
+	var fahrzeuge = new Array();
+
+	//durchlaufe alle Fahrzeuge und vergleiche, ob diese zu den Suchparametern passen
+	for (var i = 0; i < alleFahrzeuge.length; i++){
+		var fahrzeugeProfil = alleFahrzeuge[i];
+		for (var j = 0; j < fahrzeugeProfil.length; j++){
+			if (fahrzeugeProfil[j].marke == marke){
+				if (fahrzeugeProfil[j].modell == modell){
+					fahrzeuge.push(fahrzeugeProfil[j]);
+				}
+			}
+		}
+
+	}
+	if (fahrzeuge.isEmpty){
+		return null;
+	}
+	else 
+		return fahrzeuge;
+};
+
+var getFahrzeugbeschreibungByProfilID = function(profilID){
+	var fahrzeugeBeschreibungen = new Array(); 
+
+	var fahrzeugeProfil = getVehiclesByProfilID(profilID);
+
+	if (fahrzeugeProfil.isEmpty){
+		return null; 
+	}
+
+	for (var i = 0; i < fahrzeugeProfil.length; i++){
+		fahrzeugeBeschreibungen.push(fahrzeugeProfil[i].marke + " " + fahrzeugeProfil[i].modell);
+	}
+	return fahrzeugeBeschreibungen;
+};
+
 exports.findById = findById;
 exports.createVehicle = createVehicle;
 exports.getVehiclesByProfilID = getVehiclesByProfilID;
 exports.createUser = createUser;
+exports.search = search;
+exports.getFahrzeugbeschreibungByProfilID = getFahrzeugbeschreibungByProfilID;
 
