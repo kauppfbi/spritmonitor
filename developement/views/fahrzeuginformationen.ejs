@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <% include ./partials/head %>
+    <title>Meine Autos</title>
+   
+  </head>
+  <body class="body" onload="test()">
+    <% include ./partials/header %>
+    <div id="content">
+      <span>
+          <br>
+        <a>Fahrzeugtyp: <%= fahrzeug.typ %> </a> 
+          <br>
+          <a>Marke: <%= fahrzeug.marke %></a>
+          <br>
+          <a>Modell: <%= fahrzeug.modell %></a>
+          <br>
+          <a>Bezeichnung: <%= fahrzeug.bezeichnung %></a>
+          <br>
+          <a>Baujahr: <%= fahrzeug.baujahr %></a>
+          <br>
+          <a>Leistung: <%= fahrzeug.leistung %> PS</a>
+          <br>
+          <a>Treibstoff: <%= fahrzeug.antriebsart %></a>
+          <br>
+          <a>Getriebe: <%= fahrzeug.getriebeart %></a>
+          <br>
+          <a>Anfangskilometerstand: <%= fahrzeug.kilometerstand %> km</a>
+          <br>
+      </span>
+    </div>
+  </body>
+</html>

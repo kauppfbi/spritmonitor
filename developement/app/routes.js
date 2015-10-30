@@ -110,6 +110,17 @@ module.exports = function(app, passport){
         res.render('startseite', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
     
+    app.get('/fahrzeuginformationen', isLoggedIn, function(req, res){
+        
+        var fahrzeugId = req.params.id;
+        
+        //get specific vehicle from id here
+        var fahrzeug = Fahrzeug.findById(fahrzeugId);
+        
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('fahrzeuginformationen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, fahrzeug : fahrzeug});
+    });
+    
     // =====================================
     // LOGOUT ==============================
     // =====================================

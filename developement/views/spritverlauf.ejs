@@ -2,20 +2,34 @@
   <head>
     <% include ./partials/head %>
     <title>Spritverlauf</title>
-    
-      
-     
       
   </head>
   <body class="body">
     <% include ./partials/header %>
     <div id="content">
       <div style="width: 700px height: 400px">
+          <br>
+          <h2>Durchschnittlicher Spritverlauf</h2>
           <canvas id="canvas" width="700" height="400" style="width: 100%"></canvas>
       </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="width: 400px height: 400">
+            <h2>Streckenprofil</h2>
+            <br>
+            <br>
+            <canvas id="piechart" height="200" width="200"></canvas>
+            <canvas id="legende" height="200" width="200" style="text-align: right"></canvas> 
+            <br>
+        <br>
+        <br>
+        <br>
+        </div>
     </div>
-      <!-- <script src="/js/kreisdiagrammJS.js"></script>
-      <script src="/js/legendeKREIS.js"></script> -->
+      <script src="/js/kreisdiagrammJS.js"></script>
+      <script src="/js/legendeKREIS.js"></script> 
       <script src="/js/VerlaufJS.js"></script>
   </body>
 </html>
