@@ -1,33 +1,38 @@
-<header class="header"><img id="logo" src="/img/Logo1.gif"/>
-  <nav>
-    <ul>
-      <li id="myprofile" class="active"><a href="#"><img id="menuicon" src="/img/menu.gif"/></a>
+<header class="header"><img href="startseite.ejs" id="logo" src="/img/Logo1.gif" />
+    <nav>
         <ul>
-          <li><a href="/profil">Profilinformationen</a></li>
-          <li><a href="/fahrzeuge">Meine Autos</a></li>
-          <li><a href="/spritverlauf">Spritverlauf</a></li>
+            <li id="myprofile" class="active">
+                <a href="#"><img id="menuicon" src="/img/menu.gif" /></a>
+                <ul>
+                    <li><a href="/profil">Profilinformationen</a></li>
+                    <li><a href="/fahrzeuge">Meine Autos</a></li>
+                    <li><a href="/spritverlauf">Spritverlauf</a></li>
+                </ul>
+            </li>
+            <li id="search" class="active">
+                <a href="#">
+                    <!--<input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>-->
+                    <select id="herstellerlist" onchange="ModellAuswahlUpdate()"></select>
+                    <!-- <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>-->
+                    <select id="modelllist"></select>
+                    <img id="searchicon" src="/img/search.png " /></a>
+                <ul>
+                    <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
+                </ul>
+            </li>
+            <li id="refuel" class="active">
+                <a href="/neueBetankung"><img id="fuelicon" src="/img/fuel.gif" /></a>
+                <ul>
+
+                </ul>
+            </li>
+            <li id="logout">
+                <a href="/logout"><img id="logouticon" src="/img/logout.gif" /></a>
+            </li>
         </ul>
-      </li>
-      <li id="search" class="active"><a href="#">
-       <!--<input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>-->
-        <select id="herstellerlist" onchange="ModellAuswahlUpdate()"></select>
-       <!-- <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>-->
-        <select id="modelllist"></select>
-          <img id="searchicon" src="/img/search.png "/></a>
-        <ul>
-          <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
-        </ul>
-      </li>
-      <li id="refuel" class="active"><a href="/neueBetankung"><img id="fuelicon" src="/img/fuel.gif"/></a>
-        <ul>
-          
-        </ul>
-      </li>
-      <li id="logout"><a href="/logout"><img id="logouticon" src="/img/logout.gif"/></a></li>
-    </ul>
-  </nav>
+    </nav>
     <script type="text/javascript">
-    var modelle = <%- JSON.stringify(modelle) %>;
-  </script>
-  <script src="/js/headerSuche.js"></script>
+        var modelle = <%- JSON.stringify(modelle) %>;
+    </script>
+    <script src="/js/headerSuche.js"></script>
 </header>

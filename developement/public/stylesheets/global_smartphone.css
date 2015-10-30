@@ -7,8 +7,7 @@
     
     .body {
         margin: 0 auto;
-        width: 100%
-        clear: both;
+        width: 100% clear: both;
     }
     
     a {
@@ -22,9 +21,9 @@
     }
     
     #logo {
+        min-width: 350px;
         width: 60%;
-        height: 5%;
-        max-height: 100px;
+        height: 100px;
     }
     
     .header nav {
@@ -141,7 +140,7 @@
         heigth: 25px;
         width: 25px;
     }
-
+    
     #refuel {
         width: 85px
     }
@@ -185,7 +184,7 @@
     button {
         text-overflow: ellipsis;
         overflow: hidden;
-        background-color: cadetblue;
+        background-color: #CF5C3F;
         width: auto;
         height: auto;
         padding: 0.5%;
