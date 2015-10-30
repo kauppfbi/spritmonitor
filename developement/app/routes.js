@@ -2,7 +2,12 @@ var data = require('../data');
 var Fahrzeug = require('../app/models/fahrzeuge');
 var Betankung = require('../app/models/betankung');
 var BetankData = require('../data/betankungen.json');
-var fs = require('fs');
+//var fs = require('fs');
+/*var multer = require('multer');
+var uploading = multer({
+  dest: __dirname + '../public/uploads/',
+  limits: {fileSize: 1000000, files:1},
+});*/
 
 module.exports = function(app, passport){
     'use strict';
@@ -163,17 +168,8 @@ module.exports = function(app, passport){
     });
 
     app.post('/profilAendern', isLoggedIn, function(req, res){
-
-        
-        /*fs.readFile(req.files.displayImage.path, function (err, data) {
-  
-            var newPath = __dirname + "/uploads/uploadedFileName";
-            fs.writeFile(newPath, data, function (err) {
-                res.redirect("/profilAendern");
-            });
-        });
-*/  
-        res.redirect('/profilAendern');
+        console.log('Logik muss noch implementiert werden!');
+        res.redirect('profilAendern');
     });
 };
 
