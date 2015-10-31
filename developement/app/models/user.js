@@ -78,7 +78,24 @@ var checkPassword = function (email, password){
 	}
 };
 
-var deleteUser = function (id) {};
+
+//der Einfachheit halber wird nur die Email des Users geändert, sonst müsste die ganze Architektur angepasst werden!!
+var deleteUser = function (id) {
+	var obj = jsonfile.readFileSync(file);
+	var user = obj.user;
+
+	user[id].email = "user gelöscht";
+
+	obj.user = user; 
+
+	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("JSON saved to " + file);
+		}
+	});
+};
 
 var getByEmail = function (email) {
 	var obj = jsonfile.readFileSync(file);
@@ -86,11 +103,7 @@ var getByEmail = function (email) {
 
 	for (var i = 0; i < user.length; i++){
 		if (user[i].email == email){
-			var returnUser = {};
-			returnUser.email = email; 
-			returnUser.password = user[i].password;
-			returnUser.id = user[i].id;
-			return returnUser;
+			return user[i];
 		}
 	}
 	return null;
