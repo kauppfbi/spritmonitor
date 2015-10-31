@@ -82,6 +82,19 @@
                 "kilometerstand": "0"
             }
         ],
-        []
+        [
+            {
+                "typ": "Auto",
+                "marke": "Audi",
+                "modell": "A3",
+                "bezeichnung": "flos_auto",
+                "baujahr": "2013",
+                "leistung": "120",
+                "antriebsart": "Diesel",
+                "getriebeart": "Manuell",
+                "kilometerstand": "20000",
+                "id": 700
+            }
+        ]
     ]
 }
