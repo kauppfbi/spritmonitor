@@ -89,7 +89,11 @@ var ModellAuswahlUpdate = function(){
 var search = function(){
 	var marke = document.getElementById('ListeHersteller').value;
 	var modell = document.getElementById('ListeModelle').value;
-	console.log(marke);
-	console.log(modell);
+	
+	var searchQuery = window.location.origin + '/suchergebnisse?marke=' + marke + '&modell=' + modell;
+	console.log(searchQuery);
+
+	window.location.assign(searchQuery);
+
 
 };
