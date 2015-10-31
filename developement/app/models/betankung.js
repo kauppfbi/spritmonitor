@@ -1,4 +1,5 @@
-//in Bearbeitung
+//TODO:
+//alle Methoden außer createUser, createVehicle & getBetankungByFzgID müssen zwangsläufig überarbeitet werden!!!!
 
 var file = './data/betankungen.json';
 
@@ -40,14 +41,26 @@ var createBetankung = function (betankung, profilID, vehicleID){
   }); 
 };
 
-
+//TODO: muss der neuen json struktur angepasst werden!
 var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     return alleBetankungen[profilID];
 };
 
-var getBetankungByFzg = function(){};
+var getBetankungByFzgID = function(vehicleID){
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+
+    var profilID;
+    if(String(vehicleID).length == 3){
+        profilID = parseInt(String(vehicleID).charAt(0));
+    } else{
+        profilID = parseInt(String(vehicleID).charAt(0) + String(vehicleID).charAt(1));
+    }
+    
+    return alleBetankungen[profilID][vehicleID-(100*profilID)];
+};
 
 //Betankung wird übergeben
 //entsprechende Betankung wird herausgesucht und

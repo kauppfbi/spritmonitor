@@ -1,6 +1,7 @@
 var data = require('../data');
 var Fahrzeug = require('../app/models/fahrzeuge');
 var Betankung = require('../app/models/betankung');
+var User = require('../app/models/user');
 var betankData = require('../data/betankungen.json');
 //var fs = require('fs');
 /*var multer = require('multer');
@@ -117,6 +118,7 @@ module.exports = function(app, passport){
     });
 
     app.get('/startseite', isLoggedIn, function(req, res){
+        console.log(req.user);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         res.render('startseite', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
@@ -231,8 +233,25 @@ module.exports = function(app, passport){
     });
 
     app.post('/profilAendern', isLoggedIn, function(req, res){
-        console.log('Logik muss noch implementiert werden!');
-        res.redirect('profilAendern');
+        var user = {};
+        
+        user.id = req.user.id;
+        user.email = req.user.email; 
+        user.password = req.user.password;
+        user.Anrede = req.body.Anrede;
+        user.Nachname = req.body.Nachname;
+        user.Vorname = req.body.Vorname;
+        user.Straße = req.body.Straße;
+        user.Hausnummer = req.body.Hausnummer;
+        user.Postleitzahl = req.body.Postleitzahl;
+        user.Ort = req.body.Ort;
+        user.Land = req.body.Land;
+        
+        User.updateUser(user);
+        
+        res.redirect('/profilAendern');
+        
+        
     });
 };
 
