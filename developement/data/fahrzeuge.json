@@ -65,6 +65,18 @@
                 "getriebeart": "Manuell",
                 "kilometerstand": "134000",
                 "id": 400
+            },
+            {
+                "typ": "Auto",
+                "marke": "Porsche",
+                "modell": "911",
+                "bezeichnung": "",
+                "baujahr": "2010",
+                "leistung": "240",
+                "antriebsart": "Benzin",
+                "getriebeart": "Automatik",
+                "kilometerstand": "",
+                "id": 401
             }
         ],
         [],

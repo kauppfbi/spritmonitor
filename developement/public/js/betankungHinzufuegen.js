@@ -1,20 +1,17 @@
-window.onload = FahrzeugAuswahl;
-
-var FahrzeugAuswahl = function(beschreibung){
-    var Beschreibung = beschreibung;
+var fahrzeugAuswahl = function(beschreibung){
+    var beschreibung = beschreibung;
     //var Beschreibung = fahrzeugBeschreibungen;
-    var FahrzeugAuswahl = document.getElementById('Fahrzeug');
-    console.log("Fahrzeugbeschreibung: "+Beschreibung);
-    /*
-    while(FahrzeugAuswahl.hasChildNodes()){
-        FahrzeugAuswahl.removeChild(FahrzeugAuswahl.childNodes[0]);
-    }
-    */
+    var fahrzeuge = document.getElementById('Fahrzeug');
+    console.log("Fahrzeugbeschreibung: "+beschreibung);
     
-    for(var i=0; i<Beschreibung.length; i++){
+    while(fahrzeuge.hasChildNodes()){
+        fahrzeuge.removeChild(fahrzeuge.childNodes[0]);
+    }
+    
+    for(var i=0; i<beschreibung.length; i++){
         var option = document.createElement('option');
-        option.text = Beschreibung[i];
-        option.value = Beschreibung[i];
-        FahrzeugAuswahl.appendChild(option);
+        option.text = beschreibung[i];
+        option.value = beschreibung[i];
+        fahrzeuge.appendChild(option);
     }
 }
