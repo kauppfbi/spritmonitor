@@ -10,13 +10,11 @@
                 </ul>
             </li>
             <li id="search" class="active">
-                <a href="#">
                     <!--<input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>-->
                     <select id="ListeHersteller" onchange="ModellAuswahlUpdate()"></select>
                     <!-- <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>-->
                     <select id="ListeModelle"></select>
-                    <a href="/Suchergebnisse">
-                    <img id="searchicon" src="/img/search.png " />
+                    <img id="searchicon" src="/img/search.png" onclick="search()" />
                 </a>
                 <ul>
                     <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
@@ -33,6 +31,6 @@
             </li>
         </ul>
     </nav>
-  <script type="text/javascript" src="js/betankungSchnellzugriff.js"></script>
+  <script type="text/javascript" src="js/header.js"></script>
   <!--<script src="/js/headerSuche.js"></script>-->
 </header>
