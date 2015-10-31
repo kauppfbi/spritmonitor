@@ -2,9 +2,6 @@
   <head>
     <% include ./partials/head %>
     <title>Suchergebnisse</title>
-    <script type="text/javascript">
-      console.log(user);
-    </script>
   </head>
   <body class="body">
     <% include ./partials/header %>
@@ -41,8 +38,12 @@
     </table>
     </div> 
         
-        
     </div>
+    <script type="text/javascript">
+        var ergebnis = <%- JSON.stringify(suchergebnis) %>;
+        console.log(ergebnis);
+        
+    </script>
   </body>
 </html>
 

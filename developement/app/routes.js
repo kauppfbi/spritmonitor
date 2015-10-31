@@ -98,13 +98,12 @@ module.exports = function(app, passport){
         var fahrzeugBeschreibungen = Fahrzeug.getFahrzeugbeschreibungByProfilID(req.user.id);
         
         console.log("Beschreibung: " + fahrzeugBeschreibungen);
-        console.log("HochDieHändeWochenende");
         
         if(fahrzeugBeschreibungen==null){
             console.error("Kein Fahrzeug zu ID");
-            res.render('BetankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: null});
+            res.render('betankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: null});
         }
-        res.render('BetankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen});
+        res.render('betankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen});
     });
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
@@ -132,9 +131,25 @@ module.exports = function(app, passport){
             }});
     });
     
-    app.get('/suchergebnisse', isLoggedIn, function(req, res) {
+    app.get('/suche', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('suchergebnisse', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
+        res.render('suche', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
+        
+    });
+
+    app.get('/suchergebnisse', isLoggedIn, function(req, res) {
+
+
+        var marke = req.query.marke;
+        var modell = req.query.modell;
+
+        console.log('Marke, Modell: ' + marke + modell);
+
+        var suchergebnis = Fahrzeug.search(marke, modell);
+        console.log(suchergebnis);
+
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('suchergebnisse', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, suchergebnis : suchergebnis});
     });
     
     app.get('/fahrzeuginformationen', isLoggedIn, function(req, res){
