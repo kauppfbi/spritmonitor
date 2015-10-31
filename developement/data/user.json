@@ -13,7 +13,8 @@
         {
             "email": "martin@letzel.de",
             "password": "$2a$08$iHfrmXtMsQ9Wletnthbg6egnL3ERN55gBtqcQjPU8vzcA6.b0g/jW",
-            "id": 2
+            "id": 2,
+            "nachname": "Letzel"
         },
         {
             "email": "fx.hahn@web.de",

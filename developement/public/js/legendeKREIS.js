@@ -1,4 +1,4 @@
-window.onload = drawLegende();
+drawLegende();
 
 function drawLegende (){
 var canvas = document.getElementById("legende");

@@ -9,16 +9,37 @@
 		<h1>Profilinformationen ändern:</h1>
 		
 		<form action="profilAendern" method="post" enctype="multipart/form-data">
-			<input type="file" name="file"/>
+			<input type="file" name="file"/><br>
 			<button type="submit">Bild hochladen</button>  
-		</form>
-        
+            </form>
+		
+        <form action="profilAendern" method="post">
         <label for="eMail">Email ändern:</label>
-        <input name="Emailadresse" type="string" value="<%= user.email %>"/><br/>
-        <label for="password">Passwort ändern:</label>
+        <input name="eMail" type="string" value="<%= user.email %>"/><br/>
+        <label for="Passwort">Passwort ändern:</label>
         <input name="Passwort" type="string" value="*****"/><br/>
+        <label for="Anrede">Anrede:</label>
+        <input name="Anrede" type="radio" value="Herr"/>Herr
+        <input name="Anrede" type="radio" value="Frau"/>Frau<br/>
+        <label for="Nachname">Nachname:</label>
+        <input name="Nachname" type="string" value="<%= user.nachname %>"/><br/>
+        <label for="Vorname">Vorname:</label>
+        <input name="Vorname" type="string" value="<%= user.vorname %>"/><br/>
+        <label for="Straße">Straße:</label>
+        <input name="Geburtsdatum" type="date" value="<%= user.geburtsdatum %>"/><br/>
+        <label for="Geburtsdatum">Geburtsdatum:</label>
+        <input name="Straße" type="string" value="<%= user.straße %>"/><br/>
+        <label for="Hausnummer">Hausnummer:</label>
+        <input name="Hausnummer" type="number" value="<%= user.hausnummer %>"/><br/>
+        <label for="Postleitzahl">Postleitzahl:</label>
+        <input name="Postleitzahl" type="number" value="<%= user.postleitzahl %>"/><br/>
+        <label for="Ort">Ort:</label>
+        <input name="Ort" type="string" value="<%= user.ort %>"/><br/>
+        <label for="Land">Land:</label>
+        <input name="Land" type="string" value="<%= user.land %>"/><br/>
         
         <button type="submit">Speichern</button>
+            </form>
 	</div>
 </body>
 </html>

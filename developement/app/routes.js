@@ -232,7 +232,23 @@ module.exports = function(app, passport){
 
     app.post('/profilAendern', isLoggedIn, function(req, res){
         console.log('Logik muss noch implementiert werden!');
+        var user = {};
+        
+        user.Anrede = req.body.Anrede;
+        user.Nachname = req.body.Nachname;
+        user.Vorname = req.body.Vorname;
+        user.Straße = req.body.Straße;
+        user.Hausnummer = req.body.Hausnummer;
+        user.Postleitzahl = req.body.Postleitzahl;
+        user.Ort = req.body.Ort;
+        user.Land = req.body.Land;
+        
+        console.log(user);
+        
+        
         res.redirect('profilAendern');
+        
+        
     });
 };
 

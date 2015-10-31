@@ -2,7 +2,6 @@ var data = [80, 100, 180];
 var labels = ["Autobahn", "Landstraße", "Stadt"];
 var colors = ["#505050", "orange", "#C0C0C0"];
 
-//window.onload= drawSegment();
 
 function drawSegment(canvas, context, i) {
     context.save();
