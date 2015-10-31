@@ -45,7 +45,13 @@ var createBetankung = function (betankung, profilID, vehicleID){
 var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
-    return alleBetankungen[profilID];
+    var betankung = {};
+    
+    for(var i=0; i<=alleBetankungen[profilID].length; i++){
+        betankung[i] = alleBetankungen[profilID][i];
+    }
+    
+    return betankung;
 };
 
 var getBetankungByFzgID = function(vehicleID){
