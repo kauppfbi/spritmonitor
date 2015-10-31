@@ -19,13 +19,15 @@ var findById = function (id) {
 Daten werden zur besseren Übersicht in einem 'Betankungs-Objekt' zusammengefasst übergeben
 Die Zusammenfassung der Daten in einem Objekt erfolgt innerhalb der aufrufenden Methode
 */
-var createBetankung = function (betankung, profilID){
+var createBetankung = function (betankung, profilID, vehicleID){
 	var obj = jsonfile.readFileSync(file);
 	var alleBetankungen = obj.betankungen;
-    var betankungen = alleBetankungen[profilID];
+    var betankungen = alleBetankungen[profilID][vehicleID];
+    
+    var betankungID = vehicleID*100+betankungen.length;
+    var vehicleID = (vehicleID-(profilID*100));
 
-    //var betankungID = (profilID+1)*100+betankungen.length;
-	//betankungen.id = betankungID;
+    betankungen.id = betankungID;
     betankungen.push(betankung);
     obj.betankungen[profilID] = betankungen;
 
