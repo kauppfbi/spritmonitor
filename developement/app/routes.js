@@ -132,9 +132,9 @@ module.exports = function(app, passport){
             }});
     });
     
-    app.get('/Suchergebnisse', isLoggedIn, function(req, res) {
+    app.get('/suchergebnisse', isLoggedIn, function(req, res) {
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('Suchergebnisse', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
+        res.render('suchergebnisse', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
     
     app.get('/fahrzeuginformationen', isLoggedIn, function(req, res){
