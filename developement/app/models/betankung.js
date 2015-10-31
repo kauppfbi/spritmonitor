@@ -27,15 +27,15 @@ var createBetankung = function (betankung, profilID){
     //var betankungID = (profilID+1)*100+betankungen.length;
 	//betankungen.id = betankungID;
     betankungen.push(betankung);
-	obj.betankungen[profilID] = betankungen;
+    obj.betankungen[profilID] = betankungen;
 
-	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log("JSON saved to " + file);
-    }
-}); 
+    fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+        if(err) {
+          console.log(err);
+      } else {
+          console.log("JSON saved to " + file);
+      }
+  }); 
 };
 
 
@@ -43,7 +43,7 @@ var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     return alleBetankungen[profilID];
-}
+};
 
 var getBetankungByFzg = function(){};
 
@@ -59,10 +59,10 @@ var updateBetankung = function(betankung, profilID){
     
     for(var i=0; i<=alleBetankungen.length; i++){
         if(alleBetankungen[profilID].laufendeNr==betankung.laufendeNr){
-        alleBetankungen[profilID] = betankung;
+            alleBetankungen[profilID] = betankung;
+        }
     }
-    }
-}
+};
 
 
 //Keine Vollständige Implementierung
@@ -74,13 +74,49 @@ var deleteBetankung = function(betankung, profilID){
     console.log(betankung.laufendeNr);
     
     if(alleBetankungen[profilID].laufendeNr==betankung.laufendeNr){
-        
+
         console.log("Eintrag gelöscht");
     }    
-}
+};
+
+var createUser = function(){
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+
+    alleBetankungen.push(new Array());
+
+    obj.betankungen = alleBetankungen;
+
+    fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+        if(err) {
+          console.log(err);
+      } else {
+          console.log("JSON saved to " + file);
+      }
+  });
+};
+
+var createVehicle = function(profilID){
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+
+    alleBetankungen[profilID].push(new Array());
+
+    obj.betankungen = alleBetankungen;
+
+    fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+        if(err) {
+          console.log(err);
+      } else {
+          console.log("JSON saved to " + file);
+      }
+  });
+};
 
 //Exports
 exports.createBetankung = createBetankung;
 exports.getBetankungByProfilID = getBetankungByProfilID;
 exports.deleteBetankung = deleteBetankung;
 exports.updateBetankung = updateBetankung;
+exports.createUser = createUser;
+exports.createVehicle = createVehicle;

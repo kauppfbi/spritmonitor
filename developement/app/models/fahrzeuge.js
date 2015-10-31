@@ -5,7 +5,7 @@ var file = '../developement/data/fahrzeuge.json';
 var jsonfile = require('jsonfile');
 var fs = require('fs');
 var util = require('util');
-
+var Betankung = require('./betankung');
 
 /*
 returns Fahrzeug-Objekt mit der übergebenen ID
@@ -16,6 +16,7 @@ var findById = function(id){
 
 //vehicle ist das aufbereitete fahrzeug-Objekt
 var createVehicle = function(vehicle, profilID){
+	Betankung.createVehicle(profilID);
 	var obj = jsonfile.readFileSync(file);
 	var alleFahrzeuge = obj.fahrzeuge;
 	var fahrzeuge = alleFahrzeuge[profilID];
@@ -59,6 +60,7 @@ var createUser = function(){
 			console.log("JSON saved to " + file);
 		}
 	}); 
+	Betankung.createUser();
 };
 
 var search = function(marke, modell){
