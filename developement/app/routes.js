@@ -15,7 +15,14 @@ module.exports = function(app, passport){
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.render('index');
+
+        if (typeof req.user === 'undefined') {
+        // variable is undefined
+        res.redirect('/login');
+        } else {
+            res.redirect('/startseite');
+        }
+        
     });
 
     // =====================================
@@ -123,6 +130,11 @@ module.exports = function(app, passport){
                 "Liter": "10",
                 "Kilometer": "20000"
             }});
+    });
+    
+    app.get('/suchergebnisse', isLoggedIn, function(req, res) {
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('suchergebnisse', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
     
     app.get('/fahrzeuginformationen', isLoggedIn, function(req, res){

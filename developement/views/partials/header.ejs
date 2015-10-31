@@ -1,4 +1,4 @@
-<header class="header"><a  href="/startseite" ><img id="logo" src="/img/Logo1.gif" /> </a>
+<header class="header"><img href="/startseite" id="logo" src="/img/Logo1.gif" />
     <nav>
         <ul>
             <li id="myprofile" class="active">
@@ -12,10 +12,12 @@
             <li id="search" class="active">
                 <a href="#">
                     <!--<input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>-->
-                    <select id="ListeHersteller" name="HerstellerHeader" onchange="ModellAuswahlUpdate()"></select>
+                    <select id="ListeHersteller" onchange="ModellAuswahlUpdate()"></select>
                     <!-- <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>-->
-                    <select id="ListeModelle" name="ModelleHeader"></select>
-                    <img id="searchicon" src="/img/search.png " /></a>
+                    <select id="ListeModelle"></select>
+                    <a href="/Suchergebnisse">
+                    <img id="searchicon" src="/img/search.png " />
+                </a>
                 <ul>
                     <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
                 </ul>
@@ -31,9 +33,6 @@
             </li>
         </ul>
     </nav>
-    <script type="text/javascript">
-
-    var modelle = <%- JSON.stringify(modelle) %>;
-  </script>
+  <script type="text/javascript" src="js/betankungSchnellzugriff.js"></script>
   <!--<script src="/js/headerSuche.js"></script>-->
 </header>
