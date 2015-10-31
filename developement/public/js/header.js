@@ -1,37 +1,45 @@
-window.onload = function(){
-	var AuswahlHersteller = document.getElementById('ListeHersteller');
-	var AuswahlModell = document.getElementById('ListeModelle');
+var AuswahlHersteller = document.getElementById('ListeHersteller');
+var AuswahlModell = document.getElementById('ListeModelle');
 
+document.body.onload = function(){
+
+	//Schnellzugriff zu den Betankungen
+	var refuel = document.getElementById('vehicleFromId');
+	//console.log(refuel);
+
+	for (var i = 0; i < fahrzeuge.length; i++){
+		var listElement = document.createElement('li');
+		var reference = document.createElement('a');
+		reference.text = fahrzeuge[i].marke + ' ' + fahrzeuge[i].modell;
+		reference.href = "/neueBetankung";
+		listElement.appendChild(reference);
+		refuel.appendChild(listElement);
+	}
+
+	//Einfache Suche
+	prepareSearch();
+};
+
+
+var prepareSearch = function(){
 	//fill 'AuswahlHersteller' with options
 	HerstellerAuswahlfill(AuswahlHersteller);
 
 	//fill 'AuswahlModell' dynamically with options
 	ModellAuswahlUpdate();
-
-
 };
 
 var HerstellerAuswahlfill = function(AuswahlHersteller){
-	for (var i = 0; i <= 5; i++){
-		if (i == 4){
-			var option = document.createElement('option');
-			option.text = 'Andere';
-			option.value = 'Andere';
-			AuswahlHersteller.appendChild(option);
-		}
-		else{
-			var option = document.createElement('option');
-			option.text = modelle[i][0];
-			option.value = modelle[i][0];
-			AuswahlHersteller.appendChild(option);
-		}		
+	for (var i = 0; i <= 4; i++){
+		var option = document.createElement('option');
+		option.text = modelle[i][0];
+		option.value = modelle[i][0];
+		AuswahlHersteller.appendChild(option);	
 	}
 };
 
 var ModellAuswahlUpdate = function(){
     console.log('Update');
-	var AuswahlHersteller = document.getElementById('ListeHersteller');
-	var AuswahlModell = document.getElementById('ListeModelle');
 	while(AuswahlModell.hasChildNodes()){
 		AuswahlModell.removeChild(AuswahlModell.childNodes[0]);
 	}
@@ -76,9 +84,16 @@ var ModellAuswahlUpdate = function(){
 			AuswahlModell.appendChild(option);
 		}
 	}
-	else if(AuswahlHersteller.value == 'Andere'){
-		var inputField = document.createElement('input');
+};
 
-	}
+var search = function(){
+	var marke = document.getElementById('ListeHersteller').value;
+	var modell = document.getElementById('ListeModelle').value;
+	
+	var searchQuery = window.location.origin + '/suchergebnisse?marke=' + marke + '&modell=' + modell;
+	console.log(searchQuery);
+
+	window.location.assign(searchQuery);
+
 
 };

@@ -3,11 +3,6 @@
 
   <% include ./partials/head %>
   <title>MySprit</title>
-  
-  <script type="text/javascript">
-    var modelle = <%- JSON.stringify(modelle) %>;
-  </script>
-  <script src="/js/neuesFahrzeug.js"></script>
 </head>
 <body class="body">
   <% include ./partials/header %>
@@ -52,5 +47,6 @@
       <button type="submit">Neues Fahrzeug anlegen</button>
     </form>
   </div>
+  <script src="/js/neuesFahrzeug.js"></script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <% include ./partials/head %>
+    <title>Suchergebnisse</title>
+  </head>
+  <body class="body">
+    <% include ./partials/header %>
+    <div id="content">
+    
+    <% for(var i=0; i < fahrzeuge.length; i++) { %>        
+    <div>
+    
+    <table border="5">
+      <span>
+            <tr>
+                <td>Fahrzeugtyp: </td><td><%= fahrzeuge[i].typ %></td>
+                <td>    </td>
+                <td>Marke: </td><td><%= fahrzeuge[i].marke%></td>
+                <td>    </td>
+                <td>Modell: </td><td><%= fahrzeuge[i].modell%></td>
+            </tr>
+            <tr>
+                <td>Bezeichnung: </td><td> <%= fahrzeuge[i].bezeichnung%></td>
+                                <td>    </td>
+                <td>Baujahr: </td><td><%= fahrzeuge[i].baujahr%></td>
+                                <td>    </td>
+                <td>Leistung: </td><td><%= fahrzeuge[i].leistung%></td>
+            </tr>
+            <tr>
+                <td>Antriebsart: </td><td><%= fahrzeuge[i].antriebsart%></td>
+                                <td>    </td>
+                <td>Getriebeart: </td><td><%= fahrzeuge[i].getriebeart%></td>
+                                <td>    </td>
+                <td>Kilometerstand: </td><td><%= fahrzeuge[i].kilometerstand%></td>
+            </tr>
+          <% } %>
+      </span>
+    </table>
+    </div> 
+        
+    </div>
+    <script type="text/javascript">
+        var ergebnis = <%- JSON.stringify(suchergebnis) %>;
+        console.log(ergebnis);
+        
+    </script>
+  </body>
+</html>
+
