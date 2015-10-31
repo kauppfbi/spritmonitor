@@ -1,5 +1,3 @@
-//in Bearbeitung
-
 var file = '../developement/data/fahrzeuge.json';
 
 var jsonfile = require('jsonfile');
@@ -11,7 +9,7 @@ var Betankung = require('./betankung');
 returns Fahrzeug-Objekt mit der übergebenen ID
 */
 var findById = function(id){
-
+	
 };
 
 //vehicle ist das aufbereitete fahrzeug-Objekt
@@ -41,7 +39,14 @@ var getVehiclesByProfilID = function(profilID){
 	var obj = jsonfile.readFileSync(file);
 	var alleFahrzeuge = obj.fahrzeuge;
 
-	return alleFahrzeuge[profilID];
+	var fahrzeugeProfil = new Array();
+
+	for(var i = 0; i < alleFahrzeuge[profilID].length; i++){
+		if(alleFahrzeuge[profilID][i].aktiv)
+		fahrzeugeProfil.push(alleFahrzeuge[profilID][i]);
+	}
+
+	return fahrzeugeProfil;
 };
 
 var createUser = function(){
@@ -98,6 +103,7 @@ var getFahrzeugbeschreibungByProfilID = function(profilID){
 	}
 
 	for (var i = 0; i < fahrzeugeProfil.length; i++){
+		if(fahrzeugeProfil[i].aktiv)
 		fahrzeugeBeschreibungen.push(fahrzeugeProfil[i].marke + " " + fahrzeugeProfil[i].modell);
 	}
 	return fahrzeugeBeschreibungen;
@@ -127,10 +133,32 @@ var updateFahrzeug = function (newVehicle, profilID){
 
 };
 
-exports.findById = findById;
+var deleteFahrzeug = function(vehicleID, profilID){
+	var obj = jsonfile.readFileSync(file);
+	var alleFahrzeuge = obj.fahrzeuge;
+	var fahrzeugeProfil = alleFahrzeuge[profilID];
+
+
+	var index = vehicleID-(profilID+1)*100;
+	fahrzeugeProfil[index].aktiv = false;
+
+	alleFahrzeuge[profilID] = fahrzeugeProfil;
+	obj.fahrzeuge = alleFahrzeuge;
+
+	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("JSON saved to " + file);
+		}
+	}); 
+};
+
+//exports.findById = findById;
 exports.createVehicle = createVehicle;
 exports.getVehiclesByProfilID = getVehiclesByProfilID;
 exports.createUser = createUser;
 exports.search = search;
 exports.getFahrzeugbeschreibungByProfilID = getFahrzeugbeschreibungByProfilID;
 exports.updateFahrzeug = updateFahrzeug;
+exports.deleteFahrzeug = deleteFahrzeug;

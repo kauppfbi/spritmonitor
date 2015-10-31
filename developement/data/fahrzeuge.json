@@ -11,7 +11,8 @@
                 "leistung": "159",
                 "antriebsart": "Benzin",
                 "getriebeart": "Manuell",
-                "kilometerstand": "43533"
+                "kilometerstand": "43533",
+                "aktiv": true
             }
         ],
         [],
@@ -26,7 +27,8 @@
                 "leistung": "110",
                 "antriebsart": "Benzin",
                 "getriebeart": "Manuell",
-                "kilometerstand": "160987"
+                "kilometerstand": "160987",
+                "aktiv": true
             },
             {
                 "id": 301,
@@ -38,7 +40,8 @@
                 "leistung": "90",
                 "antriebsart": "Benzin",
                 "getriebeart": "Manuell",
-                "kilometerstand": "2349"
+                "kilometerstand": "2349",
+                "aktiv": true
             },
             {
                 "typ": "Auto",
@@ -50,7 +53,8 @@
                 "antriebsart": "Diesel",
                 "getriebeart": "Automatik",
                 "kilometerstand": "0",
-                "id": 302
+                "id": 302,
+                "aktiv": true
             }
         ],
         [
@@ -64,7 +68,8 @@
                 "antriebsart": "Benzin",
                 "getriebeart": "Manuell",
                 "kilometerstand": "134000",
-                "id": 400
+                "id": 400,
+                "aktiv": true
             },
             {
                 "typ": "Auto",
@@ -76,7 +81,8 @@
                 "antriebsart": "Benzin",
                 "getriebeart": "Automatik",
                 "kilometerstand": "",
-                "id": 401
+                "id": 401,
+                "aktiv": true
             }
         ],
         [],
@@ -91,7 +97,8 @@
                 "leistung": "460",
                 "antriebsart": "Benzin",
                 "getriebeart": "Automatik",
-                "kilometerstand": "0"
+                "kilometerstand": "0",
+                "aktiv": true
             }
         ],
         [
@@ -105,7 +112,8 @@
                 "antriebsart": "Diesel",
                 "getriebeart": "Manuell",
                 "kilometerstand": "20000",
-                "id": 700
+                "id": 700,
+                "aktiv": true
             }
         ]
     ]

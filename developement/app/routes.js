@@ -165,6 +165,14 @@ module.exports = function(app, passport){
         res.render('fahrzeuginformationen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, fahrzeug : fahrzeug});
     });
     
+    app.get('/fahrzeugLoeschen', isLoggedIn, function(req, res){
+        var vehicleID = req.query.id; 
+
+        Fahrzeug.deleteFahrzeug(vehicleID, req.user.id);
+
+        res.redirect('/fahrzeuge');
+    });
+
     // =====================================
     // LOGOUT ==============================
     // =====================================
@@ -202,6 +210,7 @@ module.exports = function(app, passport){
         fahrzeug.antriebsart = req.body.Antriebsart;
         fahrzeug.getriebeart = req.body.Getriebeart;
         fahrzeug.kilometerstand = req.body.Kilometerstand;
+        fahrzeug.aktiv = true; 
 
         console.log(fahrzeug);
 
