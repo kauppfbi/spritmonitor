@@ -90,12 +90,14 @@ module.exports = function(app, passport){
         
         var fahrzeugBeschreibungen = Fahrzeug.getFahrzeugbeschreibungByProfilID(req.user.id);
         
+        console.log("Beschreibung: " + fahrzeugBeschreibungen);
+        console.log("HochDieHändeWochenende");
+        
         if(fahrzeugBeschreibungen==null){
             console.error("Kein Fahrzeug zu ID");
-        }else{
-            var fahrzeugbeschreibung = Fahrzeug.getFahrzeugbeschreibungByProfilID[req.user.id];
+            res.render('BetankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: null});
         }
-        res.render('BetankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugbeschreibung});
+        res.render('BetankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen});
     });
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
