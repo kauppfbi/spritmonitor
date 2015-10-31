@@ -125,6 +125,11 @@ module.exports = function(app, passport){
             }});
     });
     
+    app.get('/Suchergebnisse', isLoggedIn, function(req, res) {
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('Suchergebnisse', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
+    });
+    
     app.get('/fahrzeuginformationen', isLoggedIn, function(req, res){
         
         var fahrzeugId = req.params.id;

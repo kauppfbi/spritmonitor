@@ -14,8 +14,8 @@ window.onload = function(){
 };
 
 var fillHerstellerAuswahl = function(herstellerAuswahl){
-	for (var i = 0; i <= 5; i++){
-		if (i == 5){
+	for (var i = 0; i <= 4; i++){
+		if (i == 4){
 			var option = document.createElement('option');
 			option.text = 'Andere';
 			option.value = 'Andere';
@@ -33,7 +33,6 @@ var fillHerstellerAuswahl = function(herstellerAuswahl){
 var updateModellAuswahl = function(){
 	var herstellerAuswahl = document.getElementById('Herstellerauswahl');
 	var modellAuswahl = document.getElementById('Modellauswahl');
-	//console.log(herstellerAuswahl);
 	while(modellAuswahl.hasChildNodes()){
 		modellAuswahl.removeChild(modellAuswahl.childNodes[0]);
 	}

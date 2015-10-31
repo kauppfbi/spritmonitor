@@ -1,4 +1,4 @@
-<header class="header"><a  href="/startseite" ><img id="logo" src="/img/Logo1.gif" /> </a>
+<header class="header"><img href="startseite.ejs" id="logo" src="/img/Logo1.gif" />
     <nav>
         <ul>
             <li id="myprofile" class="active">
@@ -12,17 +12,19 @@
             <li id="search" class="active">
                 <a href="#">
                     <!--<input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>-->
-                    <select id="ListeHersteller" name="HerstellerHeader" onchange="ModellAuswahlUpdate()"></select>
+                    <select id="herstellerlist" onchange="ModellAuswahlUpdate()"></select>
                     <!-- <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>-->
-                    <select id="ListeModelle" name="ModelleHeader"></select>
-                    <img id="searchicon" src="/img/search.png " /></a>
+                    <select id="modelllist"></select>
+                    <a href="/Suchergebnisse">
+                    <img id="searchicon" src="/img/search.png " />
+                </a>
                 <ul>
                     <li><a href="/erweiterteSuche">Erweiterte Suche</a></li>
                 </ul>
             </li>
             <li id="refuel" class="active">
                 <a href="/neueBetankung"><img id="fuelicon" src="/img/fuel.gif" /></a>
-                <ul id="vehicleFromId">
+                <ul>
 
                 </ul>
             </li>
