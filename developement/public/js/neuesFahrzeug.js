@@ -15,7 +15,7 @@ window.onload = function(){
 
 var fillHerstellerAuswahl = function(herstellerAuswahl){
 	for (var i = 0; i <= 5; i++){
-		if (i == 4){
+		if (i == 5){
 			var option = document.createElement('option');
 			option.text = 'Andere';
 			option.value = 'Andere';
@@ -33,9 +33,22 @@ var fillHerstellerAuswahl = function(herstellerAuswahl){
 var updateModellAuswahl = function(){
 	var herstellerAuswahl = document.getElementById('Herstellerauswahl');
 	var modellAuswahl = document.getElementById('Modellauswahl');
-	while(modellAuswahl.hasChildNodes()){
-		modellAuswahl.removeChild(modellAuswahl.childNodes[0]);
+	console.log(modellAuswahl.nodeName);
+		
+	if(modellAuswahl.nodeName == 'INPUT'){
+
+		var selectField = document.createElement('select');
+		selectField.id = 'Modellauswahl';
+		modellAuswahl.parentNode.insertBefore(selectField, modellAuswahl);
+		modellAuswahl.parentNode.removeChild(modellAuswahl);
+		modellAuswahl = document.getElementById('Modellauswahl');
+	}else{
+		while(modellAuswahl.hasChildNodes()){
+			modellAuswahl.removeChild(modellAuswahl.childNodes[0]);
+		}
 	}
+
+	
 
 	if(herstellerAuswahl.value == 'Audi'){
 		for(var i = 1; i < modelle[0].length; i++){
@@ -78,8 +91,11 @@ var updateModellAuswahl = function(){
 		}
 	}
 	else if(herstellerAuswahl.value == 'Andere'){
-		var inputField = document.createElement('input');
 
+		var inputField = document.createElement('input');
+		inputField.id = 'Modellauswahl';
+		modellAuswahl.parentNode.insertBefore(inputField, modellAuswahl);
+		modellAuswahl.parentNode.removeChild(modellAuswahl);
 	}
 
 };
