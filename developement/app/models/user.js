@@ -3,7 +3,7 @@ var jsonfile = require('jsonfile');
 var fs = require('fs');
 var util = require('util');
 var Fahrzeuge = require('./fahrzeuge');
- 
+
 var file = './data/user.json';
 
 
@@ -16,13 +16,13 @@ var file = './data/user.json';
 	validPassword = function(password) {
 		return bcrypt.compareSync(password, this.local.password);
 	};
-*/
+	*/
 
-var findById = function (id) {
-	var obj = jsonfile.readFileSync(file);
-	var user = obj.user;
-	return user[id];
-};
+	var findById = function (id) {
+		var obj = jsonfile.readFileSync(file);
+		var user = obj.user;
+		return user[id];
+	};
 
 /*
 * returns true if email is still available
@@ -54,13 +54,13 @@ var createUser = function (email, password){
 	obj.user = user;
 
 	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log("JSON saved to " + file);
-    }
-    return newUser;
-}); 
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("JSON saved to " + file);
+		}
+		return newUser;
+	}); 
 
 };
 
@@ -96,6 +96,21 @@ var getByEmail = function (email) {
 	return null;
 };
 
+var updateUser = function(newUser){
+	var obj = jsonfile.readFileSync(file);
+	var user = obj.user;
+
+	user[newUser.id] = newUser;
+	obj.user = user;
+
+	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("JSON saved to " + file);
+		}
+	});
+};
 
 exports.checkMail = checkMail;
 exports.checkPassword = checkPassword; 
@@ -103,27 +118,4 @@ exports.createUser = createUser;
 exports.deleteUser = deleteUser;
 exports.findById = findById; 
 exports.getByEmail = getByEmail;
-
-
-/*
-var obj = jsonfile.readFileSync(file);
-
-var user = obj.user;
-
-user.push({name: "Martin", email: "mail@asdf"});
-
-obj.user = user;
- 
-console.log(obj.user);
-
-var outputFilename = './data/user.json';
-
-fs.writeFile(outputFilename, JSON.stringify(obj, null, 4), function(err) {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log("JSON saved to " + outputFilename);
-    }
-}); 
-*/
-
+exports.updateUser = updateUser;
