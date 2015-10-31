@@ -258,9 +258,38 @@ module.exports = function(app, passport){
         
         User.updateUser(user);
         
-        res.redirect('/profilAendern');
-        
-        
+        res.redirect('/profilAendern');        
+    });
+
+    app.post('/suche', isLoggedIn, function(req, res){
+        var bedingungen = new Object(); 
+
+        /*
+
+        bedingungen.typ
+        bedingungen.marke
+        bedingungen.modell
+        bedingungen.kraftstoff
+        bedingungen.getriebe
+        bedingungen.baujahr => [von, bis]
+        bedingungen.leistung -> [von, bis]
+
+        wenn nichts angegeben ist, dann mit 'alle' befüllen!
+        */
+
+        bedingungen.typ = 'alle';
+        bedingungen.marke = 'Audi';
+        bedingungen.modell = 'alle';
+        bedingungen.kraftstoff = 'alle';
+        bedingungen.getriebe = 'alle';
+        bedingungen.baujahr = 'alle';
+        bedingungen.leistung = 'alle';
+        var ergebnis = Fahrzeug.searchExtended(bedingungen);
+
+        //console.log(ergebnis);
+
+        //do something 
+        res.redirect('/suchergebnisse');
     });
 };
 

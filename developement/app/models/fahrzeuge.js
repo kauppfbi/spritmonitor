@@ -154,6 +154,57 @@ var deleteFahrzeug = function(vehicleID, profilID){
 	}); 
 };
 
+var searchExtended = function(bedingungen){
+	console.log(bedingungen);
+	var returnFahrzeuge = new Array();
+	var obj = jsonfile.readFileSync(file);
+	var alleFahrzeuge = obj.fahrzeuge;
+
+	/*
+
+        bedingungen.typ
+        bedingungen.marke
+        bedingungen.modell
+        bedingungen.kraftstoff
+        bedingungen.getriebe
+        bedingungen.baujahr => [von, bis]
+        bedingungen.leistung -> [von, bis]
+
+        wenn nichts angegeben ist, dann mit 'alle' befüllen!
+        */
+        //console.log(alleFahrzeuge.length);
+        for(var i = 0; i < alleFahrzeuge.length; i++){
+
+        	var length = alleFahrzeuge[i].length;
+        	//console.log(length);
+        	for(var j = 0; j < length; j++){
+        		if(bedingungen.typ == 'alle' || bedingungen.typ == alleFahrzeuge[i][j].typ){
+        			//console.log('Typ gefunden');
+        			if(bedingungen.marke == 'alle' || bedingungen.marke == alleFahrzeuge[i][j].marke){
+        				//console.log('Marke gefunden');
+        				if(bedingungen.modell == 'alle' || bedingungen.modell == alleFahrzeuge[i][j].modell){
+        					//console.log('Modell gefunden');
+        					if(bedingungen.kraftstoff == 'alle' || bedingungen.kraftstoff == alleFahrzeuge[i][j].antriebsart){
+        						if(bedingungen.getriebe == 'alle' || bedingungen.getriebe == alleFahrzeuge[i][j].getriebeart){
+        							if(bedingungen.baujahr == 'alle' || (bedingungen.baujahr[0] >= alleFahrzeuge[i][j].baujahr && bedingungen.baujahr[1] <= alleFahrzeuge[i][j].baujahr)){
+        								if(bedingungen.leistung == 'alle' || (bedingungen.leistung[0] >= alleFahrzeuge[i][j].leistung && bedingungen.leistung[1] <= alleFahrzeuge[i][j].leistung)){
+        									console.log('Passendes Fahrzeug gefunden!');
+        									returnFahrzeuge.push(alleFahrzeuge[i][j]);
+        								}
+        							}
+        						}
+        					}
+        				}
+        			}
+        		}
+        	}
+
+        }
+        console.log(returnFahrzeuge);
+        return returnFahrzeuge;
+};
+
+
 //exports.findById = findById;
 exports.createVehicle = createVehicle;
 exports.getVehiclesByProfilID = getVehiclesByProfilID;
@@ -162,3 +213,4 @@ exports.search = search;
 exports.getFahrzeugbeschreibungByProfilID = getFahrzeugbeschreibungByProfilID;
 exports.updateFahrzeug = updateFahrzeug;
 exports.deleteFahrzeug = deleteFahrzeug;
+exports.searchExtended = searchExtended;
