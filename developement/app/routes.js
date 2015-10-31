@@ -1,7 +1,7 @@
 var data = require('../data');
 var Fahrzeug = require('../app/models/fahrzeuge');
 var Betankung = require('../app/models/betankung');
-var BetankData = require('../data/betankungen.json');
+var betankData = require('../data/betankungen.json');
 //var fs = require('fs');
 /*var multer = require('multer');
 var uploading = multer({
@@ -215,8 +215,7 @@ module.exports = function(app, passport){
         var profilID = req.user.id;
         console.log("ProfilID = "+profilID);
         var betankung = {};
-        
-       betankung.laufendeNr = 1+(BetankData[profilID].laufendeNr);
+                
         betankung.profilID = profilID;
         betankung.Fahrzeug = req.body.Fahrzeug;
         betankung.Datum = req.body.Datum;

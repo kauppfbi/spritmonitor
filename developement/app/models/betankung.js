@@ -24,7 +24,9 @@ var createBetankung = function (betankung, profilID){
 	var alleBetankungen = obj.betankungen;
     var betankungen = alleBetankungen[profilID];
 
-	betankungen.push(betankung);
+    //var betankungID = (profilID+1)*100+betankungen.length;
+	//betankungen.id = betankungID;
+    betankungen.push(betankung);
 	obj.betankungen[profilID] = betankungen;
 
 	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
@@ -80,3 +82,5 @@ var deleteBetankung = function(betankung, profilID){
 //Exports
 exports.createBetankung = createBetankung;
 exports.getBetankungByProfilID = getBetankungByProfilID;
+exports.deleteBetankung = deleteBetankung;
+exports.updateBetankung = updateBetankung;
