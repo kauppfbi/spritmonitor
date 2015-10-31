@@ -29,6 +29,11 @@
             "email": "janis@muehlig.de",
             "password": "$2a$08$38GBH6ORCGEOG5RCzuzg2OqwXpr/rp7Q0UJUYEzNjuENQlzyKYZ7O",
             "id": 5
+        },
+        {
+            "email": "bauerflorian95@gmail.com",
+            "password": "$2a$08$b2Su6L82vjI2vH6WDAOf2uHbArY55RltDQ4F.V2TZcHEh2F1Fy6UC",
+            "id": 6
         }
     ]
 }
