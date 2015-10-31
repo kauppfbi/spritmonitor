@@ -1,8 +1,6 @@
 window.onload = function(){
-	console.log('onload');
-	console.log(modelle);
-	var AuswahlHersteller = document.getElementById('herstellerlist');
-	var AuswahlModell = document.getElementById('modelllist');
+	var AuswahlHersteller = document.getElementById('ListeHersteller');
+	var AuswahlModell = document.getElementById('ListeModelle');
 
 	//fill 'AuswahlHersteller' with options
 	HerstellerAuswahlfill(AuswahlHersteller);
@@ -14,7 +12,7 @@ window.onload = function(){
 };
 
 var HerstellerAuswahlfill = function(AuswahlHersteller){
-	for (var i = 0; i <= 4; i++){
+	for (var i = 0; i <= 5; i++){
 		if (i == 4){
 			var option = document.createElement('option');
 			option.text = 'Andere';
@@ -32,8 +30,8 @@ var HerstellerAuswahlfill = function(AuswahlHersteller){
 
 var ModellAuswahlUpdate = function(){
     console.log('Update');
-	var AuswahlHersteller = document.getElementById('herstellerlist');
-	var AuswahlModell = document.getElementById('modelllist');
+	var AuswahlHersteller = document.getElementById('ListeHersteller');
+	var AuswahlModell = document.getElementById('ListeModelle');
 	while(AuswahlModell.hasChildNodes()){
 		AuswahlModell.removeChild(AuswahlModell.childNodes[0]);
 	}

@@ -14,7 +14,7 @@ window.onload = function(){
 };
 
 var fillHerstellerAuswahl = function(herstellerAuswahl){
-	for (var i = 0; i <= 4; i++){
+	for (var i = 0; i <= 5; i++){
 		if (i == 4){
 			var option = document.createElement('option');
 			option.text = 'Andere';
