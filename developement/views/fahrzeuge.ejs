@@ -2,13 +2,42 @@
   <head>
     <% include ./partials/head %>
     <title>MySprit</title>
+      <script>
+        var fahrzeugBeschreibungen = <%- JSON.stringify(beschreibung) %>
+    </script>
     
   </head>
   <body class="body">
     <% include ./partials/header %>
     <div id="content">
-      <div>Fahrzeuge, die dem Profil zugewiesen sind!</div>
-      <p>Neues Fahrzeug <a href="/neuesFahrzeug">anlegen</a>.</p>
+      <div>
+          <h3>Meine Fahrzeuge</h3>
+          <select id="Fahrzeuge" name="Fahrzeuge">
+              
+          </select>
+        </div>
+      <p>Neues Fahrzeug<a href="/neuesFahrzeug">anlegen</a></p>
     </div>
+      <script>
+            var fahrzeugAuswahl = function(beschreibung){
+                var beschreibung = beschreibung;
+                //var Beschreibung = fahrzeugBeschreibungen;
+                var fahrzeuge = document.getElementById('Fahrzeuge');
+                fahrzeuge.size = beschreibung.length;
+                console.log("Fahrzeugbeschreibung: "+beschreibung);
+
+                while(fahrzeuge.hasChildNodes()){
+                    fahrzeuge.removeChild(fahrzeuge.childNodes[0]);
+                }
+
+                for(var i=0; i<beschreibung.length; i++){
+                    var option = document.createElement('option');
+                    option.text = beschreibung[i];
+                    option.value = beschreibung[i];
+                    fahrzeuge.appendChild(option);
+                }
+            }
+        </script>
+      <script>fahrzeugAuswahl(fahrzeugBeschreibungen)</script>
   </body>
 </html>

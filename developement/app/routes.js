@@ -114,7 +114,8 @@ module.exports = function(app, passport){
 
     app.get('/fahrzeuge', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('fahrzeuge', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
+        var fahrzeugBeschreibungen = Fahrzeug.getFahrzeugbeschreibungByProfilID(req.user.id);
+        res.render('fahrzeuge', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen});
     });
 
     app.get('/startseite', isLoggedIn, function(req, res){
