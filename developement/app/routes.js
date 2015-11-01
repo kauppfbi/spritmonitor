@@ -227,6 +227,10 @@ module.exports = function(app, passport){
         var profilID = req.user.id;
         console.log("ProfilID = "+profilID);
         var betankung = {};
+        //var vehicleID = Fahrzeug.getFahrzeugbeschreibungByProfilID(profilID);
+        //var vehicleID = vehicleID.split(" #");
+        var vehicleID = (req.body.Fahrzeug).split("#");
+        console.log("VehicleID: "+vehicleID);
                 
         betankung.profilID = profilID;
         betankung.Fahrzeug = req.body.Fahrzeug;
@@ -237,7 +241,7 @@ module.exports = function(app, passport){
         betankung.Vollbetankung = req.body.Vollbetankung;
         
         console.log(betankung);
-        Betankung.createBetankung(betankung, profilID);
+        Betankung.createBetankung(betankung, profilID, vehicleID);
         
         res.redirect('/neueBetankung');        
     });

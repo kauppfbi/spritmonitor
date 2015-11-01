@@ -23,8 +23,11 @@ Die Zusammenfassung der Daten in einem Objekt erfolgt innerhalb der aufrufenden 
 var createBetankung = function (betankung, profilID, vehicleID){
 	var obj = jsonfile.readFileSync(file);
 	var alleBetankungen = obj.betankungen;
-    var betankungen = alleBetankungen[profilID][vehicleID];
+    var betankungen = alleBetankungen[profilID];
     
+    if(betankungen.length == undefined){
+        betankungID = vehicleID*100;
+    }
     var betankungID = vehicleID*100+betankungen.length;
     var vehicleID = (vehicleID-(profilID*100));
 

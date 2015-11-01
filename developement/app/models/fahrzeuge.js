@@ -104,7 +104,7 @@ var getFahrzeugbeschreibungByProfilID = function(profilID){
 
 	for (var i = 0; i < fahrzeugeProfil.length; i++){
 		if(fahrzeugeProfil[i].aktiv)
-		fahrzeugeBeschreibungen.push(fahrzeugeProfil[i].marke + " " + fahrzeugeProfil[i].modell);
+		fahrzeugeBeschreibungen.push(fahrzeugeProfil[i].marke + " " + fahrzeugeProfil[i].modell+" #"+fahrzeugeProfil[i].id);
 	}
 	return fahrzeugeBeschreibungen;
 };
