@@ -210,6 +210,7 @@ module.exports = function(app, passport){
         fahrzeug.antriebsart = req.body.Antriebsart;
         fahrzeug.getriebeart = req.body.Getriebeart;
         fahrzeug.kilometerstand = req.body.Kilometerstand;
+        fahrzeug.extras = req.body.Extras;
         fahrzeug.aktiv = true; 
 
         console.log(fahrzeug);

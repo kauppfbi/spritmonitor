@@ -15,13 +15,13 @@
             "email": "martin@letzel.de",
             "password": "$2a$08$iHfrmXtMsQ9Wletnthbg6egnL3ERN55gBtqcQjPU8vzcA6.b0g/jW",
             "Anrede": "Herr",
-            "Nachname": "Letzel",
-            "Vorname": "Martin",
-            "Straße": "01.01.2015",
-            "Hausnummer": "4",
-            "Postleitzahl": "61863",
-            "Ort": "Mannheim",
-            "Land": "Deutschland"
+            "Nachname": "Flo",
+            "Vorname": "Bauer",
+            "Straße": "Irgendwostraße",
+            "Hausnummer": "69",
+            "Postleitzahl": "12345",
+            "Ort": "Weitweg",
+            "Land": "Irak"
         },
         {
             "email": "fx.hahn@web.de",

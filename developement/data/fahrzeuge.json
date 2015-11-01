@@ -55,6 +55,54 @@
                 "kilometerstand": "0",
                 "id": 302,
                 "aktiv": true
+            },
+            {
+                "typ": "Auto",
+                "marke": "Porsche",
+                "modell": "911",
+                "bezeichnung": "",
+                "baujahr": "2013",
+                "leistung": "500",
+                "antriebsart": "Benzin",
+                "getriebeart": "Manuell",
+                "kilometerstand": "0",
+                "aktiv": true,
+                "id": 303
+            },
+            {
+                "typ": "Auto",
+                "marke": "BMW",
+                "bezeichnung": "",
+                "baujahr": "2015",
+                "leistung": "560",
+                "antriebsart": "Elektro",
+                "getriebeart": "Automatik",
+                "kilometerstand": "20",
+                "extras": [
+                    "Klimaanlage",
+                    "Navigationsgerät",
+                    "Tempomat",
+                    "PDC"
+                ],
+                "aktiv": true,
+                "id": 304
+            },
+            {
+                "typ": "Auto",
+                "marke": "BMW",
+                "modell": "i8",
+                "bezeichnung": "",
+                "baujahr": "2015",
+                "leistung": "1",
+                "antriebsart": "Elektro",
+                "getriebeart": "Automatik",
+                "kilometerstand": "",
+                "extras": [
+                    "Anhängerkupplung",
+                    "Dachrailing"
+                ],
+                "aktiv": true,
+                "id": 305
             }
         ],
         [
