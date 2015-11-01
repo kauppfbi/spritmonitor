@@ -23,17 +23,20 @@ Die Zusammenfassung der Daten in einem Objekt erfolgt innerhalb der aufrufenden 
 var createBetankung = function (betankung, profilID, vehicleID){
 	var obj = jsonfile.readFileSync(file);
 	var alleBetankungen = obj.betankungen;
-    var betankungen = alleBetankungen[profilID];
+    var vehicleID = (vehicleID-((profilID+1)*100));
+    console.log(vehicleID);
+    var betankungen = alleBetankungen[profilID][vehicleID];
     
     if(betankungen.length == undefined){
         betankungID = vehicleID*100;
+    }else{
+        var betankungID = (((profilID*100)+vehicleID)*100)+betankungen.length;
     }
-    var betankungID = vehicleID*100+betankungen.length;
-    var vehicleID = (vehicleID-(profilID*100));
+    
 
     betankungen.id = betankungID;
     betankungen.push(betankung);
-    obj.betankungen[profilID] = betankungen;
+    obj.betankungen[profilID][vehicleID] = betankungen;
 
     fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
         if(err) {
@@ -41,7 +44,7 @@ var createBetankung = function (betankung, profilID, vehicleID){
       } else {
           console.log("JSON saved to " + file);
       }
-  }); 
+  });
 };
 
 //TODO: muss der neuen json struktur angepasst werden!

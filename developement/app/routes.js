@@ -230,9 +230,11 @@ module.exports = function(app, passport){
         //var vehicleID = Fahrzeug.getFahrzeugbeschreibungByProfilID(profilID);
         //var vehicleID = vehicleID.split(" #");
         var vehicleID = (req.body.Fahrzeug).split("#");
+        var vehicleID = vehicleID[1];
         console.log("VehicleID: "+vehicleID);
                 
         betankung.profilID = profilID;
+        betankung.vehicleID = vehicleID;
         betankung.Fahrzeug = req.body.Fahrzeug;
         betankung.Datum = req.body.Datum;
         betankung.Kraftstoff = req.body.Sorte;
