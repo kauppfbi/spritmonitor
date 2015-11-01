@@ -34,7 +34,7 @@ var createBetankung = function (betankung, profilID, vehicleID){
     }
     
 
-    betankungen.id = betankungID;
+    betankung.id = betankungID;
     betankungen.push(betankung);
     obj.betankungen[profilID][vehicleID] = betankungen;
 
@@ -54,9 +54,10 @@ var getBetankungByProfilID = function(profilID){
     var betankung = {};
     
     for(var i=0; i<=alleBetankungen[profilID].length; i++){
-        betankung[i] = alleBetankungen[profilID][i];
-    }
-    
+        for(var z=0; z<=alleBetankungen[profilID][i].length; z++){
+            betankung[i] = alleBetankungen[profilID][i][z];
+        }
+    }  
     return betankung;
 };
 
@@ -74,15 +75,12 @@ var getBetankungByFzgID = function(vehicleID){
     return alleBetankungen[profilID][vehicleID-(100*profilID)];
 };
 
-//Betankung wird übergeben
-//entsprechende Betankung wird herausgesucht und
-//ersetzt
-var updateBetankung = function(betankung, profilID){
+
+var updateBetankung = function(betankung, profilID, vehicleID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     
-    console.log(betankung);
-    console.log(betankung.laufendeNr);
+    
     
     for(var i=0; i<=alleBetankungen.length; i++){
         if(alleBetankungen[profilID].laufendeNr==betankung.laufendeNr){

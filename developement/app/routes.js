@@ -241,6 +241,14 @@ module.exports = function(app, passport){
         betankung.Liter = req.body.Menge;
         betankung.Kilometer = req.body.Tachostand;
         betankung.Vollbetankung = req.body.Vollbetankung;
+        betankung.Distanz = req.body.Distanz;
+        betankung.Kosten = req.body.Kosten;
+        betankung.Bemerkung = req.body.Bemerkung;
+        betankung.Reifen = req.body.Reifen;
+        betankung.Fahrweise = req.body.Fahrweise;
+        betankung.Strecken = req.body.Strecken;
+        betankung.Tankstelle = req.body.Tankstelle;
+        betankung.Boardcomputer = req.body.Boardcomputer;
         
         console.log(betankung);
         Betankung.createBetankung(betankung, profilID, vehicleID);
