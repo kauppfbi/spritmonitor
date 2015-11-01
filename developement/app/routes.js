@@ -118,6 +118,10 @@ module.exports = function(app, passport){
         res.render('fahrzeuge', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen});
     });
 
+    app.get('/404', isLoggedIn, function(req, res){
+       res.render('404'); 
+    });
+    
     app.get('/startseite', isLoggedIn, function(req, res){
         console.log(req.user);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
@@ -182,6 +186,10 @@ module.exports = function(app, passport){
         res.redirect('/');
     });
 
+    app.post('/404', isLoggedIn, function(req, res){
+        
+    });
+    
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect : '/startseite', // redirect to the secure profile section
