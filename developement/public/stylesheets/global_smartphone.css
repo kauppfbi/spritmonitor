@@ -19,6 +19,87 @@
         width: 100%;
         height: auto;
     }
+
+    .kacheln {
+        padding: 0;
+        margin: 0;
+        width: 600px;
+        height: auto
+    }
+
+    .kacheln li {
+        display: inline-block;
+        margin: 10px 0px 0px 10px;
+        height: 120px; 
+        width: 200px;
+        border-radius: 5px;
+        moz-border-radius: 5px;
+        webkit-border-radius: 5px;
+        background-color: #666;
+    }
+
+    .kacheln li {
+        position: relative;
+    }
+    
+    .kacheln li:link,
+    .kacheln li:visited {
+        display: block;
+        padding: inherit;
+    }
+    
+    .kacheln li:hover,
+    .kacheln li:active {
+        border-radius: 5px;
+        moz-border-radius: 5px;
+        webkit-border-radius: 5px;
+        background-color: #CF5C3F;
+        color: #FFF;
+        text-shadow: none;
+    }
+
+    .kacheln a {
+        font-size: 30px;
+        height: 120px; 
+        width: 200px;
+        border-radius: 5px;
+        moz-border-radius: 5px;
+        webkit-border-radius: 5px;
+        display: block;
+        text-align: center;
+        color: #FFF;
+        font: bold
+    }
+
+    .einzeilerref {
+        padding-top: 40px;
+    }
+
+    .zweizeilerref {
+        padding-top: 25px;
+    }
+
+    #hinweisneu {
+        float: left;
+        margin-top: 10px;
+        border-radius: 5px;
+        moz-border-radius: 5px;
+        webkit-border-radius: 5px;
+        padding: 10px;
+        border-style: solid;
+        border-color: #CF5C3F;
+    }
+
+    .buttonhref {
+        color: #fff;
+        float: left;
+    }
+#startseitenh1 {
+    padding-left: 10px
+}
+
+
+
     
     #logo {
         min-width: 350px;

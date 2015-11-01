@@ -30,7 +30,9 @@
 
 
     .kacheln {
-        width: 830px;
+        padding: 0;
+        margin: 0;
+        width: 600px;
         height: auto
     }
 
@@ -42,12 +44,11 @@
         border-radius: 5px;
         moz-border-radius: 5px;
         webkit-border-radius: 5px;
-        background-color: brown;
+        background-color: #666;
     }
 
     .kacheln li {
         position: relative;
-        float: left
     }
     
     .kacheln li:link,
@@ -79,8 +80,39 @@
         font: bold
     }
 
+    .einzeilerref {
+        padding-top: 40px;
+    }
 
+    .zweizeilerref {
+        padding-top: 25px;
+    }
 
+    
+    .buttonhref {
+        color: #fff;
+        float: left;
+    }
+
+    #hinweisneu {
+        float: left;
+        margin-top: 10px;
+        border-radius: 5px;
+        moz-border-radius: 5px;
+        webkit-border-radius: 5px;
+        padding: 10px;
+        border-style: solid;
+        border-color: #CF5C3F;
+    }
+
+#startseiteninhalt {
+    float: left;
+    display: inline-flex
+}
+
+#startseitenh1 {
+    padding-left: 10px
+}
 
 
 
