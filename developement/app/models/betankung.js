@@ -1,4 +1,5 @@
-//in Bearbeitung
+//TODO:
+//alle Methoden außer createUser, createVehicle & getBetankungByFzgID müssen zwangsläufig überarbeitet werden!!!!
 
 var file = './data/betankungen.json';
 
@@ -19,31 +20,53 @@ var findById = function (id) {
 Daten werden zur besseren Übersicht in einem 'Betankungs-Objekt' zusammengefasst übergeben
 Die Zusammenfassung der Daten in einem Objekt erfolgt innerhalb der aufrufenden Methode
 */
-var createBetankung = function (betankung, profilID){
+var createBetankung = function (betankung, profilID, vehicleID){
 	var obj = jsonfile.readFileSync(file);
 	var alleBetankungen = obj.betankungen;
-    var betankungen = alleBetankungen[profilID];
+    var betankungen = alleBetankungen[profilID][vehicleID];
+    
+    var betankungID = vehicleID*100+betankungen.length;
+    var vehicleID = (vehicleID-(profilID*100));
 
-	betankungen.push(betankung);
-	obj.betankungen[profilID] = betankungen;
+    betankungen.id = betankungID;
+    betankungen.push(betankung);
+    obj.betankungen[profilID] = betankungen;
 
-	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log("JSON saved to " + file);
-    }
-}); 
+    fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+        if(err) {
+          console.log(err);
+      } else {
+          console.log("JSON saved to " + file);
+      }
+  }); 
 };
 
-
+//TODO: muss der neuen json struktur angepasst werden!
 var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
-    return alleBetankungen[profilID];
-}
+    var betankung = {};
+    
+    for(var i=0; i<=alleBetankungen[profilID].length; i++){
+        betankung[i] = alleBetankungen[profilID][i];
+    }
+    
+    return betankung;
+};
 
-var getBetankungByFzg = function(){};
+var getBetankungByFzgID = function(vehicleID){
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+
+    var profilID;
+    if(String(vehicleID).length == 3){
+        profilID = parseInt(String(vehicleID).charAt(0));
+    } else{
+        profilID = parseInt(String(vehicleID).charAt(0) + String(vehicleID).charAt(1));
+    }
+    
+    return alleBetankungen[profilID][vehicleID-(100*profilID)];
+};
 
 //Betankung wird übergeben
 //entsprechende Betankung wird herausgesucht und
@@ -57,10 +80,10 @@ var updateBetankung = function(betankung, profilID){
     
     for(var i=0; i<=alleBetankungen.length; i++){
         if(alleBetankungen[profilID].laufendeNr==betankung.laufendeNr){
-        alleBetankungen[profilID] = betankung;
+            alleBetankungen[profilID] = betankung;
+        }
     }
-    }
-}
+};
 
 
 //Keine Vollständige Implementierung
@@ -72,11 +95,49 @@ var deleteBetankung = function(betankung, profilID){
     console.log(betankung.laufendeNr);
     
     if(alleBetankungen[profilID].laufendeNr==betankung.laufendeNr){
-        
+
         console.log("Eintrag gelöscht");
     }    
-}
+};
+
+var createUser = function(){
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+
+    alleBetankungen.push(new Array());
+
+    obj.betankungen = alleBetankungen;
+
+    fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+        if(err) {
+          console.log(err);
+      } else {
+          console.log("JSON saved to " + file);
+      }
+  });
+};
+
+var createVehicle = function(profilID){
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+
+    alleBetankungen[profilID].push(new Array());
+
+    obj.betankungen = alleBetankungen;
+
+    fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+        if(err) {
+          console.log(err);
+      } else {
+          console.log("JSON saved to " + file);
+      }
+  });
+};
 
 //Exports
 exports.createBetankung = createBetankung;
 exports.getBetankungByProfilID = getBetankungByProfilID;
+exports.deleteBetankung = deleteBetankung;
+exports.updateBetankung = updateBetankung;
+exports.createUser = createUser;
+exports.createVehicle = createVehicle;

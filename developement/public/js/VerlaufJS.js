@@ -9,8 +9,7 @@ var yScale;
 var verbrauch =  [5, 4.8, 4.7, 4.8, 5, 5.6, 6, 5.5, 4.9, 5.6, 5.1];
 var datum = [" ", "Jan", "Feb", "Mar", "Apr",
 	"May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] 
-
-window.onload = init();
+init();
 
 function init() {
         

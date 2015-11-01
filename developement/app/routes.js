@@ -1,7 +1,8 @@
 var data = require('../data');
 var Fahrzeug = require('../app/models/fahrzeuge');
 var Betankung = require('../app/models/betankung');
-var BetankData = require('../data/betankungen.json');
+var User = require('../app/models/user');
+var betankData = require('../data/betankungen.json');
 //var fs = require('fs');
 /*var multer = require('multer');
 var uploading = multer({
@@ -117,6 +118,7 @@ module.exports = function(app, passport){
     });
 
     app.get('/startseite', isLoggedIn, function(req, res){
+        console.log(req.user);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         res.render('startseite', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
     });
@@ -163,6 +165,14 @@ module.exports = function(app, passport){
         res.render('fahrzeuginformationen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, fahrzeug : fahrzeug});
     });
     
+    app.get('/fahrzeugLoeschen', isLoggedIn, function(req, res){
+        var vehicleID = req.query.id; 
+
+        Fahrzeug.deleteFahrzeug(vehicleID, req.user.id);
+
+        res.redirect('/fahrzeuge');
+    });
+
     // =====================================
     // LOGOUT ==============================
     // =====================================
@@ -200,6 +210,7 @@ module.exports = function(app, passport){
         fahrzeug.antriebsart = req.body.Antriebsart;
         fahrzeug.getriebeart = req.body.Getriebeart;
         fahrzeug.kilometerstand = req.body.Kilometerstand;
+        fahrzeug.aktiv = true; 
 
         console.log(fahrzeug);
 
@@ -215,8 +226,7 @@ module.exports = function(app, passport){
         var profilID = req.user.id;
         console.log("ProfilID = "+profilID);
         var betankung = {};
-        
-       betankung.laufendeNr = 1+(BetankData[profilID].laufendeNr);
+                
         betankung.profilID = profilID;
         betankung.Fahrzeug = req.body.Fahrzeug;
         betankung.Datum = req.body.Datum;
@@ -232,8 +242,54 @@ module.exports = function(app, passport){
     });
 
     app.post('/profilAendern', isLoggedIn, function(req, res){
-        console.log('Logik muss noch implementiert werden!');
-        res.redirect('profilAendern');
+        var user = {};
+        
+        user.id = req.user.id;
+        user.email = req.user.email; 
+        user.password = req.user.password;
+        user.Anrede = req.body.Anrede;
+        user.Nachname = req.body.Nachname;
+        user.Vorname = req.body.Vorname;
+        user.Straße = req.body.Straße;
+        user.Hausnummer = req.body.Hausnummer;
+        user.Postleitzahl = req.body.Postleitzahl;
+        user.Ort = req.body.Ort;
+        user.Land = req.body.Land;
+        
+        User.updateUser(user);
+        
+        res.redirect('/profilAendern');        
+    });
+
+    app.post('/suche', isLoggedIn, function(req, res){
+        var bedingungen = new Object(); 
+
+        /*
+
+        bedingungen.typ
+        bedingungen.marke
+        bedingungen.modell
+        bedingungen.kraftstoff
+        bedingungen.getriebe
+        bedingungen.baujahr => [von, bis]
+        bedingungen.leistung -> [von, bis]
+
+        wenn nichts angegeben ist, dann mit 'alle' befüllen!
+        */
+
+        bedingungen.typ = 'alle';
+        bedingungen.marke = 'Audi';
+        bedingungen.modell = 'alle';
+        bedingungen.kraftstoff = 'alle';
+        bedingungen.getriebe = 'alle';
+        bedingungen.baujahr = 'alle';
+        bedingungen.leistung = 'alle';
+        var ergebnis = Fahrzeug.searchExtended(bedingungen);
+
+        //console.log(ergebnis);
+
+        //do something 
+        res.redirect('/suchergebnisse');
     });
 };
 

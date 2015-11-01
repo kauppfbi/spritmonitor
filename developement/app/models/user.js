@@ -3,7 +3,7 @@ var jsonfile = require('jsonfile');
 var fs = require('fs');
 var util = require('util');
 var Fahrzeuge = require('./fahrzeuge');
- 
+
 var file = './data/user.json';
 
 
@@ -16,13 +16,13 @@ var file = './data/user.json';
 	validPassword = function(password) {
 		return bcrypt.compareSync(password, this.local.password);
 	};
-*/
+	*/
 
-var findById = function (id) {
-	var obj = jsonfile.readFileSync(file);
-	var user = obj.user;
-	return user[id];
-};
+	var findById = function (id) {
+		var obj = jsonfile.readFileSync(file);
+		var user = obj.user;
+		return user[id];
+	};
 
 /*
 * returns true if email is still available
@@ -54,13 +54,13 @@ var createUser = function (email, password){
 	obj.user = user;
 
 	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log("JSON saved to " + file);
-    }
-    return newUser;
-}); 
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("JSON saved to " + file);
+		}
+		return newUser;
+	}); 
 
 };
 
@@ -78,7 +78,24 @@ var checkPassword = function (email, password){
 	}
 };
 
-var deleteUser = function (id) {};
+
+//der Einfachheit halber wird nur die Email des Users geändert, sonst müsste die ganze Architektur angepasst werden!!
+var deleteUser = function (id) {
+	var obj = jsonfile.readFileSync(file);
+	var user = obj.user;
+
+	user[id].email = "user gelöscht";
+
+	obj.user = user; 
+
+	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("JSON saved to " + file);
+		}
+	});
+};
 
 var getByEmail = function (email) {
 	var obj = jsonfile.readFileSync(file);
@@ -86,16 +103,27 @@ var getByEmail = function (email) {
 
 	for (var i = 0; i < user.length; i++){
 		if (user[i].email == email){
-			var returnUser = {};
-			returnUser.email = email; 
-			returnUser.password = user[i].password;
-			returnUser.id = user[i].id;
-			return returnUser;
+			return user[i];
 		}
 	}
 	return null;
 };
 
+var updateUser = function(newUser){
+	var obj = jsonfile.readFileSync(file);
+	var user = obj.user;
+
+	user[newUser.id] = newUser;
+	obj.user = user;
+
+	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("JSON saved to " + file);
+		}
+	});
+};
 
 exports.checkMail = checkMail;
 exports.checkPassword = checkPassword; 
@@ -103,27 +131,4 @@ exports.createUser = createUser;
 exports.deleteUser = deleteUser;
 exports.findById = findById; 
 exports.getByEmail = getByEmail;
-
-
-/*
-var obj = jsonfile.readFileSync(file);
-
-var user = obj.user;
-
-user.push({name: "Martin", email: "mail@asdf"});
-
-obj.user = user;
- 
-console.log(obj.user);
-
-var outputFilename = './data/user.json';
-
-fs.writeFile(outputFilename, JSON.stringify(obj, null, 4), function(err) {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log("JSON saved to " + outputFilename);
-    }
-}); 
-*/
-
+exports.updateUser = updateUser;

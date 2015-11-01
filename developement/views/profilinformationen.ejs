@@ -7,7 +7,7 @@
       console.log(user);
     </script>
   </head>
-  <body class="body" onload="test()">
+  <body class="body">
     <% include ./partials/header %>
     <div id="content">
       <span>
@@ -18,6 +18,41 @@
           <br>
           <a>Passwort: *****</a>
           <br>
+          <% if (user.anrede != null) {%>
+          <a>Anrede: <%= user.anrede %> </a>
+          <br>
+          <% } %>
+          <% if (user.nachname != null) {%>
+          <a>Nachname: <%= user.nachname %> </a>
+          <br>
+          <% } %>
+          <% if (user.vorname != null) {%>
+          <a>Vorname: <%= user.vorname %> </a>
+          <br>
+          <% } %>
+          <% if (user.geburtsdatum != null) {%>
+          <a>Geburtsdatum: <%= user.geburtsdatum %> </a>
+          <br>
+          <% } %>
+          <% if (user.straße != null) {%>
+          <a>Straße: <%= user.straße %> </a>
+          <br>
+          <% } %>
+          <% if (user.hausnummer != null) {%>
+          <a>Hausnummer: <%= user.hausnummer %> </a>
+          <br>
+          <% } %>
+          <% if (user.postleitzahl != null) {%>
+          <a>Postleitzahl: <%= user.postleitzahl %> </a>
+          <br>
+          <% } %>
+          <% if (user.ort != null) {%>
+          <br>
+          <a>Ort: <%= user.ort %> </a>
+          <% } %>
+          <% if (user.land != null) {%>
+          <a>Land: <%= user.land %> </a>
+          <% } %>
       </span>
         <button type="button" id="ProfilLoeschen" onclick="deleteProfil()">Profil löschen</button>
     </div>
