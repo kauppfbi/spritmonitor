@@ -63,7 +63,27 @@
             []
         ],
         [
-            []
+            [
+                {
+                    "profilID": 6,
+                    "vehicleID": "700",
+                    "Fahrzeug": "Audi A3 #700",
+                    "Datum": "2015-10-01",
+                    "Kraftstoff": "Super",
+                    "Liter": "10",
+                    "Kilometer": "20100",
+                    "Vollbetankung": "true",
+                    "Distanz": "100",
+                    "Kosten": "15",
+                    "Bemerkung": "",
+                    "Reifen": "Sommerreifen",
+                    "Fahrweise": "normal",
+                    "Strecken": "Stadt",
+                    "Tankstelle": "Jet",
+                    "Boardcomputer": "3",
+                    "id": 60000
+                }
+            ]
         ]
     ]
 }

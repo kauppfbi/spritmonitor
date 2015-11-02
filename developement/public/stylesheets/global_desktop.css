@@ -20,33 +20,25 @@
         width: 100%;
         height: auto;
     }
-
-
-
-
-
-
-
-
-
+    
     .kacheln {
         padding: 0;
         margin: 0;
         width: 600px;
         height: auto
     }
-
+    
     .kacheln li {
         display: inline-block;
         margin: 10px 0px 0px 10px;
-        height: 120px; 
+        height: 120px;
         width: 200px;
         border-radius: 5px;
         moz-border-radius: 5px;
         webkit-border-radius: 5px;
         background-color: #666;
     }
-
+    
     .kacheln li {
         position: relative;
     }
@@ -66,10 +58,10 @@
         color: #FFF;
         text-shadow: none;
     }
-
+    
     .kacheln a {
         font-size: 30px;
-        height: 120px; 
+        height: 120px;
         width: 200px;
         border-radius: 5px;
         moz-border-radius: 5px;
@@ -79,21 +71,20 @@
         color: #FFF;
         font: bold
     }
-
+    
     .einzeilerref {
         padding-top: 40px;
     }
-
+    
     .zweizeilerref {
         padding-top: 25px;
     }
-
     
     .buttonhref {
         color: #fff;
         float: left;
     }
-
+    
     #hinweisneu {
         float: left;
         margin-top: 10px;
@@ -104,26 +95,15 @@
         border-style: solid;
         border-color: #CF5C3F;
     }
-
-#startseiteninhalt {
-    float: left;
-    display: inline-flex
-}
-
-#startseitenh1 {
-    padding-left: 10px
-}
-
-
-
-
-
-
-
-
-
-
-
+    
+    #startseiteninhalt {
+        float: left;
+        display: inline-flex
+    }
+    
+    #startseitenh1 {
+        padding-left: 10px
+    }
     
     #logo {
         width: 60%;
@@ -218,17 +198,17 @@
         width: 50%;
     }
     
-    #searchtext1 {
+    #ListeHersteller {
         float: left;
-        padding-left: 2px;
+        margin-left: 2px;
         width: 40%;
         min-width: 100px;
     }
     
-    #searchtext2 {
+    #ListeModelle {
         float: left;
         width: 40%;
-        padding-left: 2px;
+        margin-left: 2px;
         min-width: 100px;
     }
     
@@ -318,4 +298,14 @@
         flex-shrink: 2;
         padding-left: 2%;
         padding-right: 2%
+    }
+    
+    .bordercontainer {
+        margin-top: 10px;
+        border-radius: 5px;
+        moz-border-radius: 5px;
+        webkit-border-radius: 5px;
+        padding: 5px;
+        border-style: solid;
+        border-color: #CF5C3F;
     }

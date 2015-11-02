@@ -1,5 +1,5 @@
 <a href="/startseite"><img id="logo" src="/img/Logo1.gif"></a>
-<header class="header">  
+<header class="header">
     <nav>
         <ul>
             <li id="myprofile" class="active">
@@ -11,9 +11,10 @@
                 </ul>
             </li>
             <li id="search" class="active">
+                <a href="#">
                     <!--<input id="searchtext1" type="text" name="Herstellersuche" placeholder="Hersteller" list="herstellerlist"/>-->
                     <select id="ListeHersteller" onchange="ModellAuswahlUpdate()"></select>
-                    <!-- <input id="searchtext2" tyoe="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>-->
+                    <!-- <input id="searchtext2" type="text" name="Modellsuche" placeholder="Modell" list="modelllist"/>-->
                     <select id="ListeModelle"></select>
                     <img id="searchicon" src="/img/search.png" onclick="search()" />
                 </a>
@@ -23,13 +24,12 @@
             </li>
             <li id="refuel" class="active">
                 <a href="/neueBetankung"><img id="fuelicon" src="/img/fuel.gif" /></a>
-
             </li>
             <li id="logout">
                 <a href="/logout"><img id="logouticon" src="/img/logout.gif" /></a>
             </li>
         </ul>
     </nav>
-  <script type="text/javascript" src="js/header.js"></script>
-  <!--<script src="/js/headerSuche.js"></script>-->
+    <script type="text/javascript" src="js/header.js"></script>
+    <!--<script src="/js/headerSuche.js "></script>-->
 </header>

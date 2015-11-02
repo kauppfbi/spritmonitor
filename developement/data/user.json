@@ -39,9 +39,17 @@
             "id": 5
         },
         {
+            "id": 6,
             "email": "bauerflorian95@gmail.com",
             "password": "$2a$08$b2Su6L82vjI2vH6WDAOf2uHbArY55RltDQ4F.V2TZcHEh2F1Fy6UC",
-            "id": 6
+            "Anrede": "Herr",
+            "Nachname": "Florian",
+            "Vorname": "Bauer",
+            "Straße": "A",
+            "Hausnummer": "10",
+            "Postleitzahl": "99999",
+            "Ort": "MA",
+            "Land": "DE"
         }
     ]
 }
