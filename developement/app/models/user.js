@@ -83,7 +83,7 @@ var checkPassword = function (email, password){
 var deleteUser = function (id) {
 	var obj = jsonfile.readFileSync(file);
 	var user = obj.user;
-
+	console.log('User mit der Id: ' + id + " löschen!");
 	user[id].email = "user gelöscht";
 
 	obj.user = user; 
