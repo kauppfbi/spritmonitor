@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <% include ./partials/head %>
+    <title>Fahrzeuginformationen</title>
+      
+       <script type="text/javascript">
+            var user = <%- JSON.stringify(fahrzeuge) %>
+        </script>
+  </head>
+  <body class="body">
+    <% include ./partials/header %>
+    <div id="content">    
+    <div>
+    <table border="5">
+            <tr>
+                <td>Fahrzeugtyp: </td><td><%= fahrzeug.typ %></td>
+                <td>Marke: </td><td><%= fahrzeug.marke%></td>
+                <td>Modell: </td><td><%= fahrzeug.modell%></td>
+            </tr>
+            <tr>
+                <td>Bezeichnung: </td><td> <%= fahrzeug.bezeichnung%></td>
+                <td>Baujahr: </td><td><%= fahrzeug.baujahr%></td>
+                <td>Leistung: </td><td><%= fahrzeug.leistung%></td>
+            </tr>
+            <tr>
+                <td>Antriebsart: </td><td><%= fahrzeug.antriebsart%></td>
+                <td>Getriebeart: </td><td><%= fahrzeug.getriebeart%></td>
+                <td>Kilometerstand: </td><td><%= fahrzeug.kilometerstand%></td>
+                
+            <button><a class="buttonhref" href="/fahrzeuginformation">Details</a></button>
+            </tr>
+    </table>
+    </div>    
+    <% } %>  
+    </div> 
+  </body>
+</html>

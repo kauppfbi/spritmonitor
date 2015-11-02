@@ -22,7 +22,7 @@ Prio 10
 ----------------------------------------------------------------------------------
 
 Janis
-	#Canvas! --> Dynamisch für jeden Nutzer fehlt noch (FELIX) und undefined muss entfernt werden
+	#Canvas! --> Dynamisch für jeden Nutzer fehlt noch (FELIX) und undefined muss entfernt werden(FABIAN)
 	#Fahrzeuginformationen
 Flo
 	#Favicon
