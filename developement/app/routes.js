@@ -115,7 +115,13 @@ module.exports = function(app, passport){
         var datumVerbrauch = Betankung.getDatumVerbrauch(5, 600);
         //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        var betankungen = Fahrzeug.getBetankungByFzgID(req.fahrzeuge.vehicleID);
+        
+        /*gemogelt zum testen*/
+        for(var i=0;i<req.user.id;i++) {
+            for(var z=0;z<Fahrzeug.getVehiclesByProfilID(i).length;z++) {
+        var betankungen = Betankung.getBetankungByFzgID(i*100+i);
+            }
+        }
         console.log('MainStats zu Vehicle 600: ' + JSON.stringify(Betankung.getMainStats(600)));
 
         res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch, betankungen : betankungen});

@@ -9,8 +9,7 @@ var Betankung = require('./betankung');
 returns Fahrzeug-Objekt mit der übergebenen ID
 */
 var findById = function(id){
-	
-};
+	};
 
 //vehicle ist das aufbereitete fahrzeug-Objekt
 var createVehicle = function(vehicle, profilID){
@@ -34,6 +33,7 @@ var createVehicle = function(vehicle, profilID){
 		}
 	}); 
 };
+
 
 var getVehiclesByProfilID = function(profilID){
 	var obj = jsonfile.readFileSync(file);
