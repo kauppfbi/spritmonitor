@@ -25,9 +25,18 @@
             "land": "Deutschland"
         },
         {
+            "id": 3,
             "email": "fx.hahn@web.de",
-            "password": "$2a$08$VnIxId7lQdHPsxYz6ptoiuV3M8gf46msR8x03km73seuHyee.zM4y",
-            "id": 3
+            "password": "$2a$08$uOtV8qEkbBfpNsK7ATMfWe3drZm89J5eOhSdX2kzVROoRdt7/kApW",
+            "anrede": "Herr",
+            "nachname": "Hahn",
+            "vorname": "Felix",
+            "geburtsdatum": "",
+            "straße": "Eichenweg",
+            "hausnummer": "",
+            "postleitzahl": "",
+            "ort": "",
+            "land": ""
         },
         {
             "email": "fabian@kaupp.de",

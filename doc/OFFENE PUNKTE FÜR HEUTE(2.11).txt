@@ -18,3 +18,30 @@ Prio 9
 Prio 10
 - Ständiger Logout beim Speichern von verschiedenen Daten
 - Icon im Tab
+
+
+----------------------------------------------------------------------------------
+
+Janis
+	#Canvas! --> Daten aus Methode aufbereiten
+	#Fahrzeuginformationen
+	#Profilinfos anpassen
+	#Diagramme schwarze schrift
+Flo
+	#Favicon
+	#CSS --> 18.00 Uhr
+Fabi
+	#Mainstats auf Spritverlauf
+	#Methode PKW-km anpassen
+	#Clientseitig Profil löschen
+	#Profil änder: Flashmassage + Redirect
+Martin
+	#Betankungen im Detail auf Spritverlauf (unter Diagramme) anstatt href
+Felix
+	#Post Methode zu erweiterte Suche
+	#Ergebnis in Objekt bei Redirect mitgeben --> anzeige in Sucherergebnisse
+	#Betankung:
+		#Tachostand <--> Distanz
+		#aktueller Tachostand !< als letzter (muss vor submit geprüft werden) 
+			oder letzter STand als default
+	(#) LocalStorage
