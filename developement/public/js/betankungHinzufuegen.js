@@ -54,11 +54,23 @@ var autofilDistanz = function(betankung, profilID, fahrzeug){
     document.getElementById('Distanz').value = distanz;
 }
 
-/*
 var validateForm = function() {
-    var x = document.forms["myForm"]["fname"].value;
-    if (x == null || x == "") {
-        alert("Name must be filled out");
+    var x = document.forms["neueBetankung"]["Reifen"].value;
+    var y = document.forms["neueBetankung"]["Fahrweise"].value;
+    var z = document.forms["neueBetankung"]["Strecken"].value;
+    
+    if (x != "Sommerreifen" || x != "Winterreifen" || x != "Ganzjahresreifen") {
+        alert("Bitte Bereifung wählen");
         return false;
     }
-} */
+    
+    if (y != "sparsam" || y != "schnell" || y != "normal") {
+        alert("Bitte Fahrweise wählen");
+        return false;
+    }
+    
+    if (z != "Stadt" || z != "Land" || z != "Autobahn") {
+        alert("Bitte Strecke wählen");
+        return false;
+    }
+}
