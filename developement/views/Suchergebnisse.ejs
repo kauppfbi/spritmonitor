@@ -7,31 +7,31 @@
     <% include ./partials/header %>
     <div id="content">
     
-    <% for(var i=0; i < fahrzeuge.length; i++) { %>        
+    <% for(var i=0; i < suchergebnis.length; i++) { %>        
     <div>
     
     <table border="5">
       <span>
             <tr>
-                <td>Fahrzeugtyp: </td><td><%= fahrzeuge[i].typ %></td>
+                <td>Fahrzeugtyp: </td><td><%= suchergenis[i].typ %></td>
                 <td>    </td>
-                <td>Marke: </td><td><%= fahrzeuge[i].marke%></td>
+                <td>Marke: </td><td><%= suchergenis[i].marke%></td>
                 <td>    </td>
-                <td>Modell: </td><td><%= fahrzeuge[i].modell%></td>
+                <td>Modell: </td><td><%= suchergebnis[i].modell%></td>
             </tr>
             <tr>
-                <td>Bezeichnung: </td><td> <%= fahrzeuge[i].bezeichnung%></td>
+                <td>Bezeichnung: </td><td> <%= suchergebnis[i].bezeichnung%></td>
                                 <td>    </td>
-                <td>Baujahr: </td><td><%= fahrzeuge[i].baujahr%></td>
+                <td>Baujahr: </td><td><%= suchergebnis[i].baujahr%></td>
                                 <td>    </td>
-                <td>Leistung: </td><td><%= fahrzeuge[i].leistung%></td>
+                <td>Leistung: </td><td><%= suchergebnis[i].leistung%></td>
             </tr>
             <tr>
-                <td>Antriebsart: </td><td><%= fahrzeuge[i].antriebsart%></td>
+                <td>Antriebsart: </td><td><%= suchergebnis[i].antriebsart%></td>
                                 <td>    </td>
-                <td>Getriebeart: </td><td><%= fahrzeuge[i].getriebeart%></td>
+                <td>Getriebeart: </td><td><%= suchergebnis[i].getriebeart%></td>
                                 <td>    </td>
-                <td>Kilometerstand: </td><td><%= fahrzeuge[i].kilometerstand%></td>
+                <td>Kilometerstand: </td><td><%= suchergebnis[i].kilometerstand%></td>
             </tr>
           <% } %>
       </span>
