@@ -72,7 +72,7 @@
             {
                 "typ": "Auto",
                 "marke": "BMW",
-                "bezeichnung": "",
+                "bezeichnung": "i8",
                 "baujahr": "2015",
                 "leistung": "560",
                 "antriebsart": "Elektro",
@@ -146,6 +146,12 @@
                 "antriebsart": "Benzin",
                 "getriebeart": "Automatik",
                 "kilometerstand": "27000",
+                "extras": [
+                    "Klimaanlage",
+                    "Navigationsgerät",
+                    "Tempomat",
+                    "PDC"
+                ],
                 "anfangskilometerstand": 0,
                 "aktiv": true
             }

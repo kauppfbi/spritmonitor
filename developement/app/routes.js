@@ -125,12 +125,13 @@ module.exports = function(app, passport){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         var fahrzeugBeschreibungen = Fahrzeug.getFahrzeugbeschreibungByProfilID(req.user.id);
         
-        var fahrzeugId = req.params.id;
+        var fahrzeugId = parseInt(req.query.id);
         
         //get specific vehicle from id here
         var fahrzeug = Fahrzeug.findById(fahrzeugId);
+        //console.log(fahrzeug);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('fahrzeuginformation', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen, fahrzeug: fahrzeug });
+        res.render('fahrzeuginformationen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen, fahrzeug: fahrzeug });
     });
 
     app.get('/404', isLoggedIn, function(req, res){
@@ -170,19 +171,19 @@ module.exports = function(app, passport){
     });
     
     app.get('/fahrzeuge', isLoggedIn, function(req, res){
-        //ids = req.query.id
-        var ids = '300,301,600';
+        var ids = req.query.id;
         //splitten und in array 
+        var singleID = ids.split(",");
         
         var fahrzeuge = new Array(); 
         
-        //for schleife 
-        fahrzeuge.push(Fahrzeug.findById(300));
-        fahrzeuge.push(Fahrzeug.findById(600));
-        
+        for(var i=0;i<singleID.length;i++){ 
+        fahrzeuge.push(Fahrzeug.findById(singleID[i]));
+        }
+        console.log(fahrzeuge);
         
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('fahrzeuginformationen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, fahrzeugObjekte : fahrzeuge});
+        res.render('infoMehrereFahrzeuge', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, fahrzeugObjekte : fahrzeuge});
     });
     
     app.get('/fahrzeugLoeschen', isLoggedIn, function(req, res){

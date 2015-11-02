@@ -11,10 +11,10 @@
     <% include ./partials/header %>
     <div id="content">  
         
-       
-    <div>
+       <% for (var i=0; i < fahrzeugObjekte.length; i++ ) { %>
+    <div class="bordercontainer">
     <table border="5">
-         <% for (var i=0; i < fahrzeuge.length; i++ ) { %>
+         
             <tr>
                 <td>Fahrzeugtyp: </td><td><%= fahrzeugObjekte[i].typ %></td>
                 <td>Marke: </td><td><%= fahrzeugObjekte[i].marke%></td>
@@ -32,10 +32,11 @@
                 
             <button><a class="buttonhref" href="/fahrzeug?id=<%= fahrzeugObjekte[i].id %>">Details</a></button>
             </tr>
-        <% } %> 
+        <br>
+         
     </table>
     </div>    
-     
+     <% } %>
     </div> 
   </body>
 </html>

@@ -4,13 +4,13 @@
     <title>Meine Autos</title>
       
        <script type="text/javascript">
-            var fahrzeug = <%- JSON.stringify(fahrzeuge) %>
+            var fahrzeuge = <%- JSON.stringify(fahrzeuge) %>
         </script>
   </head>
   <body class="body">
     <% include ./partials/header %>
-    <div id="content">
-      <span>
+    <h1 class="eingeschobenh1">Meine Fahrzeuge</h1>
+      <div id="content">
           <br>
         
           <% if (fahrzeug.typ != "") {%>
@@ -53,7 +53,6 @@
           <a>Extras: <%= fahrzeug.extras %> </a>
           <br>
           <% } %>
-      </span>
     </div>
   </body>
 </html>

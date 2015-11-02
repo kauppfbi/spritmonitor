@@ -21,6 +21,8 @@ document.body.onload = function(){
 
 	//Einfache Suche
 	prepareSearch();
+    
+    updateFahrzeuginfo();
 };
 
 
@@ -99,4 +101,23 @@ var search = function(){
 	window.location.assign(searchQuery);
 
 
+};
+
+function updateFahrzeuginfo() {  
+    var meineFahrzeuge = document.getElementById('meineFahrzeuge');
+   var updateQuery = "";
+    
+    if(fahrzeuge.length == 1){
+        updateQuery = '/fahrzeug?id=' + String(fahrzeuge[0].id);
+    } else{
+        updateQuery += '/fahrzeuge?id=';
+        for(var i=0;i<fahrzeuge.length;i++){  
+            if(i==fahrzeuge.length-1){
+                updateQuery += fahrzeuge[i].id;
+            }else{
+                updateQuery += fahrzeuge[i].id + ",";
+            }
+        }
+    }
+    meineFahrzeuge.href = updateQuery;
 };

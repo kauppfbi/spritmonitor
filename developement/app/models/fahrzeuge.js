@@ -15,8 +15,11 @@ var findById = function(vehicleID){
     } else if (String(vehicleID).length == 4){
         profilID = parseInt(String(vehicleID).charAt(0) + String(vehicleID).charAt(1))-1;
     }
-    var vehicleIndex = (vehicleID-(100*(profilID+1)));
-
+    var vehicleIndex = parseInt(vehicleID-(100*(profilID+1)));
+    console.log(profilID);
+    console.log(vehicleIndex);
+    //console.log(Number.isNaN(vehicleIndex));
+    
     var obj = jsonfile.readFileSync(file);
 	var alleFahrzeuge = obj.fahrzeuge;
 
