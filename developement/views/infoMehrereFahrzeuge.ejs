@@ -4,34 +4,38 @@
     <title>Fahrzeuginformationen</title>
       
        <script type="text/javascript">
-            var user = <%- JSON.stringify(fahrzeuge) %>
+            var fahrzeuge = <%- JSON.stringify(fahrzeuge) %>
         </script>
   </head>
   <body class="body">
     <% include ./partials/header %>
-    <div id="content">    
+    <div id="content">  
+        
+       
     <div>
     <table border="5">
+         <% for (var i=0; i < fahrzeuge.length; i++ ) { %>
             <tr>
-                <td>Fahrzeugtyp: </td><td><%= fahrzeug.typ %></td>
-                <td>Marke: </td><td><%= fahrzeug.marke%></td>
-                <td>Modell: </td><td><%= fahrzeug.modell%></td>
+                <td>Fahrzeugtyp: </td><td><%= fahrzeugObjekte[i].typ %></td>
+                <td>Marke: </td><td><%= fahrzeugObjekte[i].marke%></td>
+                <td>Modell: </td><td><%= fahrzeugObjekte[i].modell%></td>
             </tr>
             <tr>
-                <td>Bezeichnung: </td><td> <%= fahrzeug.bezeichnung%></td>
-                <td>Baujahr: </td><td><%= fahrzeug.baujahr%></td>
-                <td>Leistung: </td><td><%= fahrzeug.leistung%></td>
+                <td>Bezeichnung: </td><td> <%= fahrzeugObjekte[i].bezeichnung%></td>
+                <td>Baujahr: </td><td><%= fahrzeugObjekte[i].baujahr%></td>
+                <td>Leistung: </td><td><%= fahrzeugObjekte[i].leistung%></td>
             </tr>
             <tr>
-                <td>Antriebsart: </td><td><%= fahrzeug.antriebsart%></td>
-                <td>Getriebeart: </td><td><%= fahrzeug.getriebeart%></td>
-                <td>Kilometerstand: </td><td><%= fahrzeug.kilometerstand%></td>
+                <td>Antriebsart: </td><td><%= fahrzeugObjekte[i].antriebsart%></td>
+                <td>Getriebeart: </td><td><%= fahrzeugObjekte[i].getriebeart%></td>
+                <td>Kilometerstand: </td><td><%= fahrzeugObjekte[i].kilometerstand%></td>
                 
-            <button><a class="buttonhref" href="/fahrzeuginformation">Details</a></button>
+            <button><a class="buttonhref" href="/fahrzeug?id=<%= fahrzeugObjekte[i].id %>">Details</a></button>
             </tr>
+        <% } %> 
     </table>
     </div>    
-    <% } %>  
+     
     </div> 
   </body>
 </html>

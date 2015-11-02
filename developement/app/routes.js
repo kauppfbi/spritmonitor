@@ -184,10 +184,19 @@ module.exports = function(app, passport){
     });
     
     app.get('/fahrzeuge', isLoggedIn, function(req, res){
+        //ids = req.query.id
+        var ids = '300,301,600';
+        //splitten und in array 
+        
+        var fahrzeuge = new Array(); 
+        
+        //for schleife 
+        fahrzeuge.push(Fahrzeug.findById(300));
+        fahrzeuge.push(Fahrzeug.findById(600));
         
         
-        
-        res.render('fahrzeuginformationen', {modelle : data.modelle});
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('fahrzeuginformationen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, fahrzeugObjekte : fahrzeuge});
     });
     
     app.get('/fahrzeugLoeschen', isLoggedIn, function(req, res){
