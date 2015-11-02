@@ -1,13 +1,11 @@
 <html>
-
 <head>
-    <% include ./partials/head %>
-        <title>MySprit</title>
-        <script>
-            var fahrzeugBeschreibungen = <%- JSON.stringify(beschreibung) %>
-        </script>
+  <% include ./partials/head %>
+  <title>MySprit</title>
+    <script>
+        var fahrzeugBeschreibungen = <%- JSON.stringify(beschreibung) %>
+    </script>
 </head>
-
 <body class="body">
   <% include ./partials/header %>
   <div id="content">
@@ -27,7 +25,7 @@
         <input name="Menge" type="number"/><br/>
         <label for="Vollbetankung">Vollbetankung:</label>
         <input name="Vollbetankung" type="checkbox" value="true"/><br/>
-        <label for="Sorte">Sorte:</label>
+        <label for="Sorte">Sorte:</label>per JS automatisch 
         <select name="Sorte">
           <option>Super</option>
           <option>Super Plus</option>
@@ -55,13 +53,12 @@
         <label for="Tankstelle">Tankstelle:</label>
         <input name="Tankstelle"/><br/>
         <label for="Boardcomputer">Boardcomputer:</label>
-        <input name="Boardcomputer" type="number"/>Liter/100km<br/>
-        <button type="submit" onclick=storeSorte()>Betankung hinzufügen</button>  
+        <input name="Boardcomputer" type="number" step="0.1"/>Liter/100km<br/>
+        <button type="submit">Betankung hinzufügen</button>  
       </form>
     </h1>
   </div>
     <script src="/js/betankungHinzufuegen.js"></script>
     <script>fahrzeugAuswahl(fahrzeugBeschreibungen)</script>
-    <script>getSorte()</script>
 </body>
 </html>

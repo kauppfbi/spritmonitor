@@ -9,26 +9,47 @@
     <div id="content">
       <span>
           <br>
-        <a>Fahrzeugtyp: <%= fahrzeug.typ %> </a> 
+        
+          <% if (fahrzeug.typ != null) {%>
+          <a>Fahrzeugtyp: <%= fahrzeug.typ %> </a>
           <br>
-          <a>Marke: <%= fahrzeug.marke %></a>
+          <% } %>
+          <% if (fahrzeug.marke != null) {%>
+          <a>Marke: <%= fahrzeug.marke %> </a>
           <br>
-          <a>Modell: <%= fahrzeug.modell %></a>
+          <% } %>
+          <% if (fahrzeug.modell != null) {%>
+          <a>Modell: <%= fahrzeug.modell %> </a>
           <br>
-          <a>Bezeichnung: <%= fahrzeug.bezeichnung %></a>
+          <% } %>
+          <% if (fahrzeug.bezeichnung != null) {%>
+          <a>Bezeichnung: <%= fahrzeug.bezeichnung %> </a>
           <br>
-          <a>Baujahr: <%= fahrzeug.baujahr %></a>
+          <% } %>
+          <% if (fahrzeug.baujahr != null) {%>
+          <a>Baujahr: <%= fahrzeug.baujahr %> </a>
           <br>
+          <% } %>
+          <% if (fahrzeug.leistung != null) {%>
           <a>Leistung: <%= fahrzeug.leistung %> PS</a>
           <br>
-          <a>Treibstoff: <%= fahrzeug.antriebsart %></a>
+          <% } %>
+          <% if (fahrzeug.antriebsart != null) {%>
+          <a>Treibstoff: <%= fahrzeug.antriebsart %> </a>
           <br>
-          <a>Getriebe: <%= fahrzeug.getriebeart %></a>
+          <% } %>
+          <% if (fahrzeug.getriebeart != null) {%>
+          <a>Getriebeart: <%= fahrzeug.getriebeart %> </a>
           <br>
-          <a>Anfangskilometerstand: <%= fahrzeug.kilometerstand %> km</a>
+          <% } %>
+          <% if (fahrzeug.kilometerstand != null) {%>
+          <a>Kilometerstand: <%= fahrzeug.kilometerstand %> </a>
           <br>
-          <a>Extras: <%= fahrzeug.extras %></a>
+          <% } %>
+          <% if (fahrzeug.extras != null) {%>
+          <a>Extras: <%= fahrzeug.extras %> </a>
           <br>
+          <% } %>
       </span>
     </div>
   </body>
