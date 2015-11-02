@@ -1,0 +1,10 @@
+Was noch offen ist:
+- Profilinformationen Design?
+- Fahrzeuginformationen anzeigen (3 versch. Fälle!)
+- Spritverlauf Daten einlesen (vorherige Fzg.-Auswahl, sofern mehr als ein Fzg. dem Profil zugewiesen ist)
+- Suche funktioniert noch nicht --> Anzeige der Suchergebnisse (evtl. flash message falls kein suchergebnis)
+- Betankung hinzufügen: Sorte automatisch einlesen --> local storage
+- Betankung hinzufügen: Distanz automatisch errechnen
+- Tabelle mit Betankungen funktioniert nicht --> einfügen in spritverlauf
+- kleine Tabelle mit allen wesentlichen verbrauchsdaten zu einem fahrzeug auf spritverlauf
+- Ständiger Logout beim Speichern von verschiedenen Daten

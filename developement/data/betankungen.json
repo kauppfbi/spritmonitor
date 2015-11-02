@@ -119,6 +119,25 @@
                     "Tankstelle": "Aral",
                     "Boardcomputer": "10",
                     "id": 50001
+                },
+                {
+                    "profilID": 5,
+                    "vehicleID": "600",
+                    "Fahrzeug": "BMW 4er #600",
+                    "Datum": "2015-10-01",
+                    "Kraftstoff": "Super Plus",
+                    "Liter": "50",
+                    "Kilometer": "300",
+                    "Vollbetankung": "true",
+                    "Distanz": "100",
+                    "Kosten": "90",
+                    "Bemerkung": "",
+                    "Reifen": "Sommerreifen",
+                    "Fahrweise": "schnell",
+                    "Strecken": "Autobahn",
+                    "Tankstelle": "Aral",
+                    "Boardcomputer": "10",
+                    "id": 50002
                 }
             ]
         ],
