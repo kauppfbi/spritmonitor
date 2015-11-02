@@ -112,12 +112,12 @@ module.exports = function(app, passport){
     app.get('/spritverlauf', isLoggedIn, function(req, res){
 
        var fzgId = req.query.id;
-        var datumVerbrauch = Betankung.getDatumVerbrauch(req.user.id, fzgId);
+        var datumVerbrauch = Betankung.getDatumVerbrauch(fzgId);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         var betankungen = Betankung.getBetankungByFzgID(fzgId);
 
         var mainStats = Betankung.getMainStats(fzgId);
-
+        var streckenverteilung = Betankung.getStreckenverteilungByFzgID(fzgId);
         res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch, betankungen : betankungen, mainStats : mainStats});
     });
 

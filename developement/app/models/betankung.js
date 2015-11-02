@@ -84,18 +84,21 @@ var getBetankungByFzgID = function(vehicleID){
     return alleBetankungen[profilID][vehicleID-(100*(profilID+1))];
 };
 
-var getDatumVerbrauch = function(profilID, vehicleID){
-    
-    //parameter profilId muss aus vehicleid ausgeslesen werden!
+var getDatumVerbrauch = function(vehicleID){
+    var profilID;
+    if (String(vehicleID).length == 3){
+        profilID = parseInt(String(vehicleID).charAt(0))-1;
+    } else if (String(vehicleID).length == 4){
+        profilID = parseInt(String(vehicleID).charAt(0) + String(vehicleID).charAt(1))-1;
+    }
+    var vehicleIndex = (vehicleID-(100*(profilID+1)));
+
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
-    var vehicleIndex = (vehicleID-(100*(profilID+1)));
     
-    var betankungen = alleBetankungen[profilID][vehicleIndex];
     var datumVerbrauch = new Array();
     
     var betankungenFahrzeug = alleBetankungen[profilID][vehicleIndex];
-    console.log(betankungenFahrzeug);
     
     for(var i=0; i<betankungenFahrzeug.length; i++){
         var durchVerbrauch = (betankungenFahrzeug[i].Liter / (betankungenFahrzeug[i].Distanz))*100;
@@ -263,13 +266,13 @@ var getMainStats = function(vehicleID){
             } else {
                 
                 for(var j = 0; j < betankungenFahrzeug[i].Strecken.length; j++){
-                    if(betankungenFahrzeug[i].Strecken == 'Land'){
+                    if(betankungenFahrzeug[i].Strecken[j] == 'Land'){
                         streckeLandstrasse += parseInt(betankungenFahrzeug[i].Distanz);
                         mengeLandstrasse += parseInt(betankungenFahrzeug[i].Liter);
-                    } else if (betankungenFahrzeug[i].Strecken == 'Autobahn'){
+                    } else if (betankungenFahrzeug[i].Strecken[j] == 'Autobahn'){
                         streckeAutobahn += parseInt(betankungenFahrzeug[i].Distanz);
                         mengeAutobahn += parseInt(betankungenFahrzeug[i].Liter);
-                    } else if (betankungenFahrzeug[i].Strecken == 'Stadt'){
+                    } else if (betankungenFahrzeug[i].Strecken[j] == 'Stadt'){
                         streckeStadt += parseInt(betankungenFahrzeug[i].Distanz);
                         mengeStadt += parseInt(betankungenFahrzeug[i].Liter);
                     } 
@@ -395,6 +398,69 @@ var getMainStats = function(vehicleID){
     return mainStats; 
 };
 
+var getStreckenverteilungByFzgID = function(vehicleID){
+    var profilID;
+    if (String(vehicleID).length == 3){
+        profilID = parseInt(String(vehicleID).charAt(0))-1;
+    } else if (String(vehicleID).length == 4){
+        profilID = parseInt(String(vehicleID).charAt(0) + String(vehicleID).charAt(1))-1;
+    }
+
+    var vehicleIndex = (vehicleID-(100*(profilID+1)));
+
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+
+    var betankungenFahrzeug = alleBetankungen[profilID][vehicleIndex];
+
+    var streckeAutobahn = 0; 
+    var streckeLandstrasse = 0; 
+    var streckeStadt = 0; 
+
+    for (var i = 0; i < betankungenFahrzeug; i++){
+        if(typeof betankungenFahrzeug[i].Strecken !== 'undefined'){
+            console.log('Strecken ' + i + ' not undefined');
+            //console.log('Type of ' + i + typeof betankungenFahrzeug[i].Strecken);
+            
+
+            if(typeof betankungenFahrzeug[i].Strecken == 'string'){
+                if(betankungenFahrzeug[i].Strecken == 'Land'){
+                    streckeLandstrasse += parseInt(betankungenFahrzeug[i].Distanz);
+                } else if (betankungenFahrzeug[i].Strecken == 'Autobahn'){
+                    streckeAutobahn += parseInt(betankungenFahrzeug[i].Distanz);
+                } else if (betankungenFahrzeug[i].Strecken == 'Stadt'){
+                    streckeStadt += parseInt(betankungenFahrzeug[i].Distanz);
+                } 
+            } else {
+
+                for(var j = 0; j < betankungenFahrzeug[i].Strecken.length; j++){
+                    if(betankungenFahrzeug[i].Strecken[j] == 'Land'){
+                        streckeLandstrasse += parseInt(betankungenFahrzeug[i].Distanz);
+                    } else if (betankungenFahrzeug[i].Strecken[j] == 'Autobahn'){
+                        streckeAutobahn += parseInt(betankungenFahrzeug[i].Distanz);
+                    } else if (betankungenFahrzeug[i].Strecken[j] == 'Stadt'){
+                        streckeStadt += parseInt(betankungenFahrzeug[i].Distanz);
+                    } 
+                }               
+            }         
+        }
+    }
+    console.log(streckeAutobahn);
+    streckeAutobahn = streckeAutobahn.toFixed(0);
+    console.log(streckeLandstrasse);
+    streckeLandstrasse = streckeLandstrasse.toFixed(0);
+    console.log(streckeStadt);
+    streckeStadt = streckeStadt.toFixed(0);
+    var gesamt = streckeAutobahn + streckeLandstrasse + streckeStadt;
+
+    var verteilung;
+    verteilung = [parseInt((360/gesamt*streckeAutobahn)), parseInt((360/gesamt*streckeLandstrasse)), parseInt((360/gesamt*streckeStadt))];
+    console.log(verteilung);
+
+
+    return verteilung;
+};
+
 //Exports
 exports.createBetankung = createBetankung;
 exports.getBetankungByProfilID = getBetankungByProfilID;
@@ -404,6 +470,5 @@ exports.createUser = createUser;
 exports.createVehicle = createVehicle;
 exports.getDatumVerbrauch = getDatumVerbrauch;
 exports.getMainStats = getMainStats;
-
 exports.getBetankungByFzgID = getBetankungByFzgID;
-
+exports.getStreckenverteilungByFzgID = getStreckenverteilungByFzgID;
