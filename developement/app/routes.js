@@ -106,8 +106,12 @@ module.exports = function(app, passport){
     });
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
+        
+        //var fzgId = req.query.id;
+        var datumVerbrauch = Betankung.getDatumVerbrauch(3, 1);
+        //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil});
+        res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch});
     });
 
     app.get('/fahrzeuge', isLoggedIn, function(req, res){

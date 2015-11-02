@@ -6,6 +6,9 @@ var sections;
 var xScale;
 var yScale;
 
+
+console.log(datumVerbrauch);
+
 var verbrauch =  [5, 4.8, 4.7, 4.8, 5, 5.6, 6, 5.5, 4.9, 5.6, 5.1, 5.5];
 var datum = [" ", "1.10", "8.10", "15.10", "22.10",
 	"29.10", "6.11", "13.11", "20.11", "27.11", "4.12", "11.12", "18.12"] 

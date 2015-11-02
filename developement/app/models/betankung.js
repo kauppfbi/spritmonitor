@@ -97,6 +97,8 @@ var getDatumVerbrauch = function(profilID, vehicleID){
         temp.push(durchVerbrauch);
         datumVerbrauch.push(temp);
     }
+    
+    return datumVerbrauch;
 }
 
 
@@ -169,3 +171,4 @@ exports.deleteBetankung = deleteBetankung;
 exports.updateBetankung = updateBetankung;
 exports.createUser = createUser;
 exports.createVehicle = createVehicle;
+exports.getDatumVerbrauch = getDatumVerbrauch;
