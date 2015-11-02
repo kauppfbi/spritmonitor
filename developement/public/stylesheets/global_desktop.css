@@ -101,7 +101,7 @@
         display: inline-flex
     }
     
-    #startseitenh1 {
+    .eingeschobenh1 {
         padding-left: 10px
     }
     
@@ -301,6 +301,7 @@
     }
     
     .bordercontainer {
+        margin-left: 5px;
         margin-top: 10px;
         border-radius: 5px;
         moz-border-radius: 5px;
