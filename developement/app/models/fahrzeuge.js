@@ -111,7 +111,7 @@ var getFahrzeugbeschreibungByProfilID = function(profilID, selectedVehicleID){
 	for (var i = 1; i <= fahrzeugeProfil.length; i++){
 		if(fahrzeugeProfil[i-1].aktiv){
 			if(fahrzeugeProfil[i-1].id == selectedVehicleID){
-				fahrzeugeBeschreibungen[0] = fahrzeugeProfil[i-1].marke + " " + fahrzeugeProfil[i-1].modell;
+				fahrzeugeBeschreibungen[0] = fahrzeugeProfil[i-1].marke + " " + fahrzeugeProfil[i-1].modell+" #"+fahrzeugeProfil[i-1].id;
 			}else{
 				if((i-1) >= position){
 					fahrzeugeBeschreibungen[i-1] = fahrzeugeProfil[i-1].marke + " " + fahrzeugeProfil[i-1].modell+" #"+fahrzeugeProfil[i-1].id;
