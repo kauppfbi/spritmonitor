@@ -59,18 +59,19 @@ var validateForm = function() {
     var y = document.forms["neueBetankung"]["Fahrweise"].value;
     var z = document.forms["neueBetankung"]["Strecken"].value;
     
-    if (x != "Sommerreifen" || x != "Winterreifen" || x != "Ganzjahresreifen") {
+    if (x != "Sommerreifen" && x != "Winterreifen" && x != "Ganzjahresreifen") {
         alert("Bitte Bereifung wählen");
         return false;
     }
     
-    if (y != "sparsam" || y != "schnell" || y != "normal") {
+    if (y != "sparsam" && y != "schnell" && y != "normal") {
         alert("Bitte Fahrweise wählen");
         return false;
     }
     
-    if (z != "Stadt" || z != "Land" || z != "Autobahn") {
+    /*
+    if (z != "Stadt" && z != "Autobahn" && z != "Land") {
         alert("Bitte Strecke wählen");
         return false;
-    }
+    } */
 }
