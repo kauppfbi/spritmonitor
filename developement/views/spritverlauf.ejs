@@ -1,93 +1,209 @@
 <html>
-  <head>
-    <% include ./partials/head %>
-    <title>Spritverlauf</title>
-      
-  </head>
-  <body class="body">
-    <% include ./partials/header %>
-    <div id="content">
-      <div id="verlaufdiagramm">
-          <br>
-          <h2>Durchschnittlicher Spritverlauf</h2>
-          <canvas id="canvas" width="700" height="400" style="width: 100%"></canvas>
-      </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div id="verlaufdiagramm">
-            <h2>Streckenprofil</h2>
-            <br>
-            <br>
-            <canvas id="piechart" height="200" width="200"></canvas>
-            <canvas id="legende" height="200" width="200" style="text-align: right"></canvas> 
-            <br>
-        <br>
-        <br>
-        <br>
-        </div>
-        <div id="Hauptstatistik">
-          
-        </div>
+<head>
+  <% include ./partials/head %>
+  <title>Spritverlauf</title>
+
+</head>
+<body class="body">
+  <% include ./partials/header %>
+  <div id="content">
+    <div id="verlaufdiagramm">
+      <br>
+      <h2>Durchschnittlicher Spritverlauf</h2>
+      <canvas id="canvas" width="700" height="400" style="width: 100%"></canvas>
     </div>
-      <script>
-        var datumVerbrauch = <%- JSON.stringify(datumVerbrauch) %>;
-      </script>
-      <script src="/js/kreisdiagrammJS.js"></script>
-      <script src="/js/legendeKREIS.js"></script> 
-      <script src="/js/VerlaufJS.js"></script>
-      
-      
-      
-      
-      
-      <div>Tabellarische Ansicht
-          <table border="">
-      <span>
-         <% for(var i=0; i < betankungen.length; i++) { %> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="verlaufdiagramm">
+      <h2>Streckenprofil</h2>
+      <br>
+      <br>
+      <canvas id="piechart" height="200" width="200"></canvas>
+      <canvas id="legende" height="200" width="200" style="text-align: right"></canvas> 
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div id="Hauptstatistik">
+      <table>
+        <% if(mainStats.verbrauch != null){ %>
         <tr>
-            <th>Datum</th>
-            <th>Menge</th>
-            <th>Kosten</th>
-            <th>Tachostand</th>
-            <th>Distanz</th>
-            <th>Kraftstoff</th>
-            <th>Vollbetankung</th>
-            <th>Reifen</th>
-            <th>Fahrweise</th> 
-            <th>Strecke</th>
-            <th>Tankstelle</th>
-            <th>Boardcomputer</th>
-            <th>Bemerkung</th>
+          <th>Durchschnittsverbrauch:</th>
+          <td><%= mainStats.verbrauch %></td>
         </tr>
-          <script>
-            var betankungen =  <%- JSON.stringify(betankungen) %>;
-            console.log(betankungen);
-          </script>
-        
-         <% for(var z=0; z<betankungen[i].length; z++) { %>
-            <tr>
-                <td><%= betankungen[i][z].Datum %></td>
-                <td><%= betankungen[i][z].Liter%></td>
-                <td><%= betankungen[i][z].Kosten%></td>
-                <td><%= betankungen[i][z].Kilometer%></td>
-                <td><%= betankungen[i][z].Distanz%></td>
-                <td><%= betankungen[i][z].Kraftstoff%></td>
-                <td><%= betankungen[i][z].Vollbetankung%></td>
-                <td><%= betankungen[i][z].Reifen%></td>
-                <td><%= betankungen[i][z].Fahrweise%></td>
-                <td><%= betankungen[i][z].Strecken%></td>
-                <td><%= betankungen[i][z].Tankstelle%></td>
-                <td><%= betankungen[i][z].Boardcomputer%></td>
-                <td><span title="<%= betankungen[i][z].Bemerkung%>">Detail</span></td>
-                         
-            </tr>
-         <% } %>
-          <br>
         <% } %>
-      </span>
-    </table>
-      </div>
-  </body>
+        <% if(mainStats.reifen != null) { %>
+        <tr>
+          <th>Reifen</th>
+        </tr>
+        <% if(typeof mainStats.reifen.sommerreifen !== 'undefined'){ %> 
+        <tr>
+          <th>Sommerreifen:</th>
+          <td><%= mainStats.reifen.sommerreifen %></td>
+        </tr>
+        <% } %>
+        <% if(typeof mainStats.reifen.winterreifen !== 'undefined'){ %> 
+        <tr>
+          <th>Winterreifen:</th>
+          <td><%= mainStats.reifen.winterreifen %></td>
+        </tr>
+        <% } %>
+        <% if(typeof mainStats.reifen.ganzjahresreifen !== 'undefined'){ %> 
+        <tr>
+          <th>Ganzjahresreifen:</th>
+          <td><%= mainStats.reifen.ganzjahresreifen %></td>
+        </tr>
+        <% } %>
+        <% } %>
+        <% if(mainStats.fahrweise != null) { %>
+        <tr>
+          <th>Fahrweise</th>
+        </tr>
+        <% if(typeof mainStats.fahrweise.sparsam !== 'undefined'){ %> 
+        <tr>
+          <th>Sparsam:</th>
+          <td><%= mainStats.fahrweise.sparsam %></td>
+        </tr>
+        <% } %>
+        <% if(typeof mainStats.fahrweise.normal !== 'undefined'){ %> 
+        <tr>
+          <th>Normal:</th>
+          <td><%= mainStats.fahrweise.normal %></td>
+        </tr>
+        <% } %>
+        <% if(typeof mainStats.fahrweise.schnell !== 'undefined'){ %> 
+        <tr>
+          <th>Schnell:</th>
+          <td><%= mainStats.fahrweise.schnell %></td>
+        </tr>
+        <% } %>
+        <% } %> 
+        <% if(mainStats.strecken != null) { %>
+        <tr>
+          <th>Strecken</th>
+        </tr>
+        <% if(typeof mainStats.strecken.autobahn !== 'undefined'){ %> 
+        <tr>
+          <th>Autobahn:</th>
+          <td><%= mainStats.strecken.autobahn %></td>
+        </tr>
+        <% } %>
+        <% if(typeof mainStats.strecken.landstrasse !== 'undefined'){ %> 
+        <tr>
+          <th>Landstraße:</th>
+          <td><%= mainStats.strecken.landstrasse %></td>
+        </tr>
+        <% } %>
+        <% if(typeof mainStats.strecken.stadt !== 'undefined'){ %> 
+        <tr>
+          <th>Stadt:</th>
+          <td><%= mainStats.strecken.stadt %></td>
+        </tr>
+        <% } %>
+        <% } %> 
+        <% if(mainStats.kraftstoff != null) { %>
+        <tr>
+          <th>Kraftsstoff</th>
+        </tr>
+        <% if(typeof mainStats.kraftstoff.diesel !== 'undefined'){ %> 
+        <tr>
+          <th>Diesel:</th>
+          <td><%= mainStats.kraftstoff.diesel %></td>
+        </tr>
+        <% } %>
+        <% if(typeof mainStats.kraftstoff.super !== 'undefined'){ %> 
+        <tr>
+          <th>Super:</th>
+          <td><%= mainStats.kraftstoff.super %></td>
+        </tr>
+        <% } %>
+        <% if(typeof mainStats.kraftstoff.superPlus !== 'undefined'){ %> 
+        <tr>
+          <th>SuperPlus:</th>
+          <td><%= mainStats.kraftstoff.superPlus %></td>
+        </tr>
+        <% } %>
+         <% if(typeof mainStats.kraftstoff.e10 !== 'undefined'){ %> 
+        <tr>
+          <th>E10:</th>
+          <td><%= mainStats.kraftstoff.e10 %></td>
+        </tr>
+        <% } %>
+         <% if(typeof mainStats.kraftstoff.erdgas !== 'undefined'){ %> 
+        <tr>
+          <th>Erdgas:</th>
+          <td><%= mainStats.kraftstoff.erdgas %></td>
+        </tr>
+        <% } %>
+        <% } %>
+        <% if(mainStats.kosten != null){ %> 
+        <tr>
+          <th>Kosten (kumuliert):</th>
+          <td><%= mainStats.kosten %></td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+  </div>
+  <script>
+  var datumVerbrauch = <%- JSON.stringify(datumVerbrauch) %></script>
+  <script src="/js/kreisdiagrammJS.js"></script>
+  <script src="/js/legendeKREIS.js"></script> 
+  <script src="/js/VerlaufJS.js"></script>
+
+
+
+
+
+  <div>Tabellarische Ansicht
+    <table border="">
+      <span>
+       <% for(var i=0; i < betankungen.length; i++) { %> 
+       <tr>
+        <th>Datum</th>
+        <th>Menge</th>
+        <th>Kosten</th>
+        <th>Tachostand</th>
+        <th>Distanz</th>
+        <th>Kraftstoff</th>
+        <th>Vollbetankung</th>
+        <th>Reifen</th>
+        <th>Fahrweise</th> 
+        <th>Strecke</th>
+        <th>Tankstelle</th>
+        <th>Boardcomputer</th>
+        <th>Bemerkung</th>
+      </tr>
+      <script>
+      var betankungen =  <%- JSON.stringify(betankungen) %>;
+      console.log(betankungen);
+      </script>
+
+      <% for(var z=0; z<betankungen[i].length; z++) { %>
+      <tr>
+        <td><%= betankungen[i][z].Datum %></td>
+        <td><%= betankungen[i][z].Liter%></td>
+        <td><%= betankungen[i][z].Kosten%></td>
+        <td><%= betankungen[i][z].Kilometer%></td>
+        <td><%= betankungen[i][z].Distanz%></td>
+        <td><%= betankungen[i][z].Kraftstoff%></td>
+        <td><%= betankungen[i][z].Vollbetankung%></td>
+        <td><%= betankungen[i][z].Reifen%></td>
+        <td><%= betankungen[i][z].Fahrweise%></td>
+        <td><%= betankungen[i][z].Strecken%></td>
+        <td><%= betankungen[i][z].Tankstelle%></td>
+        <td><%= betankungen[i][z].Boardcomputer%></td>
+        <td><span title="<%= betankungen[i][z].Bemerkung%>">Detail</span></td>
+
+      </tr>
+      <% } %>
+      <br>
+      <% } %>
+    </span>
+  </table>
+</div>
+</body>
 </html>
