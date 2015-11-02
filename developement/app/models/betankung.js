@@ -52,7 +52,7 @@ var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     var betankung = alleBetankungen[profilID];
-    var betankungen = {};
+    var betankungen = new Array();
     
     if(alleBetankungen[profilID].length == 0){
         return null;
@@ -87,7 +87,7 @@ var getBetankungByFzgID = function(vehicleID){
 var getDatumVerbrauch = function(profilID, vehicleID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
-    var vehicleIndex = (vehicleID-(100*(profilID+1));
+    var vehicleIndex = (vehicleID-(100*(profilID+1)));
     
     var betankungen = alleBetankungen[profilID][vehicleIndex];
     var datumVerbrauch = new Array();
