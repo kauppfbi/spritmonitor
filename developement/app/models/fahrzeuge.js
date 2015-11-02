@@ -8,8 +8,20 @@ var Betankung = require('./betankung');
 /*
 returns Fahrzeug-Objekt mit der übergebenen ID
 */
-var findById = function(id){
-	};
+var findById = function(vehicleID){
+	var profilID;
+	if (String(vehicleID).length == 3){
+        profilID = parseInt(String(vehicleID).charAt(0))-1;
+    } else if (String(vehicleID).length == 4){
+        profilID = parseInt(String(vehicleID).charAt(0) + String(vehicleID).charAt(1))-1;
+    }
+    var vehicleIndex = (vehicleID-(100*(profilID+1)));
+
+    var obj = jsonfile.readFileSync(file);
+	var alleFahrzeuge = obj.fahrzeuge;
+
+    return alleFahrzeuge[profilID][vehicleIndex];
+};
 
 //vehicle ist das aufbereitete fahrzeug-Objekt
 var createVehicle = function(vehicle, profilID){
@@ -260,7 +272,7 @@ var updateKilometerStand = function(vehicleID, aktuellerStand){
 };
 
 
-//exports.findById = findById;
+exports.findById = findById;
 exports.createVehicle = createVehicle;
 exports.getVehiclesByProfilID = getVehiclesByProfilID;
 exports.createUser = createUser;

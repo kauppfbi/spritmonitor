@@ -129,6 +129,8 @@ module.exports = function(app, passport){
 >>>>>>> origin/master
 */
         console.log('MainStats zu Vehicle 600: ' + JSON.stringify(Betankung.getMainStats(600)));
+        var mainStats = JSON.stringify(Betankung.getMainStats(600));
+
 
         res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch, betankungen : betankungen});
     });
