@@ -26,6 +26,10 @@
             <th>Tankstelle</th>
             <th>Boardcomputer</th>
         </tr>
+          <script>
+            var betankungen =  <%- JSON.stringify(betankungen) %>;
+            console.log(betankungen);
+          </script>
         <% for(var i=0; i < betankungen.length; i++) { %>
           <% for(var z=0; z<betankungen[i].length; z++){ %>
             <tr>
