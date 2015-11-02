@@ -12,7 +12,9 @@
         
     <table border="">
       <span>
+         <% for(var i=0; i < betankungen.length; i++) { %> 
         <tr>
+            <th>Fahrzeug</th>
             <th>Datum</th>
             <th>Menge</th>
             <th>Kosten</th>
@@ -30,9 +32,10 @@
             var betankungen =  <%- JSON.stringify(betankungen) %>;
             console.log(betankungen);
           </script>
-        <% for(var i=0; i < betankungen.length; i++) { %>
+        
          <% for(var z=0; z<betankungen[i].length; z++) { %>
             <tr>
+                <td><%= betankungen[i][z].Fahrzeug %></td>
                 <td><%= betankungen[i][z].Datum %></td>
                 <td><%= betankungen[i][z].Liter%></td>
                 <td><%= betankungen[i][z].Kosten%></td>
@@ -47,6 +50,7 @@
                 <td><%= betankungen[i][z].Boardcomputer%></td>
             </tr>
          <% } %>
+          <br>
         <% } %>
       </span>
     </table>
