@@ -85,6 +85,8 @@ var getBetankungByFzgID = function(vehicleID){
 };
 
 var getDatumVerbrauch = function(profilID, vehicleID){
+    
+    //parameter profilId muss aus vehicleid ausgeslesen werden!
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     var vehicleIndex = (vehicleID-(100*(profilID+1)));

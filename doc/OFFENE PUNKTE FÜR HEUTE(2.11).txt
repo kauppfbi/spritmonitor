@@ -22,7 +22,7 @@ Prio 10
 ----------------------------------------------------------------------------------
 
 Janis
-	#Canvas! --> Daten aus Methode aufbereiten
+	#Canvas! --> Dynamisch für jeden Nutzer fehlt noch (FELIX) und undefined muss entfernt werden
 	#Fahrzeuginformationen
 Flo
 	#Favicon
