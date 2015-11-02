@@ -87,7 +87,7 @@ var getBetankungByFzgID = function(vehicleID){
 var getDatumVerbrauch = function(profilID, vehicleID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
-    var vehicleIndex = (vehicleID-(100*(profilID+1));
+    var vehicleIndex = (vehicleID-(100*(profilID+1)));
     
     var betankungen = alleBetankungen[profilID][vehicleIndex];
     var datumVerbrauch = new Array();
