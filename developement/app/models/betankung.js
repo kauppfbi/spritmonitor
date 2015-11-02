@@ -52,7 +52,7 @@ var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     var betankung = alleBetankungen[profilID];
-    var betankungen = {};
+    var betankungen = new Array();
     
     if(alleBetankungen[profilID].length == 0){
         return null;
@@ -96,7 +96,7 @@ var getDatumVerbrauch = function(profilID, vehicleID){
     console.log(betankungenFahrzeug);
     
     for(var i=0; i<betankungenFahrzeug.length; i++){
-        var durchVerbrauch = (betankungenFahrzeug[i].Liter / ((betankungenFahrzeug[i].Distanz)*100));
+        var durchVerbrauch = (betankungenFahrzeug[i].Liter / (betankungenFahrzeug[i].Distanz))*100;
         var temp = new Array();
         temp.push(betankungenFahrzeug[i].Datum);
         temp.push(durchVerbrauch);

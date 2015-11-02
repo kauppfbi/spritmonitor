@@ -5,6 +5,8 @@
         <title>MySprit</title>
         <script>
             var fahrzeugBeschreibungen = <%- JSON.stringify(beschreibung) %>
+            var betankung = <%- JSON.stringify(betankung) %>
+            var profilID = <%- JSON.stringify(profilID) %>
         </script>
 </head>
 
@@ -15,7 +17,7 @@
             <div class="bordercontainer">
                 <form name="neueBetankung" method="post">
                     <label for="Fahrzeug"><b>Fahrzeug:</b></label>
-                    <select id="Fahrzeug" name="Fahrzeug">
+                    <select id="Fahrzeug" name="Fahrzeug" onchange="autofilTacho(betankung, profilID)">
                         <option>Fahrzeug wählen</option>
                     </select>
                     <br/>
