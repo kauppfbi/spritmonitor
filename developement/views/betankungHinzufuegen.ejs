@@ -1,64 +1,83 @@
 <html>
+
 <head>
-  <% include ./partials/head %>
-  <title>MySprit</title>
-    <script>
-        var fahrzeugBeschreibungen = <%- JSON.stringify(beschreibung) %>
-    </script>
+    <% include ./partials/head %>
+        <title>MySprit</title>
+        <script>
+            var fahrzeugBeschreibungen = <%- JSON.stringify(beschreibung) %>
+        </script>
 </head>
+
 <body class="body">
-  <% include ./partials/header %>
-  <div id="content">
-    <h1>Neue Betankung:
-      <form name="neueBetankung" method="post">
-        <label for="Fahrzeug">Fahrzeug:</label>
-        <select id="Fahrzeug" name="Fahrzeug">
-            <option>Fahrzeug wählen</option>
-        </select><br/>
-        <label for="Datum">Datum:</label>
-        <input name="Datum" type="date" value="2015-10-01"/><br/>
-        <label for="Tachostand">Tachostand:</label>
-        <input name="Tachostand" type="number"/><br/>
-        <label for="Distanz">Distanz:</label>
-        <input name="Distanz" type="number"/>Liter<br/>
-        <label for="Menge">Menge:</label>
-        <input name="Menge" type="number"/><br/>
-        <label for="Vollbetankung">Vollbetankung:</label>
-        <input name="Vollbetankung" type="checkbox" value="true"/><br/>
-        <label for="Sorte">Sorte:</label>per JS automatisch 
-        <select name="Sorte">
-          <option>Super</option>
-          <option>Super Plus</option>
-            <option>E10</option>
-            <option>Diesel</option>
-            <option>Erdgas</option>
-        </select><br/>
-        <label for="Kosten">Kosten:</label>
-        <input name="Kosten" type="number"/>€<br/>
-        <label for="Bemerkung">Bemerkung:</label>
-        <textarea name="Bemerkung"></textarea><br/>
-        <label for="Reifen">Reifen:</label>
-        <input name="Reifen" type="radio" value="Sommerreifen"/>Sommerreifen
-        <input type="radio" name="Reifen" value="Winterreifen"/>Winterreifen
-        <input type="radio" name="Reifen" value="Ganzjahresreifen"/>Ganzjahresreifen<br/>
-        <label for="Fahrweise">Fahrweise:</label>
-        <input name="Fahrweise" type="radio" value="sparsam"/>sparsam
-        <input name="Fahrweise" type="radio" value="normal"/>normal
-        <input name="Fahrweise" type="radio" value="schnell"/>schnell<br/>
-        <label for="Strecken">Strecken:</label>
-        <input name="Strecken" type="checkbox" value="Stadt"/>Stadt
-        <input name="Strecken" type="checkbox" value="Land"/>Landstraße
-        <input name="Strecken" type="checkbox" value="Autobahn"/>Autobahn<br/>
-        <label>Extras:</label><br/>
-        <label for="Tankstelle">Tankstelle:</label>
-        <input name="Tankstelle"/><br/>
-        <label for="Boardcomputer">Boardcomputer:</label>
-        <input name="Boardcomputer" type="number" step="0.1"/>Liter/100km<br/>
-        <button type="submit">Betankung hinzufügen</button>  
-      </form>
-    </h1>
-  </div>
-    <script src="/js/betankungHinzufuegen.js"></script>
-    <script>fahrzeugAuswahl(fahrzeugBeschreibungen)</script>
+    <% include ./partials/header %>
+        <div id="content">
+            <h1 class="eingeschobenh1"><b>Neue Betankung</b></h1>
+            <div class="bordercontainer">
+                <form name="neueBetankung" method="post">
+                    <label for="Fahrzeug"><b>Fahrzeug:</b></label>
+                    <select id="Fahrzeug" name="Fahrzeug">
+                        <option>Fahrzeug wählen</option>
+                    </select>
+                    <br/>
+                    <label for="Datum"><b>Datum:</b></label>
+                    <input name="Datum" type="date" value="2015-10-01" />
+                    <br/>
+                    <label for="Tachostand"><b>Tachostand:</b></label>
+                    <input name="Tachostand" type="number" />(Km)
+                    <br/>
+                    <label for="Distanz"><b>Distanz:</b></label>
+                    <input name="Distanz" type="number" />(Km)
+                    <br/>
+                    <label for="Menge"><b>Menge:</b></label>
+                    <input name="Menge" type="number" />(Liter)
+                    <br/>
+                    <label for="Vollbetankung"><b>Vollbetankung:</b></label>
+                    <input name="Vollbetankung" type="checkbox" value="true" />
+                    <br/>
+                    <label for="Sorte"><b>Sorte:</b></label>
+                    <select name="Sorte">
+                        <option>Super</option>
+                        <option>Super Plus</option>
+                        <option>E10</option>
+                        <option>Diesel</option>
+                        <option>Erdgas</option>
+                    </select>
+                    <br/>
+                    <label for="Kosten"><b>Kosten:</b></label>
+                    <input name="Kosten" type="number" />(€)
+                    <br/>
+                    <label for="Bemerkung"><b>Bemerkung:</b></label>
+                    <textarea name="Bemerkung"></textarea>
+                    <br/>
+                    <label for="Reifen"><b>Reifen:</b></label>
+                    <input name="Reifen" type="radio" value="Sommerreifen" />Sommerreifen
+                    <input type="radio" name="Reifen" value="Winterreifen" />Winterreifen
+                    <input type="radio" name="Reifen" value="Ganzjahresreifen" />Ganzjahresreifen
+                    <br/>
+                    <label for="Fahrweise"><b>Fahrweise:</b></label>
+                    <input name="Fahrweise" type="radio" value="sparsam" />sparsam
+                    <input name="Fahrweise" type="radio" value="normal" />normal
+                    <input name="Fahrweise" type="radio" value="schnell" />schnell
+                    <br/>
+                    <label for="Strecken"><b>Strecken:</b></label>
+                    <input name="Strecken" type="checkbox" value="Stadt" />Stadt
+                    <input name="Strecken" type="checkbox" value="Land" />Landstraße
+                    <input name="Strecken" type="checkbox" value="Autobahn" />Autobahn
+                    <br/>
+                    <label for="Tankstelle"><b>Tankstelle:</b></label>
+                    <input name="Tankstelle" />
+                    <br/>
+                    <label for="Boardcomputer"><b>Boardcomputer:</b></label>
+                    <input name="Boardcomputer" type="number" step="0.1" />(Liter/100km)
+                    <br/>
+                    <button type="submit">Betankung hinzufügen</button>
+                </form>
+            </div>
+        </div>
+        <script src="/js/betankungHinzufuegen.js"></script>
+        <script>
+            fahrzeugAuswahl(fahrzeugBeschreibungen)
+        </script>
 </body>
+
 </html>
