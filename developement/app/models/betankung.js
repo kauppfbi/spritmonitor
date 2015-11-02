@@ -92,10 +92,13 @@ var getDatumVerbrauch = function(profilID, vehicleID){
     var betankungen = alleBetankungen[profilID][vehicleIndex];
     var datumVerbrauch = new Array();
     
-    for(var i=0; i<alleBetankungen[profilID][vehicleIndex].length; i++){
-        var durchVerbrauch = (alleBetankungen[profilID][vehicleIndex][i].Liter / ((alleBetankungen[profilID][vehicleID][i].Distanz)*100));
+    var betankungenFahrzeug = alleBetankungen[profilID][vehicleIndex];
+    console.log(betankungenFahrzeug);
+    
+    for(var i=0; i<betankungenFahrzeug.length; i++){
+        var durchVerbrauch = (betankungenFahrzeug[i].Liter / ((betankungenFahrzeug[i].Distanz)*100));
         var temp = new Array();
-        temp.push(alleBetankungen[profilID][vehicleIndex][i].Datum);
+        temp.push(betankungenFahrzeug[i].Datum);
         temp.push(durchVerbrauch);
         datumVerbrauch.push(temp);
     }

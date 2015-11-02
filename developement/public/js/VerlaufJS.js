@@ -5,13 +5,26 @@ var Val_min;
 var sections;
 var xScale;
 var yScale;
-
-
+var verbrauch = new Array();
+var datum = new Array();
 console.log(datumVerbrauch);
 
-var verbrauch =  [5, 4.8, 4.7, 4.8, 5, 5.6, 6, 5.5, 4.9, 5.6, 5.1, 5.5];
-var datum = [" ", "1.10", "8.10", "15.10", "22.10",
-	"29.10", "6.11", "13.11", "20.11", "27.11", "4.12", "11.12", "18.12"] 
+for (var i =0; i<datumVerbrauch.length;i++){
+    if(i == datumVerbrauch.length-1){
+        
+    }else{
+        datum.push(datumVerbrauch[i+1][0]);
+        verbrauch.push(datumVerbrauch[i][1]);
+    }
+    
+};
+
+console.log('verbrauch: ' + verbrauch);
+console.log('datum: ' + datum);
+
+//var verbrauch =  [5, 4.8, 4.7, 4.8, 5, 5.6, 6, 5.5, 4.9, 5.6, 5.1, 5.5];
+//var datum = [" ", "1.10", "8.10", "15.10", "22.10",
+//	"29.10", "6.11", "13.11", "20.11", "27.11", "4.12", "11.12", "18.12"] 
 init();
 
 function init() {
