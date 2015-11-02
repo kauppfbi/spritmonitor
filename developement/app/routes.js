@@ -274,6 +274,9 @@ module.exports = function(app, passport){
         console.log(betankung);
         Betankung.createBetankung(betankung, profilID, vehicleID);
         
+        var kilometerstand = req.body.Tachostand;
+        Fahrzeug.updateKilometerStand(vehicleID, kilometerstand);
+        
         res.redirect('/neueBetankung');        
     });
 
