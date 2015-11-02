@@ -151,7 +151,6 @@ module.exports = function(app, passport){
 
     app.get('/suchergebnisse', isLoggedIn, function(req, res) {
 
-
         var marke = req.query.marke;
         var modell = req.query.modell;
 
@@ -205,7 +204,7 @@ module.exports = function(app, passport){
     
     app.post('/erweitertesuche', isLoggedIn, function(req, res){
         
-    }
+    });
     
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
