@@ -179,8 +179,31 @@ var getMainStats = function(vehicleID){
         "kosten" : null
     }; 
 
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+
+    var profilID;
+    if (String(vehicleID).length == 3){
+        profilID = parseInt(String(vehicleID).charAt(0))-1;
+    } else if (String(vehicleID).length == 4){
+        profilID = parseInt(String(vehicleID).charAt(0) + String(vehicleID).charAt(1))-1;
+    }
+
+    var vehicleIndex = (vehicleID-(100*(profilID+1)));
+
+    var betankungenFahrzeug = alleBetankungen[profilID][vehicleIndex];
+
+    var anfangsKMStand = Fahrzeug.getAnfangsKMStandByVehicleId(vehicleID);
+    var gefahreneKM = anfangsKMStand - betankungenFahrzeug[betankungenFahrzeug.length-1].Kilometer;
+    var mengeGesamt; 
+    for (var i = 0; i < betankungenFahrzeug.length; i++){
+        mengeGesamt += betankungenFahrzeug[i].Liter;
+    }
+
+    mainStats.verbrauch = gefahreneKM/mengeGesamt;
 
 
+    return mainStats; 
 };
 
 //Exports

@@ -111,6 +111,9 @@ module.exports = function(app, passport){
         var datumVerbrauch = Betankung.getDatumVerbrauch(3, 400);
         //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        
+        console.log('MainStats zu Vehicle 600: ' + Betankung.getMainStats(600));
+
         res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch});
     });
 
