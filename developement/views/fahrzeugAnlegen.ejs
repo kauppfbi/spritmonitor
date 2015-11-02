@@ -1,60 +1,73 @@
 <html>
+
 <head>
 
-  <% include ./partials/head %>
-  <title>MySprit</title>
+    <% include ./partials/head %>
+        <title>MySprit</title>
 </head>
+
 <body class="body">
-  <% include ./partials/header %>
-  <div id="content">
-    <h1>Fügen Sie Ihrem Profil ein neues Fahrzeug hinzu:</h1>
-    <form name="neuesFahrzeug" method="post">
-      <label for="Fahrzeugtyp">Fahrzeugtyp:
-        <select name="Fahrzeugtyp">
-          <option value="Auto">Auto</option>
-          <option value="Leichtkraftrad">Leichtkraftrad</option>
-          <option value="Motorrad">Motorrad</option>
-        </select>
-      </label>
-      <label for="Hersteller">Hersteller:
-        <select name="Hersteller" id="Herstellerauswahl" onchange="updateModellAuswahl()"></select>
-      </label><br/>
-      <label for="Modell">Modell:
-        <select name="Modell" id="Modellauswahl"></select>
-      </label>
-      <label for="Bezeichnung">Bezeichnung:
-        <input name="Bezeichnung"/>
-      </label><br/>
-      <label for="Baujahr">Baujahr</label>
-      <input type="number" name="Baujahr" value="2015"/><br/>
-      <label for="Leistung">Leistung in PS</label>
-      <input type="number" name="Leistung"/><br/>
-      <label for="Antriebsart">Kraftstoffart:</label>
-      <select name="Antriebsart">
-        <option value="Benzin">Benzin</option>
-        <option value="Diesel">Diesel</option>
-        <option value="Erdgas">Erdgas</option>
-        <option value="Elektro">Elektro</option>
-      </select><br/>
-      <label for="Getriebeart">Getriebeart</label>
-      <select name="Getriebeart">
-        <option>Manuell</option>
-        <option>Automatik</option>
-        <option>Sonstige</option>
-      </select><br/>
-      <label for="Kilometerstand">Kilometerstand:</label>
-      <input type="number" name="Kilometerstand"/><br/>
-        <label for="Extras">Extras:</label>
-        <input name="Extras" type="checkbox" value="Klimaanlage"/>Klimaanlage
-        <input name="Extras" type="checkbox" value="Anhängerkupplung"/>Anhängerkupplung
-        <input name="Extras" type="checkbox" value="Dachrailing"/>Dachrailing
-        <input name="Extras" type="checkbox" value="Navigationsgerät"/>Navigationsgerät
-        <input name="Extras" type="checkbox" value="Tempomat"/>Tempomat
-        <input name="Extras" type="checkbox" value="PDC"/>Park Distance Control
-        <br/>
-      <button type="submit">Neues Fahrzeug anlegen</button>
-    </form>
-  </div>
-  <script src="/js/neuesFahrzeug.js"></script>
+    <% include ./partials/header %>
+        <div id="content">
+            <h1 class="eingeschobenh1">Fahrzeug anlegen</h1>
+            <p class="eingeschobenh1">Fügen Sie Ihrem Profil ein neues Fahrzeug hinzu!</p>
+            <div class="bordercontainer">
+                <form name="neuesFahrzeug" method="post">
+                    <label for="Fahrzeugtyp"><b>Fahrzeugtyp:</b>
+                        <select name="Fahrzeugtyp">
+                            <option value="Auto">Auto</option>
+                            <option value="Leichtkraftrad">Leichtkraftrad</option>
+                            <option value="Motorrad">Motorrad</option>
+                        </select>
+                    </label>
+                    <label for="Hersteller"><b>Hersteller:</b>
+                        <select name="Hersteller" id="Herstellerauswahl" onchange="updateModellAuswahl()"></select>
+                    </label>
+                    <br/>
+                    <label for="Modell"><b>Modell:</b>
+                        <select name="Modell" id="Modellauswahl"></select>
+                    </label>
+                    <label for="Bezeichnung"><b>Bezeichnung:</b>
+                        <input name="Bezeichnung" />
+                    </label>
+                    <br/>
+                    <label for="Baujahr"><b>Baujahr:</b></label>
+                    <input type="number" name="Baujahr" value="2015" />
+                    <br/>
+                    <label for="Leistung"><b>Leistung in PS:</b></label>
+                    <input type="number" name="Leistung" />
+                    <br/>
+                    <label for="Antriebsart"><b>Kraftstoffart:</b></label>
+                    <select name="Antriebsart">
+                        <option value="Benzin">Benzin</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Erdgas">Erdgas</option>
+                        <option value="Elektro">Elektro</option>
+                    </select>
+                    <br/>
+                    <label for="Getriebeart"><b>Getriebeart:</b></label>
+                    <select name="Getriebeart">
+                        <option>Manuell</option>
+                        <option>Automatik</option>
+                        <option>Sonstige</option>
+                    </select>
+                    <br/>
+                    <label for="Kilometerstand"><b>Kilometerstand:</b></label>
+                    <input type="number" name="Kilometerstand" />
+                    <br/>
+                    <label for="Extras"><b>Extras:</b></label>
+                    <input name="Extras" type="checkbox" value="Klimaanlage" />Klimaanlage
+                    <input name="Extras" type="checkbox" value="Anhängerkupplung" />Anhängerkupplung
+                    <input name="Extras" type="checkbox" value="Dachrailing" />Dachrailing
+                    <input name="Extras" type="checkbox" value="Navigationsgerät" />Navigationsgerät
+                    <input name="Extras" type="checkbox" value="Tempomat" />Tempomat
+                    <input name="Extras" type="checkbox" value="PDC" />Park Distance Control
+                    <br/>
+                    <button type="submit">Neues Fahrzeug anlegen</button>
+                </form>
+            </div>
+        </div>
+        <script src="/js/neuesFahrzeug.js"></script>
 </body>
+
 </html>
