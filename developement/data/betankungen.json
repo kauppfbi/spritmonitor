@@ -73,6 +73,25 @@
                     "Tankstelle": "Mr. Wash",
                     "Boardcomputer": "9",
                     "id": 30100
+                },
+                {
+                    "profilID": 3,
+                    "vehicleID": "401",
+                    "Fahrzeug": "Porsche 911 #401",
+                    "Datum": "2015-10-15",
+                    "Kraftstoff": "Diesel",
+                    "Liter": "40",
+                    "Kilometer": "12345",
+                    "Vollbetankung": "true",
+                    "Distanz": "400",
+                    "Kosten": "40",
+                    "Bemerkung": "",
+                    "Reifen": "Sommerreifen",
+                    "Fahrweise": "sparsam",
+                    "Strecken": "Stadt",
+                    "Tankstelle": "Mr. Wash",
+                    "Boardcomputer": "7",
+                    "id": 30101
                 }
             ]
         ],

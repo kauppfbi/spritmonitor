@@ -54,11 +54,12 @@
         <input name="Tankstelle"/><br/>
         <label for="Boardcomputer">Boardcomputer:</label>
         <input name="Boardcomputer" type="number"/>Liter/100km<br/>
-        <button type="submit">Betankung hinzufügen</button>  
+        <button type="submit" onclick=storeSorte()>Betankung hinzufügen</button>  
       </form>
     </h1>
   </div>
     <script src="/js/betankungHinzufuegen.js"></script>
     <script>fahrzeugAuswahl(fahrzeugBeschreibungen)</script>
+    <script>getSorte()</script>
 </body>
 </html>
