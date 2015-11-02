@@ -14,14 +14,14 @@
             "id": 2,
             "email": "martin@letzel.de",
             "password": "$2a$08$iHfrmXtMsQ9Wletnthbg6egnL3ERN55gBtqcQjPU8vzcA6.b0g/jW",
-            "Anrede": "Herr",
-            "Nachname": "Flo",
-            "Vorname": "Bauer",
-            "Straße": "Irgendwostraße",
-            "Hausnummer": "69",
-            "Postleitzahl": "12345",
-            "Ort": "Weitweg",
-            "Land": "Irak"
+            "anrede": "Herr",
+            "nachname": "Flo",
+            "vorname": "Bauer",
+            "straße": "Irgendwostraße",
+            "hausnummer": "69",
+            "postleitzahl": "12345",
+            "ort": "Weitweg",
+            "land": "Irak"
         },
         {
             "email": "fx.hahn@web.de",
