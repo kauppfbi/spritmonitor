@@ -7,6 +7,7 @@
             var fahrzeugBeschreibungen = <%- JSON.stringify(beschreibung) %>
             var betankung = <%- JSON.stringify(betankung) %>
             var profilID = <%- JSON.stringify(profilID) %>
+            var fahrzeuge = <%- JSON.stringify(fahrzeuge) %>    
         </script>
 </head>
 
@@ -17,7 +18,7 @@
             <div class="bordercontainer">
                 <form name="neueBetankung" method="post">
                     <label for="Fahrzeug"><b>Fahrzeug:</b></label>
-                    <select id="Fahrzeug" name="Fahrzeug" onchange="autofilTacho(betankung, profilID)">
+                    <select id="Fahrzeug" name="Fahrzeug" onchange="autofilTacho(betankung, profilID, fahrzeuge)">
                         <option>Fahrzeug wählen</option>
                     </select>
                     <br/>

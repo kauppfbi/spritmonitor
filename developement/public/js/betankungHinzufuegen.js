@@ -25,14 +25,14 @@ var getSorte = function(){
     document.getElementById('Sorte').innerHTML = localStorage.getItem("sorte");
 }
 
-var autofilTacho = function(betankung, profilID){
+var autofilTacho = function(betankung, profilID, fahrzeug){
     var fahrzeugID = (document.getElementById('Fahrzeug').value).split("#");
     var fahrzeugID = (fahrzeugID[1]-((1+profilID)*100));
     
     console.log("FahrzeugID: "+fahrzeugID);
-    console.log("Betankungen: "+betankung);
+    console.log("fahrzeug: "+fahrzeug);
     
-    var tachostand = betankung[fahrzeugID].Kilometer;
+    var tachostand = fahrzeug[fahrzeugID].kilometerstand;
     
     console.log("Tachostand: "+tachostand);
 }
