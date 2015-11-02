@@ -27,16 +27,16 @@
         {
             "id": 3,
             "email": "fx.hahn@web.de",
-            "password": "$2a$08$uOtV8qEkbBfpNsK7ATMfWe3drZm89J5eOhSdX2kzVROoRdt7/kApW",
+            "password": "$2a$08$djwBMIjMJE1OjyRZIbRR2eHtEbIiqm0Ji3byVgU3ZblW09Tl7DXy6",
             "anrede": "Herr",
             "nachname": "Hahn",
             "vorname": "Felix",
-            "geburtsdatum": "",
+            "geburtsdatum": "1996-04-11",
             "straße": "Eichenweg",
-            "hausnummer": "",
-            "postleitzahl": "",
-            "ort": "",
-            "land": ""
+            "hausnummer": "2",
+            "postleitzahl": "36088",
+            "ort": "Hünfeld",
+            "land": "Deutschland"
         },
         {
             "email": "fabian@kaupp.de",

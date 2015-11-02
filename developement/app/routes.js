@@ -93,16 +93,20 @@ module.exports = function(app, passport){
         var selecetedVehicleID = req.query.id; 
         console.log('Selected vehicle: ' + selecetedVehicleID);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        //var betankung = Betankung.
+
+
+        var betankung = Betankung.getBetankungByProfilID(req.user.id);
+        var profilID = req.user.id;
+
         var fahrzeugBeschreibungen = Fahrzeug.getFahrzeugbeschreibungByProfilID(req.user.id, selecetedVehicleID);
         
-        console.log("Beschreibung: " + fahrzeugBeschreibungen);
+        //console.log("Beschreibung: " + fahrzeugBeschreibungen);
         
         if(fahrzeugBeschreibungen==null){
             console.error("Kein Fahrzeug zu ID");
             res.render('betankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: null});
         }
-        res.render('betankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen});
+        res.render('betankungHinzufuegen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen, betankung: betankung, profilID: profilID});
     });
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
@@ -112,7 +116,7 @@ module.exports = function(app, passport){
         //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         
-        console.log('MainStats zu Vehicle 600: ' + Betankung.getMainStats(600));
+        console.log('MainStats zu Vehicle 600: ' + JSON.stringify(Betankung.getMainStats(600)));
 
         res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch});
     });
@@ -271,6 +275,9 @@ module.exports = function(app, passport){
         
         console.log(betankung);
         Betankung.createBetankung(betankung, profilID, vehicleID);
+        
+        var kilometerstand = req.body.Tachostand;
+        Fahrzeug.updateKilometerStand(vehicleID, kilometerstand);
         
         res.redirect('/neueBetankung');        
     });

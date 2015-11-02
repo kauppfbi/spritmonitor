@@ -52,7 +52,7 @@ var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     var betankung = alleBetankungen[profilID];
-    var betankungen = {};
+    var betankungen = new Array();
     
     if(alleBetankungen[profilID].length == 0){
         return null;
@@ -194,14 +194,15 @@ var getMainStats = function(vehicleID){
     var betankungenFahrzeug = alleBetankungen[profilID][vehicleIndex];
 
     var anfangsKMStand = Fahrzeug.getAnfangsKMStandByVehicleId(vehicleID);
-    var gefahreneKM = anfangsKMStand - betankungenFahrzeug[betankungenFahrzeug.length-1].Kilometer;
-    var mengeGesamt; 
+    var gefahreneKM = betankungenFahrzeug[betankungenFahrzeug.length-1].Kilometer - anfangsKMStand;
+    var mengeGesamt = 0; 
     for (var i = 0; i < betankungenFahrzeug.length; i++){
-        mengeGesamt += betankungenFahrzeug[i].Liter;
+        mengeGesamt += parseInt(betankungenFahrzeug[i].Liter);
     }
 
-    mainStats.verbrauch = gefahreneKM/mengeGesamt;
-
+    //Verbrauch auf 100km
+    mainStats.verbrauch = mengeGesamt/gefahreneKM*100;
+    //console.log(mainStats.verbrauch);
 
     return mainStats; 
 };
