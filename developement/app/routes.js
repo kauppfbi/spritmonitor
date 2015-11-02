@@ -273,6 +273,7 @@ module.exports = function(app, passport){
         user.anrede = req.body.Anrede;
         user.nachname = req.body.Nachname;
         user.vorname = req.body.Vorname;
+        user.geburtsdatum = req.body.Geburtsdatum;
         user.straße = req.body.Straße;
         user.hausnummer = req.body.Hausnummer;
         user.postleitzahl = req.body.Postleitzahl;
