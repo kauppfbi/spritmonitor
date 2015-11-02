@@ -4,9 +4,10 @@ var fahrzeugAuswahl = function(beschreibung){
     var fahrzeuge = document.getElementById('Fahrzeug');
     console.log("Fahrzeugbeschreibung: "+beschreibung);
     
+    /*
     while(fahrzeuge.hasChildNodes()){
         fahrzeuge.removeChild(fahrzeuge.childNodes[0]);
-    }
+    } */
     
     for(var i=0; i<beschreibung.length; i++){
         var option = document.createElement('option');
