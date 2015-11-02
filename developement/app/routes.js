@@ -91,8 +91,9 @@ module.exports = function(app, passport){
     app.get('/neueBetankung', isLoggedIn, function(req, res){
 
         var selecetedVehicleID = req.query.id; 
-        console.log('Selected vehicle: ' + selecetedVehicleID);
+         console.log('Selected vehicle: ' + selecetedVehicleID);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+
 
         var betankung = Betankung.getBetankungByProfilID(req.user.id);
         var profilID = req.user.id;
@@ -111,7 +112,7 @@ module.exports = function(app, passport){
     app.get('/spritverlauf', isLoggedIn, function(req, res){
         
         //var fzgId = req.query.id;
-        var datumVerbrauch = Betankung.getDatumVerbrauch(3, 400);
+        var datumVerbrauch = Betankung.getDatumVerbrauch(5, 600);
         //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         
