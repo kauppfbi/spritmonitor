@@ -2,75 +2,75 @@
 
 <head>
     <% include ./partials/head %>
-        <title>MySprit</title>
+    <title>MySprit</title>
 </head>
 
 <body class="body">
     <% include ./partials/header %>
-        <div id="content">
-            <h1>Fahrzeugsuche</h1>
-            <div class="bordercontainer">
-                <h3>Einfache Suche:</h3>
-                <label for="Hersteller">Hersteller:
-                    <select name="Hersteller" id="Herstellerauswahl" onchange="updateModellAuswahl()"></select>
-                </label>
-                <br>
-                <label for="Modell">Modell:
-                    <select name="Modell" id="Modellauswahl"></select>
-                </label>
-                <br>
-                <button onclick="search()">suchen</button>
-            </div>
-            <div class="bordercontainer">
-                <h3>Erweiterte Suche:</h3>
-                <form name='suche' method="post">
-                    <label for="Fahrzeugart">Fahrzeugart:</label>
-                    <select name="Fahrzeugart">
-                        <option>Alle</option>
-                        <option>PKW</option>
-                        <option>Nutzfahrzeug</option>
-                        <option>Zweirad</option>
-                        <option>Quad</option>
-                    </select>
-                    <label for="Hersteller">Hersteller</label>
-                    <select id="HerstellerAuswahl" name="Hersteller" onchange="">
-                    </select>
-                    <br>
-                    <label for="Modell">Modell:
-                        <select name="Modell" id="Modellauswahl"></select>
-                    </label>
-                    <br>
-                    <label for="Kraftstoffart">Kraftstoffart:</label>
-                    <select name="Kraftstoffart">
-                        <option>Alle</option>
-                        <option>Diesel</option>
-                        <option>Benzin</option>
-                        <option>Autogas</option>
-                        <option>Elektro</option>
-                        <option>Hybrid</option>
-                    </select>
-                    <br>
-                    <label for="Getriebeart">Getriebeart:</label>
-                    <select name="Getriebeart">
-                        <option>Alle</option>
-                        <option>Schaltgetriebe</option>
-                        <option>Automatik</option>
-                    </select>
-                    <br>
-                    <label for="Baujahr">Baujahr:</label>
-                    von
-                    <input type="number" name="Baujahr"></input>
-                    bis
-                    <input type="number" name="Baujahr"></input>
-                    <br>
-                    <label for="Motorleistung">Motorleistung in PS:</label>
-                    von
-                    <input type="number" name="Motorleistung"></input>
-                    bis
-                    <input type="number" name="Motorleistung"></input>
-                    <button type="submit">suchen</button>
-                </form>
-            </div>
-</body>
+    <div id="content">
+        <h1>Fahrzeugsuche</h1>
+        <div class="bordercontainer" id="einfacheSuche">
+            <h3>Einfache Suche:</h3>
+            <label for="Hersteller">Hersteller:</label>
+            <select name="Hersteller" id="Herstellerauswahl1" onchange="update(this)"></select>
+            <br>
+            <label for="Modell">Modell:</label>
+                <select name="Modell" id="Modellauswahl1"></select>
 
-</html>
+            <br>
+            <button onclick="search()">suchen</button>
+        </div>
+        <div class="bordercontainer" >
+            <h3>Erweiterte Suche:</h3>
+            <form name='suche' method="post" id="erweiterteSuche">
+                <label for="Fahrzeugart">Fahrzeugart:</label>
+                <select name="Fahrzeugart">
+                    <option>Alle</option>
+                    <option>PKW</option>
+                    <option>Nutzfahrzeug</option>
+                    <option>Zweirad</option>
+                    <option>Quad</option>
+                </select>
+                <label for="Hersteller">Hersteller</label>
+                <select id="Herstellerauswahl2" name="Hersteller" onchange="update(this)">
+                </select>
+                <br>
+                <label for="Modell">Modell:</label>
+                <select name="Modell" id="Modellauswahl2"></select>
+
+                <br>
+                <label for="Kraftstoffart">Kraftstoffart:</label>
+                <select name="Kraftstoffart">
+                    <option>Alle</option>
+                    <option>Diesel</option>
+                    <option>Benzin</option>
+                    <option>Autogas</option>
+                    <option>Elektro</option>
+                    <option>Hybrid</option>
+                </select>
+                <br>
+                <label for="Getriebeart">Getriebeart:</label>
+                <select name="Getriebeart">
+                    <option>Alle</option>
+                    <option>Schaltgetriebe</option>
+                    <option>Automatik</option>
+                </select>
+                <br>
+                <label for="Baujahr">Baujahr:</label>
+                von
+                <input type="number" name="Baujahr"></input>
+                bis
+                <input type="number" name="Baujahr"></input>
+                <br>
+                <label for="Motorleistung">Motorleistung in PS:</label>
+                von
+                <input type="number" name="Motorleistung"></input>
+                bis
+                <input type="number" name="Motorleistung"></input>
+                <button type="submit">suchen</button>
+            </form>
+        </div>
+        <script type="text/javascript" src="/js/suche.js"></script>
+    </body>
+
+    </html>
