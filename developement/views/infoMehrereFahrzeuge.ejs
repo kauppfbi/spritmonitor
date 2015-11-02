@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <% include ./partials/head %>
+    <title>Fahrzeuginformationen</title>
+      
+       <script type="text/javascript">
+            var fahrzeuge = <%- JSON.stringify(fahrzeuge) %>
+        </script>
+  </head>
+  <body class="body">
+    <% include ./partials/header %>
+    <div id="content">  
+        
+       
+    <div>
+    <table border="5">
+         <% for (var i=0; i < fahrzeuge.length; i++ ) { %>
+            <tr>
+                <td>Fahrzeugtyp: </td><td><%= fahrzeugObjekte[i].typ %></td>
+                <td>Marke: </td><td><%= fahrzeugObjekte[i].marke%></td>
+                <td>Modell: </td><td><%= fahrzeugObjekte[i].modell%></td>
+            </tr>
+            <tr>
+                <td>Bezeichnung: </td><td> <%= fahrzeugObjekte[i].bezeichnung%></td>
+                <td>Baujahr: </td><td><%= fahrzeugObjekte[i].baujahr%></td>
+                <td>Leistung: </td><td><%= fahrzeugObjekte[i].leistung%></td>
+            </tr>
+            <tr>
+                <td>Antriebsart: </td><td><%= fahrzeugObjekte[i].antriebsart%></td>
+                <td>Getriebeart: </td><td><%= fahrzeugObjekte[i].getriebeart%></td>
+                <td>Kilometerstand: </td><td><%= fahrzeugObjekte[i].kilometerstand%></td>
+                
+            <button><a class="buttonhref" href="/fahrzeug?id=<%= fahrzeugObjekte[i].id %>">Details</a></button>
+            </tr>
+        <% } %> 
+    </table>
+    </div>    
+     
+    </div> 
+  </body>
+</html>

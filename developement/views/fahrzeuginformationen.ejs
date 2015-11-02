@@ -2,9 +2,12 @@
   <head>
     <% include ./partials/head %>
     <title>Meine Autos</title>
-   
+      
+       <script type="text/javascript">
+            var fahrzeug = <%- JSON.stringify(fahrzeuge) %>
+        </script>
   </head>
-  <body class="body" onload="test()">
+  <body class="body">
     <% include ./partials/header %>
     <div id="content">
       <span>
@@ -38,7 +41,7 @@
           <a>Treibstoff: <%= fahrzeug.antriebsart %> </a>
           <br>
           <% } %>
-          <% if (fahrzeug.getriebeart != null || "") {%>
+          <% if (fahrzeug.getriebeart != "") {%>
           <a>Getriebeart: <%= fahrzeug.getriebeart %> </a>
           <br>
           <% } %>

@@ -26,10 +26,10 @@
                     <input name="Datum" type="date" value="2015-10-01" />
                     <br/>
                     <label for="Tachostand"><b>Tachostand:</b></label>
-                    <input name="Tachostand" type="number" id="Tachostand"/>(Km)
+                    <input name="Tachostand" type="number" id="Tachostand" onchange="autofilDistanz(betankung, profilID, fahrzeuge)"/>(Km)
                     <br/>
                     <label for="Distanz"><b>Distanz:</b></label>
-                    <input name="Distanz" type="number" />(Km)
+                    <input name="Distanz" type="number" id="Distanz"/>(Km)
                     <br/>
                     <label for="Menge"><b>Menge:</b></label>
                     <input name="Menge" type="number" />(Liter)

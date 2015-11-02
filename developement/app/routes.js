@@ -112,13 +112,12 @@ module.exports = function(app, passport){
     app.get('/spritverlauf', isLoggedIn, function(req, res){
         
 
-        var fzgId = req.query.id;
-
-        var datumVerbrauch = Betankung.getDatumVerbrauch(5, 600);
+       var fzgId = req.query.id;
+        var datumVerbrauch = Betankung.getDatumVerbrauch(req.user.id, fzgId);
         //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-
         var betankungen = Betankung.getBetankungByFzgID(fzgId);
+
       /*
         /*gemogelt zum testen
         for(var i=0;i<req.user.id;i++) {
@@ -128,17 +127,29 @@ module.exports = function(app, passport){
         }
 >>>>>>> origin/master
 */
+<<<<<<< HEAD
         //console.log('MainStats zu Vehicle 600: ' + JSON.stringify(Betankung.getMainStats(600)));
         var mainStats = Betankung.getMainStats(fzgId);
         //console.log(mainStats.kosten);
+=======
+
+        console.log('MainStats zu Vehicle 600: ' + JSON.stringify(Betankung.getMainStats(600)));
+        var mainStats = JSON.stringify(Betankung.getMainStats(600));
+>>>>>>> origin/master
 
         res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch, betankungen : betankungen, mainStats : mainStats});
     });
 
-    app.get('/fahrzeuge', isLoggedIn, function(req, res){
+    app.get('/fahrzeug', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         var fahrzeugBeschreibungen = Fahrzeug.getFahrzeugbeschreibungByProfilID(req.user.id);
-        res.render('fahrzeuge', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen});
+        
+        var fahrzeugId = req.params.id;
+        
+        //get specific vehicle from id here
+        var fahrzeug = Fahrzeug.findById(fahrzeugId);
+        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        res.render('fahrzeuginformation', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, beschreibung: fahrzeugBeschreibungen, fahrzeug: fahrzeug });
     });
 
     app.get('/404', isLoggedIn, function(req, res){
@@ -177,15 +188,20 @@ module.exports = function(app, passport){
         res.render('suchergebnisse', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, suchergebnis : suchergebnis});
     });
     
-    app.get('/fahrzeuginformationen', isLoggedIn, function(req, res){
+    app.get('/fahrzeuge', isLoggedIn, function(req, res){
+        //ids = req.query.id
+        var ids = '300,301,600';
+        //splitten und in array 
         
-        var fahrzeugId = req.params.id;
+        var fahrzeuge = new Array(); 
         
-        //get specific vehicle from id here
-        var fahrzeug = Fahrzeug.findById(fahrzeugId);
+        //for schleife 
+        fahrzeuge.push(Fahrzeug.findById(300));
+        fahrzeuge.push(Fahrzeug.findById(600));
+        
         
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('fahrzeuginformationen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, fahrzeug : fahrzeug});
+        res.render('fahrzeuginformationen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, fahrzeugObjekte : fahrzeuge});
     });
     
     app.get('/fahrzeugLoeschen', isLoggedIn, function(req, res){
