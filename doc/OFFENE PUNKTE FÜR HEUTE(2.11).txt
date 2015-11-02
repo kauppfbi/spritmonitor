@@ -1,10 +1,20 @@
 Was noch offen ist:
-- Profilinformationen Design?
+
+Prio 1
 - Fahrzeuginformationen anzeigen (3 versch. Fälle!)
 - Spritverlauf Daten einlesen (vorherige Fzg.-Auswahl, sofern mehr als ein Fzg. dem Profil zugewiesen ist)
 - Suche funktioniert noch nicht --> Anzeige der Suchergebnisse (evtl. flash message falls kein suchergebnis)
+- Tabelle mit Betankungen einfügen in spritverlauf
+
+
+Prio 5
+- kleine Tabelle mit allen wesentlichen verbrauchsdaten zu einem fahrzeug auf spritverlauf
+
+
+Prio 9
 - Betankung hinzufügen: Sorte automatisch einlesen --> local storage
 - Betankung hinzufügen: Distanz automatisch errechnen
-- Tabelle mit Betankungen funktioniert nicht --> einfügen in spritverlauf
-- kleine Tabelle mit allen wesentlichen verbrauchsdaten zu einem fahrzeug auf spritverlauf
+
+Prio 10
 - Ständiger Logout beim Speichern von verschiedenen Daten
+- Icon im Tab
