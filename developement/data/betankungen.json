@@ -19,11 +19,20 @@
                     "profilID": 3,
                     "vehicleID": "400",
                     "Fahrzeug": "Audi A3 #400",
-                    "Datum": "2015-11-01",
+                    "Datum": "2015-11-18",
                     "Kraftstoff": "Super",
-                    "Liter": "77",
-                    "Kilometer": "77",
-                    "id": 30002
+                    "Liter": "30",
+                    "Kilometer": "134000",
+                    "Vollbetankung": "true",
+                    "Distanz": "300",
+                    "Kosten": "40",
+                    "Bemerkung": "",
+                    "Reifen": "Sommerreifen",
+                    "Fahrweise": "schnell",
+                    "Strecken": "Autobahn",
+                    "Tankstelle": "Mr. Wash",
+                    "Boardcomputer": "8",
+                    "id": 30000
                 }
             ],
             [
@@ -31,30 +40,20 @@
                     "profilID": 3,
                     "vehicleID": "401",
                     "Fahrzeug": "Porsche 911 #401",
-                    "Datum": "2015-11-01",
+                    "Datum": "2015-11-02",
                     "Kraftstoff": "Super",
-                    "Liter": "30",
-                    "Kilometer": "12345",
-                    "id": 30100
-                },
-                {
-                    "profilID": 3,
-                    "vehicleID": "401",
-                    "Fahrzeug": "Porsche 911 #401",
-                    "Datum": "2015-11-01",
-                    "Kraftstoff": "Super",
-                    "Liter": "35",
-                    "Kilometer": "133400",
+                    "Liter": "40",
+                    "Kilometer": "133000",
                     "Vollbetankung": "true",
-                    "Distanz": "450",
+                    "Distanz": "500",
                     "Kosten": "50",
                     "Bemerkung": "",
                     "Reifen": "Sommerreifen",
                     "Fahrweise": "schnell",
                     "Strecken": "Autobahn",
                     "Tankstelle": "Mr. Wash",
-                    "Boardcomputer": "7",
-                    "id": 30101
+                    "Boardcomputer": "9",
+                    "id": 30100
                 }
             ]
         ],

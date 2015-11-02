@@ -3,7 +3,7 @@
     <% include ./partials/head %>
     <title>MeineBetankungen</title>
     <script type="text/javascript">
-      console.log(user);
+      //console.log(user);
     </script>
   </head>
   <body class="body">
@@ -27,22 +27,22 @@
             <th>Boardcomputer</th>
         </tr>
         <% for(var i=0; i < betankungen.length; i++) { %>
-          <%if (betankungen[i].profilId == user.id) { %>
+          
             <tr>
                 <td><%= betankungen[i].Datum %></td>
-                <td><%= betankungen[i].Menge%></td>
+                <td><%= betankungen[i].Liter%></td>
                 <td><%= betankungen[i].Kosten%></td>
-                <td><%= betankungen[i].Tachostand%></td>
+                <td><%= betankungen[i].Kilometer%></td>
                 <td><%= betankungen[i].Distanz%></td>
                 <td><%= betankungen[i].Kraftstoff%></td>
                 <td><%= betankungen[i].Vollbetankung%></td>
                 <td><%= betankungen[i].Reifen%></td>
                 <td><%= betankungen[i].Fahrweise%></td>
-                <td><%= betankungen[i].Strecke%></td>
+                <td><%= betankungen[i].Strecken%></td>
                 <td><%= betankungen[i].Tankstelle%></td>
                 <td><%= betankungen[i].Boardcomputer%></td>
             </tr>
-         <% } %>
+         
         <% } %>
       </span>
     </table>

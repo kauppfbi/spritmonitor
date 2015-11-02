@@ -93,7 +93,7 @@ var search = function(marke, modell){
 		return fahrzeuge;
 };
 
-var getFahrzeugbeschreibungByProfilID = function(profilID){
+var getFahrzeugbeschreibungByProfilID = function(profilID, selectedVehicleID){
 	var fahrzeugeBeschreibungen = new Array(); 
 
 	var fahrzeugeProfil = getVehiclesByProfilID(profilID);
@@ -102,9 +102,24 @@ var getFahrzeugbeschreibungByProfilID = function(profilID){
 		return null; 
 	}
 
-	for (var i = 0; i < fahrzeugeProfil.length; i++){
-		if(fahrzeugeProfil[i].aktiv)
-		fahrzeugeBeschreibungen.push(fahrzeugeProfil[i].marke + " " + fahrzeugeProfil[i].modell+" #"+fahrzeugeProfil[i].id);
+	if(selectedVehicleID == null)
+		selectedVehicleID = (profilID+1)*100;
+
+	var position = parseInt(String(selectedVehicleID).charAt(2));
+	console.log(position);
+
+	for (var i = 1; i <= fahrzeugeProfil.length; i++){
+		if(fahrzeugeProfil[i-1].aktiv){
+			if(fahrzeugeProfil[i-1].id == selectedVehicleID){
+				fahrzeugeBeschreibungen[0] = fahrzeugeProfil[i-1].marke + " " + fahrzeugeProfil[i-1].modell+" #"+fahrzeugeProfil[i-1].id;
+			}else{
+				if((i-1) >= position){
+					fahrzeugeBeschreibungen[i-1] = fahrzeugeProfil[i-1].marke + " " + fahrzeugeProfil[i-1].modell+" #"+fahrzeugeProfil[i-1].id;
+				} else{
+					fahrzeugeBeschreibungen[i] = fahrzeugeProfil[i-1].marke + " " + fahrzeugeProfil[i-1].modell+" #"+fahrzeugeProfil[i-1].id;
+				}
+			}
+		}
 	}
 	return fahrzeugeBeschreibungen;
 };

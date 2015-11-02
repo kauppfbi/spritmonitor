@@ -51,10 +51,10 @@ var createBetankung = function (betankung, profilID, vehicleID){
 var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
-    var betankung = {};
+    var betankung = alleBetankungen[profilID];
     
-    for(var i=0; i<=alleBetankungen[profilID].length; i++){
-        for(var z=0; z<=alleBetankungen[profilID][i].length; z++){
+    for(var i=0; i<alleBetankungen[profilID].length; i++){
+        for(var z=0; z<alleBetankungen[profilID][i].length; z++){
             betankung[i] = alleBetankungen[profilID][i][z];
         }
     }  
