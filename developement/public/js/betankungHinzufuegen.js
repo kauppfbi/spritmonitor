@@ -39,6 +39,16 @@ var autofilTacho = function(betankung, profilID, fahrzeug){
     document.getElementById('Tachostand').value = tachostand;
 }
 
-var autofilDistanz = function(tachoAlt){
+var autofilDistanz = function(betankung, profilID, fahrzeug){
+    var tachostand = document.getElementById('Tachostand').value;
+    console.log("Tachostand: "+tachostand);
     
+    var fahrzeugID = (document.getElementById('Fahrzeug').value).split("#");
+    var fahrzeugID = (fahrzeugID[1]-((1+profilID)*100));
+    
+    var tachostandalt = fahrzeug[fahrzeugID].kilometerstand;
+    
+    var distanz = tachostand-tachostandalt;
+    
+    document.getElementById('Distanz').value = distanz;
 }
