@@ -350,33 +350,45 @@ module.exports = function(app, passport){
     app.post('/suche', isLoggedIn, function(req, res){
         var bedingungen = new Object(); 
 
-        /*
-
-        bedingungen.typ
-        bedingungen.marke
-        bedingungen.modell
-        bedingungen.kraftstoff
-        bedingungen.getriebe
-        bedingungen.baujahr => [von, bis]
-        bedingungen.leistung -> [von, bis]
-
-        wenn nichts angegeben ist, dann mit 'alle' befüllen!
-        */
-
         bedingungen.typ = req.body.Fahrzeugart;
+        if(bedingungen.typ == 'Alle'){
+            bedingungen.typ = 'alle';
+        }
         bedingungen.marke = req.body.Hersteller;
         bedingungen.modell = req.body.Modell;
         bedingungen.kraftstoff = req.body.Kraftstoffart;
+        if(bedingungen.kraftstoff == 'Alle'){
+            bedingungen.kraftstoff = 'alle';
+        }
         bedingungen.getriebe = req.body.Getriebeart;
+        if(bedingungen.getriebe == 'Alle'){
+            bedingungen.getriebe = 'alle';
+        }
         bedingungen.baujahr = req.body.Baujahr;
+        if(bedingungen.baujahr[0] == ""){
+            bedingungen.baujahr = 'alle';
+        }
         bedingungen.leistung = req.body.Motorleistung;
+        if(bedingungen.leistung[0] == ""){
+            bedingungen.leistung = 'alle';
+        }
         
         var ergebnis = Fahrzeug.searchExtended(bedingungen);
-
-        //console.log(ergebnis);
-
-        //do something 
-        res.redirect('/suchergebnisse');
+        console.log(ergebnis);
+        if(ergebnis.length == 0){
+            res.redirect('/suche');
+        } else{
+            var ids ="";
+            for (var i = 0; i < ergebnis.length; i++){
+                if(i==ergebnis.length-1){
+                    ids += ergebnis[i].id;
+                }else
+                {
+                  ids += ergebnis[i].id + ",";  
+                }
+            }
+            res.redirect('/fahrzeuge?id=' + ids);
+        }
     });
 };
 
