@@ -176,6 +176,14 @@ module.exports = function(app, passport){
         res.redirect('/fahrzeuge');
     });
 
+    app.get('/profilLoeschen', isLoggedIn, function(req, res){
+        var profilId = req.query.id;
+
+        User.deleteUser(profilId);
+
+        res.redirect('/signup');
+    });
+
     // =====================================
     // LOGOUT ==============================
     // =====================================
