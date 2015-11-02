@@ -87,14 +87,15 @@ var getBetankungByFzgID = function(vehicleID){
 var getDatumVerbrauch = function(profilID, vehicleID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
-    var betankungen = alleBetankungen[profilID][vehicleID];
-    var datumVerbrauch = new Array();
-    var vehicleID = (vehicleID-(100*profilID));
+    var vehicleIndex = (vehicleID-(100*(profilID+1));
     
-    for(var i=0; i<alleBetankungen[profilID][vehicleID].length; i++){
-        var durchVerbrauch = (alleBetankungen[profilID][vehicleID][i].Liter / ((alleBetankungen[profilID][vehicleID][i].Distanz)*100));
+    var betankungen = alleBetankungen[profilID][vehicleIndex];
+    var datumVerbrauch = new Array();
+    
+    for(var i=0; i<alleBetankungen[profilID][vehicleIndex].length; i++){
+        var durchVerbrauch = (alleBetankungen[profilID][vehicleIndex][i].Liter / ((alleBetankungen[profilID][vehicleID][i].Distanz)*100));
         var temp = new Array();
-        temp.push(alleBetankungen[profilID][vehicleID][i].Datum);
+        temp.push(alleBetankungen[profilID][vehicleIndex][i].Datum);
         temp.push(durchVerbrauch);
         datumVerbrauch.push(temp);
     }
@@ -165,6 +166,20 @@ var createVehicle = function(profilID){
   });
 };
 
+var getMainStats = function(vehicleID){
+    var mainStats = {
+        "verbrauch" : null,
+        "reifen" : null,
+        "fahrweise" : null,
+        "strecken" : null, 
+        "krafststoff" : null, 
+        "kosten" : null
+    }; 
+
+
+
+};
+
 //Exports
 exports.createBetankung = createBetankung;
 exports.getBetankungByProfilID = getBetankungByProfilID;
@@ -173,3 +188,4 @@ exports.updateBetankung = updateBetankung;
 exports.createUser = createUser;
 exports.createVehicle = createVehicle;
 exports.getDatumVerbrauch = getDatumVerbrauch;
+exports.getMainStats = getMainStats;
