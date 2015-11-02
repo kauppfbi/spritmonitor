@@ -40,5 +40,5 @@ Felix
 	#Betankung:
 		#Tachostand <--> Distanz
 		#aktueller Tachostand !< als letzter (muss vor submit geprüft werden) 
-			oder letzter STand als default
+			oder letzter STand als default  --> ERLEDIGT
 	(#) LocalStorage

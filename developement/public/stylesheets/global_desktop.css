@@ -310,3 +310,23 @@
         border-style: solid;
         border-color: #CF5C3F;
     }
+tr {
+    border-bottom: solid;
+    border-color: #666
+}    
+th {
+    float: left;
+}
+td {
+    padding-left: 5px;
+    padding-right: 30px;
+    border-right: solid;
+    border-bottom: solid;
+    border-color: #666
+}
+    .suchergebnistable {
+        border-color: #666;
+        border-collapse: collapse;
+        border-style: solid;
+        border-width: medium;
+    }

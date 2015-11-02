@@ -13,34 +13,39 @@
     </script>
     
     <% for (var i=0; i < suchergebnis.length; i++ ) { %>    
+     
         
-    <div>
         
+    <div class="bordercontainer">
+    <table class="suchergebnistable">
 
-    <table border="5">
-      <span>
             <tr>
-                <td>Fahrzeugtyp: </td><td><%= suchergebnis[i].typ %></td>
-                <td>Marke: </td><td><%= suchergebnis[i].marke%></td>
-                <td>Modell: </td><td><%= suchergebnis[i].modell%></td>
+                <th><b>Fahrzeugtyp:</b></th><td><%= suchergebnis[i].typ %></td>
+                <th><b>Bezeichnung:</b></th><td> <%= suchergebnis[i].bezeichnung%></td>
+                <th><b>Kilometerstand:</b></th><td><%= suchergebnis[i].kilometerstand%></td>
+                
             </tr>
             <tr>
-                <td>Bezeichnung: </td><td> <%= suchergebnis[i].bezeichnung%></td>
-                <td>Baujahr: </td><td><%= suchergebnis[i].baujahr%></td>
-                <td>Leistung: </td><td><%= suchergebnis[i].leistung%></td>
+                <th><b>Marke:</b></th><td><%= suchergebnis[i].marke%></td>
+                <th><b>Antriebsart:</b></th><td><%= suchergebnis[i].antriebsart%></td>
+                <th><b>Baujahr:</b></th><td><%= suchergebnis[i].baujahr%></td>
+                
             </tr>
             <tr>
-                <td>Antriebsart: </td><td><%= suchergebnis[i].antriebsart%></td>
-                <td>Getriebeart: </td><td><%= suchergebnis[i].getriebeart%></td>
-                <td>Kilometerstand: </td><td><%= suchergebnis[i].kilometerstand%></td>
+                <th><b>Modell:</b></th><td><%= suchergebnis[i].modell%></td>
+                <th><b>Leistung:</b></th><td><%= suchergebnis[i].leistung%></td>
+                <th><b>Getriebeart:</b></th><td><%= suchergebnis[i].getriebeart%></td>
+            </tr>    
                 
             <button><a class="buttonhref" href="/spritverlauf">Details</a></button>
-            </tr>
-      </span>
+
     </table>
-    </div>    
+    </div>
+        
+        
     <% } %>  
-    </div> 
+    </div>
+ 
   </body>
 </html>
 
