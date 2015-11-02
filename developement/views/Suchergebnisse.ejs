@@ -7,43 +7,35 @@
     <% include ./partials/header %>
     <div id="content">
     
-    <% for(var i=0; i < suchergebnis.length; i++) { %>        
+    <script type="text/javascript">
+        var ergebnis = <%- JSON.stringify(suchergebnis) %>;
+        console.log(ergebnis);
+    </script>
+    
+        
+        
     <div>
     
     <table border="5">
       <span>
             <tr>
-                <td>Fahrzeugtyp: </td><td><%= suchergenis[i].typ %></td>
-                <td>    </td>
-                <td>Marke: </td><td><%= suchergenis[i].marke%></td>
-                <td>    </td>
-                <td>Modell: </td><td><%= suchergebnis[i].modell%></td>
+                <td>Fahrzeugtyp: </td><td><%= suchergebnis.typ %></td>
+                <td>Marke: </td><td><%= suchergebnis.marke%></td>
+                <td>Modell: </td><td><%= suchergebnis.modell%></td>
             </tr>
             <tr>
-                <td>Bezeichnung: </td><td> <%= suchergebnis[i].bezeichnung%></td>
-                                <td>    </td>
-                <td>Baujahr: </td><td><%= suchergebnis[i].baujahr%></td>
-                                <td>    </td>
-                <td>Leistung: </td><td><%= suchergebnis[i].leistung%></td>
+                <td>Bezeichnung: </td><td> <%= suchergebnis.bezeichnung%></td>
+                <td>Baujahr: </td><td><%= suchergebnis.baujahr%></td>
+                <td>Leistung: </td><td><%= suchergebnis.leistung%></td>
             </tr>
             <tr>
-                <td>Antriebsart: </td><td><%= suchergebnis[i].antriebsart%></td>
-                                <td>    </td>
-                <td>Getriebeart: </td><td><%= suchergebnis[i].getriebeart%></td>
-                                <td>    </td>
-                <td>Kilometerstand: </td><td><%= suchergebnis[i].kilometerstand%></td>
+                <td>Antriebsart: </td><td><%= suchergebnis.antriebsart%></td>
+                <td>Getriebeart: </td><td><%= suchergebnis.getriebeart%></td>
+                <td>Kilometerstand: </td><td><%= suchergebnis.kilometerstand%></td>
             </tr>
-          <% } %>
       </span>
     </table>
     </div> 
-        
-    </div>
-    <script type="text/javascript">
-        var ergebnis = <%- JSON.stringify(suchergebnis) %>;
-        console.log(ergebnis);
-        
-    </script>
   </body>
 </html>
 

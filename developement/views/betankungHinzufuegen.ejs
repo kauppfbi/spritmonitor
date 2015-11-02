@@ -1,11 +1,13 @@
 <html>
+
 <head>
-  <% include ./partials/head %>
-  <title>MySprit</title>
-    <script>
-        var fahrzeugBeschreibungen = <%- JSON.stringify(beschreibung) %>
-    </script>
+    <% include ./partials/head %>
+        <title>MySprit</title>
+        <script>
+            var fahrzeugBeschreibungen = <%- JSON.stringify(beschreibung) %>
+        </script>
 </head>
+
 <body class="body">
   <% include ./partials/header %>
   <div id="content">
