@@ -9,11 +9,11 @@ var verbrauch = new Array();
 var datum = new Array();
 console.log(datumVerbrauch);
 
-for (var i =0; i<datumVerbrauch.length;i++){
-    if(i == datumVerbrauch.length-1){
-        
+for (var i = -1; i<datumVerbrauch.length;i++){
+    if(i == -1){
+        datum.push(" ");
     }else{
-        datum.push(datumVerbrauch[i+1][0]);
+        datum.push(datumVerbrauch[i][0]);
         verbrauch.push(datumVerbrauch[i][1]);
     }
     
