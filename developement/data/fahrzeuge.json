@@ -115,7 +115,7 @@
                 "leistung": "100",
                 "antriebsart": "Benzin",
                 "getriebeart": "Manuell",
-                "kilometerstand": "134000",
+                "kilometerstand": "134500",
                 "id": 400,
                 "aktiv": true
             },
@@ -128,7 +128,7 @@
                 "leistung": "240",
                 "antriebsart": "Benzin",
                 "getriebeart": "Automatik",
-                "kilometerstand": "120100",
+                "kilometerstand": "120500",
                 "id": 401,
                 "aktiv": true
             }
