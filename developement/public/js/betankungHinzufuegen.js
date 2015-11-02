@@ -15,3 +15,12 @@ var fahrzeugAuswahl = function(beschreibung){
         fahrzeuge.appendChild(option);
     }
 }
+
+var storeSorte = function(){
+    var spritsorte = document.getElementById('Sorte');
+    localStorage.setItem("sorte", spritsorte);
+}
+
+var getSorte = function(){
+    document.getElementById('Sorte').innerHTML = localStorage.getItem("sorte");
+}

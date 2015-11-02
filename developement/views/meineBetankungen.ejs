@@ -27,22 +27,22 @@
             <th>Boardcomputer</th>
         </tr>
         <% for(var i=0; i < betankungen.length; i++) { %>
-          
+          <% for(var z=0; z<betankungen[i].length; z++){ %>
             <tr>
-                <td><%= betankungen[i].Datum %></td>
-                <td><%= betankungen[i].Liter%></td>
-                <td><%= betankungen[i].Kosten%></td>
-                <td><%= betankungen[i].Kilometer%></td>
-                <td><%= betankungen[i].Distanz%></td>
-                <td><%= betankungen[i].Kraftstoff%></td>
-                <td><%= betankungen[i].Vollbetankung%></td>
-                <td><%= betankungen[i].Reifen%></td>
-                <td><%= betankungen[i].Fahrweise%></td>
-                <td><%= betankungen[i].Strecken%></td>
-                <td><%= betankungen[i].Tankstelle%></td>
-                <td><%= betankungen[i].Boardcomputer%></td>
+                <td><%= betankungen[i][z].Datum %></td>
+                <td><%= betankungen[i][z].Liter%></td>
+                <td><%= betankungen[i][z].Kosten%></td>
+                <td><%= betankungen[i][z].Kilometer%></td>
+                <td><%= betankungen[i][z].Distanz%></td>
+                <td><%= betankungen[i][z].Kraftstoff%></td>
+                <td><%= betankungen[i][z].Vollbetankung%></td>
+                <td><%= betankungen[i][z].Reifen%></td>
+                <td><%= betankungen[i][z].Fahrweise%></td>
+                <td><%= betankungen[i][z].Strecken%></td>
+                <td><%= betankungen[i][z].Tankstelle%></td>
+                <td><%= betankungen[i][z].Boardcomputer%></td>
             </tr>
-         
+         <% } %>
         <% } %>
       </span>
     </table>
