@@ -34,9 +34,16 @@
             "id": 4
         },
         {
+            "id": 5,
             "email": "janis@muehlig.de",
             "password": "$2a$08$38GBH6ORCGEOG5RCzuzg2OqwXpr/rp7Q0UJUYEzNjuENQlzyKYZ7O",
-            "id": 5
+            "nachname": "Janis",
+            "vorname": "Mühlig",
+            "straße": "Teststraße",
+            "hausnummer": "99",
+            "postleitzahl": "12345",
+            "ort": "Testort",
+            "land": "Deutschland"
         },
         {
             "id": 6,

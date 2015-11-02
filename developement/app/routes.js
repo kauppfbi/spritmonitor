@@ -270,14 +270,14 @@ module.exports = function(app, passport){
         user.id = req.user.id;
         user.email = req.user.email; 
         user.password = req.user.password;
-        user.Anrede = req.body.Anrede;
-        user.Nachname = req.body.Nachname;
-        user.Vorname = req.body.Vorname;
-        user.Straße = req.body.Straße;
-        user.Hausnummer = req.body.Hausnummer;
-        user.Postleitzahl = req.body.Postleitzahl;
-        user.Ort = req.body.Ort;
-        user.Land = req.body.Land;
+        user.anrede = req.body.Anrede;
+        user.nachname = req.body.Nachname;
+        user.vorname = req.body.Vorname;
+        user.straße = req.body.Straße;
+        user.hausnummer = req.body.Hausnummer;
+        user.postleitzahl = req.body.Postleitzahl;
+        user.ort = req.body.Ort;
+        user.land = req.body.Land;
         
         User.updateUser(user);
         
