@@ -11,7 +11,7 @@ document.body.onload = function(){
 		var listElement = document.createElement('li');
 		var reference = document.createElement('a');
 		reference.text = fahrzeuge[i].marke + ' ' + fahrzeuge[i].modell;
-		reference.href = "/neueBetankung";
+		reference.href = "/neueBetankung?id=" + fahrzeuge[i].id;
 		listElement.appendChild(reference);
 		refuel.appendChild(listElement);
 	}
