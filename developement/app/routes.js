@@ -110,9 +110,12 @@ module.exports = function(app, passport){
     app.get('/spritverlauf', isLoggedIn, function(req, res){
         
         //var fzgId = req.query.id;
-        var datumVerbrauch = Betankung.getDatumVerbrauch(3, 1);
+        var datumVerbrauch = Betankung.getDatumVerbrauch(3, 400);
         //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
+        
+        console.log('MainStats zu Vehicle 600: ' + Betankung.getMainStats(600));
+
         res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch});
     });
 
@@ -227,6 +230,7 @@ module.exports = function(app, passport){
         fahrzeug.antriebsart = req.body.Antriebsart;
         fahrzeug.getriebeart = req.body.Getriebeart;
         fahrzeug.kilometerstand = req.body.Kilometerstand;
+        fahrzeug.anfangskilometerstand = fahrzeug.kilometerstand;
         fahrzeug.extras = req.body.Extras;
         fahrzeug.aktiv = true; 
 

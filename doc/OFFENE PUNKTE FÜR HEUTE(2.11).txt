@@ -16,7 +16,6 @@ Prio 9
 - Betankung hinzufügen: Distanz automatisch errechnen
 
 Prio 10
-- Ständiger Logout beim Speichern von verschiedenen Daten
 - Icon im Tab
 
 

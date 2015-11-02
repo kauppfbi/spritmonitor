@@ -92,10 +92,13 @@ var getDatumVerbrauch = function(profilID, vehicleID){
     var betankungen = alleBetankungen[profilID][vehicleIndex];
     var datumVerbrauch = new Array();
     
-    for(var i=0; i<alleBetankungen[profilID][vehicleIndex].length; i++){
-        var durchVerbrauch = (alleBetankungen[profilID][vehicleIndex][i].Liter / ((alleBetankungen[profilID][vehicleID][i].Distanz)*100));
+    var betankungenFahrzeug = alleBetankungen[profilID][vehicleIndex];
+    console.log(betankungenFahrzeug);
+    
+    for(var i=0; i<betankungenFahrzeug.length; i++){
+        var durchVerbrauch = (betankungenFahrzeug[i].Liter / (betankungenFahrzeug[i].Distanz))*100;
         var temp = new Array();
-        temp.push(alleBetankungen[profilID][vehicleIndex][i].Datum);
+        temp.push(betankungenFahrzeug[i].Datum);
         temp.push(durchVerbrauch);
         datumVerbrauch.push(temp);
     }
@@ -176,8 +179,31 @@ var getMainStats = function(vehicleID){
         "kosten" : null
     }; 
 
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+
+    var profilID;
+    if (String(vehicleID).length == 3){
+        profilID = parseInt(String(vehicleID).charAt(0))-1;
+    } else if (String(vehicleID).length == 4){
+        profilID = parseInt(String(vehicleID).charAt(0) + String(vehicleID).charAt(1))-1;
+    }
+
+    var vehicleIndex = (vehicleID-(100*(profilID+1)));
+
+    var betankungenFahrzeug = alleBetankungen[profilID][vehicleIndex];
+
+    var anfangsKMStand = Fahrzeug.getAnfangsKMStandByVehicleId(vehicleID);
+    var gefahreneKM = anfangsKMStand - betankungenFahrzeug[betankungenFahrzeug.length-1].Kilometer;
+    var mengeGesamt; 
+    for (var i = 0; i < betankungenFahrzeug.length; i++){
+        mengeGesamt += betankungenFahrzeug[i].Liter;
+    }
+
+    mainStats.verbrauch = gefahreneKM/mengeGesamt;
 
 
+    return mainStats; 
 };
 
 //Exports

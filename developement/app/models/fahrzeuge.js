@@ -219,6 +219,46 @@ var searchExtended = function(bedingungen){
         return returnFahrzeuge;
 };
 
+var getAnfangsKMStandByVehicleId = function(vehicleID){
+	var profilId;
+	if (String(vehicleID).length == 3){
+        profilID = parseInt(String(vehicleID).charAt(0))-1;
+    } else if (String(vehicleID).length == 4){
+        profilID = parseInt(String(vehicleID).charAt(0) + String(vehicleID).charAt(1))-1;
+    }
+    var vehicleIndex = (vehicleID-(100*(profilID+1)));
+
+    var obj = jsonfile.readFileSync(file);
+	var alleFahrzeuge = obj.fahrzeuge;
+
+	return alleFahrzeuge[profilID][vehicleIndex].anfangskilometerstand;
+};
+
+var updateKilometerStand = function(vehicleID, aktuellerStand){
+	var profilId;
+	if (String(vehicleID).length == 3){
+        profilID = parseInt(String(vehicleID).charAt(0))-1;
+    } else if (String(vehicleID).length == 4){
+        profilID = parseInt(String(vehicleID).charAt(0) + String(vehicleID).charAt(1))-1;
+    }
+    var vehicleIndex = (vehicleID-(100*(profilID+1)));
+
+    var obj = jsonfile.readFileSync(file);
+	var alleFahrzeuge = obj.fahrzeuge;
+
+	alleFahrzeuge[profilID][vehicleIndex].kilometerstand = aktuellerStand;
+
+	obj.fahrzeuge = alleFahrzeuge;
+
+	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("JSON saved to " + file);
+		}
+	}); 
+};
+
 
 //exports.findById = findById;
 exports.createVehicle = createVehicle;
@@ -229,3 +269,5 @@ exports.getFahrzeugbeschreibungByProfilID = getFahrzeugbeschreibungByProfilID;
 exports.updateFahrzeug = updateFahrzeug;
 exports.deleteFahrzeug = deleteFahrzeug;
 exports.searchExtended = searchExtended;
+exports.getAnfangsKMStandByVehicleId = getAnfangsKMStandByVehicleId;
+exports.updateKilometerStand = updateKilometerStand;
