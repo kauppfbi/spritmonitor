@@ -96,7 +96,7 @@ var getDatumVerbrauch = function(profilID, vehicleID){
     console.log(betankungenFahrzeug);
     
     for(var i=0; i<betankungenFahrzeug.length; i++){
-        var durchVerbrauch = (betankungenFahrzeug[i].Liter / ((betankungenFahrzeug[i].Distanz)*100));
+        var durchVerbrauch = (betankungenFahrzeug[i].Liter / (betankungenFahrzeug[i].Distanz))*100;
         var temp = new Array();
         temp.push(betankungenFahrzeug[i].Datum);
         temp.push(durchVerbrauch);
