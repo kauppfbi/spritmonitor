@@ -52,3 +52,12 @@ var autofilDistanz = function(betankung, profilID, fahrzeug){
     
     document.getElementById('Distanz').value = distanz;
 }
+
+/*
+var validateForm = function() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+} */

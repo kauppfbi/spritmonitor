@@ -16,7 +16,7 @@
         <div id="content">
             <h1 class="eingeschobenh1"><b>Neue Betankung</b></h1>
             <div class="bordercontainer">
-                <form name="neueBetankung" method="post">
+                <form name="neueBetankung" onsubmit="return validateForm()" method="post">
                     <label for="Fahrzeug"><b>Fahrzeug:</b></label>
                     <select id="Fahrzeug" name="Fahrzeug" onchange="autofilTacho(betankung, profilID, fahrzeuge)">
                         <option>Fahrzeug wählen</option>
@@ -26,16 +26,16 @@
                     <input name="Datum" type="date" value="2015-10-01" />
                     <br/>
                     <label for="Tachostand"><b>Tachostand:</b></label>
-                    <input name="Tachostand" type="number" id="Tachostand" onchange="autofilDistanz(betankung, profilID, fahrzeuge)"/>(Km)
+                    <input name="Tachostand" type="number" id="Tachostand" onchange="autofilDistanz(betankung, profilID, fahrzeuge)" required />(Km)
                     <br/>
                     <label for="Distanz"><b>Distanz:</b></label>
-                    <input name="Distanz" type="number" id="Distanz"/>(Km)
+                    <input name="Distanz" type="number" id="Distanz" required/>(Km)
                     <br/>
                     <label for="Menge"><b>Menge:</b></label>
-                    <input name="Menge" type="number" />(Liter)
+                    <input name="Menge" type="number" required/>(Liter)
                     <br/>
                     <label for="Vollbetankung"><b>Vollbetankung:</b></label>
-                    <input name="Vollbetankung" type="checkbox" value="true" />
+                    <input name="Vollbetankung" type="checkbox" value="true"/>
                     <br/>
                     <label for="Sorte"><b>Sorte:</b></label>
                     <select name="Sorte">
@@ -47,22 +47,22 @@
                     </select>
                     <br/>
                     <label for="Kosten"><b>Kosten:</b></label>
-                    <input name="Kosten" type="number" />(€)
+                    <input name="Kosten" type="number" required/>(€)
                     <br/>
                     <label for="Bemerkung"><b>Bemerkung:</b></label>
                     <textarea name="Bemerkung"></textarea>
                     <br/>
-                    <label for="Reifen"><b>Reifen:</b></label>
+                    <label for="Reifen" required><b>Reifen:</b></label>
                     <input name="Reifen" type="radio" value="Sommerreifen" />Sommerreifen
                     <input type="radio" name="Reifen" value="Winterreifen" />Winterreifen
                     <input type="radio" name="Reifen" value="Ganzjahresreifen" />Ganzjahresreifen
                     <br/>
-                    <label for="Fahrweise"><b>Fahrweise:</b></label>
+                    <label for="Fahrweise" required><b>Fahrweise:</b></label>
                     <input name="Fahrweise" type="radio" value="sparsam" />sparsam
                     <input name="Fahrweise" type="radio" value="normal" />normal
                     <input name="Fahrweise" type="radio" value="schnell" />schnell
                     <br/>
-                    <label for="Strecken"><b>Strecken:</b></label>
+                    <label for="Strecken" required><b>Strecken:</b></label>
                     <input name="Strecken" type="checkbox" value="Stadt" />Stadt
                     <input name="Strecken" type="checkbox" value="Land" />Landstraße
                     <input name="Strecken" type="checkbox" value="Autobahn" />Autobahn
