@@ -6,15 +6,18 @@ document.body.onload = function(){
 	//Schnellzugriff zu den Betankungen
 	var refuel = document.getElementById('vehicleFromId');
 	//console.log(refuel);
-
-	for (var i = 0; i < fahrzeuge.length; i++){
-		var listElement = document.createElement('li');
-		var reference = document.createElement('a');
-		reference.text = fahrzeuge[i].marke + ' ' + fahrzeuge[i].modell;
-		reference.href = "/neueBetankung?id=" + fahrzeuge[i].id;
-		listElement.appendChild(reference);
-		refuel.appendChild(listElement);
-	}
+	var location = "";
+	location = window.location.pathname;
+	console.log(window.location.pathname);
+	if(location.indexOf("startseite") == -1){
+		for (var i = 0; i < fahrzeuge.length; i++){
+			var listElement = document.createElement('li');
+			var reference = document.createElement('a');
+			reference.text = fahrzeuge[i].marke + ' ' + fahrzeuge[i].modell;
+			reference.href = "/neueBetankung?id=" + fahrzeuge[i].id;
+			listElement.appendChild(reference);
+			refuel.appendChild(listElement);
+		}}
 
 	//Einfache Suche
 	prepareSearch();
