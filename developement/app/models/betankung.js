@@ -177,7 +177,8 @@ var getMainStats = function(vehicleID){
         "reifen" : null,
         "fahrweise" : null,
         "strecken" : null, 
-        "krafststoff" : null, 
+        "kraftstoff" : null,
+        "Kilometer" : null, 
         "kosten" : null
     }; 
 
@@ -195,6 +196,8 @@ var getMainStats = function(vehicleID){
 
     var betankungenFahrzeug = alleBetankungen[profilID][vehicleIndex];
 
+    //console.log(betankungenFahrzeug);
+
     var anfangsKMStand = Fahrzeug.getAnfangsKMStandByVehicleId(vehicleID);
     var gefahreneKM = betankungenFahrzeug[betankungenFahrzeug.length-1].Kilometer - anfangsKMStand;
     var mengeGesamt = 0; 
@@ -211,7 +214,11 @@ var getMainStats = function(vehicleID){
     var mengeLandstrasse = 0; 
     var mengeStadt = 0;
     //menge kraftsstoffsorte
-    //folgt noch
+    var mengeDiesel = 0; 
+    var mengeSuper = 0;
+    var mengeE10 = 0; 
+    var mengeSuperPlus = 0;  
+    var mengeErdgas = 0;
 
 
     //Deklaration der Kilometer-Variablen
@@ -227,12 +234,22 @@ var getMainStats = function(vehicleID){
     var streckeLandstrasse = 0; 
     var streckeStadt = 0;
 
+    var streckeDiesel = 0;
+    var streckeSuper = 0;
+    var streckeSuperPlus = 0; 
+    var streckeE10 = 0;  
+    var streckeErdgas = 0; 
+
+    var kosten = 0;
+
     for (var i = 0; i < betankungenFahrzeug.length; i++){
-        /*
-        if(betankungenFahrzeug[i].Strecken != 'undefined'){
-            console.log('Strecken defined');
-            console.log(typeof betankungenFahrzeug[i].Strecken);
-            if(typeof betankungenFahrzeug[i].Strecken == 'String'){
+        
+        if(typeof betankungenFahrzeug[i].Strecken !== 'undefined'){
+            console.log('Strecken ' + i + ' not undefined');
+            //console.log('Type of ' + i + typeof betankungenFahrzeug[i].Strecken);
+            
+
+            if(typeof betankungenFahrzeug[i].Strecken == 'string'){
                 if(betankungenFahrzeug[i].Strecken == 'Land'){
                     streckeLandstrasse += parseInt(betankungenFahrzeug[i].Distanz);
                     mengeLandstrasse += parseInt(betankungenFahrzeug[i].Liter);
@@ -244,6 +261,7 @@ var getMainStats = function(vehicleID){
                     mengeStadt += parseInt(betankungenFahrzeug[i].Liter);
                 } 
             } else {
+                
                 for(var j = 0; j < betankungenFahrzeug[i].Strecken.length; j++){
                     if(betankungenFahrzeug[i].Strecken == 'Land'){
                         streckeLandstrasse += parseInt(betankungenFahrzeug[i].Distanz);
@@ -256,11 +274,12 @@ var getMainStats = function(vehicleID){
                         mengeStadt += parseInt(betankungenFahrzeug[i].Liter);
                     } 
                 }
+                
             }
 
             
         }
-        */
+        
 
         if(betankungenFahrzeug[i].Reifen != 'undefined'){
             if(betankungenFahrzeug[i].Reifen == 'Sommerreifen'){
@@ -288,7 +307,28 @@ var getMainStats = function(vehicleID){
                 mengeSchnell+= parseInt(betankungenFahrzeug[i].Liter);
             }
         }
+
+        if (betankungenFahrzeug[i].Kraftstoff != 'undefined'){
+            if(betankungenFahrzeug[i].Kraftstoff == 'Diesel'){
+                streckeDiesel += parseInt(betankungenFahrzeug[i].Distanz);
+                mengeDiesel += parseInt(betankungenFahrzeug[i].Liter);
+            } else if(betankungenFahrzeug[i].Kraftstoff == 'Super'){
+                streckeSuper += parseInt(betankungenFahrzeug[i].Distanz);
+                mengeSuper += parseInt(betankungenFahrzeug[i].Liter);
+            } else if(betankungenFahrzeug[i].Kraftstoff == 'SuperPlus'){
+                streckeSuperPlus += parseInt(betankungenFahrzeug[i].Distanz);
+                mengeSuperPlus += parseInt(betankungenFahrzeug[i].Liter);
+            } else if (betankungenFahrzeug[i].Kraftstoff == 'E10'){
+                streckeE10 += parseInt(betankungenFahrzeug[i].Distanz);
+                mengeE10 += parseInt(betankungenFahrzeug[i].Liter);
+            } else if (betankungenFahrzeug[i].Kraftstoff == 'Erdgas'){
+                streckeErdgas += parseInt(betankungenFahrzeug[i].Distanz);
+                mengeErdgas += parseInt(betankungenFahrzeug[i].Liter);
+            }
+        }
+
         mengeGesamt += parseInt(betankungenFahrzeug[i].Liter);
+        kosten += parseInt(betankungenFahrzeug[i].Kosten);
     }
 
     //Verbrauch auf 100km
@@ -334,6 +374,23 @@ var getMainStats = function(vehicleID){
         mainStats.strecken = strecken; 
     }
 
+    if(mengeDiesel != 0 || mengeSuper != 0 || mengeSuperPlus != 0 || mengeE10 != 0 || mengeErdgas != 0 ){
+        var kraftstoff = new Object();
+        if(mengeDiesel != 0){
+            kraftstoff.diesel = mengeDiesel/streckeDiesel*100;
+        } else if(mengeSuper != 0){
+            kraftstoff.super = mengeSuper/streckeSuper*100;
+        } else if(mengeSuperPlus != 0){
+            kraftstoff.superPlus = mengeSuperPlus/streckeSuperPlus*100;
+        } else if(mengeE10 != 0){
+            kraftstoff.e10 = mengeE10/streckeE10*100;
+        } else if(mengeErdgas != 0){
+            kraftstoff.erdgas = mengeErdgas/streckeErdgas*100;
+        }
+        mainStats.kraftstoff = kraftstoff;
+    }
+    mainStats.kosten = kosten;
+    mainStats.Kilometer = gefahreneKM;
 
     return mainStats; 
 };
