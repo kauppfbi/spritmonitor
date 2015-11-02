@@ -7,7 +7,6 @@
 
 <body class="body">
     <% include ./partials/header %>
-<<<<<<< HEAD
     <div id="content">
         <h1>Fahrzeugsuche</h1>
         <div class="bordercontainer" id="einfacheSuche">
@@ -16,7 +15,7 @@
             <select name="Hersteller" id="Herstellerauswahl1" onchange="update(this)"></select>
             <br>
             <label for="Modell">Modell:</label>
-                <select name="Modell" id="Modellauswahl1"></select>
+            <select name="Modell" id="Modellauswahl1"></select>
 
             <br>
             <button onclick="search()">suchen</button>
@@ -56,15 +55,7 @@
                     <option>Schaltgetriebe</option>
                     <option>Automatik</option>
                 </select>
-=======
-        <div id="content">
-            <h1 class="eingeschobenh1">Fahrzeugsuche</h1>
-            <div class="bordercontainer">
-                <h3>Einfache Suche:</h3>
-                <label for="Hersteller">Hersteller:
-                    <select name="Hersteller" id="Herstellerauswahl" onchange="updateModellAuswahl()"></select>
-                </label>
->>>>>>> origin/master
+
                 <br>
                 <label for="Baujahr">Baujahr:</label>
                 von
@@ -82,5 +73,4 @@
         </div>
         <script type="text/javascript" src="/js/suche.js"></script>
     </body>
-
     </html>
