@@ -12,29 +12,31 @@
         console.log(ergebnis);
     </script>
     
-        
+    <% for (var i=0; i < suchergebnis.length; i++ ) { %>    
         
     <div>
     
     <table border="5">
       <span>
             <tr>
-                <td>Fahrzeugtyp: </td><td><%= suchergebnis.typ %></td>
-                <td>Marke: </td><td><%= suchergebnis.marke%></td>
-                <td>Modell: </td><td><%= suchergebnis.modell%></td>
+                <td>Fahrzeugtyp: </td><td><%= suchergebnis[i].typ %></td>
+                <td>Marke: </td><td><%= suchergebnis[i].marke%></td>
+                <td>Modell: </td><td><%= suchergebnis[i].modell%></td>
             </tr>
             <tr>
-                <td>Bezeichnung: </td><td> <%= suchergebnis.bezeichnung%></td>
-                <td>Baujahr: </td><td><%= suchergebnis.baujahr%></td>
-                <td>Leistung: </td><td><%= suchergebnis.leistung%></td>
+                <td>Bezeichnung: </td><td> <%= suchergebnis[i].bezeichnung%></td>
+                <td>Baujahr: </td><td><%= suchergebnis[i].baujahr%></td>
+                <td>Leistung: </td><td><%= suchergebnis[i].leistung%></td>
             </tr>
             <tr>
-                <td>Antriebsart: </td><td><%= suchergebnis.antriebsart%></td>
-                <td>Getriebeart: </td><td><%= suchergebnis.getriebeart%></td>
-                <td>Kilometerstand: </td><td><%= suchergebnis.kilometerstand%></td>
+                <td>Antriebsart: </td><td><%= suchergebnis[i].antriebsart%></td>
+                <td>Getriebeart: </td><td><%= suchergebnis[i].getriebeart%></td>
+                <td>Kilometerstand: </td><td><%= suchergebnis[i].kilometerstand%></td>
             </tr>
       </span>
     </table>
+    </div>    
+    <% } %>  
     </div> 
   </body>
 </html>
