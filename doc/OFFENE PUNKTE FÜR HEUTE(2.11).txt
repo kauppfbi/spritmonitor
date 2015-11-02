@@ -22,7 +22,7 @@ Prio 10
 ----------------------------------------------------------------------------------
 
 Janis
-	#Canvas! --> Daten aus Methode aufbereiten
+	#Canvas! --> Dynamisch für jeden Nutzer fehlt noch (FELIX) und undefined muss entfernt werden
 	#Fahrzeuginformationen
 Flo
 	#Favicon
@@ -40,5 +40,5 @@ Felix
 	#Betankung:
 		#Tachostand <--> Distanz
 		#aktueller Tachostand !< als letzter (muss vor submit geprüft werden) 
-			oder letzter STand als default
+			oder letzter STand als default  --> ERLEDIGT
 	(#) LocalStorage

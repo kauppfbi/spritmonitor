@@ -111,7 +111,9 @@ module.exports = function(app, passport){
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
         
+
         var fzgId = req.query.id;
+
         var datumVerbrauch = Betankung.getDatumVerbrauch(5, 600);
         //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
@@ -150,7 +152,6 @@ module.exports = function(app, passport){
     });
 
     app.get('/suchergebnisse', isLoggedIn, function(req, res) {
-
 
         var marke = req.query.marke;
         var modell = req.query.modell;

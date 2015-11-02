@@ -35,6 +35,8 @@ var autofilTacho = function(betankung, profilID, fahrzeug){
     var tachostand = fahrzeug[fahrzeugID].kilometerstand;
     
     console.log("Tachostand: "+tachostand);
+    
+    document.getElementById('Tachostand').value = tachostand;
 }
 
 var autofilDistanz = function(tachoAlt){

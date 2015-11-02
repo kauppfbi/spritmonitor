@@ -128,7 +128,7 @@
                 "leistung": "240",
                 "antriebsart": "Benzin",
                 "getriebeart": "Automatik",
-                "kilometerstand": "",
+                "kilometerstand": "120000",
                 "id": 401,
                 "aktiv": true
             }
@@ -145,7 +145,7 @@
                 "leistung": "460",
                 "antriebsart": "Benzin",
                 "getriebeart": "Automatik",
-                "kilometerstand": "0",
+                "kilometerstand": "27000",
                 "anfangskilometerstand": 0,
                 "aktiv": true
             }
