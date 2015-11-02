@@ -129,13 +129,9 @@ module.exports = function(app, passport){
     });
     app.get('/meineBetankungen', isLoggedIn, function(req, res){
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        res.render('meineBetankungen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, betankungen :             {
-                "profilID": 0,
-                "Datum": "2015-10-01",
-                "Kraftstoff": "Super",
-                "Liter": "10",
-                "Kilometer": "20000"
-            }});
+        var betankungen = Betankung.getBetankungByProfilID(req.user.id);
+        var userID = req.user.id;
+        res.render('meineBetankungen', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, betankungen: betankungen, userID: userID});
     });
     
     app.get('/suche', isLoggedIn, function(req, res){
