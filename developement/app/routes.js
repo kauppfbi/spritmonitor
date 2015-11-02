@@ -93,10 +93,10 @@ module.exports = function(app, passport){
         var selecetedVehicleID = req.query.id; 
         console.log('Selected vehicle: ' + selecetedVehicleID);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        var betankung = Betankung.
+        //var betankung = Betankung.
         var fahrzeugBeschreibungen = Fahrzeug.getFahrzeugbeschreibungByProfilID(req.user.id, selecetedVehicleID);
         
-        console.log("Beschreibung: " + fahrzeugBeschreibungen);
+        //console.log("Beschreibung: " + fahrzeugBeschreibungen);
         
         if(fahrzeugBeschreibungen==null){
             console.error("Kein Fahrzeug zu ID");
@@ -112,7 +112,7 @@ module.exports = function(app, passport){
         //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         
-        console.log('MainStats zu Vehicle 600: ' + Betankung.getMainStats(600));
+        console.log('MainStats zu Vehicle 600: ' + JSON.stringify(Betankung.getMainStats(600)));
 
         res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch});
     });

@@ -146,6 +146,7 @@
                 "antriebsart": "Benzin",
                 "getriebeart": "Automatik",
                 "kilometerstand": "0",
+                "anfangskilometerstand": 0,
                 "aktiv": true
             }
         ],
