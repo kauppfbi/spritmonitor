@@ -118,7 +118,7 @@ module.exports = function(app, passport){
 
         var mainStats = Betankung.getMainStats(fzgId);
         var streckenverteilung = Betankung.getStreckenverteilungByFzgID(fzgId);
-        res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch, betankungen : betankungen, mainStats : mainStats});
+        res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch, betankungen : betankungen, mainStats : mainStats, streckenverteilung : streckenverteilung});
     });
 
     app.get('/fahrzeug', isLoggedIn, function(req, res){

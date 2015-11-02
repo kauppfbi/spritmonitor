@@ -232,7 +232,7 @@
                     "Vollbetankung": "true",
                     "Distanz": "900",
                     "Kosten": "50",
-                    "Strecke": "Land",
+                    "Strecken": "Land",
                     "Bemerkung": "",
                     "Tankstelle": "",
                     "Boardcomputer": "",
@@ -251,7 +251,7 @@
                     "Kosten": "40",
                     "Bemerkung": "",
                     "Tankstelle": "",
-                    "Strecke" : ["Autobahn", "Stadt"],
+                    "Strecken" : ["Autobahn", "Stadt"],
                     "Boardcomputer": "",
                     "id": 50008
                 }

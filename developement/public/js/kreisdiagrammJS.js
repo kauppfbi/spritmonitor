@@ -1,4 +1,4 @@
-var data = [80, 100, 180];
+var data = streckenverteilung;
 var labels = ["Autobahn", "Landstraße", "Stadt"];
 var colors = ["#505050", "orange", "#C0C0C0"];
 

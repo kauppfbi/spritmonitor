@@ -2,7 +2,9 @@
 <head>
   <% include ./partials/head %>
   <title>Spritverlauf</title>
-
+  <script type="text/javascript">
+  var streckenverteilung = <%- JSON.stringify(streckenverteilung) %>;
+  </script>
 </head>
 <body class="body">
   <% include ./partials/header %>
@@ -27,8 +29,8 @@
       <br>
       <br>
     </div>
-    <div id="Hauptstatistik">
-      <table>
+    <div class="tablle" id="Hauptstatistik">
+      <table >
         <% if(mainStats.verbrauch != null){ %>
         <tr>
           <th>Durchschnittsverbrauch:</th>
@@ -41,19 +43,19 @@
         </tr>
         <% if(typeof mainStats.reifen.sommerreifen !== 'undefined'){ %> 
         <tr>
-          <th>Sommerreifen:</th>
+          <th></th><th>Sommerreifen:</th>
           <td><%= mainStats.reifen.sommerreifen %></td>
         </tr>
         <% } %>
         <% if(typeof mainStats.reifen.winterreifen !== 'undefined'){ %> 
         <tr>
-          <th>Winterreifen:</th>
+          <th></th><th>Winterreifen:</th>
           <td><%= mainStats.reifen.winterreifen %></td>
         </tr>
         <% } %>
         <% if(typeof mainStats.reifen.ganzjahresreifen !== 'undefined'){ %> 
         <tr>
-          <th>Ganzjahresreifen:</th>
+          <th></th><th>Ganzjahresreifen:</th>
           <td><%= mainStats.reifen.ganzjahresreifen %></td>
         </tr>
         <% } %>
@@ -64,19 +66,19 @@
         </tr>
         <% if(typeof mainStats.fahrweise.sparsam !== 'undefined'){ %> 
         <tr>
-          <th>Sparsam:</th>
+          <th></th><th>Sparsam:</th>
           <td><%= mainStats.fahrweise.sparsam %></td>
         </tr>
         <% } %>
         <% if(typeof mainStats.fahrweise.normal !== 'undefined'){ %> 
         <tr>
-          <th>Normal:</th>
+          <th></th><th>Normal:</th>
           <td><%= mainStats.fahrweise.normal %></td>
         </tr>
         <% } %>
         <% if(typeof mainStats.fahrweise.schnell !== 'undefined'){ %> 
         <tr>
-          <th>Schnell:</th>
+          <th></th><th>Schnell:</th>
           <td><%= mainStats.fahrweise.schnell %></td>
         </tr>
         <% } %>
@@ -87,19 +89,19 @@
         </tr>
         <% if(typeof mainStats.strecken.autobahn !== 'undefined'){ %> 
         <tr>
-          <th>Autobahn:</th>
+          <th></th><th>Autobahn:</th>
           <td><%= mainStats.strecken.autobahn %></td>
         </tr>
         <% } %>
         <% if(typeof mainStats.strecken.landstrasse !== 'undefined'){ %> 
         <tr>
-          <th>Landstraße:</th>
+          <th></th><th>Landstraße:</th>
           <td><%= mainStats.strecken.landstrasse %></td>
         </tr>
         <% } %>
         <% if(typeof mainStats.strecken.stadt !== 'undefined'){ %> 
         <tr>
-          <th>Stadt:</th>
+          <th></th><th>Stadt:</th>
           <td><%= mainStats.strecken.stadt %></td>
         </tr>
         <% } %>
@@ -110,31 +112,31 @@
         </tr>
         <% if(typeof mainStats.kraftstoff.diesel !== 'undefined'){ %> 
         <tr>
-          <th>Diesel:</th>
+          <th></th><th>Diesel:</th>
           <td><%= mainStats.kraftstoff.diesel %></td>
         </tr>
         <% } %>
         <% if(typeof mainStats.kraftstoff.super !== 'undefined'){ %> 
         <tr>
-          <th>Super:</th>
+          <th></th><th>Super:</th>
           <td><%= mainStats.kraftstoff.super %></td>
         </tr>
         <% } %>
         <% if(typeof mainStats.kraftstoff.superPlus !== 'undefined'){ %> 
         <tr>
-          <th>SuperPlus:</th>
+          <th></th><th>SuperPlus:</th>
           <td><%= mainStats.kraftstoff.superPlus %></td>
         </tr>
         <% } %>
          <% if(typeof mainStats.kraftstoff.e10 !== 'undefined'){ %> 
         <tr>
-          <th>E10:</th>
+          <th></th><th>E10:</th>
           <td><%= mainStats.kraftstoff.e10 %></td>
         </tr>
         <% } %>
          <% if(typeof mainStats.kraftstoff.erdgas !== 'undefined'){ %> 
         <tr>
-          <th>Erdgas:</th>
+          <th></th><th>Erdgas:</th>
           <td><%= mainStats.kraftstoff.erdgas %></td>
         </tr>
         <% } %>
