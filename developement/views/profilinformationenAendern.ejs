@@ -1,45 +1,61 @@
 <html>
+
 <head>
-	<% include ./partials/head %>
-	<title>Mein Profil</title>
+    <% include ./partials/head %>
+        <title>Mein Profil</title>
 </head>
+
 <body class="body">
-	<% include ./partials/header %>
-	<div id="content">
-		<h1>Profilinformationen ändern:</h1>
-		
-		<form action="profilAendern" method="post" enctype="multipart/form-data">
-			<input type="file" name="file"/><br>
-			<button type="submit">Bild hochladen</button>  
-        </form>
+    <% include ./partials/header %>
+        <div id="content">
+            <h1 class="eingeschobenh1">Profilinformationen ändern</h1>
+            <div class="bordercontainer">
+                <form action="profilAendern" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" />
+                    <br>
+                    <button type="submit">Bild hochladen</button>
+                </form>
 
-        <form action="profilAendern" method="post">
-            <label for="eMail">Email ändern:</label>
-            <input name="eMail" type="string" value="<%= user.email %>"/><br/>
-            <label for="Passwort">Passwort ändern:</label>
-            <input name="Passwort" type="string" value="*****"/><br/>
-            <label for="Anrede">Anrede:</label>
-            <input name="Anrede" type="radio" value="Herr"/>Herr
-            <input name="Anrede" type="radio" value="Frau"/>Frau<br/>
-            <label for="Nachname">Nachname:</label>
-            <input name="Nachname" type="string" value="<%= user.nachname %>"/><br/>
-            <label for="Vorname">Vorname:</label>
-            <input name="Vorname" type="string" value="<%= user.vorname %>"/><br/>
-            <label for="Geburtsdatum">Geburtsdatum:</label>
-            <input name="Geburtsdatum" type="date" value="<%= user.geburtsdatum %>"/><br/>
-            <label for="Straße">Straße:</label>
-            <input name="Straße" type="String" value="<%= user.straße %>"/><br/>
-            <label for="Hausnummer">Hausnummer:</label>
-            <input name="Hausnummer" type="number" value="<%= user.hausnummer %>"/><br/>
-            <label for="Postleitzahl">Postleitzahl:</label>
-            <input name="Postleitzahl" value="<%= user.postleitzahl %>"/><br/>
-            <label for="Ort">Ort:</label>
-            <input name="Ort" type="string" value="<%= user.ort %>"/><br/>
-            <label for="Land">Land:</label>
-            <input name="Land" type="string" value="<%= user.land %>"/><br/>
+                <form action="profilAendern" method="post">
+                    <label for="eMail"><b>Email ändern:</b></label>
+                    <input name="eMail" type="string" value="<%= user.email %>" />
+                    <br/>
+                    <label for="Passwort"><b>Passwort ändern:</b></label>
+                    <input name="Passwort" type="string" value="*****" />
+                    <br/>
+                    <label for="Anrede"><b>Anrede:</b></label>
+                    <input name="Anrede" type="radio" value="Herr" />Herr
+                    <input name="Anrede" type="radio" value="Frau" />Frau
+                    <br/>
+                    <label for="Nachname"><b>Nachname:</b></label>
+                    <input name="Nachname" type="string" value="<%= user.nachname %>" />
+                    <br/>
+                    <label for="Vorname"><b>Vorname:</b></label>
+                    <input name="Vorname" type="string" value="<%= user.vorname %>" />
+                    <br/>
+                    <label for="Geburtsdatum"><b>Geburtsdatum:</b></label>
+                    <input name="Geburtsdatum" type="date" value="<%= user.geburtsdatum %>" />
+                    <br/>
+                    <label for="Straße"><b>Straße:</b></label>
+                    <input name="Straße" type="String" value="<%= user.straße %>" />
+                    <br/>
+                    <label for="Hausnummer"><b>Hausnummer:</b></label>
+                    <input name="Hausnummer" type="number" value="<%= user.hausnummer %>" />
+                    <br/>
+                    <label for="Postleitzahl"><b>Postleitzahl:</b></label>
+                    <input name="Postleitzahl" value="<%= user.postleitzahl %>" />
+                    <br/>
+                    <label for="Ort"><b>Ort:</b></label>
+                    <input name="Ort" type="string" value="<%= user.ort %>" />
+                    <br/>
+                    <label for="Land"><b>Land:</b></label>
+                    <input name="Land" type="string" value="<%= user.land %>" />
+                    <br/>
 
-            <button type="submit">Speichern</button>
-        </form>
-    </div>
+                    <button type="submit">Speichern</button>
+                </form>
+            </div>
+        </div>
 </body>
+
 </html>
