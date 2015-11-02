@@ -404,8 +404,6 @@ exports.createUser = createUser;
 exports.createVehicle = createVehicle;
 exports.getDatumVerbrauch = getDatumVerbrauch;
 exports.getMainStats = getMainStats;
-<<<<<<< HEAD
+
 exports.getBetankungByFzgID = getBetankungByFzgID;
-=======
-exports.getBetankungByFzgID = getBetankungByFzgID;
->>>>>>> origin/master
+

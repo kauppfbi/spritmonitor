@@ -111,21 +111,13 @@ module.exports = function(app, passport){
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
         
-<<<<<<< HEAD
+
        var fzgId = req.query.id;
         var datumVerbrauch = Betankung.getDatumVerbrauch(req.user.id, fzgId);
         //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         var betankungen = Betankung.getBetankungByFzgID(fzgId);
-=======
 
-        var fzgId = req.query.id;
-
-        var datumVerbrauch = Betankung.getDatumVerbrauch(5, 600);
-        //console.log(datumVerbrauch);
-        var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-
-        var betankungen = Betankung.getBetankungByFzgID(fzgId);
       /*
         /*gemogelt zum testen
         for(var i=0;i<req.user.id;i++) {
@@ -135,7 +127,7 @@ module.exports = function(app, passport){
         }
 >>>>>>> origin/master
 */
->>>>>>> origin/master
+
         console.log('MainStats zu Vehicle 600: ' + JSON.stringify(Betankung.getMainStats(600)));
         var mainStats = JSON.stringify(Betankung.getMainStats(600));
 
