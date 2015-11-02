@@ -75,6 +75,18 @@ var getBetankungByFzgID = function(vehicleID){
     return alleBetankungen[profilID][vehicleID-(100*profilID)];
 };
 
+var getDatumVerbrauch = function(profilID, vehicleID){
+    var obj = jsonfile.readFileSync(file);
+    var alleBetankungen = obj.betankungen;
+    var betankungen = alleBetankungen[profilID][vehicleID];
+    var datumVerbrauch = {};
+    
+    for(var i=0; i<alleBetankungen[profilID][vehicleID].length); i++){
+        var durchVerbrauch = (alleBetankungen[profilID][vehicleID][i].Liter / ((alleBetankungen[profilID][vehicleID][i].Distanz)*100);
+        datumVerbrauch.push(alleBetankungen[profilID][vehicleID][i].Datum+" "+durchVerbrauch);
+    }
+}
+
 
 var updateBetankung = function(betankung, profilID, vehicleID){
     var obj = jsonfile.readFileSync(file);
