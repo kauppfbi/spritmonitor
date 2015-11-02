@@ -15,7 +15,7 @@ var context = canvas.getContext("2d");
         context.fillRect (50, 130, 10, 10);
     
         context.font="15px Georgia";
-        context.fillStyle="#CF5C3F";
+        context.fillStyle="black";
         context.fillText("Autobahn",90,80);
     
         context.font="15px Georgia";

@@ -10,43 +10,43 @@
       <span>
           <br>
         
-          <% if (fahrzeug.typ != null) {%>
+          <% if (fahrzeug.typ != "") {%>
           <a>Fahrzeugtyp: <%= fahrzeug.typ %> </a>
           <br>
           <% } %>
-          <% if (fahrzeug.marke != null) {%>
+          <% if (fahrzeug.marke != "") {%>
           <a>Marke: <%= fahrzeug.marke %> </a>
           <br>
           <% } %>
-          <% if (fahrzeug.modell != null) {%>
+          <% if (fahrzeug.modell != "") {%>
           <a>Modell: <%= fahrzeug.modell %> </a>
           <br>
           <% } %>
-          <% if (fahrzeug.bezeichnung != null) {%>
+          <% if (fahrzeug.bezeichnung != "") {%>
           <a>Bezeichnung: <%= fahrzeug.bezeichnung %> </a>
           <br>
           <% } %>
-          <% if (fahrzeug.baujahr != null) {%>
+          <% if (fahrzeug.baujahr != "") {%>
           <a>Baujahr: <%= fahrzeug.baujahr %> </a>
           <br>
           <% } %>
-          <% if (fahrzeug.leistung != null) {%>
+          <% if (fahrzeug.leistung != "") {%>
           <a>Leistung: <%= fahrzeug.leistung %> PS</a>
           <br>
           <% } %>
-          <% if (fahrzeug.antriebsart != null) {%>
+          <% if (fahrzeug.antriebsart != "") {%>
           <a>Treibstoff: <%= fahrzeug.antriebsart %> </a>
           <br>
           <% } %>
-          <% if (fahrzeug.getriebeart != null) {%>
+          <% if (fahrzeug.getriebeart != null || "") {%>
           <a>Getriebeart: <%= fahrzeug.getriebeart %> </a>
           <br>
           <% } %>
-          <% if (fahrzeug.kilometerstand != null) {%>
+          <% if (fahrzeug.kilometerstand != "") {%>
           <a>Kilometerstand: <%= fahrzeug.kilometerstand %> </a>
           <br>
           <% } %>
-          <% if (fahrzeug.extras != null) {%>
+          <% if (fahrzeug.extras != "") {%>
           <a>Extras: <%= fahrzeug.extras %> </a>
           <br>
           <% } %>

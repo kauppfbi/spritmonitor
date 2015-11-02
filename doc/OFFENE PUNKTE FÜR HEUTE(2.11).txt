@@ -25,8 +25,6 @@ Prio 10
 Janis
 	#Canvas! --> Daten aus Methode aufbereiten
 	#Fahrzeuginformationen
-	#Profilinfos anpassen
-	#Diagramme schwarze schrift
 Flo
 	#Favicon
 	#CSS --> 18.00 Uhr

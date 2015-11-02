@@ -31,7 +31,7 @@ function init() {
 
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");
-	context.fillStyle = "#CF5C3F"
+	context.fillStyle = "black"
 	context.font = "10pt Verdana"
     
 	yScale = (canvas.height - columnSize - margin) / (Val_max - Val_min);
