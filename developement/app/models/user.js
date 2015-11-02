@@ -113,9 +113,10 @@ var updateUser = function(newUser){
 	var obj = jsonfile.readFileSync(file);
 	var user = obj.user;
 
-	user[newUser.id] = newUser;
-	obj.user = user;
-
+	
+		user[newUser.id] = newUser;
+		obj.user = user;
+	
 	fs.writeFile(file, JSON.stringify(obj, null, 4), function(err) {
 		if(err) {
 			console.log(err);

@@ -2,13 +2,8 @@ var data = require('../data');
 var Fahrzeug = require('../app/models/fahrzeuge');
 var Betankung = require('../app/models/betankung');
 var User = require('../app/models/user');
-var betankData = require('../data/betankungen.json');
-//var fs = require('fs');
-/*var multer = require('multer');
-var uploading = multer({
-  dest: __dirname + '../public/uploads/',
-  limits: {fileSize: 1000000, files:1},
-});*/
+var bcrypt = require('bcrypt-nodejs');
+
 
 module.exports = function(app, passport){
     'use strict';
@@ -267,20 +262,39 @@ module.exports = function(app, passport){
     app.post('/profilAendern', isLoggedIn, function(req, res){
         var user = {};
         
-        user.id = req.user.id;
-        user.email = req.user.email; 
-        user.password = req.user.password;
-        user.anrede = req.body.Anrede;
-        user.nachname = req.body.Nachname;
-        user.vorname = req.body.Vorname;
-        user.geburtsdatum = req.body.Geburtsdatum;
-        user.straße = req.body.Straße;
-        user.hausnummer = req.body.Hausnummer;
-        user.postleitzahl = req.body.Postleitzahl;
-        user.ort = req.body.Ort;
-        user.land = req.body.Land;
-        
-        User.updateUser(user);
+        var passwordHash = bcrypt.hashSync(req.body.Passwort, bcrypt.genSaltSync(8), null);
+        console.log(passwordHash);
+        if(passwordHash == req.user.password){
+            user.id = req.user.id;
+            user.email = req.body.eMail;
+            user.password = req.user.password;
+            user.anrede = req.body.Anrede;
+            user.nachname = req.body.Nachname;
+            user.vorname = req.body.Vorname;
+            user.geburtsdatum = req.body.Geburtsdatum;
+            user.straße = req.body.Straße;
+            user.hausnummer = req.body.Hausnummer;
+            user.postleitzahl = req.body.Postleitzahl;
+            user.ort = req.body.Ort;
+            user.land = req.body.Land;
+
+            User.updateUser(user);
+        } else {
+           user.id = req.user.id;
+            user.email = req.body.eMail;
+            user.password = passwordHash;
+            user.anrede = req.body.Anrede;
+            user.nachname = req.body.Nachname;
+            user.vorname = req.body.Vorname;
+            user.geburtsdatum = req.body.Geburtsdatum;
+            user.straße = req.body.Straße;
+            user.hausnummer = req.body.Hausnummer;
+            user.postleitzahl = req.body.Postleitzahl;
+            user.ort = req.body.Ort;
+            user.land = req.body.Land;
+
+            User.updateUser(user); 
+        }   
         
         res.redirect('/profilAendern');        
     });
