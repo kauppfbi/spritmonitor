@@ -6,7 +6,7 @@ var file = './data/betankungen.json';
 var jsonfile = require('jsonfile');
 var fs = require('fs');
 var util = require('util');
-
+var Fahrzeug = require('./fahrzeuge');
 
 var findById = function (id) {
 	/*
