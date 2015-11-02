@@ -88,11 +88,14 @@ var getDatumVerbrauch = function(profilID, vehicleID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     var betankungen = alleBetankungen[profilID][vehicleID];
-    var datumVerbrauch = {};
+    var datumVerbrauch = new Array();
     
     for(var i=0; i<alleBetankungen[profilID][vehicleID].length; i++){
         var durchVerbrauch = (alleBetankungen[profilID][vehicleID][i].Liter / ((alleBetankungen[profilID][vehicleID][i].Distanz)*100));
-        datumVerbrauch.push(alleBetankungen[profilID][vehicleID][i].Datum+" "+durchVerbrauch);
+        vsr temp = new Array();
+        temp.push(alleBetankungen[profilID][vehicleID][i].Datum);
+        temp.push(durchVerbrauch);
+        datumVerbrauch.push(temp);
     }
 }
 
