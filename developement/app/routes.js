@@ -91,7 +91,7 @@ module.exports = function(app, passport){
     app.get('/neueBetankung', isLoggedIn, function(req, res){
 
         var selecetedVehicleID = req.query.id; 
-        console.log('Selected vehicle: ' + selecetedVehicleID);
+         console.log('Selected vehicle: ' + selecetedVehicleID);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
 
         var betankung = Betankung.getBetankungByProfilID(req.user.id);
