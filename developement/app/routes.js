@@ -202,6 +202,10 @@ module.exports = function(app, passport){
         
     });
     
+    app.post('/erweitertesuche', isLoggedIn, function(req, res){
+        
+    }
+    
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect : '/startseite', // redirect to the secure profile section
@@ -337,13 +341,14 @@ module.exports = function(app, passport){
         wenn nichts angegeben ist, dann mit 'alle' befüllen!
         */
 
-        bedingungen.typ = 'alle';
-        bedingungen.marke = 'Audi';
-        bedingungen.modell = 'alle';
-        bedingungen.kraftstoff = 'alle';
-        bedingungen.getriebe = 'alle';
-        bedingungen.baujahr = 'alle';
-        bedingungen.leistung = 'alle';
+        bedingungen.typ = req.body.Fahrzeugart;
+        bedingungen.marke = req.body.Hersteller;
+        bedingungen.modell = req.body.Modell;
+        bedingungen.kraftstoff = req.body.Kraftstoffart;
+        bedingungen.getriebe = req.body.Getriebeart;
+        bedingungen.baujahr = req.body.Baujahr;
+        bedingungen.leistung = req.body.Motorleistung;
+        
         var ergebnis = Fahrzeug.searchExtended(bedingungen);
 
         //console.log(ergebnis);
