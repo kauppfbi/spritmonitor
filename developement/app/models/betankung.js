@@ -52,12 +52,21 @@ var getBetankungByProfilID = function(profilID){
     var obj = jsonfile.readFileSync(file);
     var alleBetankungen = obj.betankungen;
     var betankung = alleBetankungen[profilID];
+    var betankungen = {};
     
+    if(alleBetankungen[profilID].length == 0){
+        return null;
+    }else{ if(alleBetankungen[profilID].length == 1){
+        for(var i=0; z<alleBetankungen[profilID][0].length; i++){
+            betankungen[0][i] = alleBetankungen[profilID][0][i];
+        }
+    }else{
     for(var i=0; i<alleBetankungen[profilID].length; i++){
         for(var z=0; z<alleBetankungen[profilID][i].length; z++){
-            betankung[i] = alleBetankungen[profilID][i][z];
+            betankung[i][z] = alleBetankungen[profilID][i][z];
         }
-    }  
+    } 
+}}
     return betankung;
 };
 
