@@ -93,7 +93,7 @@ module.exports = function(app, passport){
         var selecetedVehicleID = req.query.id; 
         console.log('Selected vehicle: ' + selecetedVehicleID);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
-        
+        var betankung = Betankung.
         var fahrzeugBeschreibungen = Fahrzeug.getFahrzeugbeschreibungByProfilID(req.user.id, selecetedVehicleID);
         
         console.log("Beschreibung: " + fahrzeugBeschreibungen);

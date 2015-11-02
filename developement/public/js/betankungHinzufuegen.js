@@ -24,3 +24,11 @@ var storeSorte = function(){
 var getSorte = function(){
     document.getElementById('Sorte').innerHTML = localStorage.getItem("sorte");
 }
+
+var autofilTacho = function(betankung){
+    
+}
+
+var autofilDistanz = function(tachoAlt){
+    
+}
