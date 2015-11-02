@@ -59,7 +59,30 @@
         ],
         [],
         [
-            []
+            [
+                {
+                    "profilID": 5,
+                    "vehicleID": "600",
+                    "Fahrzeug": "BMW 4er #600",
+                    "Datum": "2015-11-02",
+                    "Kraftstoff": "Super",
+                    "Liter": "50",
+                    "Kilometer": "100",
+                    "Vollbetankung": "true",
+                    "Distanz": "100",
+                    "Kosten": "70",
+                    "Bemerkung": "",
+                    "Reifen": "Sommerreifen",
+                    "Fahrweise": "schnell",
+                    "Strecken": [
+                        "Land",
+                        "Autobahn"
+                    ],
+                    "Tankstelle": "Aral",
+                    "Boardcomputer": "9",
+                    "id": 50000
+                }
+            ]
         ],
         [
             []
