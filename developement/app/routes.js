@@ -110,29 +110,15 @@ module.exports = function(app, passport){
     });
 
     app.get('/spritverlauf', isLoggedIn, function(req, res){
-        
 
        var fzgId = req.query.id;
         var datumVerbrauch = Betankung.getDatumVerbrauch(req.user.id, fzgId);
-        //console.log(datumVerbrauch);
         var fahrzeugeProfil = Fahrzeug.getVehiclesByProfilID(req.user.id);
         var betankungen = Betankung.getBetankungByFzgID(fzgId);
 
-      /*
-        /*gemogelt zum testen
-        for(var i=0;i<req.user.id;i++) {
-            for(var z=0;z<Fahrzeug.getVehiclesByProfilID(i).length;z++) {
-        var betankungen = Betankung.getBetankungByFzgID(i*100+i);
-            }
-        }
->>>>>>> origin/master
-*/
+        var mainStats = Betankung.getMainStats(fzgId);
 
-        console.log('MainStats zu Vehicle 600: ' + JSON.stringify(Betankung.getMainStats(600)));
-        var mainStats = JSON.stringify(Betankung.getMainStats(600));
-
-
-        res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch, betankungen : betankungen});
+        res.render('spritverlauf', {modelle : data.modelle, fahrzeuge : fahrzeugeProfil, datumVerbrauch : datumVerbrauch, betankungen : betankungen, mainStats : mainStats});
     });
 
     app.get('/fahrzeug', isLoggedIn, function(req, res){
