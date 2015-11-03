@@ -1,59 +1,64 @@
 <html>
-  <head>
+
+<head>
     <% include ./partials/head %>
-    <title>Meine Autos</title>
-      
-       <script type="text/javascript">
+        <title>Meine Autos</title>
+
+        <script type="text/javascript">
             var fahrzeuge = <%- JSON.stringify(fahrzeuge) %>
         </script>
-  </head>
-  <body class="body">
+</head>
+
+<body class="body">
     <% include ./partials/header %>
-    <h1 class="eingeschobenh1">Meine Fahrzeuge</h1>
-      <div id="content">
-          <br>
-        
-          <% if (fahrzeug.typ != "") {%>
-          <a>Fahrzeugtyp: <%= fahrzeug.typ %> </a>
-          <br>
-          <% } %>
-          <% if (fahrzeug.marke != "") {%>
-          <a>Marke: <%= fahrzeug.marke %> </a>
-          <br>
-          <% } %>
-          <% if (fahrzeug.modell != "") {%>
-          <a>Modell: <%= fahrzeug.modell %> </a>
-          <br>
-          <% } %>
-          <% if (fahrzeug.bezeichnung != "") {%>
-          <a>Bezeichnung: <%= fahrzeug.bezeichnung %> </a>
-          <br>
-          <% } %>
-          <% if (fahrzeug.baujahr != "") {%>
-          <a>Baujahr: <%= fahrzeug.baujahr %> </a>
-          <br>
-          <% } %>
-          <% if (fahrzeug.leistung != "") {%>
-          <a>Leistung: <%= fahrzeug.leistung %> PS</a>
-          <br>
-          <% } %>
-          <% if (fahrzeug.antriebsart != "") {%>
-          <a>Treibstoff: <%= fahrzeug.antriebsart %> </a>
-          <br>
-          <% } %>
-          <% if (fahrzeug.getriebeart != "") {%>
-          <a>Getriebeart: <%= fahrzeug.getriebeart %> </a>
-          <br>
-          <% } %>
-          <% if (fahrzeug.kilometerstand != "") {%>
-          <a>Kilometerstand: <%= fahrzeug.kilometerstand %> </a>
-          <br>
-          <% } %>
-          <% if (fahrzeug.extras != "") {%>
-          <a>Extras: <%= fahrzeug.extras %> </a>
-          <br>
-          <% } %>
-          <button><a class="buttonhref" href="/spritverlauf?id=<%= fahrzeug.id %>">Spritverlauf</a></button>
-    </div>
-  </body>
+        <h1 class="eingeschobenh1">Meine Fahrzeuge</h1>
+        <div id="content">
+            <div class="bordercontainer">
+                <br>
+
+                <% if (fahrzeug.typ != "") {%>
+                    <a>Fahrzeugtyp: <%= fahrzeug.typ %> </a>
+                    <br>
+                    <% } %>
+                        <% if (fahrzeug.marke != "") {%>
+                            <a>Marke: <%= fahrzeug.marke %> </a>
+                            <br>
+                            <% } %>
+                                <% if (fahrzeug.modell != "") {%>
+                                    <a>Modell: <%= fahrzeug.modell %> </a>
+                                    <br>
+                                    <% } %>
+                                        <% if (fahrzeug.bezeichnung != "") {%>
+                                            <a>Bezeichnung: <%= fahrzeug.bezeichnung %> </a>
+                                            <br>
+                                            <% } %>
+                                                <% if (fahrzeug.baujahr != "") {%>
+                                                    <a>Baujahr: <%= fahrzeug.baujahr %> </a>
+                                                    <br>
+                                                    <% } %>
+                                                        <% if (fahrzeug.leistung != "") {%>
+                                                            <a>Leistung: <%= fahrzeug.leistung %> PS</a>
+                                                            <br>
+                                                            <% } %>
+                                                                <% if (fahrzeug.antriebsart != "") {%>
+                                                                    <a>Treibstoff: <%= fahrzeug.antriebsart %> </a>
+                                                                    <br>
+                                                                    <% } %>
+                                                                        <% if (fahrzeug.getriebeart != "") {%>
+                                                                            <a>Getriebeart: <%= fahrzeug.getriebeart %> </a>
+                                                                            <br>
+                                                                            <% } %>
+                                                                                <% if (fahrzeug.kilometerstand != "") {%>
+                                                                                    <a>Kilometerstand: <%= fahrzeug.kilometerstand %> </a>
+                                                                                    <br>
+                                                                                    <% } %>
+                                                                                        <% if (fahrzeug.extras != "") {%>
+                                                                                            <a>Extras: <%= fahrzeug.extras %> </a>
+                                                                                            <br>
+                                                                                            <% } %>
+                                                                                                <button><a class="buttonhref" href="/spritverlauf?id=<%= fahrzeug.id %>">Spritverlauf</a></button>
+            </div>
+        </div>
+</body>
+
 </html>
