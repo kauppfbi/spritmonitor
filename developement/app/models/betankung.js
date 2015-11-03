@@ -202,7 +202,7 @@ var getMainStats = function(vehicleID){
     //console.log(betankungenFahrzeug);
 
     var anfangsKMStand = Fahrzeug.getAnfangsKMStandByVehicleId(vehicleID);
-    var gefahreneKM = betankungenFahrzeug[betankungenFahrzeug.length-1].Kilometer - anfangsKMStand;
+    var gefahreneKM = 0;
     var mengeGesamt = 0; 
     //Menge Reifen
     var mengeWinterreifen = 0;
@@ -266,6 +266,7 @@ var getMainStats = function(vehicleID){
             } else {
                 
                 for(var j = 0; j < betankungenFahrzeug[i].Strecken.length; j++){
+                    console.log(betankungenFahrzeug[i].Strecken[j]);
                     if(betankungenFahrzeug[i].Strecken[j] == 'Land'){
                         streckeLandstrasse += parseInt(betankungenFahrzeug[i].Distanz);
                         mengeLandstrasse += parseInt(betankungenFahrzeug[i].Liter);
@@ -289,6 +290,7 @@ var getMainStats = function(vehicleID){
                 streckeSommerreifen += parseInt(betankungenFahrzeug[i].Distanz);
                 mengeSommerreifen += parseInt(betankungenFahrzeug[i].Liter);
             } else if(betankungenFahrzeug[i].Reifen == 'Winterreifen'){
+                console.log('winterreifen +');
                 streckeWinterreifen += parseInt(betankungenFahrzeug[i].Distanz);
                 mengeWinterreifen += parseInt(betankungenFahrzeug[i].Liter);
             } else if(betankungenFahrzeug[i].Reifen == 'Ganzjahresreifen'){
@@ -330,6 +332,7 @@ var getMainStats = function(vehicleID){
             }
         }
 
+        gefahreneKM +=parseInt(betankungenFahrzeug[i].Distanz);
         mengeGesamt += parseInt(betankungenFahrzeug[i].Liter);
         kosten += parseInt(betankungenFahrzeug[i].Kosten);
     }
@@ -342,9 +345,14 @@ var getMainStats = function(vehicleID){
         var reifen = new Object(); 
         if(mengeSommerreifen != 0){
             reifen.sommerreifen = (mengeSommerreifen/streckeSommerreifen*100).toFixed(2);
-        } else if (mengeWinterreifen != 0){
+        } 
+
+        if (mengeWinterreifen != 0){
+            console.log('Winterreifen: ' + streckeWinterreifen);
             reifen.winterreifen = (mengeWinterreifen/streckeWinterreifen*100).toFixed(2);
-        } else if (mengeGanzjahresreifen != 0){
+        } 
+
+        if (mengeGanzjahresreifen != 0){
             reifen.ganzjahresreifen = (mengeGanzjahresreifen/streckeGanzjahresreifen*100).toFixed(2);
         }
 
@@ -355,9 +363,13 @@ var getMainStats = function(vehicleID){
         var fahrweise = new Object(); 
         if(mengeSparsam != 0){
             fahrweise.sparsam = (mengeSparsam/streckeSparsam*100).toFixed(2);
-        } else if (mengeNormal != 0){
+        } 
+
+        if (mengeNormal != 0){
             fahrweise.normal = (mengeNormal/streckeNormal*100).toFixed(2);
-        } else if (mengeSchnell != 0){
+        } 
+
+        if (mengeSchnell != 0){
             fahrweise.schnell = (mengeSchnell/streckeSchnell*100).toFixed(2);
         }
 
@@ -368,9 +380,13 @@ var getMainStats = function(vehicleID){
         var strecken = new Object(); 
         if(mengeAutobahn != 0){
             strecken.autobahn = (mengeAutobahn/streckeAutobahn*100).toFixed(2);
-        } else if (mengeLandstrasse != 0){
+        } 
+
+        if (mengeLandstrasse != 0){
             strecken.landstrasse = (mengeLandstrasse/streckeLandstrasse*100).toFixed(2);
-        } else if (mengeStadt != 0){
+        } 
+
+        if (mengeStadt != 0){
             strecken.stadt = (mengeStadt/streckeStadt*100).toFixed(2);
         }
 
@@ -381,13 +397,21 @@ var getMainStats = function(vehicleID){
         var kraftstoff = new Object();
         if(mengeDiesel != 0){
             kraftstoff.diesel = (mengeDiesel/streckeDiesel*100).toFixed(2);
-        } else if(mengeSuper != 0){
+        } 
+
+        if(mengeSuper != 0){
             kraftstoff.super = (mengeSuper/streckeSuper*100).toFixed(2);
-        } else if(mengeSuperPlus != 0){
+        } 
+
+        if(mengeSuperPlus != 0){
             kraftstoff.superPlus = (mengeSuperPlus/streckeSuperPlus*100).toFixed(2);
-        } else if(mengeE10 != 0){
+        } 
+
+        if(mengeE10 != 0){
             kraftstoff.e10 = (mengeE10/streckeE10*100).toFixed(2);
-        } else if(mengeErdgas != 0){
+        } 
+
+        if(mengeErdgas != 0){
             kraftstoff.erdgas = (mengeErdgas/streckeErdgas*100).toFixed(2);
         }
         mainStats.kraftstoff = kraftstoff;

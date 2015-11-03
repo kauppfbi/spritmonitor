@@ -155,57 +155,5 @@
   <script src="/js/kreisdiagrammJS.js"></script>
   <script src="/js/legendeKREIS.js"></script> 
   <script src="/js/VerlaufJS.js"></script>
-
-
-
-
-
-  <div>Tabellarische Ansicht
-    <table border="">
-      <span>
-       <% for(var i=0; i < betankungen.length; i++) { %> 
-       <tr>
-        <th>Datum</th>
-        <th>Menge</th>
-        <th>Kosten</th>
-        <th>Tachostand</th>
-        <th>Distanz</th>
-        <th>Kraftstoff</th>
-        <th>Vollbetankung</th>
-        <th>Reifen</th>
-        <th>Fahrweise</th> 
-        <th>Strecke</th>
-        <th>Tankstelle</th>
-        <th>Boardcomputer</th>
-        <th>Bemerkung</th>
-      </tr>
-      <script>
-      var betankungen =  <%- JSON.stringify(betankungen) %>;
-      console.log(betankungen);
-      </script>
-
-      <% for(var z=0; z<betankungen[i].length; z++) { %>
-      <tr>
-        <td><%= betankungen[i][z].Datum %></td>
-        <td><%= betankungen[i][z].Liter%></td>
-        <td><%= betankungen[i][z].Kosten%></td>
-        <td><%= betankungen[i][z].Kilometer%></td>
-        <td><%= betankungen[i][z].Distanz%></td>
-        <td><%= betankungen[i][z].Kraftstoff%></td>
-        <td><%= betankungen[i][z].Vollbetankung%></td>
-        <td><%= betankungen[i][z].Reifen%></td>
-        <td><%= betankungen[i][z].Fahrweise%></td>
-        <td><%= betankungen[i][z].Strecken%></td>
-        <td><%= betankungen[i][z].Tankstelle%></td>
-        <td><%= betankungen[i][z].Boardcomputer%></td>
-        <td><span title="<%= betankungen[i][z].Bemerkung%>">Detail</span></td>
-
-      </tr>
-      <% } %>
-      <br>
-      <% } %>
-    </span>
-  </table>
-</div>
 </body>
 </html>

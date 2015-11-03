@@ -9,21 +9,15 @@ var verbrauch = new Array();
 var datum = new Array();
 console.log(datumVerbrauch);
     
-for (var i = -1; i<datumVerbrauch.length;i++){
-    if(i == -1){
-       // datum.push(" ");
-        //verbrauch.push("0");
-    }else if(i == 1){
+for (var i = 0; i<datumVerbrauch.length;i++){
+    if(i == 1){
         datum.push(datumVerbrauch[i][0]);
         verbrauch.push(datumVerbrauch[i][1]);
     }else if(i==datumVerbrauch.length-1){
         datum.push(datumVerbrauch[i][0]);
         verbrauch.push(datumVerbrauch[i][1]);
-    }else if(i==datumVerbrauch.length){
-        datum.push(" ");
-        verbrauch.push(datumVerbrauch[i][1]);
-    }
-    else {
+        datum.push('');
+    }else {
         verbrauch.push(datumVerbrauch[i][1]);
         datum.push(" ");
     }
