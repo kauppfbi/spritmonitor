@@ -268,14 +268,10 @@
                     "Kosten": "40",
                     "Bemerkung": "",
                     "Tankstelle": "",
-<<<<<<< HEAD
-                    "Strecken" : ["Autobahn", "Stadt"],
-=======
-                    "Strecke": [
+                    "Strecken": [
                         "Autobahn",
                         "Stadt"
                     ],
->>>>>>> origin/master
                     "Boardcomputer": "",
                     "id": 50008
                 }
