@@ -23,6 +23,8 @@ document.body.onload = function(){
 	prepareSearch();
     
     updateFahrzeuginfo();
+    
+    updateSpritverlauf();
 };
 
 
@@ -105,6 +107,7 @@ var search = function(){
 
 function updateFahrzeuginfo() {  
     var meineFahrzeuge = document.getElementById('meineFahrzeuge');
+    var startseiteFahrzeuge = document.getElementById('startseiteFahrzeuge');
    var updateQuery = "";
     
     if(fahrzeuge.length == 1){
@@ -120,4 +123,26 @@ function updateFahrzeuginfo() {
         }
     }
     meineFahrzeuge.href = updateQuery;
+    startseiteFahrzeuge.href = updateQuery;
+};
+
+function updateSpritverlauf() {  
+    var meinVerlauf = document.getElementById('meinVerlauf');
+    var starteiteVerlauf = document.getElementById('startseiteVerlauf');
+   var updateVerlauf = "";
+    
+    if(fahrzeuge.length == 1){
+        updateVerlauf = '/spritverlauf?id=' + String(fahrzeuge[0].id);
+    } else{
+        updateVerlauf += '/fahrzeuge?id=';
+        for(var i=0;i<fahrzeuge.length;i++){  
+            if(i==fahrzeuge.length-1){
+                updateVerlauf += fahrzeuge[i].id;
+            }else{
+                updateVerlauf += fahrzeuge[i].id + ",";
+            }
+        }
+    }
+    meinVerlauf.href = updateVerlauf;
+    startseiteVerlauf.href = updateVerlauf;
 };

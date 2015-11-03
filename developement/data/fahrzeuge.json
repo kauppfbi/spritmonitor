@@ -27,7 +27,7 @@
                 "leistung": "110",
                 "antriebsart": "Benzin",
                 "getriebeart": "Manuell",
-                "kilometerstand": "160987",
+                "kilometerstand": "164187",
                 "aktiv": true
             },
             {
@@ -40,7 +40,7 @@
                 "leistung": "90",
                 "antriebsart": "Benzin",
                 "getriebeart": "Manuell",
-                "kilometerstand": "2349",
+                "kilometerstand": "3349",
                 "aktiv": true
             },
             {
@@ -52,7 +52,7 @@
                 "leistung": "184",
                 "antriebsart": "Diesel",
                 "getriebeart": "Automatik",
-                "kilometerstand": "0",
+                "kilometerstand": "950",
                 "id": 302,
                 "aktiv": true
             },
@@ -65,7 +65,7 @@
                 "leistung": "500",
                 "antriebsart": "Benzin",
                 "getriebeart": "Manuell",
-                "kilometerstand": "0",
+                "kilometerstand": "960",
                 "aktiv": true,
                 "id": 303
             },
@@ -77,7 +77,7 @@
                 "leistung": "560",
                 "antriebsart": "Elektro",
                 "getriebeart": "Automatik",
-                "kilometerstand": "20",
+                "kilometerstand": "622",
                 "extras": [
                     "Klimaanlage",
                     "Navigationsgerät",
@@ -96,7 +96,7 @@
                 "leistung": "1",
                 "antriebsart": "Elektro",
                 "getriebeart": "Automatik",
-                "kilometerstand": "",
+                "kilometerstand": "300",
                 "extras": [
                     "Anhängerkupplung",
                     "Dachrailing"
