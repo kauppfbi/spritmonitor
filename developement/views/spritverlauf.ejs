@@ -8,16 +8,16 @@
 </head>
 <body class="body">
   <% include ./partials/header %>
+    <h1 class="eingeschobenh1">Meine Statistiken</h1>
   <div id="content">
-    <div id="verlaufdiagramm">
-      <br>
+    <div class="bordercontainer">
+      <div id="verlaufdiagramm">
       <h2>Durchschnittlicher Spritverlauf</h2>
       <canvas id="canvas" width="700" height="400" style="width: 100%"></canvas>
     </div>
+    </div>
     <br>
-    <br>
-    <br>
-    <br>
+    <div class="bordercontainer">  
     <div id="verlaufdiagramm">
       <h2>Streckenprofil</h2>
       <br>
@@ -26,10 +26,11 @@
       <canvas id="legende" height="200" width="200" style="text-align: right"></canvas> 
       <br>
       <br>
-      <br>
-      <br>
     </div>
-    <div class="tabelle" id="Hauptstatistik">
+      </div>
+      <br>
+      <div class="bordercontainer">
+      <div class="tabelle" id="Hauptstatistik">
       <table >
         <% if(mainStats.verbrauch != null){ %>
         <tr>
@@ -149,6 +150,7 @@
         <% } %>
       </table>
     </div>
+      </div>
   </div>
   <script>
   var datumVerbrauch = <%- JSON.stringify(datumVerbrauch) %></script>
